@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livros Poéticos — Estudo Bíblico</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:       #0a1628;
+  --navy-mid:   #0f2040;
+  --navy-light: #1a3054;
+  --gold:       #FFA400;
+  --gold-dim:   #cc8500;
+  --sand:       #e8d8b8;
+  --sand-dim:   #b8a888;
+  --poe:        #d4a020;
+  --shadow-sm:  0 2px 8px rgba(10,22,40,0.22);
+  --shadow-md:  0 8px 32px rgba(10,22,40,0.32);
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --transition: 250ms ease;
+  --nav-w:      272px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+*:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--navy);
+  background-image:
+    radial-gradient(ellipse at 15% 0%,rgba(212,160,32,0.07) 0%,transparent 55%),
+    radial-gradient(ellipse at 85% 100%,rgba(212,160,32,0.04) 0%,transparent 50%);
+  color:var(--sand);
+  font-family:'EB Garamond',serif;
+  font-size:18px;line-height:1.8;
+  min-height:100dvh;
+}
+p{text-align:justify;hyphens:auto;}
+
+/* ── LAYOUT ── */
+.layout{display:flex;min-height:100dvh;}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  width:var(--nav-w);flex-shrink:0;
+  background:linear-gradient(180deg,rgba(15,32,64,0.98) 0%,rgba(10,22,40,0.98) 100%);
+  border-right:1px solid rgba(212,160,32,0.14);
+  position:fixed;top:0;left:0;bottom:0;
+  overflow-y:auto;overflow-x:hidden;
+  z-index:50;display:flex;flex-direction:column;
+}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(212,160,32,0.2);border-radius:4px;}
+
+.sidebar-header{
+  padding:28px 20px 20px;
+  border-bottom:1px solid rgba(212,160,32,0.10);
+  flex-shrink:0;
+}
+.sidebar-back{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--sand-dim);font-family:'Cinzel',serif;
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;margin-bottom:16px;
+  transition:color var(--transition);
+}
+.sidebar-back:hover{color:var(--poe);}
+.sidebar-title{
+  font-family:'Cinzel Decorative',serif;font-size:13px;
+  color:var(--poe);line-height:1.4;letter-spacing:0.5px;
+}
+.sidebar-subtitle{
+  font-family:'Cinzel',serif;font-size:10px;
+  color:var(--sand-dim);letter-spacing:3px;
+  text-transform:uppercase;margin-top:4px;
+}
+
+.sidebar-nav{padding:12px 0 24px;flex:1;}
+.nav-item{
+  display:flex;align-items:center;gap:12px;
+  width:100%;padding:11px 20px;
+  background:none;border:none;cursor:pointer;
+  text-align:left;transition:background var(--transition),border-left-color var(--transition);
+  border-left:3px solid transparent;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  min-height:44px;
+}
+.nav-item:hover{background:rgba(212,160,32,0.06);border-left-color:rgba(212,160,32,0.3);}
+.nav-item.active{background:rgba(212,160,32,0.10);border-left-color:var(--poe);}
+.nav-num{font-family:'Cinzel',serif;font-size:10px;color:var(--gold-dim);letter-spacing:1px;min-width:22px;opacity:0.7;}
+.nav-item.active .nav-num{opacity:1;color:var(--poe);}
+.nav-abbr{font-family:'Cinzel',serif;font-size:11px;font-weight:600;color:var(--poe);min-width:32px;opacity:0.7;}
+.nav-item.active .nav-abbr{opacity:1;}
+.nav-name{font-family:'EB Garamond',serif;font-size:15px;color:var(--sand);opacity:0.75;line-height:1.2;}
+.nav-item.active .nav-name,.nav-item:hover .nav-name{opacity:1;}
+
+/* ── MAIN ── */
+.main{margin-left:var(--nav-w);flex:1;min-width:0;}
+
+/* ── HERO ── */
+.hero{
+  padding:48px 52px 36px;
+  background:linear-gradient(160deg,rgba(15,32,64,0.9) 0%,transparent 100%);
+  border-bottom:1px solid rgba(212,160,32,0.12);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(212,160,32,0.015) 80px,rgba(212,160,32,0.015) 81px);
+  pointer-events:none;
+}
+.hero-eyebrow{font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;color:var(--poe);text-transform:uppercase;opacity:.75;margin-bottom:12px;}
+.hero-title{font-family:'Cinzel Decorative',serif;font-size:clamp(22px,3vw,36px);color:var(--sand);line-height:1.25;margin-bottom:10px;}
+.hero-title span{color:var(--poe);}
+.hero-desc{font-family:'EB Garamond',serif;font-size:17px;color:var(--sand-dim);max-width:600px;line-height:1.65;}
+
+/* ── CONTENT ── */
+.content{padding:0 52px 80px;}
+
+/* ── BOOK PANELS ── */
+.book-panel{display:none;animation:fadeIn 300ms ease;}
+.book-panel.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+.book-header{padding:44px 0 32px;border-bottom:1px solid rgba(212,160,32,0.12);margin-bottom:36px;}
+.book-eyebrow{font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;color:var(--poe);text-transform:uppercase;opacity:.7;margin-bottom:10px;}
+.book-title{font-family:'Cinzel Decorative',serif;font-size:clamp(24px,3.5vw,42px);color:var(--sand);line-height:1.15;margin-bottom:14px;}
+.book-title span{color:var(--poe);}
+.book-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+.book-tag{
+  display:inline-flex;align-items:center;padding:4px 12px;
+  background:rgba(212,160,32,0.09);border:1px solid rgba(212,160,32,0.18);
+  border-radius:20px;font-family:'Cinzel',serif;font-size:10px;
+  letter-spacing:1.5px;color:var(--poe);text-transform:uppercase;
+}
+.book-verse{
+  font-family:'EB Garamond',serif;font-size:20px;font-style:italic;
+  color:var(--sand-dim);border-left:3px solid var(--poe);
+  padding-left:20px;line-height:1.55;max-width:620px;
+}
+.book-verse cite{display:block;font-style:normal;font-size:13px;font-family:'Cinzel',serif;letter-spacing:1.5px;color:var(--poe);opacity:.75;margin-top:6px;}
+
+/* ── TABS ── */
+.tabs{display:flex;border-bottom:1px solid rgba(212,160,32,0.15);margin-bottom:40px;overflow-x:auto;}
+.tabs::-webkit-scrollbar{height:0;}
+.tab-btn{
+  padding:12px 24px;background:none;border:none;
+  border-bottom:2px solid transparent;cursor:pointer;
+  font-family:'Cinzel',serif;font-size:11px;letter-spacing:2.5px;
+  color:var(--sand-dim);text-transform:uppercase;white-space:nowrap;
+  transition:color var(--transition),border-color var(--transition);
+  margin-bottom:-1px;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.tab-btn:hover{color:var(--sand);}
+.tab-btn.active{color:var(--poe);border-bottom-color:var(--poe);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;animation:fadeIn 250ms ease;}
+
+/* ── STUDY BLOCKS ── */
+.study-block{margin-bottom:48px;}
+.study-block+.study-block{padding-top:40px;border-top:1px solid rgba(212,160,32,0.08);}
+.block-title{
+  font-family:'Cinzel',serif;font-size:13px;letter-spacing:3px;
+  color:var(--poe);text-transform:uppercase;
+  margin-bottom:20px;display:flex;align-items:center;gap:12px;
+}
+.block-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(212,160,32,0.25),transparent);}
+.block-body p{color:var(--sand);font-size:18px;line-height:1.85;margin-bottom:16px;max-width:72ch;text-align:justify;hyphens:auto;}
+.block-body p:last-child{margin-bottom:0;}
+.block-body strong{color:var(--poe);font-weight:600;}
+
+/* ── INFO GRID ── */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-bottom:32px;}
+.info-card{background:rgba(255,255,255,0.03);border:1px solid rgba(212,160,32,0.12);border-radius:var(--radius-md);padding:18px 20px;}
+.info-card-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2.5px;color:var(--poe);text-transform:uppercase;opacity:.75;margin-bottom:6px;}
+.info-card-value{font-family:'EB Garamond',serif;font-size:16px;color:var(--sand);line-height:1.4;}
+
+/* ── TIMELINE ── */
+.timeline{border-left:2px solid rgba(212,160,32,0.18);padding-left:28px;margin-left:8px;}
+.tl-item{position:relative;margin-bottom:28px;}
+.tl-item::before{content:'';position:absolute;left:-37px;top:5px;width:12px;height:12px;background:var(--poe);border-radius:50%;border:2px solid var(--navy);box-shadow:0 0 0 2px rgba(212,160,32,0.3);}
+.tl-date{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--poe);text-transform:uppercase;opacity:.8;margin-bottom:4px;}
+.tl-text{font-family:'EB Garamond',serif;font-size:16px;color:var(--sand);line-height:1.6;text-align:justify;hyphens:auto;}
+
+/* ── GEO BOX ── */
+.geo-box{background:rgba(212,160,32,0.04);border:1px solid rgba(212,160,32,0.14);border-radius:var(--radius-md);padding:28px 32px;margin-bottom:28px;}
+.geo-box p{font-size:17px;color:var(--sand);line-height:1.8;margin-bottom:12px;text-align:justify;hyphens:auto;}
+.geo-box p:last-child{margin-bottom:0;}
+.geo-box strong{color:var(--poe);}
+
+/* ── KEY VERSE ── */
+.key-verse{background:rgba(212,160,32,0.06);border-left:4px solid var(--poe);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:20px 24px;margin:28px 0;}
+.key-verse p{font-family:'EB Garamond',serif;font-size:19px;font-style:italic;color:var(--sand);line-height:1.6;margin-bottom:6px;}
+.key-verse cite{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--poe);opacity:.8;font-style:normal;}
+
+/* ── MOBILE ── */
+.menu-toggle{
+  display:none;position:fixed;top:16px;left:16px;z-index:200;
+  width:44px;height:44px;background:var(--navy-mid);
+  border:1px solid rgba(212,160,32,0.2);border-radius:var(--radius-sm);
+  cursor:pointer;align-items:center;justify-content:center;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(10,22,40,0.7);backdrop-filter:blur(2px);z-index:40;}
+
+/* ── TABLET / HAMBURGER (≤ 900px) ── */
+@media(max-width:900px){
+  .menu-toggle{display:flex;}
+  .sidebar{
+    left:calc(-1 * var(--nav-w));
+    transition:left var(--transition);
+    z-index:100;
+    box-shadow:var(--shadow-md);
+  }
+  .sidebar.open{left:0;}
+  .sidebar-overlay.open{display:block;}
+  .main{margin-left:0;}
+  .sidebar-header{padding-top:76px;}
+  .hero{padding:68px 28px 28px;}
+  .hero-desc{font-size:16px;}
+  .content{padding:0 28px 64px;}
+  .book-header{padding:28px 0 22px;}
+  .book-verse{font-size:17px;}
+  .tabs{gap:0;}
+  .tab-btn{padding:11px 18px;font-size:10px;letter-spacing:2px;}
+  .block-body p{font-size:17px;max-width:none;}
+  .geo-box p{font-size:16px;}
+  .key-verse p{font-size:17px;}
+  .info-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
+}
+
+/* ── MOBILE (≤ 600px) ── */
+@media(max-width:600px){
+  :root{--nav-w:85vw;}
+  body{font-size:16px;}
+
+  .hero{padding:64px 18px 24px;}
+  .hero-eyebrow{font-size:9px;letter-spacing:3px;}
+  .hero-title{font-size:20px;line-height:1.3;}
+  .hero-desc{font-size:15px;line-height:1.6;}
+
+  .content{padding:0 18px 56px;}
+
+  .book-header{padding:24px 0 18px;}
+  .book-eyebrow{font-size:9px;letter-spacing:2.5px;}
+  .book-title{font-size:24px;line-height:1.2;}
+  .book-meta{gap:6px;}
+  .book-tag{font-size:9px;padding:3px 10px;}
+  .book-verse{font-size:16px;padding-left:14px;}
+  .book-verse cite{font-size:11px;}
+
+  .tabs{margin-bottom:28px;}
+  .tab-btn{padding:10px 12px;font-size:9px;letter-spacing:1.5px;}
+
+  .study-block{margin-bottom:32px;}
+  .study-block+.study-block{padding-top:28px;}
+  .block-title{font-size:11px;letter-spacing:2px;margin-bottom:14px;}
+  .block-body p{font-size:16px;line-height:1.75;max-width:none;}
+
+  .info-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .info-card{padding:14px 14px;}
+  .info-card-label{font-size:8px;}
+  .info-card-value{font-size:14px;}
+
+  .timeline{padding-left:20px;margin-left:4px;}
+  .tl-item{margin-bottom:20px;}
+  .tl-item::before{left:-28px;width:10px;height:10px;}
+  .tl-date{font-size:9px;}
+  .tl-text{font-size:15px;}
+
+  .geo-box{padding:18px 18px;margin-bottom:20px;}
+  .geo-box p{font-size:15px;line-height:1.7;}
+
+  .key-verse{padding:16px 18px;margin:20px 0;}
+  .key-verse p{font-size:16px;line-height:1.55;}
+  .key-verse cite{font-size:9px;}
+
+  .sidebar-header{padding:76px 16px 16px;}
+  .sidebar-title{font-size:12px;}
+  .sidebar-subtitle{font-size:9px;}
+  .nav-item{padding:10px 16px;gap:10px;}
+  .nav-num{font-size:9px;min-width:18px;}
+  .nav-abbr{font-size:10px;min-width:28px;}
+  .nav-name{font-size:14px;}
+}
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--poe)" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="sidebar-back">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      Voltar à Bíblia
+    </a>
+    <div class="sidebar-title">Livros Poéticos</div>
+    <div class="sidebar-subtitle">Antigo Testamento · 5 Livros</div>
+  </div>
+  <nav class="sidebar-nav" aria-label="Navegação dos livros poéticos">
+    <button class="nav-item active" onclick="showBook('jo')" data-book="jo"><span class="nav-num">18</span><span class="nav-abbr">Jó</span><span class="nav-name">Jó</span></button>
+    <button class="nav-item" onclick="showBook('salmos')" data-book="salmos"><span class="nav-num">19</span><span class="nav-abbr">Sl</span><span class="nav-name">Salmos</span></button>
+    <button class="nav-item" onclick="showBook('proverbios')" data-book="proverbios"><span class="nav-num">20</span><span class="nav-abbr">Pv</span><span class="nav-name">Provérbios</span></button>
+    <button class="nav-item" onclick="showBook('eclesiastes')" data-book="eclesiastes"><span class="nav-num">21</span><span class="nav-abbr">Ec</span><span class="nav-name">Eclesiastes</span></button>
+    <button class="nav-item" onclick="showBook('cantares')" data-book="cantares"><span class="nav-num">22</span><span class="nav-abbr">Ct</span><span class="nav-name">Cantares</span></button>
+  </nav>
+</aside>
+
+<main class="main">
+  <header class="hero">
+    <div class="hero-eyebrow">✦ Estudo Bíblico Aprofundado ✦</div>
+    <h1 class="hero-title">Livros <span>Poéticos</span></h1>
+    <p class="hero-desc">Cinco livros que exploram a alma humana em toda a sua profundidade — sofrimento, louvor, sabedoria, questionamento existencial e amor. A mais rica literatura poética da Antiguidade.</p>
+  </header>
+
+  <div class="content">
+
+    <!-- ════════════════════════════════ JÓ ════════════════════════════════ -->
+    <article class="book-panel active" id="panel-jo">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 18 · Poéticos / Sapienciais · Antigo Testamento</div>
+        <h2 class="book-title"><span>Jó</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~2000–1500 a.C. (era patriarcal)</span>
+          <span class="book-tag">Sofrimento e Soberania</span>
+          <span class="book-tag">42 capítulos</span>
+          <span class="book-tag">Autor: Desconhecido</span>
+        </div>
+        <div class="book-verse">"Eu sei que o meu Redentor vive, e que, por fim, ele se levantará sobre o pó."<cite>Jó 19.25 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'jo','ctx')">Contexto e Estrutura</button>
+        <button class="tab-btn" onclick="showTab(this,'jo','teo')">Teologia</button>
+        <button class="tab-btn" onclick="showTab(this,'jo','study')">Estudo Aprofundado</button>
+      </div>
+
+      <!-- JÓ — Tab 1: Contexto e Estrutura -->
+      <div class="tab-panel active" id="jo-ctx">
+        <div class="study-block">
+          <div class="block-title">Um Livro Fora do Tempo</div>
+          <div class="block-body">
+            <p>Jó é, provavelmente, o mais antigo dos livros bíblicos em termos de cenário histórico — o texto o situa na era patriarcal, antes de Moisés e da Lei, num lugar chamado <strong>Uz</strong>, identificado como região da Transjordânia ou norte da Arábia. Jó conta seu rebanho em ovelhas, camelos e bois (não em dinheiro), oferece sacrifícios como chefe de família (sem sacerdócio levítico) e vive uma longevidade pós-diluviana. Nenhum israelita nomeado aparece.</p>
+            <p>A data de composição do livro é distinta do cenário narrativo. A maioria dos estudiosos situa a redação final entre os séculos X e V a.C., com provável origem oral mais antiga. A linguagem hebraica de Jó é a mais arcaica e difícil da Bíblia — repleta de hapax legomena (palavras que aparecem uma única vez em toda a Escritura), o que levou alguns a propor que seja tradução de um original aramaico ou árabe antigo.</p>
+            <p>O livro divide-se em cinco partes distintas: <strong>prólogo em prosa</strong> (caps. 1–2), <strong>três ciclos de diálogos</strong> entre Jó e seus três amigos (caps. 3–31), <strong>discurso de Eliú</strong> (caps. 32–37), <strong>teofania do redemoinho</strong> (caps. 38–41) e <strong>epílogo em prosa</strong> (cap. 42). A estrutura literária — prosa enquadrando poesia — é sofisticada e intencional: a prosa apresenta os fatos; a poesia expõe as almas.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Estrutura Narrativa</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-date">Caps. 1–2</div><div class="tl-text">Prólogo celestial: o conselho divino, o desafio de Satanás, as duas rodadas de sofrimento. Jó perde riqueza, filhos e saúde — mas não nega a Deus.</div></div>
+            <div class="tl-item"><div class="tl-date">Cap. 3</div><div class="tl-text">Monólogo de abertura de Jó: maldição do dia do seu nascimento. Ponto de virada — Jó quebra o silêncio de sete dias de luto.</div></div>
+            <div class="tl-item"><div class="tl-date">Caps. 4–27</div><div class="tl-text">Três ciclos de discursos: Elifaz, Bildade e Zofar acusam; Jó responde. Os amigos se esgotam no terceiro ciclo — o terceiro discurso de Bildade tem apenas seis versículos; Zofar não fala.</div></div>
+            <div class="tl-item"><div class="tl-date">Cap. 28</div><div class="tl-text">Hino à Sabedoria — considerado um interlúdio poético independente, talvez inserido pelo editor. Conclui: "o temor do Senhor — isso é sabedoria".</div></div>
+            <div class="tl-item"><div class="tl-date">Caps. 29–31</div><div class="tl-text">Monólogo final de Jó: nostalgia do passado glorioso, lamento do presente, declaração de inocência e desafio formal a Deus.</div></div>
+            <div class="tl-item"><div class="tl-date">Caps. 32–37</div><div class="tl-text">Discurso de Eliú — jovem que estava ouvindo e se irrita com os três amigos por não responderem Jó. Sua teologia do sofrimento como disciplina é a mais sofisticada do grupo, mas também é silenciado pela teofania.</div></div>
+            <div class="tl-item"><div class="tl-date">Caps. 38–41</div><div class="tl-text">Discurso de Deus do redemoinho: a grande irresposta — Deus não explica o sofrimento de Jó, mas o confronta com a imensidão da criação.</div></div>
+            <div class="tl-item"><div class="tl-date">Cap. 42</div><div class="tl-text">Epílogo: Jó se humilha, intercede pelos amigos, é restaurado com o dobro de tudo que perdeu. Vive mais 140 anos.</div></div>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Cenário geográfico</div><div class="info-card-value">Terra de Uz — provavelmente Edom ou norte da Arábia</div></div>
+            <div class="info-card"><div class="info-card-label">Gênero literário</div><div class="info-card-value">Drama filosófico — mescla prosa e poesia</div></div>
+            <div class="info-card"><div class="info-card-label">Personagens centrais</div><div class="info-card-value">Jó, Elifaz, Bildade, Zofar, Eliú, Deus, o Adversário</div></div>
+            <div class="info-card"><div class="info-card-label">Questão central</div><div class="info-card-value">Por que o justo sofre? Deus é justo?</div></div>
+            <div class="info-card"><div class="info-card-label">Nome divino usado</div><div class="info-card-value">Shaddai (Todo-Poderoso) — nome pré-mosaico predominante</div></div>
+            <div class="info-card"><div class="info-card-label">Conexão ao NT</div><div class="info-card-value">Tiago 5.11; Jó 19.25–27 como proto-ressurreição</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JÓ — Tab 2: Teologia -->
+      <div class="tab-panel" id="jo-teo">
+        <div class="study-block">
+          <div class="block-title">A Teologia da Retribuição e Sua Crise</div>
+          <div class="block-body">
+            <p>O pano de fundo intelectual de Jó é a <strong>teologia da retribuição</strong> — a crença, amplamente compartilhada no antigo Israel (e articulada nos Provérbios), de que Deus recompensa os justos com prosperidade e pune os ímpios com sofrimento. Os três amigos de Jó (Elifaz, Bildade e Zofar) são seus portavozes mais eloquentes. Sua lógica é impecável: <em>Jó sofre → logo, Jó pecou.</em></p>
+            <p>Jó subverte essa teologia de dentro para fora. Ele não nega que Deus seja soberano, nem que ele mesmo seja pecador em alguma medida — mas insiste que seu sofrimento <em>específico</em> não tem proporção com qualquer transgressão cometida. Jó exige uma audiência com Deus — não para fugir do julgamento, mas para contestar a acusação. Ele invoca o próprio Deus como seu <strong>defensor</strong> (Jó 16.19–21) contra Deus como acusador — uma tensão teológica que só se resolve na cruz.</p>
+            <p>O veredicto do prólogo é decisivo: Deus diz que <em>Jó falou de mim o que é reto</em> (42.7), enquanto os amigos, com toda sua ortodoxia, <em>não falaram de mim o que é reto</em>. A lamentação honesta de Jó agrada mais a Deus do que a teologia correta dos amigos. Isso é revolucionário: gritar contra Deus, dentro do relacionamento de fé, é mais fiel do que defender Deus com mentiras.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">O Personagem do Adversário</div>
+          <div class="block-body">
+            <p>O <em>hassatan</em> ("o adversário" — com artigo definido, ainda não é nome próprio) nos caps. 1–2 não é o Satanás do NT — é um membro do conselho celestial cuja função é inspecionar a terra e questionar motivos humanos. Seu papel aqui é análogo a um promotor de justiça cósmico.</p>
+            <p>Sua provocação ao <span style="font-variant:small-caps">Senhor</span> é filosófica e teológica: <em>"Será que Jó teme a Deus sem receber nada em troca?"</em> (1.9). A questão não é se Jó existe, mas se a fé desinteressada é possível — se há amor a Deus por Deus mesmo, não pelo que Ele dá. Toda a aposta do livro gira em torno dessa pergunta. A integridade de Jó ao final não apenas o restaura pessoalmente — ela responde a questão metafísica: a fé genuína sobrevive ao custo absoluto.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Teofania — A Irresposta que É a Resposta</div>
+          <div class="block-body">
+            <p>Quando Deus finalmente fala do redemoinho (caps. 38–41), não responde uma única pergunta de Jó. Em vez disso, faz 77 perguntas retóricas sobre a criação: <em>"Onde estavas quando lancei os fundamentos da terra?"</em> (38.4) — as estrelas da manhã cantaram juntas, e tu? Podes prender as Plêiades? Saber quando nasce a cabra montesa? Conheces as leis do céu?</p>
+            <p>A estratégia divina não é evasão, mas <strong>recontextualização radical</strong>. Jó havia formulado o problema do sofrimento dentro de um universo onde ele era o centro. Deus revela um universo imensurável — cheio de criaturas que existem sem qualquer relação com Jó (o hipopótamo, o crocodilo, o avestruz, a águia). Jó é grande, mas não é o epicentro da realidade. O problema do mal não tem resposta intelectual — tem uma presença. Deus não explica; aparece.</p>
+            <p>A resposta de Jó é notável: <em>"Meus ouvidos tinham ouvido falar de ti, mas agora os meus olhos te veem"</em> (42.5). Ele não recebe explicação — recebe <em>visão</em>. E isso lhe basta. A cura não veio pela solução do problema, mas pelo encontro com a Pessoa.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Eu sei que o meu Redentor vive, e que, por fim, ele se levantará sobre o pó. Depois que a minha pele for destruída, ainda assim, na minha carne verei a Deus."</p>
+          <cite>Jó 19.25–26 — NAA</cite>
+        </div>
+      </div>
+
+      <!-- JÓ — Tab 3: Estudo Aprofundado -->
+      <div class="tab-panel" id="jo-study">
+        <div class="study-block">
+          <div class="block-title">Os Três Amigos — Retratos da Teologia Falha</div>
+          <div class="block-body">
+            <p><strong>Elifaz de Temã</strong> é o mais sofisticado — apela à visão mística (4.12–17) e à observação empírica: <em>"Reflita! Quem, sendo inocente, alguma vez pereceu?"</em> (4.7). Sua teologia é experiencial e serena no início, mas cada ciclo torna-se mais acusatório. No terceiro ciclo inventa pecados específicos de Jó (22.5–9) — calúnia pura.</p>
+            <p><strong>Bildade de Suá</strong> apela à tradição: <em>"Pergunta às gerações passadas, considera o que os antepassados deles descobriram"</em> (8.8). Formalista e impessoal, trata Jó como caso a ser enquadrado numa doutrina herdada. Seu terceiro discurso colapsa em seis versículos — a tradição faliu.</p>
+            <p><strong>Zofar de Naama</strong> é o mais rude: sem rodeios, acusa Jó de arrogância e exige arrependimento imediato. Nunca apresenta um terceiro discurso — fica completamente sem resposta. A ironia é que os três homens que representam a ortodoxia são condenados por Deus e precisam que o heterodoxo Jó interceda por eles (42.8).</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Eliú — O Intruso Necessário</div>
+          <div class="block-body">
+            <p>Eliú (caps. 32–37) é um personagem misterioso — não mencionado no prólogo nem no epílogo. Muitos estudiosos o consideram uma inserção posterior; outros, um elemento dramático deliberado. Seu discurso é o mais longo do livro e o mais teologicamente avançado dos interlocutores humanos: o sofrimento pode ser <strong>pedagógico</strong>, não apenas punitivo — Deus usa a dor para salvar a alma da cova (33.29–30).</p>
+            <p>Eliú está correto em sua crítica aos três amigos, mas erra ao presumir conhecer a causa específica do sofrimento de Jó. Ele é omitido do epílogo — nem condenado nem elogiado. Provavelmente, sua função na estrutura é preparar Jó (e o leitor) para a teofania: depois de quatro humanos falharem, Deus mesmo precisa intervir.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Jó e o Evangelho</div>
+          <div class="block-body">
+            <p>O apóstolo Paulo cita Jó 5.13 em 1 Coríntios 3.19, e Tiago usa Jó como paradigma de perseverança (Tg 5.11). Mas a conexão mais profunda é tipológica. Jó é o <strong>inocente que sofre por causa de uma disputa celestial</strong> que ele desconhece. Jesus é o Inocente que sofre pela culpa de todos, sabendo do que se trata.</p>
+            <p>A exclamação de Jó — <em>"Eu sei que o meu Redentor vive"</em> (19.25) — ressoa como profecia messiânica na leitura cristã. O "Redentor" (<em>go'el</em> em hebraico — o parente redentor que resgata o que foi perdido) que Jó clama seria seu defensor após a morte. Hebreus 2.18 vê em Jesus o sumo sacerdote que pode se compadecer das nossas fraquezas porque ele próprio foi tentado e sofreu — a resposta definitiva à pergunta de Jó.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Onde estavas quando lancei os fundamentos da terra? Dize-me, se é que sabes tudo isso."</p>
+          <cite>Jó 38.4 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ SALMOS ════════════════════════════════ -->
+    <article class="book-panel" id="panel-salmos">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 19 · Poéticos / Sapienciais · Antigo Testamento</div>
+        <h2 class="book-title"><span>Salmos</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~1000–400 a.C.</span>
+          <span class="book-tag">Hinário de Israel</span>
+          <span class="book-tag">150 salmos</span>
+          <span class="book-tag">Autores: Davi, Asafe, Coré e outros</span>
+        </div>
+        <div class="book-verse">"O <span style="font-variant:small-caps">Senhor</span> é o meu pastor; nada me faltará."<cite>Salmo 23.1 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'salmos','ctx')">Contexto e Estrutura</button>
+        <button class="tab-btn" onclick="showTab(this,'salmos','teo')">Teologia</button>
+        <button class="tab-btn" onclick="showTab(this,'salmos','study')">Estudo Aprofundado</button>
+      </div>
+
+      <!-- SALMOS — Tab 1 -->
+      <div class="tab-panel active" id="salmos-ctx">
+        <div class="study-block">
+          <div class="block-title">O Grande Hinário</div>
+          <div class="block-body">
+            <p>O livro dos Salmos (<em>Tehillim</em> — "louvores" em hebraico) é a maior coleção de poesia lírica do mundo antigo e o livro mais citado do NT. Seus 150 poemas abrangem cerca de seis séculos de composição — de Moisés (Sl 90) ao período pós-exílico (Sl 126, 137). Não é um livro de um autor e de um momento, mas um arquivo litúrgico construído ao longo de gerações.</p>
+            <p>O título grego <em>Psalterion</em> (instrumento de cordas) passou para o latim <em>Psalterium</em> e daí para "Salmos" — em referência ao acompanhamento musical original. Os salmos eram cantados, não apenas recitados. Muitos possuem inscrições técnicas musicais — <em>selá</em> (pausa litúrgica?), <em>mizmor</em> (canto acompanhado), <em>maskil</em> (poema didático) — cujo sentido exato ainda é debatido pelos estudiosos.</p>
+            <p>A coleção foi organizada em <strong>cinco livros</strong>, espelhando os cinco livros de Moisés — uma simetria intencional que apresenta o Saltério como uma "Torá do louvor", resposta humana à Torá divina. Cada livro termina com uma doxologia, e o Saltério inteiro termina com cinco salmos de puro louvor (146–150), cada um abrindo e fechando com <em>Aleluia</em>.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Os Cinco Livros do Saltério</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-date">Livro I — Sl 1–41</div><div class="tl-text">Predominantemente davídico. Começa com Sl 1 (Torá) e Sl 2 (Rei Messiânico) como "prefácio duplo". Termina com doxologia em 41.13. Muitos salmos de lamento individual.</div></div>
+            <div class="tl-item"><div class="tl-date">Livro II — Sl 42–72</div><div class="tl-text">Coleções de Coré (42–49) e Asafe (50). Salmos davídicos (51–65) misturados. Usa preferencialmente o nome "Elohim" em vez de "YHWH". Termina com Sl 72 (oração pelo rei).</div></div>
+            <div class="tl-item"><div class="tl-date">Livro III — Sl 73–89</div><div class="tl-text">Predominantemente de Asafe (73–83) e Coré (84–88). O mais sombrio dos livros — termina com o Sl 89, que lamenta o aparente fracasso da aliança davídica.</div></div>
+            <div class="tl-item"><div class="tl-date">Livro IV — Sl 90–106</div><div class="tl-text">Responde à crise do Livro III. Começa com Sl 90 (de Moisés), declarando que o <span style="font-variant:small-caps">Senhor</span> reinou antes de Davi e continua a reinar. Salmos do reinado divino (93–99).</div></div>
+            <div class="tl-item"><div class="tl-date">Livro V — Sl 107–150</div><div class="tl-text">Coleção da volta do exílio. Inclui os Salmos de Subida (120–134), cântados pelos peregrinos em Jerusalém, e os cinco "Aleluia" finais (146–150).</div></div>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Autores identificados</div><div class="info-card-value">Davi (73 sl), Asafe (12), Coré (11), Salomão (2), Moisés (1), Etã (1), outros/anônimos (50)</div></div>
+            <div class="info-card"><div class="info-card-label">Gêneros principais</div><div class="info-card-value">Lamento (maior grupo), Louvor, Hinos Reais, Sapienciais, de Confiança, Litúrgicos</div></div>
+            <div class="info-card"><div class="info-card-label">Mais citado no NT</div><div class="info-card-value">Sl 110 é o versículo do AT mais citado no NT (28 vezes)</div></div>
+            <div class="info-card"><div class="info-card-label">Salmo mais longo</div><div class="info-card-value">Sl 119 — 176 versículos, acróstico alfabético sobre a Torá</div></div>
+            <div class="info-card"><div class="info-card-label">Salmo mais curto</div><div class="info-card-value">Sl 117 — apenas 2 versículos, centro geométrico da Bíblia</div></div>
+            <div class="info-card"><div class="info-card-label">Uso litúrgico</div><div class="info-card-value">Templo de Jerusalém, sinagogas, Igreja cristã desde o primeiro século</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SALMOS — Tab 2: Teologia -->
+      <div class="tab-panel" id="salmos-teo">
+        <div class="study-block">
+          <div class="block-title">A Teologia da Lamentação</div>
+          <div class="block-body">
+            <p>O maior gênero individual do Saltério é o <strong>salmo de lamento</strong> (em torno de 40% do total). O lamento tem estrutura reconhecível: invocação, queixa, súplica, declaração de confiança, louvor antecipado. A progressão não é linear — o salmista oscila entre desespero e fé dentro do mesmo poema.</p>
+            <p>O lamento bíblico é radicalmente diferente do simples pessimismo: é uma queixa <em>dirigida a Deus</em>, dentro do relacionamento de aliança. O salmista não desespera <em>de</em> Deus, mas desespera <em>a</em> Deus. Essa distinção é teológica e pastoral — a Bíblia legitima o grito honesto como forma de oração. O Sl 88, único salmo que termina no escuro sem resolução, mostra que nem toda oração termina em louvor; às vezes a fé sobrevive no silêncio de Deus.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Os Salmos Messiânicos</div>
+          <div class="block-body">
+            <p>O NT identifica cerca de 20 salmos como de cumprimento messiânico. Os mais explícitos são: <strong>Sl 2</strong> (o Filho ungido das nações — citado em At 13.33, Hb 1.5, Ap 2.27); <strong>Sl 22</strong> (o abandonado que clama "Deus meu, Deus meu, por que me abandonaste?" — as últimas palavras de Jesus na cruz, Mt 27.46); <strong>Sl 45</strong> (o casamento do Rei — interpretado como Cristo e a Igreja em Hb 1.8–9); <strong>Sl 110</strong> (o Senhor de Davi, sacerdote segundo a ordem de Melquisedeque — o mais citado no NT).</p>
+            <p>Sl 22 merece atenção especial: escrito por Davi, descreve um sofrimento que vai além da experiência davídica — mãos e pés perfurados (22.16), divisão das vestes por sorte (22.18), escárnio detalhado dos espectadores (22.7–8). Os evangelhos narram a Paixão como cumprimento consciente desse salmo. A interpretação cristã não faz violência ao texto — o próprio salmista parece descrever algo que transcende seu momento.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Sl 119 — Uma Teologia da Palavra</div>
+          <div class="block-body">
+            <p>O Sl 119 é um acróstico alfabético de 176 versículos (22 estrofes de 8 versículos, uma para cada letra do alfabeto hebraico). Em quase todos os versículos aparece uma das oito palavras para a Lei divina: <em>torá</em> (instrução), <em>davar</em> (palavra), <em>mishpat</em> (julgamento), <em>mitzvá</em> (mandamento), <em>choq</em> (decreto), <em>piqqud</em> (preceito), <em>emuná</em> (fidelidade), <em>'edut</em> (testemunho). O salmo não é formalismo legalista — é amor apaixonado pela revelação divina: <em>"Oh, como amo a tua lei! Medito nela o dia todo"</em> (119.97). A Palavra de Deus é aqui apresentada como refúgio (119.114), luz (119.105), alimento (119.103) e herança eterna (119.111).</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Deus meu, Deus meu, por que me abandonaste? Por que estás tão longe de me salvar, tão longe das minhas palavras de lamento?"</p>
+          <cite>Salmo 22.1 — NAA</cite>
+        </div>
+      </div>
+
+      <!-- SALMOS — Tab 3: Estudo Aprofundado -->
+      <div class="tab-panel" id="salmos-study">
+        <div class="study-block">
+          <div class="block-title">A Poética Hebraica</div>
+          <div class="block-body">
+            <p>A poesia hebraica não rima sons — rima <strong>pensamentos</strong>. O princípio fundamental é o <em>paralelismo</em>, descrito pelo bispo Robert Lowth em 1753 e ainda central para os estudos bíblicos. Existem três formas principais:</p>
+            <p><strong>Paralelismo sinônimo</strong>: a segunda linha reafirma a primeira com palavras diferentes. <em>"O <span style="font-variant:small-caps">Senhor</span> é o meu pastor; / nada me faltará"</em> (23.1). <strong>Paralelismo antitético</strong>: a segunda linha contrasta com a primeira. <em>"O <span style="font-variant:small-caps">Senhor</span> conhece o caminho dos justos, / mas o caminho dos ímpios perecerá"</em> (1.6). <strong>Paralelismo sintético</strong>: a segunda linha avança ou completa a primeira. <em>"O céu proclama a glória de Deus / e o firmamento, a obra de suas mãos"</em> (19.1).</p>
+            <p>Robert Alter (2014) mostrou que o paralelismo não é mera repetição, mas intensificação progressiva — a segunda linha geralmente aprofunda, especifica ou escala a primeira. A poesia hebraica é, portanto, uma arte de gradação: cada verso move o pensamento para frente.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Os Salmos de Subida (120–134)</div>
+          <div class="block-body">
+            <p>Os quinze Salmos de Subida (<em>shir hama'alot</em> — "cântico dos degraus") eram cantados pelos peregrinos durante a subida anual a Jerusalém nas três festas principais (Páscoa, Pentecostes, Tabernáculos). Cada salmo representa uma etapa da jornada — geográfica e espiritual. O conjunto cria um arco narrativo: da opressão no exílio (Sl 120) à chegada festiva ao Templo (Sl 134).</p>
+            <p>O Sl 121 — <em>"O meu socorro vem do Senhor, que fez os céus e a terra"</em> — foi cantado por gerações enquanto os peregrinos divisavam as colinas ao redor de Jerusalém. O <span style="font-variant:small-caps">Senhor</span> é o <em>shomer</em> (guardião) que não dorme nem cochila — ao contrário dos guardas de viagem noturnos, fatigáveis. O Sl 127 — <em>"Se o Senhor não edificar a casa, em vão trabalham os que a edificam"</em> — é ação de graças pela chegada segura e reconhecimento de que toda empreitada humana depende da graça.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Os Salmos Imprecatórios</div>
+          <div class="block-body">
+            <p>Os chamados "salmos imprecatórios" (como Sl 58, 69, 109, 137) causam desconforto moderno por sua ferocidade: <em>"Feliz aquele que pegar os teus filhos e esmagá-los contra as pedras!"</em> (137.9). Como incluir isso na Escritura santa?</p>
+            <p>C.S. Lewis, em <em>Reflexões sobre os Salmos</em>, observa que a intensidade da maldição revela a intensidade da injustiça sofrida. Os salmistas não disfarçam seus sentimentos — os expõem diante de Deus em vez de agir sobre eles. Há paradoxal fé nessas orações: o homem que amaldiçoa ainda fala <em>com</em> Deus. Além disso, na leitura cristã do NT, essas orações são reinterpretadas escatologicamente — são o clamor dos mártires por justiça divina (Ap 6.9–10), não licença para vingança humana.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"O <span style="font-variant:small-caps">Senhor</span> é a minha luz e a minha salvação; a quem temerei? O <span style="font-variant:small-caps">Senhor</span> é o refúgio da minha vida; a quem me recearei?"</p>
+          <cite>Salmo 27.1 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ PROVÉRBIOS ════════════════════════════════ -->
+    <article class="book-panel" id="panel-proverbios">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 20 · Poéticos / Sapienciais · Antigo Testamento</div>
+        <h2 class="book-title"><span>Provérbios</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~950–700 a.C.</span>
+          <span class="book-tag">Sabedoria Prática</span>
+          <span class="book-tag">31 capítulos</span>
+          <span class="book-tag">Autores: Salomão, Agur, Lemuel</span>
+        </div>
+        <div class="book-verse">"O temor do <span style="font-variant:small-caps">Senhor</span> é o princípio da sabedoria; os insensatos desprezam a sabedoria e a instrução."<cite>Provérbios 1.7 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'proverbios','ctx')">Contexto e Estrutura</button>
+        <button class="tab-btn" onclick="showTab(this,'proverbios','teo')">Teologia</button>
+        <button class="tab-btn" onclick="showTab(this,'proverbios','study')">Estudo Aprofundado</button>
+      </div>
+
+      <!-- PROVÉRBIOS — Tab 1 -->
+      <div class="tab-panel active" id="proverbios-ctx">
+        <div class="study-block">
+          <div class="block-title">A Arte de Viver Bem</div>
+          <div class="block-body">
+            <p>Provérbios é a principal coleção sapiencial de Israel — a sistematização da <em>chokmá</em> (sabedoria) como arte de viver em harmonia com a ordem criada por Deus. Não se trata de leis ou mandamentos no sentido imperativo, mas de observações sobre como a realidade funciona — destiladas em forma aforística e passadas de geração em geração.</p>
+            <p>O livro declara múltiplos autores: <strong>Salomão</strong> (1.1; 10.1; 25.1), <strong>Agur, filho de Jaqué</strong> (30.1) e <strong>Lemuel, rei de Massá</strong> (31.1) — possivelmente nomes árabes, demonstrando que Israel compartilhava e absorvia sabedoria do mundo antigo. A coleção salomônica principal (10–22.16) foi provavelmente compilada pela corte de Ezequias (~700 a.C.), conforme indica 25.1: <em>"são provérbios de Salomão, que os homens de Ezequias, rei de Judá, copiaram"</em>.</p>
+            <p>Estruturalmente, o livro divide-se em duas partes maiores: os <strong>caps. 1–9</strong>, longos poemas de pai para filho sobre sabedoria e tolice personificadas como duas mulheres rivais; e os <strong>caps. 10–31</strong>, coleções de sentenças curtas, principalmente dísticos de dois versos em paralelismo.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Coleções do Livro</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-date">Caps. 1–9</div><div class="tl-text">Prólogo poético: o pai instrui o filho. Sabedoria personificada como mulher que convida ao festim (8–9); Tolice personificada como mulher adúltera que seduz para a morte.</div></div>
+            <div class="tl-item"><div class="tl-date">Caps. 10–22.16</div><div class="tl-text">Primeira coleção salomônica — ~375 provérbios. Caps. 10–15 predominantemente antitéticos (justo vs. ímpio); caps. 16–22 mais sintéticos e variados.</div></div>
+            <div class="tl-item"><div class="tl-date">Caps. 22.17–24.34</div><div class="tl-text">Palavras dos Sábios — fortemente paralela à Instrução de Amenemope egípcia (c. 1100 a.C.), demonstrando contato intelectual entre Israel e Egito.</div></div>
+            <div class="tl-item"><div class="tl-date">Caps. 25–29</div><div class="tl-text">Segunda coleção salomônica, copiada pelos homens de Ezequias. Mais comparações e analogias da natureza.</div></div>
+            <div class="tl-item"><div class="tl-date">Cap. 30</div><div class="tl-text">Palavras de Agur — confissão de ignorância diante do mistério divino e séries de enigmas numéricos ("três coisas... quatro coisas").</div></div>
+            <div class="tl-item"><div class="tl-date">Cap. 31</div><div class="tl-text">Palavras de Lemuel (ensinamento de sua mãe) + Mulher Virtuosa — acróstico alfabético que encerra o livro com o retrato da sabedoria encarnada numa mulher.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROVÉRBIOS — Tab 2: Teologia -->
+      <div class="tab-panel" id="proverbios-teo">
+        <div class="study-block">
+          <div class="block-title">O Temor do Senhor — Fundamento de Tudo</div>
+          <div class="block-body">
+            <p>A frase estruturante de Provérbios — <em>"o temor do <span style="font-variant:small-caps">Senhor</span> é o princípio da sabedoria"</em> (1.7; 9.10) — aparece como moldura em torno de todo o livro. <em>Temor</em> (<em>yirah</em>) não é pavor irracional, mas reverência que reconhece a transcendência e autoridade absolutas de Deus. É a atitude que situa o ser humano corretamente diante da realidade — ciente de que não é o centro, nem o árbitro final da verdade.</p>
+            <p>Essa é a diferença da sabedoria israelita de outras tradições sapienciais do Oriente Próximo: em Egipto e Mesopotâmia, a sabedoria é uma habilidade técnica — saber como navegar no mundo com sucesso. Em Israel, a sabedoria começa com uma relação teológica. A ordem moral da criação é <em>pessoal</em> — é a ordem que Deus construiu e sustenta. Viver sabiamente é viver em harmonia com o Criador, não apenas com regras abstratas.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Sabedoria Personificada — Prefiguração Cristológica</div>
+          <div class="block-body">
+            <p>Provérbios 8 apresenta a Sabedoria como pessoa que existia antes da criação, presente quando Deus formou os céus e a terra: <em>"Estava com ele como artífice, era a sua alegria todos os dias, rejubilando-me perante ele em todo o tempo"</em> (8.30). A tradição cristã primitiva leu esse texto como prefiguração do Logos divino — João 1.1–3 usa linguagem análoga para descrever o Verbo eterno de Deus.</p>
+            <p>Paulo em 1 Coríntios 1.24 chama Cristo de <em>"sabedoria de Deus"</em>; em Colossenses 1.15–17 usa imagens análogas às de Pv 8 para descrever o Filho. A Sabedoria que convida ao seu festim (Pv 9.1–6) prefigura o convite de Cristo: <em>"Vinde a mim, todos os que estais cansados"</em> (Mt 11.28). A tipologia não é forçada — está embutida na intertextualidade bíblica.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Provérbios não são Promessas</div>
+          <div class="block-body">
+            <p>Um erro hermenêutico comum é ler os provérbios como promessas absolutas: <em>"Instrua a criança no caminho em que deve andar, e, mesmo quando envelhecer, não se desviará dele"</em> (22.6). Pais têm usado esse versículo para culpa imensa quando filhos se afastam da fé.</p>
+            <p>Provérbios funcionam como <strong>generalizações sobre como a vida normalmente funciona</strong>, não como garantias divinas para cada caso. São observações sobre padrões da realidade criada. O próprio cânon trata disso: Jó é a refutação canônica do excesso de Provérbios, mostrando que nem sempre o justo prospera e o ímpio sofre. Eclesiastes questiona outro aspecto. Os três livros formam um triálogo sobre sabedoria e sua limitação — e precisam ser lidos juntos.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Confia no <span style="font-variant:small-caps">Senhor</span> de todo o teu coração e não te estribes no teu próprio entendimento. Reconhece-o em todos os teus caminhos, e ele endireitará as tuas veredas."</p>
+          <cite>Provérbios 3.5–6 — NAA</cite>
+        </div>
+      </div>
+
+      <!-- PROVÉRBIOS — Tab 3: Estudo Aprofundado -->
+      <div class="tab-panel" id="proverbios-study">
+        <div class="study-block">
+          <div class="block-title">A Mulher Virtuosa (Pv 31.10–31)</div>
+          <div class="block-body">
+            <p>O acróstico final de Provérbios é um retrato da <em>Eshet Chayil</em> — literalmente "mulher de força/valor" (traduzida às vezes como "mulher virtuosa", mas o hebraico é mais amplo). Ela administra propriedades, negocia terras, produz e vende tecidos, atende os pobres, instrui com sabedoria — é empresária, gestora e filósofa ao mesmo tempo.</p>
+            <p>A interpretação cristã allegoriza esse retrato como a Igreja (Esposa do Cristo-Rei); a judaica o recita como louvor à esposa na entrada do Shabat. Mas a leitura literal também tem validade: a mulher de Provérbios 31 encarna as virtudes que o livro inteiro ensinou — diligência, prudência, generosidade, temor do <span style="font-variant:small-caps">Senhor</span>. Ela é a Sabedoria do cap. 8 encarnada em carne e osso. O livro que começou com a Sabedoria convidando ao festim termina com a Sabedoria personificada numa mulher real.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Provérbios e a Literatura Sapiencial do Oriente Próximo</div>
+          <div class="block-body">
+            <p>Israel não inventou o gênero sapiencial — herdou e transformou uma tradição pan-oriental. O <strong>Texto de Amenemope</strong> egípcio (~1100 a.C.) tem tanta sobreposição com Pv 22.17–24.11 que a maioria dos estudiosos assume dependência literária (não se sabe em qual direção). As <strong>Instruções de Ptah-hotep</strong> (~2400 a.C.) e as <strong>Sentenças de Xuruppaque</strong> sumérias (~2600 a.C.) demonstram que a sabedoria prática era uma preocupação universal.</p>
+            <p>A contribuição específica de Israel foi a <strong>teologização da sabedoria</strong>: enquanto os egípcios buscavam <em>Ma'at</em> (ordem cósmica impessoal), Israel reconhecia por trás de toda ordem criada um Criador pessoal que é também Redentor. A sabedoria não é uma habilidade técnica para prosperar — é uma orientação existencial em relação ao <span style="font-variant:small-caps">Senhor</span>. Essa diferença transforma tudo.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Mulher virtuosa, quem a achará? O seu valor muito excede o de rubis."</p>
+          <cite>Provérbios 31.10 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ ECLESIASTES ════════════════════════════════ -->
+    <article class="book-panel" id="panel-eclesiastes">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 21 · Poéticos / Sapienciais · Antigo Testamento</div>
+        <h2 class="book-title"><span>Eclesiastes</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~940–200 a.C. (debatido)</span>
+          <span class="book-tag">Questionamento Existencial</span>
+          <span class="book-tag">12 capítulos</span>
+          <span class="book-tag">Autor: Qohélet / Salomão</span>
+        </div>
+        <div class="book-verse">"Vaidade de vaidades, diz o pregador; vaidade de vaidades! Tudo é vaidade."<cite>Eclesiastes 1.2 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'eclesiastes','ctx')">Contexto e Estrutura</button>
+        <button class="tab-btn" onclick="showTab(this,'eclesiastes','teo')">Teologia</button>
+        <button class="tab-btn" onclick="showTab(this,'eclesiastes','study')">Estudo Aprofundado</button>
+      </div>
+
+      <!-- ECLESIASTES — Tab 1 -->
+      <div class="tab-panel active" id="eclesiastes-ctx">
+        <div class="study-block">
+          <div class="block-title">O Pregador do Sem-Sentido</div>
+          <div class="block-body">
+            <p>Eclesiastes (<em>Qohélet</em> em hebraico — "assembleísta", "pregador", "o que congrega") é o livro mais perturbadoramente honesto da Bíblia. Seu tema central é a busca por <em>hebel</em> — traduzido "vaidade" na maioria das versões, mas cujo sentido literal é <strong>"vapor, sopro, nada"</strong>. A metáfora é perfeita: um sopro existe por um instante e desaparece sem deixar rastro. Assim é tudo o que o ser humano constrói "debaixo do sol".</p>
+            <p>O livro questiona sistematicamente tudo que os humanos buscam como fonte de sentido: <strong>sabedoria</strong> (1.12–18 — aumenta a dor), <strong>prazer</strong> (2.1–11 — vaidade), <strong>trabalho</strong> (2.18–23 — alguém indigno herdará o fruto), <strong>riqueza</strong> (5.10–6.9 — nunca satisfaz), <strong>fama</strong> (1.11 — ninguém se lembra dos que vieram antes). O autor prova cada tese por experiência — apresentando-se como o rei mais sábio e rico que já existiu (implicitamente Salomão), que esgotou cada possibilidade humana e as encontrou vazias.</p>
+            <p>A estrutura do livro é menos linear do que parece — é uma meditação em espiral que retorna repetidamente aos mesmos temas com ângulos diferentes. O refrão de <em>hebel</em> (usado 38 vezes) e a frase "debaixo do sol" (29 vezes) amarram as reflexões. O final (12.9–14) é epílogo de um editor que enquadra todo o discurso de Qohélet e oferece conclusão.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Nome hebraico</div><div class="info-card-value">Qohélet — "o que convoca a assembleia para ensinar"</div></div>
+            <div class="info-card"><div class="info-card-label">Palavra-chave</div><div class="info-card-value">Hebel ("vapor/vaidade") — 38 ocorrências, moldura do livro</div></div>
+            <div class="info-card"><div class="info-card-label">Perspectiva</div><div class="info-card-value">"Debaixo do sol" — a vida humana limitada, sem perspectiva de eternidade</div></div>
+            <div class="info-card"><div class="info-card-label">Gênero</div><div class="info-card-value">Meditação sapiencial / autobiografia filosófica</div></div>
+            <div class="info-card"><div class="info-card-label">Debate canônico</div><div class="info-card-value">Escola de Shammai questionou sua canonicidade — rabinos de Yavneh o confirmaram</div></div>
+            <div class="info-card"><div class="info-card-label">Data debatida</div><div class="info-card-value">Conservadores: Salomão (~940 a.C.); críticos: período persa (~300 a.C.) pelo hebraico tardio</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ECLESIASTES — Tab 2: Teologia -->
+      <div class="tab-panel" id="eclesiastes-teo">
+        <div class="study-block">
+          <div class="block-title">Eclesiastes dentro do Cânon</div>
+          <div class="block-body">
+            <p>Eclesiastes foi alvo de suspeita canônica tanto em círculos judeus quanto cristãos por séculos. Lutero o amava; Calvino o interpretou com cautela. O livro parece contradizer afirmações de outros textos bíblicos — e isso é <em>precisamente seu papel canônico</em>. Ele funciona como contrapeso ao otimismo fácil de Provérbios e ao louvor irrestrito dos Salmos.</p>
+            <p>O cânon bíblico inclui Eclesiastes como voz de honestidade radical: a fé que não passa pela escuridão é ingênua. Qohélet olha para a realidade "debaixo do sol" — sem a revelação especial, sem os dados sobrenaturais que outros autores bíblicos possuem — e reporta o que vê: injustiça, caos, morte nivelando todos, o trabalho frustrando o trabalhador. Essa é a perspectiva da razão unaided — e o livro é honesto sobre seus limites.</p>
+            <p>O epílogo (12.13–14) oferece a conclusão que o livro não pode gerar por si mesmo: <em>"Teme a Deus e guarda os seus mandamentos, pois isso é o dever de todo ser humano; porque Deus trará a julgamento toda ação, tanto o bem quanto o mal."</em> A escatologia resolve o que a observação empírica não consegue: a injustiça "debaixo do sol" não é a última palavra.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Carpe Diem — Mas com Temor</div>
+          <div class="block-body">
+            <p>Paradoxalmente, Eclesiastes é o livro bíblico que mais afirma o prazer simples da vida cotidiana. Oito vezes o livro exorta a <em>comer, beber e encontrar alegria no trabalho</em> (2.24; 3.12–13; 5.18; 8.15; 9.7–9). A lógica é: se nada dura, aproveite o que Deus lhe deu agora — a refeição com a família, o amor do cônjuge, o prazer do trabalho bem feito. Esses são dons de Deus, mesmo "debaixo do sol".</p>
+            <p>Essa não é a resignação hedonista do "coma e beba, pois amanhã morreremos" (1Co 15.32 — que Paulo cita para <em>refutar</em>). É uma espiritualidade do presente: a gratidão pelos pequenos presentes de Deus como resposta ao <em>hebel</em> da grande ambição. O remédio para a vaidade não é a evasão religiosa — é a recepção grata da vida como dom.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Vai, come o teu pão com alegria, e bebe o teu vinho de bom coração, pois já Deus aprovou as tuas obras."</p>
+          <cite>Eclesiastes 9.7 — NAA</cite>
+        </div>
+      </div>
+
+      <!-- ECLESIASTES — Tab 3: Estudo Aprofundado -->
+      <div class="tab-panel" id="eclesiastes-study">
+        <div class="study-block">
+          <div class="block-title">A Passagem do Tempo — Ec 3.1–8</div>
+          <div class="block-body">
+            <p>O poema dos tempos (<em>"Tudo tem o seu tempo determinado... tempo de nascer e tempo de morrer"</em>) é provavelmente o mais famoso de Eclesiastes — imortalizou-se na música popular do século XX. Mas seu contexto é frequentemente esquecido: Qohélet usa o poema para argumentar sobre a <em>impotência humana</em>. O problema não é apenas que há tempo para tudo, mas que o ser humano não controla esses tempos — ele chega e vai conforme uma ordem que não estabeleceu.</p>
+            <p>O versículo 3.11 é chave: <em>"Deus fez tudo adequado ao seu tempo, e também pôs a eternidade no coração do ser humano, sem que este possa descobrir as obras que Deus fez, do princípio ao fim."</em> Há em nós uma consciência de eternidade — um senso de que há algo além do vapor — mas não temos acesso à perspectiva divina sobre o todo. Essa é a angústia fundamental de Eclesiastes: sabemos que há sentido, mas não podemos apreendê-lo de baixo.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Memento Mori — Lembrança da Morte</div>
+          <div class="block-body">
+            <p>Eclesiastes é o livro bíblico que faz da morte seu centro meditativo. <em>"Como o justo morre, assim morre o tolo"</em> (2.16). <em>"O homem nada tem além de comer, beber e encontrar satisfação no trabalho — pois isso é dele; pois quem lhe dará a ver o que virá depois?"</em> (3.22). O nivelamento da morte é o argumento mais demolidor de Qohélet: se todos terminam no mesmo lugar, qual a vantagem da virtude?</p>
+            <p>O cap. 12 descreve a velhice e a morte numa das alegorias mais poéticas da Bíblia: a casa que escurece (os olhos se apagam), as moedoras que param (os dentes caem), as janelas que se fecham (a audição diminui), o cântaro que se quebra na fonte (o coração para). A morte não é tragédia súbita — é desconstrução lenta. Qohélet insiste em olhar para isso sem desviar o olhar. Só quem encarou a morte honestamente pode amar a vida plenamente.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Recorda-te do teu Criador nos dias da tua juventude, antes que venham os dias maus e se aproximem os anos em que dirás: 'Não encontro prazer neles'."</p>
+          <cite>Eclesiastes 12.1 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ CANTARES ════════════════════════════════ -->
+    <article class="book-panel" id="panel-cantares">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 22 · Poéticos / Sapienciais · Antigo Testamento</div>
+        <h2 class="book-title"><span>Cantares</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~950 a.C. (Salomão) ou pós-exílico</span>
+          <span class="book-tag">Amor e Relacionamento</span>
+          <span class="book-tag">8 capítulos</span>
+          <span class="book-tag">Autor: Salomão (tradição)</span>
+        </div>
+        <div class="book-verse">"Ponha-me como selo sobre o seu coração, como selo sobre o seu braço, porque o amor é forte como a morte."<cite>Cantares 8.6 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'cantares','ctx')">Contexto e Estrutura</button>
+        <button class="tab-btn" onclick="showTab(this,'cantares','teo')">Teologia</button>
+        <button class="tab-btn" onclick="showTab(this,'cantares','study')">Estudo Aprofundado</button>
+      </div>
+
+      <!-- CANTARES — Tab 1 -->
+      <div class="tab-panel active" id="cantares-ctx">
+        <div class="study-block">
+          <div class="block-title">O Livro Mais Controverso da Bíblia</div>
+          <div class="block-body">
+            <p>Cantares de Salomão (<em>Shir HaShirim</em> — "o mais sublime dos cânticos") é o livro mais controverso e mais mal interpretado da Bíblia — justamente porque é o mais simples em aparência e o mais complexo em implicação. É, na superfície, um conjunto de poemas eróticos de amor entre um homem e uma mulher. Nenhuma oração. Nenhuma lei. Nenhum nome de Deus (o único livro do AT onde o nome divino não aparece).</p>
+            <p>A canonicidade foi debatida até o Concílio de Yavneh (~90 d.C.). Rabi Akiva o salvou com uma frase célebre: <em>"Todos os escritos são santos, mas o Cântico dos Cânticos é o Santo dos Santos."</em> Sua posição era que o livro representava a aliança de amor entre Deus e Israel — uma leitura que a tradição cristã estendeu para Cristo e a Igreja.</p>
+            <p>O livro não tem narrativa linear clara — é uma série de cantos líricos em que duas vozes principais (a amada e o amado) se alternам com um coro (as filhas de Jerusalém). A identidade dos personagens, a ordem dos poemas e a estrutura geral são debatidas. Alguns veem drama teatral; outros, antologia de cantos nupciais; outros, ciclo poético unificado.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Título</div><div class="info-card-value">Shir HaShirim — "o mais sublime dos cânticos" (superlativo hebraico)</div></div>
+            <div class="info-card"><div class="info-card-label">Nome de Deus</div><div class="info-card-value">Ausente — exceto possivelmente em 8.6 ("chama do Senhor" — Yah)</div></div>
+            <div class="info-card"><div class="info-card-label">Vozes</div><div class="info-card-value">A amada (voz dominante), o amado, o coro das filhas de Jerusalém</div></div>
+            <div class="info-card"><div class="info-card-label">Uso litúrgico judaico</div><div class="info-card-value">Lido na Páscoa (Pessach) como símbolo do amor divino no Êxodo</div></div>
+            <div class="info-card"><div class="info-card-label">Interpretações históricas</div><div class="info-card-value">Literal, alegórica (Deus/Israel, Cristo/Igreja), tipológica</div></div>
+            <div class="info-card"><div class="info-card-label">Paralelos literários</div><div class="info-card-value">Poesia de amor egípcia (Papiro Chester Beatty I), hinos sumérios a Inanna</div></div>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Contexto da Poesia de Amor Antiga</div>
+          <div class="block-body">
+            <p>A poesia erótica era um gênero estabelecido no Oriente Próximo antigo. Poemas de amor egípcios (~1300 a.C.) têm estrutura notavelmente similar aos Cantares: a amada busca o amado, usa metáforas florais e animais, compara o amor a jardins e vinhedos. Os hinos sumérios de amor à deusa Inanna (~2000 a.C.) formam outra tradição comparável.</p>
+            <p>Israel conhecia essa literatura e criou a sua própria — mas com uma diferença fundamental: aqui, o amor é entre <em>humanos</em>, não entre divindades. O livro dessacraliza o erotismo das religiões cananéias (que tinham prostituição sagrada e cultos de fertilidade) e o ressacraliza como dom do Criador dentro do casamento. A sensualidade não é negada — é afirmada como boa criação divina.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CANTARES — Tab 2: Teologia -->
+      <div class="tab-panel" id="cantares-teo">
+        <div class="study-block">
+          <div class="block-title">O Amor como Criação Boa</div>
+          <div class="block-body">
+            <p>A afirmação teológica mais radical de Cantares é a mais simples: o amor erótico entre homem e mulher é <strong>bom</strong>. Não é assunto de que a Bíblia trata com relutância ou cautela — é celebrado com exuberância. O corpo é belo. O desejo é legítimo. A entrega mútua é sagrada. Numa religião onde tantas tradições tratam o corpo com suspeita ou ascetismo, Cantares é um grito de afirmação da criação material.</p>
+            <p>Isso tem raízes em Gênesis 1–2: o corpo criado por Deus é "muito bom" (1.31); o homem e a mulher foram feitos um para o outro e "eram ambos nus, o homem e sua mulher, e não se envergonhavam" (2.25). Cantares é a celebração poética da intenção original da criação — antes da queda, sem vergonha, sem domínio, em plenitude de reciprocidade. É um espaço de recuperação do paraíso perdido.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Interpretação Alegórica</div>
+          <div class="block-body">
+            <p>A tradição dominante na leitura judaica (Rashi, Maimônides) e cristã medieval (Orígenes, Bernardo de Claraval) allegoriza os Cantares: o amado é Deus/Cristo, a amada é Israel/Igreja/alma. Orígenes escreveu um comentário extenso que influenciou toda a patrística. Bernardo de Claraval pregou 86 sermões sobre os primeiros dois capítulos do livro.</p>
+            <p>A alegoria tem base legítima: em todo o AT, o relacionamento de Deus com Israel é descrito em termos conjugais (Oséias 1–3; Jeremias 3; Ezequiel 16; Isaías 54). O próprio apóstolo Paulo usa a metáfora do casamento para descrever Cristo e a Igreja (Ef 5.25–32). A leitura alegórica não nega a dimensão literal — a melhor hermenêutica afirma ambas: o amor humano é bom em si mesmo <em>e</em> é uma analogia do amor divino.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">O Amor Forte como a Morte (Ct 8.6)</div>
+          <div class="block-body">
+            <p>O clímax teológico de Cantares está em 8.6: <em>"Ponha-me como selo sobre o seu coração, como selo sobre o seu braço, porque o amor é forte como a morte e o ciúme é cruel como o Seol; as suas brasas são brasas de fogo, uma veemente chama."</em> A última palavra — <em>shalhevet Yah</em> — pode ser traduzida "chama do <span style="font-variant:small-caps">Senhor</span>" — a única referência ao nome divino no livro.</p>
+            <p>O amor é aqui comparado à morte — não como fraqueza, mas em termos de poder irresistível. A morte é a única força que nenhum ser humano pode recusar; o amor verdadeiro tem a mesma qualidade absolutizante. O <em>ciúme</em> (<em>qin'ah</em>) mencionado é o mesmo termo usado para o "ciúme de Deus" — Ele não compartilha seu povo com outros deuses. O amor humano autêntico é monogâmico não por norma cultural, mas porque reflete a natureza do amor divino.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Ponha-me como selo sobre o seu coração, como selo sobre o seu braço, porque o amor é forte como a morte e o ciúme é cruel como o Seol."</p>
+          <cite>Cantares 8.6 — NAA</cite>
+        </div>
+      </div>
+
+      <!-- CANTARES — Tab 3: Estudo Aprofundado -->
+      <div class="tab-panel" id="cantares-study">
+        <div class="study-block">
+          <div class="block-title">A Voz da Amada — Subversão Cultural</div>
+          <div class="block-body">
+            <p>Um dos aspectos mais surpreendentes de Cantares é que a <strong>voz dominante é feminina</strong>. A amada inicia a maioria dos poemas, busca ativamente o amado, declara seu desejo sem vergonha, e é a voz mais eloquente e corajosa do livro. Num contexto cultural do Oriente Próximo onde mulheres raramente tinham voz pública, isso é subversivo.</p>
+            <p>A amada diz: <em>"Eu sou negra, porém formosa"</em> (1.5) — afirmando beleza não convencional sem desculpa. Ela sai à noite em busca do amado (3.1–4; 5.2–8) — violando a norma de que mulheres não andavam sozinhas. Ela é guardada de vinhedos mas não cuida do seu próprio (1.6) — uma inversão de papéis esperados. Cantares apresenta uma visão de relacionamento de <em>reciprocidade e mutualidade</em> que não é norma no mundo antigo.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">O Jardim — Símbolo Central</div>
+          <div class="block-body">
+            <p>O jardim é a metáfora espacial central de Cantares — e sua ressonância com Gênesis 2 (o jardim do Éden) é intencional. O amado descreve a amada como um "jardim fechado" (4.12), e ela o convida: <em>"Levante-se, vento norte, e venha, vento sul! Soprai sobre o meu jardim para que se espalhem os seus aromas. Que o meu amado venha ao seu jardim e coma dos seus frutos preciosos"</em> (4.16).</p>
+            <p>O jardim é espaço de intimidade, abundância e segurança — o oposto do deserto onde o amor é buscado com ansiedade (3.1–4). Na teologia do livro, o amor consumado é um retorno ao paraíso — a recuperação da unidade e transparência de Gênesis 2.25. O NT envereda por caminho semelhante: a ressurreição acontece num jardim (Jo 20.15), e o Apocalipse termina com a Nova Jerusalém como jardim-cidade com a árvore da vida (Ap 22.1–2).</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Cantares como Leitura Pascual</div>
+          <div class="block-body">
+            <p>No calendário judaico, Cantares é lido na Páscoa (<em>Pessach</em>). A conexão não é óbvia, mas é profunda: a Páscoa celebra o êxodo — o momento em que Deus tirou Israel do Egito com braço forte, como um noivo que resgata sua noiva da escravidão. A imagem matrimonial de Oséias e Jeremias projeta-se para trás: o Êxodo é o noivado de Deus com Israel.</p>
+            <p>Lido em Pessach, Cantares torna-se canto do amor que motivou a redenção: Deus não libertou Israel por obrigação jurídica, mas por amor apaixonado. No NT, Paulo vê a Cruz como o ato supremo de amor do Noivo pelo sua Igreja — disposto a morrer por ela (Ef 5.25). A estrutura do amor redentor é a mesma em todas as épocas: o amado que se humilha, busca e resgata.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Eu sou do meu amado, e o meu amado é meu; ele apascenta o seu rebanho entre os lírios."</p>
+          <cite>Cantares 6.3 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- .content -->
+</main>
+</div><!-- .layout -->
+
+<script>
+function showBook(id){
+  document.querySelectorAll('.book-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  const panel=document.getElementById('panel-'+id);
+  if(panel){
+    panel.classList.add('active');
+    panel.querySelectorAll('.tab-panel').forEach((tp,i)=>tp.classList.toggle('active',i===0));
+    panel.querySelectorAll('.tab-btn').forEach((tb,i)=>tb.classList.toggle('active',i===0));
+  }
+  const btn=document.querySelector('[data-book="'+id+'"]');
+  if(btn)btn.classList.add('active');
+  if(window.innerWidth<=900)closeSidebar();
+}
+
+function showTab(btn,bookId,tabId){
+  const panel=document.getElementById('panel-'+bookId);
+  if(!panel)return;
+  panel.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  panel.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  const tp=document.getElementById(bookId+'-'+tabId);
+  if(tp)tp.classList.add('active');
+}
+
+const sidebar=document.getElementById('sidebar');
+const overlay=document.getElementById('sidebarOverlay');
+const toggle=document.getElementById('menuToggle');
+
+function openSidebar(){
+  sidebar.classList.add('open');
+  overlay.classList.add('open');
+  toggle.setAttribute('aria-expanded','true');
+  document.body.style.overflow='hidden';
+}
+function closeSidebar(){
+  sidebar.classList.remove('open');
+  overlay.classList.remove('open');
+  toggle.setAttribute('aria-expanded','false');
+  document.body.style.overflow='';
+}
+toggle.addEventListener('click',()=>sidebar.classList.contains('open')?closeSidebar():openSidebar());
+overlay.addEventListener('click',closeSidebar);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSidebar();});
+</script>
+</body>
+</html>
