@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudo Bíblico</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+*:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
+
+:root{
+  --navy:#0a1628; --navy-mid:#0f2040; --navy-light:#1a3054;
+  --gold:#FFA400; --gold-dim:#cc8500;
+  --sand:#e8d8b8; --sand-dim:#b8a888;
+
+  /* Category accent colors — kept vibrant against dark bg */
+  --pen:#e8a830;  --his:#e05050;  --poe:#d4a020;
+  --mai:#5090e0;  --men:#30c090;  --eva:#e06060;
+  --ato:#e08030;  --pau:#a060e0;  --ger:#40c070;  --apo:#d04040;
+
+  --cell-border:rgba(255,164,0,.14);
+  --cell-bg-op:.08; --cell-bg-op-h:.22;
+  --leg-bg:rgba(255,255,255,.03); --leg-border:rgba(255,164,0,.12);
+  --modal-bg:#0e1f3a; --modal-border:rgba(255,164,0,.18);
+  --modal-inner:rgba(255,255,255,.04);
+  --tag-bg:rgba(255,164,0,.10); --tag-color:var(--gold);
+  --overlay:rgba(5,12,25,.75);
+  --hint:var(--sand-dim); --divline-op:.5;
+  --scroll-thumb:rgba(255,164,0,.25);
+  --shadow-cell:0 8px 28px rgba(0,0,0,.45);
+  --shadow-modal:0 32px 100px rgba(0,0,0,.6);
+}
+
+body{
+  background:var(--modal-bg);
+  background-image:
+    radial-gradient(ellipse at 15% 0%,rgba(255,164,0,0.06) 0%,transparent 55%),
+    radial-gradient(ellipse at 85% 100%,rgba(255,164,0,0.03) 0%,transparent 50%);
+  color:var(--sand);
+  font-family:'EB Garamond',serif;
+  min-height:100dvh; padding:40px 16px 80px;
+}
+p:not(.subline){text-align:justify;hyphens:auto;}
+
+/* ── TOOLBAR ── */
+.toolbar{
+  position:fixed; top:20px; right:22px;
+  display:flex; gap:8px; z-index:1000;
+}
+.tbtn{
+  display:flex; align-items:center; gap:6px;
+  padding:8px 16px; border-radius:50px;
+  border:1px solid rgba(255,164,0,.3);
+  background:var(--navy-mid); color:var(--gold);
+  font-family:'Cinzel',serif;
+  font-size:10px; font-weight:600; letter-spacing:1.5px;
+  cursor:pointer; white-space:nowrap;
+  box-shadow:0 2px 16px rgba(0,0,0,.45);
+  transition:background .2s,color .2s,box-shadow .2s,border-color .2s,transform .15s;
+  touch-action:manipulation;
+}
+.tbtn:hover{
+  background:var(--gold); color:var(--navy);
+  border-color:var(--gold);
+  box-shadow:0 4px 22px rgba(255,164,0,.3);
+  transform:translateY(-1px);
+}
+.tbtn:active{transform:translateY(0);}
+.tbtn svg{width:13px;height:13px;fill:currentColor;flex-shrink:0;}
+.tbtn.busy{opacity:.5;pointer-events:none;}
+
+/* ── HEADER ── */
+.header{text-align:center;margin-bottom:48px;padding-top:8px;}
+.eyebrow{
+  font-family:'Cinzel',serif;
+  font-size:13px; font-weight:700; letter-spacing:5px; color:var(--gold);
+  opacity:.85; margin-bottom:12px; text-transform:uppercase;
+}
+h1{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(22px,4vw,44px); font-weight:700;
+  color:var(--sand); letter-spacing:.3px; line-height:1.15;
+}
+h1 em{color:var(--gold);font-style:italic;}
+.subline{
+  font-family:'EB Garamond',serif; font-weight:400;
+  font-size:16px; color:var(--sand-dim); font-style:italic; margin-top:10px; line-height:1.6;
+  text-align:center;
+}
+.rule{
+  width:180px; height:1px;
+  background:linear-gradient(to right,transparent,var(--gold),transparent);
+  margin:18px auto 0; opacity:.6;
+}
+
+/* ── STATS ── */
+.stats{
+  max-width:1100px; margin:0 auto 36px;
+  display:flex; justify-content:center; gap:40px; flex-wrap:wrap;
+}
+.stat{text-align:center;}
+.stat-n{
+  font-family:'Cinzel Decorative',serif; font-size:42px;
+  font-weight:700; color:var(--gold); line-height:1; display:block;
+  letter-spacing:-1px;
+}
+.stat-l{
+  font-family:'Cinzel',serif; font-size:9px;
+  letter-spacing:3px; color:var(--sand-dim); text-transform:uppercase;
+  margin-top:6px; display:block;
+}
+
+/* ── SECTION LABEL ── */
+.slabel{
+  font-family:'Cinzel',serif; font-size:14px;
+  font-weight:700; letter-spacing:4px; text-transform:uppercase;
+  color:var(--gold); opacity:.8; text-align:center;
+  margin:28px 0 18px; position:relative; z-index:0;
+}
+
+/* ── SLABEL LINK ── */
+.slabel-link{
+  display:block; text-decoration:none;
+  color:var(--gold) !important;
+  cursor:pointer;
+  transition:opacity .2s;
+}
+.slabel-link:visited,.slabel-link:hover,.slabel-link:active,.slabel-link:focus{
+  color:var(--gold) !important; text-decoration:none;
+}
+.slabel-link:hover{opacity:1;}
+
+/* ── GRID ── */
+.ptable{max-width:1100px;margin:0 auto;}
+.g{display:grid;gap:6px;margin-bottom:6px;position:relative;z-index:1;}
+.r5 {grid-template-columns:repeat(5,1fr);}
+.r12{grid-template-columns:repeat(12,1fr);}
+.r4 {grid-template-columns:repeat(4,1fr);}
+.r1 {grid-template-columns:repeat(1,1fr);}
+.r13{grid-template-columns:repeat(13,1fr);}
+.r8 {grid-template-columns:repeat(8,1fr);}
+
+/* ── CELL ── */
+.cell{
+  position:relative; border-radius:6px;
+  padding:6px 4px 5px; cursor:pointer;
+  border:1px solid var(--cell-border);
+  min-width:0; overflow:hidden;
+  aspect-ratio:1/1.18;
+  display:flex; flex-direction:column;
+  justify-content:space-between; align-items:center;
+  transition:transform .18s cubic-bezier(.2,0,.2,1),
+             box-shadow .18s cubic-bezier(.2,0,.2,1),
+             border-color .18s ease;
+}
+.cell::before{
+  content:''; position:absolute; inset:0;
+  background:currentColor; opacity:var(--cell-bg-op);
+  transition:opacity .18s ease; border-radius:inherit;
+}
+.cell:hover{
+  transform:translateY(-3px) scale(1.05);
+  z-index:20;
+  border-color:currentColor;
+  box-shadow:var(--shadow-cell), 0 0 0 1px currentColor;
+}
+.cell:hover::before{opacity:var(--cell-bg-op-h);}
+.cell:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 2px var(--navy), 0 0 0 4px var(--gold);
+}
+.cn{
+  font-family:'Cinzel',serif;
+  font-size:clamp(7px,1vw,12px); font-weight:600;
+  opacity:.55; align-self:flex-start; line-height:1; position:relative;
+}
+.ca{
+  font-family:'Cinzel',serif;
+  font-size:clamp(10px,1.6vw,18px); font-weight:700;
+  letter-spacing:.3px; line-height:1; text-align:center; position:relative;
+}
+.cname{
+  font-family:'EB Garamond',serif; font-weight:700;
+  font-size:clamp(8px,1.05vw,12px); text-align:center;
+  opacity:.92; line-height:1.2; word-break:break-word; position:relative;
+}
+
+/* Category colors */
+.pen{color:var(--pen)} .his{color:var(--his)} .poe{color:var(--poe)}
+.mai{color:var(--mai)} .men{color:var(--men)} .eva{color:var(--eva)}
+.ato{color:var(--ato)} .pau{color:var(--pau)} .ger{color:var(--ger)}
+.apo{color:var(--apo)}
+
+/* ── TESTAMENT DIVIDER ── */
+.tdiv{display:flex;align-items:center;gap:14px;margin:28px 0 10px;position:relative;z-index:0;}
+.tline{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--gold));opacity:var(--divline-op);}
+.tline.r{background:linear-gradient(to left,transparent,var(--gold));}
+.tlabel{
+  font-family:'Cinzel',serif; font-size:15px;
+  font-weight:700; letter-spacing:4px; color:var(--gold); white-space:nowrap; opacity:.9;
+}
+
+/* ── LEGEND ── */
+.legend{
+  max-width:1100px; margin:32px auto 0; padding-top:24px;
+  border-top:1px solid rgba(255,164,0,.12);
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:8px;
+}
+.li{
+  display:flex; align-items:center; gap:10px; padding:10px 12px;
+  border-radius:8px; background:var(--leg-bg); border:1px solid var(--leg-border);
+}
+.lsw{
+  width:28px; height:28px; border-radius:6px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.lsw svg{width:14px;height:14px;flex-shrink:0;}
+.lcat{
+  font-family:'Cinzel',serif; font-size:8px;
+  letter-spacing:1.5px; opacity:.55; display:block; text-transform:uppercase;
+  margin-bottom:2px;
+}
+.lname{
+  font-family:'EB Garamond',serif; font-size:14px;
+  font-weight:600; display:block; line-height:1.2;
+}
+.lcount{
+  font-size:11px; font-weight:700; opacity:.35; margin-left:auto;
+  font-family:'Cinzel',serif; padding-left:6px; flex-shrink:0;
+}
+
+
+/* ── MODAL ── */
+.overlay{
+  display:none; position:fixed; inset:0; z-index:2000;
+  background:var(--overlay);
+  align-items:center; justify-content:center; padding:16px;
+  backdrop-filter:blur(8px);
+}
+.overlay.open{display:flex;animation:fadeIn .2s ease;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(28px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+.modal{
+  background:var(--modal-bg); border:1px solid var(--modal-border);
+  border-radius:14px; max-width:700px; width:100%;
+  max-height:90vh; overflow-y:auto;
+  padding:0; position:relative;
+  box-shadow:var(--shadow-modal);
+  animation:slideUp .24s cubic-bezier(.2,0,.2,1);
+  scrollbar-width:thin; scrollbar-color:var(--scroll-thumb) transparent;
+}
+.modal::-webkit-scrollbar{width:4px;}
+.modal::-webkit-scrollbar-thumb{background:var(--scroll-thumb);border-radius:4px;}
+.modal-inner{padding:36px 40px 40px;}
+
+.mclose{
+  position:absolute; top:16px; right:16px;
+  width:34px; height:34px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--modal-inner); border:1px solid var(--modal-border);
+  border-radius:50%; cursor:pointer; color:var(--sand-dim);
+  transition:background .15s,color .15s,border-color .15s;
+  z-index:1;
+}
+.mclose:hover{background:rgba(255,164,0,.15);color:var(--gold);border-color:rgba(255,164,0,.3);}
+.mclose:focus-visible{outline:none;box-shadow:0 0 0 2px var(--gold);}
+.mclose svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;}
+
+.mhead{margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid rgba(255,164,0,.12);}
+.mnum{
+  font-family:'Cinzel',serif; font-size:10px;
+  letter-spacing:3.5px; color:var(--gold); opacity:.65; margin-bottom:8px;
+  text-transform:uppercase;
+}
+.mtitle{
+  font-family:'Cinzel Decorative',serif; font-size:28px; font-weight:700;
+  color:var(--sand); line-height:1.1; margin-bottom:8px;
+}
+.mabbr{
+  font-family:'Cinzel',serif; font-size:11px;
+  color:var(--sand-dim); letter-spacing:1.5px; opacity:.8;
+}
+.mauthor{
+  display:inline-flex; align-items:center; gap:6px;
+  margin-top:10px;
+  font-family:'Cinzel',serif; font-size:11px;
+  color:var(--gold); letter-spacing:.5px;
+}
+.mauthor svg{flex-shrink:0;opacity:.7;}
+.mchars{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;}
+.mchar-tag{
+  font-family:'Cinzel',serif; font-size:10px;
+  letter-spacing:.8px; padding:3px 11px;
+  border-radius:20px;
+  background:rgba(255,164,0,.08);
+  border:1px solid rgba(255,164,0,.22);
+  color:var(--sand-dim);
+}
+.mchar-label{
+  font-family:'Cinzel',serif; font-size:9px;
+  letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--gold); opacity:.55;
+  margin-top:10px; display:block;
+}
+.mtags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px;}
+.mtag{
+  font-family:'Cinzel',serif; font-size:9px;
+  letter-spacing:1.5px; text-transform:uppercase;
+  background:var(--tag-bg); color:var(--gold);
+  padding:4px 12px; border-radius:20px;
+  border:1px solid rgba(255,164,0,.18);
+}
+.msecttitle{
+  font-family:'Cinzel',serif; font-size:9px;
+  letter-spacing:4px; text-transform:uppercase;
+  color:var(--gold); opacity:.6; margin:0 0 14px;
+}
+.mbody{
+  font-family:'EB Garamond',serif; font-size:17px; font-weight:400;
+  line-height:1.82; color:var(--sand); opacity:.92;
+  text-align:justify; hyphens:auto;
+}
+.mbody p{margin-bottom:14px;}
+.mbody p:last-child{margin-bottom:0;}
+.mbody strong{color:var(--gold);font-weight:600;}
+.mbody em{color:var(--sand);}
+.mverse{
+  font-family:'EB Garamond',serif; font-style:italic; font-weight:400;
+  font-size:17px; color:var(--sand-dim); opacity:.9;
+  border-left:3px solid var(--gold);
+  padding:12px 0 12px 20px; margin-top:24px; line-height:1.7;
+  background:rgba(255,164,0,.04); border-radius:0 8px 8px 0;
+}
+.mverse cite{
+  display:block; font-style:normal; font-size:11px;
+  font-family:'Cinzel',serif; letter-spacing:1.5px;
+  opacity:.6; margin-top:8px; color:var(--gold);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  body{padding:32px 12px 64px;}
+  .toolbar{top:10px;right:10px;gap:5px;}
+  .tbtn{padding:7px 12px;font-size:9px;letter-spacing:1px;}
+  .stats{gap:24px;}
+  .stat-n{font-size:32px;}
+  .legend{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px;}
+}
+@media(max-width:700px){
+  body{padding:24px 8px 56px;}
+  h1{font-size:clamp(18px,5.5vw,30px);}
+  .cell{aspect-ratio:1/1.25;}
+  .cname{font-size:clamp(5px,1.6vw,8px);}
+  .ca{font-size:clamp(9px,2.5vw,16px);}
+  .cn{font-size:clamp(5px,1.2vw,8px);}
+  .modal-inner{padding:24px 18px 28px;}
+  .mtitle{font-size:20px;}
+  .mbody{font-size:15.5px;}
+  .r12{grid-template-columns:repeat(6,1fr);}
+  .r13{grid-template-columns:repeat(7,1fr);}
+  .r8 {grid-template-columns:repeat(4,1fr);}
+  .legend{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:480px){
+  body{padding:20px 6px 48px;}
+  .toolbar{flex-direction:column;align-items:flex-end;gap:4px;}
+  .tbtn{padding:6px 10px;font-size:8.5px;}
+  .cell{padding:3px 2px;aspect-ratio:1/1.18;}
+  .cn{display:none;}
+  .r5 {grid-template-columns:repeat(5,1fr);}
+  .r12{grid-template-columns:repeat(6,1fr);}
+  .r13{grid-template-columns:repeat(7,1fr);}
+  .r8 {grid-template-columns:repeat(4,1fr);}
+  .r4 {grid-template-columns:repeat(4,1fr);}
+  .slabel{font-size:11px;letter-spacing:2px;}
+  .tlabel{font-size:12px;letter-spacing:2.5px;}
+  .legend{grid-template-columns:1fr 1fr;}
+  .modal-inner{padding:20px 14px 24px;}
+  .mtitle{font-size:18px;}
+  .mbody{font-size:14.5px;}
+  .mverse{font-size:14px;padding:10px 0 10px 16px;}
+  .stats{gap:16px;}
+  .stat-n{font-size:28px;}
+  .stat-l{font-size:8px;}
+}
+</style>
+</head>
+<body>
+
+
+<!-- ══ MODAL ══ -->
+<div class="overlay" id="overlay" onclick="closeOnBg(event)">
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <button class="mclose" onclick="closeModal()" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-inner">
+      <div class="mhead">
+        <div class="mnum"  id="m-num"></div>
+        <div class="mtitle" id="m-title"></div>
+        <div class="mabbr"  id="m-abbr"></div>
+        <div class="mauthor" id="m-author">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span id="m-author-text"></span>
+        </div>
+        <div id="m-chars-wrap" style="display:none">
+          <span class="mchar-label">Personagens principais</span>
+          <div class="mchars" id="m-chars"></div>
+        </div>
+      </div>
+      <div class="mtags"  id="m-tags"></div>
+      <div class="msecttitle" data-pt="Contexto &amp; Resumo" data-en="Context &amp; Summary">Contexto &amp; Resumo</div>
+      <div class="mbody"  id="m-body"></div>
+      <div class="mverse" id="m-verse"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CAPTURE ZONE ══ -->
+<div id="capture">
+
+<div class="header">
+  <div class="eyebrow" data-pt="Cânon Protestante · 66 Livros" data-en="Protestant Canon · 66 Books">Cânon Protestante · 66 Livros</div>
+  <h1 data-pt="Estudo <em>Bíblico</em>" data-en="Biblical <em>Study</em>">Estudo <em>Bíblico</em></h1>
+  <p class="subline" data-pt="<strong>Clique em qualquer livro para ver contexto e resumo completo</strong>" data-en="<strong>Click any book to see its context and full summary</strong>"><strong>Clique em qualquer livro para ver contexto e resumo completo</strong></p>
+  <div class="rule"></div>
+</div>
+
+<div class="stats">
+  <div class="stat"><span class="stat-n">66</span><span class="stat-l" data-pt="Total" data-en="Total">Total</span></div>
+  <div class="stat"><span class="stat-n">39</span><span class="stat-l" data-pt="Antigo Testamento" data-en="Old Testament">Antigo Testamento</span></div>
+  <div class="stat"><span class="stat-n">27</span><span class="stat-l" data-pt="Novo Testamento" data-en="New Testament">Novo Testamento</span></div>
+</div>
+
+<div class="ptable">
+
+  <div class="tdiv"><div class="tline r"></div><div class="tlabel" data-pt="✦ ANTIGO TESTAMENTO ✦" data-en="✦ OLD TESTAMENT ✦">✦ ANTIGO TESTAMENTO ✦</div><div class="tline"></div></div>
+
+  <a href="pentateuco/index.html" class="slabel slabel-link" data-pt="Pentateuco · Lei · 5 livros" data-en="Pentateuch · Law · 5 books">Pentateuco · Lei · 5 livros</a>
+  <div class="g r5">
+    <div class="cell pen" tabindex="0" role="button" onclick="show('gn')"><span class="cn">1</span><span class="ca">Gn</span><span class="cname" data-pt="Gênesis" data-en="Genesis">Gênesis</span></div>
+    <div class="cell pen" tabindex="0" role="button" onclick="show('ex')"><span class="cn">2</span><span class="ca">Êx</span><span class="cname" data-pt="Êxodo" data-en="Exodus">Êxodo</span></div>
+    <div class="cell pen" tabindex="0" role="button" onclick="show('lv')"><span class="cn">3</span><span class="ca">Lv</span><span class="cname" data-pt="Levítico" data-en="Leviticus">Levítico</span></div>
+    <div class="cell pen" tabindex="0" role="button" onclick="show('nm')"><span class="cn">4</span><span class="ca">Nm</span><span class="cname" data-pt="Números" data-en="Numbers">Números</span></div>
+    <div class="cell pen" tabindex="0" role="button" onclick="show('dt')"><span class="cn">5</span><span class="ca">Dt</span><span class="cname" data-pt="Deuteronômio" data-en="Deuteronomy">Deuteronômio</span></div>
+  </div>
+
+  <a href="historicos/index.html" class="slabel slabel-link" data-pt="Históricos · 12 livros" data-en="Historical · 12 books">Históricos · 12 livros</a>
+  <div class="g r12">
+    <div class="cell his" tabindex="0" role="button" onclick="show('js')"><span class="cn">6</span><span class="ca">Js</span><span class="cname" data-pt="Josué" data-en="Joshua">Josué</span></div>
+    <div class="cell his" tabindex="0" role="button" onclick="show('jz')"><span class="cn">7</span><span class="ca">Jz</span><span class="cname" data-pt="Juízes" data-en="Judges">Juízes</span></div>
+    <div class="cell his" tabindex="0" role="button" onclick="show('rt')"><span class="cn">8</span><span class="ca">Rt</span><span class="cname" data-pt="Rute" data-en="Ruth">Rute</span></div>
+    <div class="cell his" tabindex="0" role="button" onclick="show('sm1')"><span class="cn">9</span><span class="ca">1Sm</span><span class="cname" data-pt="1 Samuel" data-en="1 Samuel">1 Samuel</span></div>
+    <div class="cell his" tabindex="0" role="button" onclick="show('sm2')"><span class="cn">10</span><span class="ca">2Sm</span><span class="cname" data-pt="2 Samuel" data-en="2 Samuel">2 Samuel</span></div>
+    <div class="cell his" tabindex="0" role="button" onclick="show('rs1')"><span class="cn">11</span><span class="ca">1Rs</span><span class="cname" data-pt="1 Reis" data-en="1 Kings">1 Reis</span></div>
+    <div class="cell his" tabindex="0" role="button" onclick="show('rs2')"><span class="cn">12</span><span class="ca">2Rs</span><span class="cname" data-pt="2 Reis" data-en="2 Kings">2 Reis</span></div>
+    <div class="cell his" tabindex="0" role="button" onclick="show('cr1')"><span class="cn">13</span><span class="ca">1Cr</span><span class="cname" data-pt="1 Crônicas" data-en="1 Chronicles">1 Crônicas</span></div>
+    <div class="cell his" tabindex="0" role="button" onclick="show('cr2')"><span class="cn">14</span><span class="ca">2Cr</span><span class="cname" data-pt="2 Crônicas" data-en="2 Chronicles">2 Crônicas</span></div>
+    <div class="cell his" tabindex="0" role="button" onclick="show('ed')"><span class="cn">15</span><span class="ca">Ed</span><span class="cname" data-pt="Esdras" data-en="Ezra">Esdras</span></div>
+    <div class="cell his" tabindex="0" role="button" onclick="show('ne')"><span class="cn">16</span><span class="ca">Ne</span><span class="cname" data-pt="Neemias" data-en="Nehemiah">Neemias</span></div>
+    <div class="cell his" tabindex="0" role="button" onclick="show('et')"><span class="cn">17</span><span class="ca">Et</span><span class="cname" data-pt="Ester" data-en="Esther">Ester</span></div>
+  </div>
+
+  <div class="slabel" data-pt="Poéticos · Sapienciais · 5 livros" data-en="Poetic · Wisdom · 5 books">Poéticos · Sapienciais · 5 livros</div>
+  <div class="g r5">
+    <div class="cell poe" tabindex="0" role="button" onclick="show('jo')"><span class="cn">18</span><span class="ca">Jó</span><span class="cname" data-pt="Jó" data-en="Job">Jó</span></div>
+    <div class="cell poe" tabindex="0" role="button" onclick="show('sl')"><span class="cn">19</span><span class="ca">Sl</span><span class="cname" data-pt="Salmos" data-en="Psalms">Salmos</span></div>
+    <div class="cell poe" tabindex="0" role="button" onclick="show('pv')"><span class="cn">20</span><span class="ca">Pv</span><span class="cname" data-pt="Provérbios" data-en="Proverbs">Provérbios</span></div>
+    <div class="cell poe" tabindex="0" role="button" onclick="show('ec')"><span class="cn">21</span><span class="ca">Ec</span><span class="cname" data-pt="Eclesiastes" data-en="Ecclesiastes">Eclesiastes</span></div>
+    <div class="cell poe" tabindex="0" role="button" onclick="show('ct')"><span class="cn">22</span><span class="ca">Ct</span><span class="cname" data-pt="Cantares" data-en="Song of Songs">Cantares</span></div>
+  </div>
+
+  <div class="slabel" data-pt="Profetas Maiores · 5 livros" data-en="Major Prophets · 5 books">Profetas Maiores · 5 livros</div>
+  <div class="g r5">
+    <div class="cell mai" tabindex="0" role="button" onclick="show('is')"><span class="cn">23</span><span class="ca">Is</span><span class="cname" data-pt="Isaías" data-en="Isaiah">Isaías</span></div>
+    <div class="cell mai" tabindex="0" role="button" onclick="show('jr')"><span class="cn">24</span><span class="ca">Jr</span><span class="cname" data-pt="Jeremias" data-en="Jeremiah">Jeremias</span></div>
+    <div class="cell mai" tabindex="0" role="button" onclick="show('lm')"><span class="cn">25</span><span class="ca">Lm</span><span class="cname" data-pt="Lamentações" data-en="Lamentations">Lamentações</span></div>
+    <div class="cell mai" tabindex="0" role="button" onclick="show('ez')"><span class="cn">26</span><span class="ca">Ez</span><span class="cname" data-pt="Ezequiel" data-en="Ezekiel">Ezequiel</span></div>
+    <div class="cell mai" tabindex="0" role="button" onclick="show('dn')"><span class="cn">27</span><span class="ca">Dn</span><span class="cname" data-pt="Daniel" data-en="Daniel">Daniel</span></div>
+  </div>
+
+  <div class="slabel" data-pt="Profetas Menores · 12 livros" data-en="Minor Prophets · 12 books">Profetas Menores · 12 livros</div>
+  <div class="g r12">
+    <div class="cell men" tabindex="0" role="button" onclick="show('os')"><span class="cn">28</span><span class="ca">Os</span><span class="cname" data-pt="Oséias" data-en="Hosea">Oséias</span></div>
+    <div class="cell men" tabindex="0" role="button" onclick="show('jl')"><span class="cn">29</span><span class="ca">Jl</span><span class="cname" data-pt="Joel" data-en="Joel">Joel</span></div>
+    <div class="cell men" tabindex="0" role="button" onclick="show('am')"><span class="cn">30</span><span class="ca">Am</span><span class="cname" data-pt="Amós" data-en="Amos">Amós</span></div>
+    <div class="cell men" tabindex="0" role="button" onclick="show('ob')"><span class="cn">31</span><span class="ca">Ob</span><span class="cname" data-pt="Obadias" data-en="Obadiah">Obadias</span></div>
+    <div class="cell men" tabindex="0" role="button" onclick="show('jn')"><span class="cn">32</span><span class="ca">Jn</span><span class="cname" data-pt="Jonas" data-en="Jonah">Jonas</span></div>
+    <div class="cell men" tabindex="0" role="button" onclick="show('mq')"><span class="cn">33</span><span class="ca">Mq</span><span class="cname" data-pt="Miquéias" data-en="Micah">Miquéias</span></div>
+    <div class="cell men" tabindex="0" role="button" onclick="show('na')"><span class="cn">34</span><span class="ca">Na</span><span class="cname" data-pt="Naum" data-en="Nahum">Naum</span></div>
+    <div class="cell men" tabindex="0" role="button" onclick="show('hc')"><span class="cn">35</span><span class="ca">Hc</span><span class="cname" data-pt="Habacuque" data-en="Habakkuk">Habacuque</span></div>
+    <div class="cell men" tabindex="0" role="button" onclick="show('sf')"><span class="cn">36</span><span class="ca">Sf</span><span class="cname" data-pt="Sofonias" data-en="Zephaniah">Sofonias</span></div>
+    <div class="cell men" tabindex="0" role="button" onclick="show('ag')"><span class="cn">37</span><span class="ca">Ag</span><span class="cname" data-pt="Ageu" data-en="Haggai">Ageu</span></div>
+    <div class="cell men" tabindex="0" role="button" onclick="show('zc')"><span class="cn">38</span><span class="ca">Zc</span><span class="cname" data-pt="Zacarias" data-en="Zechariah">Zacarias</span></div>
+    <div class="cell men" tabindex="0" role="button" onclick="show('ml')"><span class="cn">39</span><span class="ca">Ml</span><span class="cname" data-pt="Malaquias" data-en="Malachi">Malaquias</span></div>
+  </div>
+
+  <div class="tdiv"><div class="tline r"></div><div class="tlabel" data-pt="✦ NOVO TESTAMENTO ✦" data-en="✦ NEW TESTAMENT ✦">✦ NOVO TESTAMENTO ✦</div><div class="tline"></div></div>
+
+  <div class="slabel" data-pt="Evangelhos · 4 livros" data-en="Gospels · 4 books">Evangelhos · 4 livros</div>
+  <div class="g r4">
+    <div class="cell eva" tabindex="0" role="button" onclick="show('mt')"><span class="cn">40</span><span class="ca">Mt</span><span class="cname" data-pt="Mateus" data-en="Matthew">Mateus</span></div>
+    <div class="cell eva" tabindex="0" role="button" onclick="show('mc')"><span class="cn">41</span><span class="ca">Mc</span><span class="cname" data-pt="Marcos" data-en="Mark">Marcos</span></div>
+    <div class="cell eva" tabindex="0" role="button" onclick="show('lc')"><span class="cn">42</span><span class="ca">Lc</span><span class="cname" data-pt="Lucas" data-en="Luke">Lucas</span></div>
+    <div class="cell eva" tabindex="0" role="button" onclick="show('joe')"><span class="cn">43</span><span class="ca">Jo</span><span class="cname" data-pt="João" data-en="John">João</span></div>
+  </div>
+
+  <div class="slabel" data-pt="Histórico · NT · 1 livro" data-en="Historical · NT · 1 book">Histórico · NT · 1 livro</div>
+  <div class="g r1">
+    <div class="cell ato" tabindex="0" role="button" onclick="show('at')" style="aspect-ratio:4/1.18;flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 16px;">
+      <span class="cn" style="font-size:13px;">44</span>
+      <span class="ca" style="font-size:22px;">At</span>
+      <span class="cname" style="font-size:13px;text-align:left;" data-pt="Atos dos Apóstolos" data-en="Acts of the Apostles">Atos dos Apóstolos</span>
+    </div>
+  </div>
+
+  <div class="slabel" data-pt="Epístolas Paulinas · 13 livros" data-en="Pauline Epistles · 13 books">Epístolas Paulinas · 13 livros</div>
+  <div class="g r13">
+    <div class="cell pau" tabindex="0" role="button" onclick="show('rm')"><span class="cn">45</span><span class="ca">Rm</span><span class="cname" data-pt="Romanos" data-en="Romans">Romanos</span></div>
+    <div class="cell pau" tabindex="0" role="button" onclick="show('co1')"><span class="cn">46</span><span class="ca">1Co</span><span class="cname" data-pt="1 Coríntios" data-en="1 Corinthians">1 Coríntios</span></div>
+    <div class="cell pau" tabindex="0" role="button" onclick="show('co2')"><span class="cn">47</span><span class="ca">2Co</span><span class="cname" data-pt="2 Coríntios" data-en="2 Corinthians">2 Coríntios</span></div>
+    <div class="cell pau" tabindex="0" role="button" onclick="show('gl')"><span class="cn">48</span><span class="ca">Gl</span><span class="cname" data-pt="Gálatas" data-en="Galatians">Gálatas</span></div>
+    <div class="cell pau" tabindex="0" role="button" onclick="show('ef')"><span class="cn">49</span><span class="ca">Ef</span><span class="cname" data-pt="Efésios" data-en="Ephesians">Efésios</span></div>
+    <div class="cell pau" tabindex="0" role="button" onclick="show('fp')"><span class="cn">50</span><span class="ca">Fp</span><span class="cname" data-pt="Filipenses" data-en="Philippians">Filipenses</span></div>
+    <div class="cell pau" tabindex="0" role="button" onclick="show('cl')"><span class="cn">51</span><span class="ca">Cl</span><span class="cname" data-pt="Colossenses" data-en="Colossians">Colossenses</span></div>
+    <div class="cell pau" tabindex="0" role="button" onclick="show('ts1')"><span class="cn">52</span><span class="ca">1Ts</span><span class="cname" data-pt="1 Tessalonicenses" data-en="1 Thessalonians">1 Tessalonicenses</span></div>
+    <div class="cell pau" tabindex="0" role="button" onclick="show('ts2')"><span class="cn">53</span><span class="ca">2Ts</span><span class="cname" data-pt="2 Tessalonicenses" data-en="2 Thessalonians">2 Tessalonicenses</span></div>
+    <div class="cell pau" tabindex="0" role="button" onclick="show('tm1')"><span class="cn">54</span><span class="ca">1Tm</span><span class="cname" data-pt="1 Timóteo" data-en="1 Timothy">1 Timóteo</span></div>
+    <div class="cell pau" tabindex="0" role="button" onclick="show('tm2')"><span class="cn">55</span><span class="ca">2Tm</span><span class="cname" data-pt="2 Timóteo" data-en="2 Timothy">2 Timóteo</span></div>
+    <div class="cell pau" tabindex="0" role="button" onclick="show('tt')"><span class="cn">56</span><span class="ca">Tt</span><span class="cname" data-pt="Tito" data-en="Titus">Tito</span></div>
+    <div class="cell pau" tabindex="0" role="button" onclick="show('fm')"><span class="cn">57</span><span class="ca">Fm</span><span class="cname" data-pt="Filemom" data-en="Philemon">Filemom</span></div>
+  </div>
+
+  <div class="slabel" data-pt="Epístolas Gerais · 8 livros" data-en="General Epistles · 8 books">Epístolas Gerais · 8 livros</div>
+  <div class="g r8">
+    <div class="cell ger" tabindex="0" role="button" onclick="show('hb')"><span class="cn">58</span><span class="ca">Hb</span><span class="cname" data-pt="Hebreus" data-en="Hebrews">Hebreus</span></div>
+    <div class="cell ger" tabindex="0" role="button" onclick="show('tg')"><span class="cn">59</span><span class="ca">Tg</span><span class="cname" data-pt="Tiago" data-en="James">Tiago</span></div>
+    <div class="cell ger" tabindex="0" role="button" onclick="show('pe1')"><span class="cn">60</span><span class="ca">1Pe</span><span class="cname" data-pt="1 Pedro" data-en="1 Peter">1 Pedro</span></div>
+    <div class="cell ger" tabindex="0" role="button" onclick="show('pe2')"><span class="cn">61</span><span class="ca">2Pe</span><span class="cname" data-pt="2 Pedro" data-en="2 Peter">2 Pedro</span></div>
+    <div class="cell ger" tabindex="0" role="button" onclick="show('jo1')"><span class="cn">62</span><span class="ca">1Jo</span><span class="cname" data-pt="1 João" data-en="1 John">1 João</span></div>
+    <div class="cell ger" tabindex="0" role="button" onclick="show('jo2')"><span class="cn">63</span><span class="ca">2Jo</span><span class="cname" data-pt="2 João" data-en="2 John">2 João</span></div>
+    <div class="cell ger" tabindex="0" role="button" onclick="show('jo3')"><span class="cn">64</span><span class="ca">3Jo</span><span class="cname" data-pt="3 João" data-en="3 John">3 João</span></div>
+    <div class="cell ger" tabindex="0" role="button" onclick="show('jd')"><span class="cn">65</span><span class="ca">Jd</span><span class="cname" data-pt="Judas" data-en="Jude">Judas</span></div>
+  </div>
+
+  <div class="slabel" data-pt="Profético · NT · 1 livro" data-en="Prophetic · NT · 1 book">Profético · NT · 1 livro</div>
+  <div class="g r1">
+    <div class="cell apo" tabindex="0" role="button" onclick="show('ap')" style="aspect-ratio:4/1.18;flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 16px;border-width:2px;">
+      <span class="cn" style="font-size:13px;">66</span>
+      <span class="ca" style="font-size:22px;">Ap</span>
+      <span class="cname" style="font-size:13px;text-align:left;" data-pt="Apocalipse" data-en="Revelation">Apocalipse</span>
+    </div>
+  </div>
+
+</div><!-- /ptable -->
+
+<!-- LEGEND -->
+<div class="tdiv" style="max-width:1100px;margin:28px auto 0;"><div class="tline r"></div><div class="tlabel" data-pt="✦ LEGENDA ✦" data-en="✦ LEGEND ✦">✦ LEGENDA ✦</div><div class="tline"></div></div>
+<div class="legend">
+  <div class="li"><div class="lsw" style="background:rgba(200,168,75,.14);border:1px solid rgba(200,168,75,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pen)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg></div><div><span class="lcat" style="color:var(--pen)" data-pt="AT · Lei" data-en="OT · Law">AT · Lei</span><span class="lname" style="color:var(--pen)" data-pt="Pentateuco" data-en="Pentateuch">Pentateuco</span></div><span class="lcount">5</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(224,82,82,.14);border:1px solid rgba(224,82,82,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--his)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><span class="lcat" style="color:var(--his)" data-pt="AT · Narrativa" data-en="OT · Narrative">AT · Narrativa</span><span class="lname" style="color:var(--his)" data-pt="Históricos" data-en="Historical">Históricos</span></div><span class="lcount">12</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(212,160,23,.14);border:1px solid rgba(212,160,23,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--poe)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div><span class="lcat" style="color:var(--poe)" data-pt="AT · Sabedoria" data-en="OT · Wisdom">AT · Sabedoria</span><span class="lname" style="color:var(--poe)" data-pt="Poéticos" data-en="Poetic">Poéticos</span></div><span class="lcount">5</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(74,159,212,.14);border:1px solid rgba(74,159,212,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--mai)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg></div><div><span class="lcat" style="color:var(--mai)" data-pt="AT · Profecia" data-en="OT · Prophecy">AT · Profecia</span><span class="lname" style="color:var(--mai)" data-pt="Prof. Maiores" data-en="Maj. Prophets">Prof. Maiores</span></div><span class="lcount">5</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(26,188,156,.14);border:1px solid rgba(26,188,156,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--men)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><span class="lcat" style="color:var(--men)" data-pt="AT · Profecia" data-en="OT · Prophecy">AT · Profecia</span><span class="lname" style="color:var(--men)" data-pt="Prof. Menores" data-en="Min. Prophets">Prof. Menores</span></div><span class="lcount">12</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(231,76,60,.14);border:1px solid rgba(231,76,60,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--eva)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><div><span class="lcat" style="color:var(--eva)" data-pt="NT · Biografia" data-en="NT · Biography">NT · Biografia</span><span class="lname" style="color:var(--eva)" data-pt="Evangelhos" data-en="Gospels">Evangelhos</span></div><span class="lcount">4</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(230,126,34,.14);border:1px solid rgba(230,126,34,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ato)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div><span class="lcat" style="color:var(--ato)" data-pt="NT · Narrativa" data-en="NT · Narrative">NT · Narrativa</span><span class="lname" style="color:var(--ato)" data-pt="Atos" data-en="Acts">Atos</span></div><span class="lcount">1</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(160,102,204,.14);border:1px solid rgba(160,102,204,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pau)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><span class="lcat" style="color:var(--pau)" data-pt="NT · Epístola" data-en="NT · Epistle">NT · Epístola</span><span class="lname" style="color:var(--pau)" data-pt="Paulinas" data-en="Pauline">Paulinas</span></div><span class="lcount">13</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(46,204,113,.14);border:1px solid rgba(46,204,113,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ger)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div><span class="lcat" style="color:var(--ger)" data-pt="NT · Epístola" data-en="NT · Epistle">NT · Epístola</span><span class="lname" style="color:var(--ger)" data-pt="Gerais" data-en="General">Gerais</span></div><span class="lcount">8</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(231,76,60,.14);border:1px solid rgba(231,76,60,.4)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--apo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><div><span class="lcat" style="color:var(--apo)" data-pt="NT · Profecia" data-en="NT · Prophecy">NT · Profecia</span><span class="lname" style="color:var(--apo)" data-pt="Apocalipse" data-en="Revelation">Apocalipse</span></div><span class="lcount">1</span></div>
+</div>
+
+</div><!-- /capture -->
+
+<script>
+// ══════════════════════════════════════════
+// DATABASE — 66 BOOKS
+// ══════════════════════════════════════════
+const DB = {
+gn:{num:'Livro 1 · Antigo Testamento',title:'Gênesis',abbr:'Gn · Pentateuco · Lei',
+author:'Moisés (tradição mosaica)',
+chars:['Adão','Eva','Noé','Abraão','Sara','Isaque','Jacó','José'],
+tags:['Criação','Queda','Aliança','Patriarcas','Providência','Tipologia'],
+body:`<p><strong>Contexto:</strong> Gênesis (hebraico <em>Bereshit</em> — "no princípio") é o livro das origens: da criação, da humanidade, do pecado e do povo de Israel. Atribuído a Moisés, provavelmente composto a partir de tradições orais e escritas anteriores, serve de fundamento a toda a teologia bíblica subsequente.</p>
+<p><strong>Estrutura e conteúdo:</strong> Os capítulos 1–11 formam a "história primeva": criação em seis dias, queda de Adão e Eva no Éden, assassinato de Abel por Caim, o dilúvio e Noé, a Torre de Babel. São narrativas de caráter universal — cosmogônico e etiológico — que explicam a condição humana fraturada e a distância entre o Criador e a criatura. Contrastam deliberadamente com o politeísmo dos mitos mesopotâmicos (<em>Enuma Elish</em>, Épico de Gilgamesh).</p>
+<p>A partir do capítulo 12, a narrativa estreita para a história patriarcal: a chamada de Abrão e as três promessas divinas — terra, descendência numerosa e bênção a todas as nações (12.1–3). Segue-se Isaque, Jacó (renomeado Israel), e os doze filhos que originarão as tribos. O livro encerra com a saga de José — traído, vendido como escravo e elevado a vice-rei do Egito — paradigma da providência divina que transforma o mal em bem.</p>
+<p><strong>Teologia central:</strong> Gênesis estabelece a aliança (<em>berith</em>), o monoteísmo criador e o ser humano como <em>imago Dei</em> (1.26–27). A promessa de 3.15 — a "semente da mulher" que esmagará a cabeça da serpente — é considerada pela tradição cristã a primeira profecia messiânica (<em>protoevangelium</em>).</p>`,
+verse:'"No princípio, Deus criou os céus e a terra." <cite>Gênesis 1.1 — NAA</cite>'},
+
+ex:{num:'Livro 2 · Antigo Testamento',title:'Êxodo',abbr:'Êx · Pentateuco · Lei',
+author:'Moisés',
+chars:['Moisés','Arão','Miriam','Faraó','Jetro','Josué','Séfora'],
+tags:['Libertação','Moisés','Páscoa','Sinai','Decálogo','Tabernáculo'],
+body:`<p><strong>Contexto:</strong> Êxodo narra o evento fundador da fé de Israel: a libertação da escravidão egípcia sob Moisés e o estabelecimento da aliança no Monte Sinai. O nome divino YHWH é revelado solenemente em 3.14 — "EU SOU O QUE SOU" — afirmação de existência autossuficiente que se tornará o fundamento do monoteísmo bíblico.</p>
+<p><strong>Estrutura:</strong> A primeira metade (caps. 1–18) descreve a opressão, o nascimento e chamado de Moisés na sarça ardente, as dez pragas sobre o Egito (cada uma desafiando uma divindade egípcia), a Páscoa (<em>Pesach</em>) e a travessia milagrosa do Mar Vermelho. A segunda metade (caps. 19–40) trata do Sinai: os Dez Mandamentos (Decálogo), o Código da Aliança, as instruções detalhadas para o Tabernáculo — a habitação divina no meio do povo —, e o episódio do bezerro de ouro que antecipa o problema da infidelidade.</p>
+<p><strong>Teologia e hermenêutica:</strong> O êxodo torna-se o paradigma central da salvação em toda a Bíblia. O NT apresenta Cristo como o novo Moisés, a Páscoa como prefiguração da morte de Cristo (1 Co 5.7), e o batismo como nova travessia do mar (1 Co 10.1–4). A lei do Sinai não é caminho de mérito, mas resposta grata à graça prévia do êxodo.</p>`,
+verse:'"EU SOU O QUE SOU." <cite>Êxodo 3.14 — NAA</cite>'},
+
+lv:{num:'Livro 3 · Antigo Testamento',title:'Levítico',abbr:'Lv · Pentateuco · Lei',
+author:'Moisés',
+chars:['Moisés','Arão','Nadabe','Abiú','Eleazar','Itamar'],
+tags:['Santidade','Sacrifícios','Sacerdócio','Yom Kippur','Pureza','Código de Santidade'],
+body:`<p><strong>Contexto:</strong> Levítico é o manual de adoração e santidade de Israel, centrado na tribo sacerdotal de Levi. O imperativo que o organiza — "Sede santos, porque eu sou santo" (19.2) — define a vocação do povo do pacto: refletir o caráter divino em todas as esferas da vida.</p>
+<p><strong>Conteúdo:</strong> Os capítulos 1–7 descrevem os cinco tipos de ofertas: holocausto (adoração total), oferta de manjares (gratidão), oferta de paz (comunhão), oferta pelo pecado (expiação involuntária) e oferta pela culpa (restituição). Os capítulos 8–10 narram a consagração sacerdotal e o episódio trágico de Nadabe e Abiú, mortos por oferecerem "fogo estranho" — a soberania divina sobre o culto. Os capítulos 11–15 estabelecem leis de pureza ritual.</p>
+<p>O ponto culminante é o capítulo 16: o Dia da Expiação (<em>Yom Kippur</em>), em que o sumo sacerdote aspergía sangue no Santo dos Santos e o bode expiatório era lançado ao deserto. O livro de Hebreus (caps. 9–10) interpreta esse ritual como sombra do sumo sacerdócio eterno de Cristo, que entrou no próprio santuário celestial com seu próprio sangue.</p>`,
+verse:'"Sede santos, porque eu, o <span style="font-variant:small-caps">Senhor</span>, o Deus de vocês, sou santo." <cite>Levítico 19.2 — NAA</cite>'},
+
+nm:{num:'Livro 4 · Antigo Testamento',title:'Números',abbr:'Nm · Pentateuco · Lei',
+author:'Moisés',
+chars:['Moisés','Arão','Miriam','Calebe','Josué','Balaão','Finéias'],
+tags:['Deserto','Rebeldia','Peregrinação','Censo','Balaão','Provação'],
+body:`<p><strong>Contexto:</strong> Números (hebraico <em>Bamidbar</em> — "no deserto") narra os quarenta anos de Israel entre o Sinai e as planícies de Moabe. O título refere-se aos dois censos militares (caps. 1–2 e 26) que enquadram o livro, mas o conteúdo central é a jornada de fé e falha no deserto.</p>
+<p><strong>Narrativa:</strong> A parte central (caps. 10–25) é dominada pela rebeldia: queixas contra a comida, a liderança de Moisés e Arão, e o momento decisivo — a recusa de entrar em Canaã após o relatório negativo dos espias (cap. 14). Esse pecado condena toda a geração do êxodo a morrer no deserto, sem entrar na terra prometida. O episódio das serpentes de bronze (21.4–9), em que o israelita picado olhava para o bronze e era curado, é interpretado por Jesus como prefiguração da Cruz (Jo 3.14).</p>
+<p>Os capítulos 22–24 contêm a narrativa de Balaão — profeta gentio contratado para amaldiçoar Israel que, contra sua vontade, profere apenas bênçãos e anuncia uma "estrela de Jacó." Paulo usa os fracassos de Israel no deserto como advertências tipológicas para a Igreja (1 Co 10.1–13).</p>`,
+verse:'"O <span style="font-variant:small-caps">Senhor</span> abençoe você e o proteja; o <span style="font-variant:small-caps">Senhor</span> faça resplandecer o seu rosto sobre você." <cite>Números 6.24–25 — NAA</cite>'},
+
+dt:{num:'Livro 5 · Antigo Testamento',title:'Deuteronômio',abbr:'Dt · Pentateuco · Lei',
+author:'Moisés',
+chars:['Moisés','Josué','Calebe'],
+tags:['Segunda Lei','Shemá','Aliança','Moisés','Bênçãos e Maldições','Grande Mandamento'],
+body:`<p><strong>Contexto:</strong> Deuteronômio (grego: "segunda lei") registra os discursos de despedida de Moisés nas planícies de Moabe, pouco antes de sua morte e da entrada em Canaã. Estruturado como um tratado de suserania hitita do segundo milênio a.C. — prólogo histórico, estipulações, bênçãos e maldições, disposição do documento —, o livro é a renovação solene da aliança sinaítica para a nova geração.</p>
+<p><strong>Teologia:</strong> O coração do livro é o <em>Shemá Yisrael</em> (6.4–9): "Ouça, ó Israel, o Senhor nosso Deus é o único Senhor. Amarás o Senhor teu Deus de todo o coração, de toda a tua alma e de toda a tua força" — que Jesus citou como o maior mandamento (Mc 12.29–30). O amor (<em>ahavah</em>) a Deus não é mero sentimento mas lealdade de aliança que permeia toda a existência.</p>
+<p>Os capítulos 27–30 apresentam as bênçãos e maldições condicionais à obediência ou apostasia. Os capítulos 31–34 narram a transferência da liderança para Josué e a morte de Moisés no Monte Nebo — que avistou a terra prometida mas não entrou. Jesus citou Deuteronômio nas três tentações no deserto (Mt 4), revelando sua centralidade na espiritualidade bíblica.</p>`,
+verse:'"Você amará o <span style="font-variant:small-caps">Senhor</span>, o seu Deus, de todo o coração, com toda a sua alma e com toda a sua força." <cite>Deuteronômio 6.5 — NAA</cite>'},
+
+js:{num:'Livro 6 · Antigo Testamento',title:'Josué',abbr:'Js · Históricos',
+author:'Josué (com adições posteriores)',
+chars:['Josué','Raabe','Calebe','Acã','Eleazar'],
+tags:['Conquista de Canaã','Terra Prometida','Aliança','Raabe','Distribuição das Tribos','Tipologia'],
+body:`<p><strong>Contexto:</strong> Josué narra o cumprimento parcial da promessa abraâmica: a entrada e conquista da terra de Canaã sob a liderança de Josué, o sucessor de Moisés. O livro divide-se em três blocos: entrada (caps. 1–5) com a travessia milagrosa do Jordão e a queda de Jericó ao som de trombetas; campanhas militares (caps. 6–12); e distribuição das terras (caps. 13–24).</p>
+<p><strong>Teologia complexa:</strong> A destruição dos povos cananeus (<em>cherem</em>) é apresentada como julgamento divino sobre civilizações cuja iniquidade estava "completa" (cf. Gn 15.16 — 400 anos de espera) e como medida de proteção da identidade religiosa de Israel. A narrativa de Raabe (cap. 2) — prostituta que escondeu os espias e foi preservada — demonstra que até uma cananeia pode ser incorporada ao povo de Deus pela fé. Ela aparece na genealogia de Jesus (Mt 1.5).</p>
+<p><strong>Tipologia:</strong> Josué é figura tipológica de Jesus (ambos chamados <em>Yeshua</em> em hebraico), conduzindo o povo à herança celestial como Cristo conduz a Igreja. O livro encerra com a grande assembleia de Siquém e a renovação da aliança: "Quanto a mim e à minha casa, serviremos ao Senhor" (24.15).</p>`,
+verse:'"Quanto a mim e à minha família, serviremos ao <span style="font-variant:small-caps">Senhor</span>." <cite>Josué 24.15 — NAA</cite>'},
+
+jz:{num:'Livro 7 · Antigo Testamento',title:'Juízes',abbr:'Jz · Históricos',
+author:'Anônimo (tradição profética; possivelmente Samuel)',
+chars:['Débora','Gideão','Sansão','Jefté','Baraque','Dalila'],
+tags:['Ciclo da Apostasia','Libertadores','Débora','Gideão','Sansão','Pré-monarquia'],
+body:`<p><strong>Contexto:</strong> Juízes cobre o período turbulento entre a morte de Josué e o surgimento da monarquia (~1200–1050 a.C.). O livro é organizado em torno de um ciclo recorrente de quatro fases: <em>apostasia</em> (Israel abandona YHWH) → <em>opressão</em> (submissão a povos inimigos) → <em>clamor</em> (apelo a Deus) → <em>libertação</em> (juiz levantado pelo Espírito) → paz → nova apostasia.</p>
+<p><strong>Os juízes:</strong> Os <em>shofetim</em> não são juízes jurídicos, mas líderes militares carismáticos. Entre os mais notáveis: <strong>Débora</strong>, a única mulher juíza, que conduz Israel à vitória junto com Baraque (cap. 4–5); <strong>Gideão</strong>, que com apenas 300 homens derrota Midiã pela estratégia divina (caps. 6–8); <strong>Jefté</strong>, filho de prostituta, e seu voto trágico (cap. 11); e <strong>Sansão</strong>, o nazireno de força sobre-humana cuja vida é marcada por fraqueza moral profunda (caps. 13–16).</p>
+<p><strong>Mensagem:</strong> O livro termina com dois episódios de horror (caps. 17–21) que revelam completa decomposição moral e religiosa. O leitmotiv — "Cada um fazia o que parecia reto aos seus próprios olhos" (21.25) — é o diagnóstico do relativismo moral sem autoridade divina, preparando o terreno para a demanda por um rei.</p>`,
+verse:'"Naqueles dias não havia rei em Israel; cada um fazia o que parecia certo aos seus próprios olhos." <cite>Juízes 21.25 — NAA</cite>'},
+
+rt:{num:'Livro 8 · Antigo Testamento',title:'Rute',abbr:'Rt · Históricos',
+author:'Anônimo (tradição atribui a Samuel)',
+chars:['Rute','Noemi','Boaz','Oarpá'],
+tags:['Lealdade','Hesed','Redenção','Go\'el','Genealogia Messiânica','Boaz'],
+body:`<p><strong>Contexto:</strong> Rute é um dos livros mais literariamente sofisticados e teologicamente ricos do AT — uma novela histórica de apenas quatro capítulos ambientada nos dias dos juízes. Conta a história de Noemi, israelita viúva que retorna de Moabe com sua nora Rute, moabita que escolheu o Deus de Israel com a famosa declaração de lealdade (1.16–17).</p>
+<p><strong>Conceito central — o <em>go'el</em>:</strong> O "parente-redentor" tem obrigação de resgatar um familiar em necessidade — seja comprando propriedade, seja casando com a viúva para perpetuar o nome do morto (levirato). Boaz, parente rico de Noemi, age como <em>go'el</em> ao se casar com Rute e resgatar a propriedade, restaurando ambas à dignidade e continuidade familiar. Cada detalhe da história é teologicamente trabalhado: a providência é visível na impossibilidade das "coincidências."</p>
+<p><strong>Relevância messiânica:</strong> A genealogia final revela que Rute e Boaz são bisavós do rei Davi — e portanto ancestrais diretos de Jesus (Mt 1.5). Boaz como redentor voluntário que paga o preço para resgatar uma estrangeira é uma das mais ricas imagens tipológicas de Cristo no AT. O livro também demonstra que a graça divina sempre transcendeu as fronteiras étnicas de Israel.</p>`,
+verse:'"Onde você morrer, também morrerei eu, e ali serei sepultada. Assim me faça o <span style="font-variant:small-caps">Senhor</span> e assim me acrescente, se outra coisa que não a morte nos separar." <cite>Rute 1.17 — NAA</cite>'},
+
+sm1:{num:'Livro 9 · Antigo Testamento',title:'1 Samuel',abbr:'1Sm · Históricos',
+author:'Samuel, Natã e Gade (compilação profética)',
+chars:['Samuel','Saul','Davi','Ana','Eli','Golias','Jônatas'],
+tags:['Monarquia','Samuel','Saul','Davi','Espírito do Senhor','Ungido'],
+body:`<p><strong>Contexto:</strong> 1 Samuel narra a transição de Israel do período carismático dos juízes para a monarquia institutcionalizada. Três personagens dominam o livro: <strong>Samuel</strong> (último juiz, primeiro profeta-escritor, que une as duas eras), <strong>Saul</strong> (primeiro rei, tragicamente rejeitado) e <strong>Davi</strong> (o jovem ungido que aguarda a hora de Deus).</p>
+<p><strong>Samuel:</strong> Filho de Ana — mulher estéril cuja oração fervorosa é respondida com milagre (caps. 1–2; eco em Isabel e Maria no NT). A chamada de Samuel na noite (cap. 3) estabelece o padrão profético: Deus fala ao jovem antes que "a palavra do Senhor lhe fosse revelada." O livro da Aliança retorna do cativeiro filisteu (caps. 4–7).</p>
+<p><strong>Saul e Davi:</strong> Saul é eleito a pedido do povo que quer ser "como as outras nações" — em si, um sinal de desconfiança em Deus. Sua rejeição vem pela desobediência parcial ao mandamento divino (caps. 13; 15). O contraste com Davi é teológico: "o homem vê o exterior, mas o Senhor olha para o coração" (16.7). A narrativa de Davi e Golias (cap. 17) é paradigma de fé que enfrenta o impossível confiando no nome do Senhor, não nas armas do mundo.</p>`,
+verse:'"O homem vê o que está diante dos olhos, mas o <span style="font-variant:small-caps">Senhor</span> vê o coração." <cite>1 Samuel 16.7b — NAA</cite>'},
+
+sm2:{num:'Livro 10 · Antigo Testamento',title:'2 Samuel',abbr:'2Sm · Históricos',
+author:'Natã e Gade (compilação profética)',
+chars:['Davi','Bate-Seba','Natã','Absalão','Joabe','Urias'],
+tags:['Reinado de Davi','Aliança Davídica','Bate-Seba','Absalão','Consequências do Pecado','Messianismo'],
+body:`<p><strong>Contexto:</strong> 2 Samuel cobre o reinado de Davi — "o homem segundo o coração de Deus" — em sua plenitude gloriosa e em sua profunda tragédia. O livro divide-se ao meio: ascensão e glória (caps. 1–10) e queda e suas ondas de choque (caps. 11–24).</p>
+<p><strong>A aliança davídica (cap. 7):</strong> É o ponto teológico mais alto do livro e um dos mais importantes de toda a Bíblia. Deus promete a Davi que sua dinastia será eterna e que um de seus descendentes terá um reino sem fim — texto fundador do messianismo bíblico, citado extensamente no NT como cumprido em Jesus (Lc 1.32–33; At 2.29–36; Hb 1.5).</p>
+<p><strong>A queda (cap. 11–12):</strong> O adultério com Bate-Seba e o assassinato premeditado de Urias — "o hitita", estrangeiro leal — é o nadir moral de Davi. O profeta Natã confronta o rei com a parábola da ovelha (cap. 12). A confissão de Davi (Sl 51) e o perdão concedido não eliminam as consequências: revolta do filho Absalão, morte de filhos, guerra civil e pestilência. O livro demonstra que a graça não suspende a colheita do pecado.</p>`,
+verse:'"A sua casa e o seu reino serão estabelecidos para sempre diante de mim; o seu trono será firme para sempre." <cite>2 Samuel 7.16 — NAA</cite>'},
+
+rs1:{num:'Livro 11 · Antigo Testamento',title:'1 Reis',abbr:'1Rs · Históricos',
+author:'Anônimo (escola deuteronomista; tradição atribui a Jeremias)',
+chars:['Salomão','Elias','Acabe','Jezebel','Roboão','Jeroboão'],
+tags:['Salomão','Templo','Sabedoria','Divisão do Reino','Elias','Apostasia'],
+body:`<p><strong>Contexto:</strong> 1 Reis cobre o reinado glorioso de Salomão e a tragédia da divisão do reino em dois após sua morte: Israel (Norte, 10 tribos) e Judá (Sul, 2 tribos). A divisão é apresentada como consequência direta da apostasia de Salomão na velhice — seus casamentos com mulheres estrangeiras o desviaram para outros deuses (cap. 11), violando Deuteronômio 17.</p>
+<p><strong>Salomão:</strong> Recebe sabedoria divina em sonho (cap. 3) e constrói o esplêndido Templo de Jerusalém (caps. 5–8). Sua oração de dedicação (cap. 8) é extraordinária em amplitude e profundidade teológica. Mas o esplendor material e a multiplicação de mulheres, cavalos e ouro violam o modelo deuteronômico do rei ideal.</p>
+<p><strong>Elias:</strong> A segunda metade introduz o grande profeta. Seu confronto com os 450 profetas de Baal no Monte Carmelo (cap. 18) e a teofania suave no Monte Horebe (cap. 19 — "uma voz quieta e delicada") são narrativas de poder espiritual e vulnerabilidade humana. Elias representa o profetismo reformador que desafia a apostasia do poder. Ele reaparece na Transfiguração de Jesus (Mc 9) e é identificado com João Batista (Ml 4.5; Mc 9.13).</p>`,
+verse:'"O <span style="font-variant:small-caps">Senhor</span> é Deus! O <span style="font-variant:small-caps">Senhor</span> é Deus!" <cite>1 Reis 18.39 — NAA</cite>'},
+
+rs2:{num:'Livro 12 · Antigo Testamento',title:'2 Reis',abbr:'2Rs · Históricos',
+author:'Anônimo (escola deuteronomista)',
+chars:['Eliseu','Elias','Ezequias','Josias','Naamã','Acabe','Jeú'],
+tags:['Queda de Israel','Queda de Judá','Exílio Assírio','Exílio Babilônico','Eliseu','Josias'],
+body:`<p><strong>Contexto:</strong> 2 Reis completa a narrativa dos dois reinos e descreve suas quedas definitivas: o reino do Norte (Israel) é destruído pela Assíria em 722 a.C. (cap. 17), e o reino do Sul (Judá) é conquistado pela Babilônia em 586 a.C., com a destruição do Templo de Salomão (cap. 25). São os pontos mais baixos da história de Israel.</p>
+<p><strong>Eliseu:</strong> O livro abre com a ascensão de Eliseu, que herda o manto de Elias. Seus milagres antecipam o ministério de Jesus: multiplicação de alimentos, ressurreição de um menino (cap. 4), cura de Naamã o leproso arameu (cap. 5 — citado por Jesus em Lc 4.27 como exemplo da graça que ultrapassa Israel). A visão dos cavalos de fogo ao redor de Dotã (6.17) revela a realidade espiritual invisível por trás do mundo visível.</p>
+<p><strong>O critério deuteronômico:</strong> Cada rei é avaliado segundo sua fidelidade ao modelo de Davi. Apenas Ezequias e Josias recebem avaliação plenamente positiva. A reforma de Josias (caps. 22–23), desencadeada pela descoberta do Livro da Lei no Templo, representa o último esforço de renovação antes do colapso final. O exílio é apresentado como cumprimento das advertências de Moisés (Dt 28).</p>`,
+verse:'"O <span style="font-variant:small-caps">Senhor</span> removeu Israel da sua presença, como havia anunciado por intermédio de todos os seus servos, os profetas." <cite>2 Reis 17.23 — NAA</cite>'},
+
+cr1:{num:'Livro 13 · Antigo Testamento',title:'1 Crônicas',abbr:'1Cr · Históricos',
+author:'Esdras (tradição rabínica)',
+chars:['Davi','Salomão','Joabe','Natã','Asafe'],
+tags:['Genealogias','Davi','Templo','Pós-exílio','Adoração','Identidade'],
+body:`<p><strong>Contexto:</strong> 1 e 2 Crônicas foram escritos após o retorno do exílio babilônico (provavelmente por Esdras, no século 5 a.C.) e oferecem uma releitura teológica seletiva da história de Israel, com foco em Davi, Salomão e o Templo. A perspectiva é sacerdotal e litúrgica — não política como em Samuel-Reis.</p>
+<p><strong>Genealogias (caps. 1–9):</strong> Nove capítulos de listas genealógicas de Adão a Israel podem parecer áridas, mas têm função teológica precisa: estabelecer a continuidade ininterrupta do povo de Deus do começo da história até o retorno do exílio. O povo que retorna não é um povo novo — é o mesmo povo da aliança.</p>
+<p><strong>Davi (caps. 10–29):</strong> O Cronista ignora os pecados de Davi (Bate-Seba não é mencionada) e concentra-se em sua organização do culto e sua preparação para o Templo — que ele deseja mas não pode construir por ser "homem de guerras." A teologia da presença divina e da adoração correta é central para a comunidade pós-exílica que precisa reconstruir sua identidade em torno do culto restaurado.</p>`,
+verse:'"Teus, <span style="font-variant:small-caps">Senhor</span>, são a grandeza, o poder, a glória, a vitória e a majestade; pois teus são todos os seres que estão nos céus e na terra." <cite>1 Crônicas 29.11 — NAA</cite>'},
+
+cr2:{num:'Livro 14 · Antigo Testamento',title:'2 Crônicas',abbr:'2Cr · Históricos',
+author:'Esdras (tradição rabínica)',
+chars:['Salomão','Ezequias','Josias','Josafá','Asa','Ciro'],
+tags:['Salomão','Templo','Reformas Religiosas','Avivamento','Exílio','Decreto de Ciro'],
+body:`<p><strong>Contexto:</strong> 2 Crônicas vai do reinado de Salomão ao decreto de Ciro que autoriza o retorno do exílio babilônico. O foco é exclusivo no reino de Judá — os reis do Norte são ignorados — e o critério de avaliação é sempre a relação com o Templo e o culto a YHWH.</p>
+<p><strong>Salomão:</strong> Aparece como o construtor do Templo par excellence. Sua oração de dedicação (caps. 6–7) é o coração espiritual do livro, culminando na promessa de 7.14 — texto mais citado de 2 Crônicas em contextos de oração nacional e avivamento: "se o meu povo... se humilhar, orar, buscar a minha face e se converter dos seus maus caminhos, então eu ouvirei dos céus."</p>
+<p><strong>Ciclos de reforma:</strong> Asa, Josafá, Ezequias e Josias lideram renovações espirituais que parcialmente revertem a apostasia nacional. A queda final (cap. 36) é seguida pelos dois versículos finais que reproduzem o decreto de Ciro — deixando o livro deliberadamente em nota de esperança e abertura. O texto de encerramento flui diretamente para o início de Esdras, revelando que era uma obra contínua.</p>`,
+verse:'"Se o meu povo, que se chama pelo meu nome, se humilhar, orar, buscar a minha face e se converter dos seus maus caminhos, então eu ouvirei do céu, perdoarei os seus pecados e restaurarei a sua terra." <cite>2 Crônicas 7.14 — NAA</cite>'},
+
+ed:{num:'Livro 15 · Antigo Testamento',title:'Esdras',abbr:'Ed · Históricos',
+author:'Esdras',
+chars:['Esdras','Zorobabel','Ciro','Dario','Sesbasar'],
+tags:['Retorno do Exílio','Segundo Templo','Decreto de Ciro','Lei','Reforma','Identidade Pós-exílica'],
+body:`<p><strong>Contexto:</strong> Esdras narra dois momentos do retorno do exílio babilônico: o primeiro retorno sob Zorobabel (538 a.C.) para reconstruir o Templo (caps. 1–6), e o segundo retorno sob Esdras, escriba e sacerdote (458 a.C.), para restaurar a observância da Torá (caps. 7–10).</p>
+<p><strong>Providência e política:</strong> O livro começa com o decreto do rei persa Ciro em 538 a.C. — um rei pagão como instrumento da providência divina para cumprir a profecia de Isaías 44.28. A reconstrução do Templo enfrenta oposição dos samaritanos e outros vizinhos, é suspensa por 16 anos, e finalmente concluída em 516 a.C. — 70 anos após a destruição, como Jeremias havia anunciado.</p>
+<p><strong>Esdras como modelo:</strong> A frase que define Esdras é programática: "Esdras tinha preparado o seu coração para buscar a lei do Senhor, cumpri-la e ensiná-la em Israel" (7.10) — a ordem é crucial: primeiro buscar, depois fazer, depois ensinar. A crise dos casamentos mistos (caps. 9–10) reflete a preocupação da comunidade pós-exílica com a identidade covenantal e a pureza do testemunho monoteísta.</p>`,
+verse:'"Pois Esdras havia dedicado o seu coração a estudar a lei do <span style="font-variant:small-caps">Senhor</span>, a praticá-la e a ensinar os seus preceitos e ordenanças em Israel." <cite>Esdras 7.10 — NAA</cite>'},
+
+ne:{num:'Livro 16 · Antigo Testamento',title:'Neemias',abbr:'Ne · Históricos',
+author:'Neemias (com edição de Esdras)',
+chars:['Neemias','Esdras','Sambalate','Tobias','Artaxerxes'],
+tags:['Muro de Jerusalém','Liderança Servidora','Avivamento','Esdras','Reforma','Oração'],
+body:`<p><strong>Contexto:</strong> Neemias era copeiro do rei persa Artaxerxes I — uma posição de confiança e influência na corte. Ao receber notícias de Jerusalém destruída, chora, jejua e ora por dias (cap. 1) antes de pedir ao rei permissão para reconstruir os muros. Sua missão (444 a.C.) é a terceira fase do retorno pós-exílico.</p>
+<p><strong>Reconstrução e liderança:</strong> Os muros de Jerusalém são reconstruídos em apenas 52 dias (cap. 6), apesar da oposição intensa de Sambalate, Tobias e Gesém. Neemias demonstra liderança exemplar: trabalha junto com o povo, arma os construtores para a defesa, e recusa os encontros armadilha dos inimigos. Sua resposta clássica à ameaça: "Estamos fazendo uma grande obra e não podemos descer" (6.3).</p>
+<p><strong>O avivamento:</strong> Os capítulos 8–10 descrevem uma das maiores cenas de renovação espiritual do AT: Esdras lê a Torá por horas diante do povo reunido, os levitas explicam o texto em vernáculo, e o povo chora de contrição antes de ser encorajado: "A alegria do Senhor é a vossa força" (8.10). A alegria, aqui, não nega o lamento — ela é a resposta ao perdão divino celebrado no contexto de arrependimento genuíno.</p>`,
+verse:'"A alegria do <span style="font-variant:small-caps">Senhor</span> é a força de vocês." <cite>Neemias 8.10 — NAA</cite>'},
+
+et:{num:'Livro 17 · Antigo Testamento',title:'Ester',abbr:'Et · Históricos',
+author:'Anônimo (possivelmente Mardoqueu ou Esdras)',
+chars:['Ester','Mardoqueu','Hamã','Assuero','Vasti'],
+tags:['Providência Oculta','Diáspora','Hamã','Mardoqueu','Purim','Coragem'],
+body:`<p><strong>Contexto:</strong> Ester é um dos dois livros canônicos que não mencionam o nome de Deus — o outro é Cantares. Esta ausência é teologicamente deliberada: a narrativa demonstra a providência divina operando nas "coincidências" da vida ordinária, sem intervenção miraculosa explícita. Ambientada na corte persa de Susa (século 5 a.C.), conta como Ester, judia na diáspora, torna-se rainha e salva seu povo.</p>
+<p><strong>Estrutura de inversão:</strong> O livro é construído em torno de festins e reviravoltas irônicas. Hamã, o ministro arrogante que planeja exterminar todos os judeus, acaba enforcado na própria forca erguida para Mardoqueu. O decreto de morte torna-se decreto de vitória. A estrutura é quiasmática — o ponto mais baixo reverte para o mais alto com simetria literária perfeita.</p>
+<p><strong>Teologia da providência:</strong> A frase programática de Mardoqueu a Ester — "Quem sabe se não foi precisamente para uma ocasião como esta que chegaste à posição de rainha?" (4.14) — é um dos textos mais citados sobre vocação estratégica e providência divina. O livro fundamenta a festa judaica de Purim, celebrada até hoje com alegria e fantasia como memória da libertação improvável.</p>`,
+verse:'"Quem sabe se você não chegou à posição de rainha precisamente para um momento como este?" <cite>Ester 4.14 — NAA</cite>'},
+
+jo:{num:'Livro 18 · Antigo Testamento',title:'Jó',abbr:'Jó · Poéticos · Sapienciais',
+author:'Anônimo (possivelmente Jó, Moisés ou Salomão)',
+chars:['Jó','Elifaz','Bildade','Zofar','Eliú','Satanás'],
+tags:['Sofrimento','Teodiceia','Sabedoria','Lamento','Teofania','Restauração'],
+body:`<p><strong>Contexto:</strong> Jó é um dos livros mais literariamente sofisticados e filosoficamente profundos da Bíblia. Seu tema central é a teodiceia — a questão do sofrimento do justo. O livro abre com um prólogo em prosa (caps. 1–2) que revela ao leitor o que Jó nunca saberá: um debate celestial em que Satanás questiona se a piedade de Jó é interesseira.</p>
+<p><strong>Os diálogos:</strong> O corpo do livro (caps. 3–37) é poesia de extraordinária qualidade. Jó lamenta sua condição em linguagem de grande intensidade. Seus três amigos — Elifaz, Bildade e Zofar — representam a teologia ortodoxa da retribuição: você sofre porque pecou. Jó recusa esse esquema simplista e exige uma audiência com Deus. Eliú (caps. 32–37) acrescenta a dimensão do sofrimento educativo.</p>
+<p><strong>A teofania e a resposta:</strong> Deus responde do meio do redemoinho (caps. 38–41) não com explicações, mas com perguntas sobre a criação: "Onde estavas quando lancei os fundamentos da terra?" A resposta divina não resolve a pergunta — ela a transcende pela experiência da presença. Jó se rende e é restaurado. Mas o clímax não é a restauração — é o encontro. Os amigos são repreendidos por falarem erroneamente sobre Deus; Jó, que clamou com honestidade, é vindicado.</p>`,
+verse:'"Eu sei que o meu Redentor vive e que, por fim, ele se levantará sobre o pó." <cite>Jó 19.25 — NAA</cite>'},
+
+sl:{num:'Livro 19 · Antigo Testamento',title:'Salmos',abbr:'Sl · Poéticos · Sapienciais',
+author:'Davi (principal), Asafe, filhos de Coré, Salomão, Moisés e outros',
+chars:['Davi','Salomão','Moisés','Asafe','Coré'],
+tags:['Adoração','Lamento','Messias','Oração','Poesia Hebraica','Davi'],
+body:`<p><strong>Contexto:</strong> Os 150 Salmos são o hinário e livro de oração do povo de Deus através dos séculos — o livro mais citado no NT e o mais lido em toda a história da espiritualidade cristã e judaica. Cobre toda a gama da experiência humana diante de Deus: adoração extática, lamento profundo, confissão de pecado, gratidão, clamor de socorro, meditação na Lei e esperança escatológica.</p>
+<p><strong>Estrutura:</strong> O Saltério é dividido em cinco "livros" (Sl 1–41; 42–72; 73–89; 90–106; 107–150), provavelmente em paralelo com os cinco livros de Moisés. Os autores incluem Davi (73 salmos), os filhos de Coré, Asafe, Salomão, Moisés e muitos anônimos.</p>
+<p><strong>Dimensão messiânica:</strong> Muitos salmos são amplamente citados no NT como cumpridos em Jesus. O Salmo 2 — "Tu és meu filho; eu hoje te gerei" — é citado na Transfiguração e em Hebreus 1. O Salmo 22 — "Deus meu, por que me abandonaste?" — é citado por Jesus na Cruz. O Salmo 110 — "Senta-te à minha direita" — é o texto do AT mais citado no NT. O Salmo 118 — "A pedra que os construtores rejeitaram" — é aplicado por Jesus a si mesmo. O Salmo 23 — "O Senhor é o meu pastor" — é provavelmente o texto mais memorizado em toda a história da fé.</p>`,
+verse:'"O <span style="font-variant:small-caps">Senhor</span> é o meu pastor; nada me faltará." <cite>Salmo 23.1 — NAA</cite>'},
+
+pv:{num:'Livro 20 · Antigo Testamento',title:'Provérbios',abbr:'Pv · Poéticos · Sapienciais',
+author:'Salomão (principal), Agur e Lemuel',
+chars:['Salomão','Agur','Lemuel'],
+tags:['Sabedoria Prática','Temor do Senhor','Família','Trabalho','Linguagem','Mulher Virtuosa'],
+body:`<p><strong>Contexto:</strong> Provérbios é o livro de sabedoria prática por excelência da Bíblia. O princípio organizador é anunciado em 1.7 e 9.10: "O temor do Senhor é o princípio da sabedoria." A sabedoria (<em>chokmah</em>) bíblica não é abstrata — é a arte de viver bem em todas as dimensões da existência: trabalho, família, amizade, dinheiro, linguagem, sexualidade e liderança. A relação com Deus é o fundamento de tudo.</p>
+<p><strong>Estrutura:</strong> Os capítulos 1–9 são longos poemas sobre a Sabedoria personificada como mulher que convida os jovens ao seu caminho — em contraste com a "mulher estranha" da sedução. O capítulo 8 apresenta a Sabedoria como co-criadora com Deus, texto que influenciou a reflexão sobre o Logos em João 1. Os capítulos 10–29 são a grande coleção de provérbios saloMônicos. Os capítulos 30–31 incluem "as palavras de Agur" e o poema acróstico da "mulher virtuosa" (31.10–31).</p>
+<p><strong>Hermenêutica:</strong> Os provérbios são princípios gerais de vida, não promessas absolutas. Precisam ser lidos no contexto mais amplo da sabedoria bíblica que inclui Jó (o justo que sofre) e Eclesiastes (a limitação da sabedoria humana). Juntos, os três livros formam uma teologia de sabedoria equilibrada e realista.</p>`,
+verse:'"Confie no <span style="font-variant:small-caps">Senhor</span> de todo o coração e não se apoie em seu próprio entendimento." <cite>Provérbios 3.5 — NAA</cite>'},
+
+ec:{num:'Livro 21 · Antigo Testamento',title:'Eclesiastes',abbr:'Ec · Poéticos · Sapienciais',
+author:'Qohelet (atribuído a Salomão)',
+chars:['Qohelet (Salomão)'],
+tags:['Vaidade','Hebel','Morte','Tempo','Existencialismo','Limitação Humana'],
+body:`<p><strong>Contexto:</strong> Eclesiastes é o livro mais filosófico — e aparentemente mais cético — da Bíblia. O Pregador (<em>Qohelet</em> em hebraico, "aquele que reúne a assembleia") observa a vida "debaixo do sol" e anuncia: <em>hebel hebalim</em> — "vaidade das vaidades, tudo é vaidade" (<em>hebel</em> = vapor, sopro, algo efêmero e impalpável).</p>
+<p><strong>Os grandes temas:</strong> O livro percorre a futilidade do trabalho humano que não sobrevive à morte (cap. 2); a irreversibilidade e enigma do tempo (cap. 3 — "há um tempo para tudo"); a injustiça persistente na sociedade (cap. 4); a relatividade da sabedoria diante da morte que nivela sábio e tolo (caps. 6–7); e a imprevisibilidade do futuro (cap. 9 — "nem sempre os ágeis vencem a corrida").</p>
+<p><strong>Teologia:</strong> Eclesiastes não é niilismo — é a cura do otimismo ingênuo. A tentativa de encontrar significado definitivo "debaixo do sol" sem Deus resulta em absurdo. O antídoto é "temer a Deus e guardar seus mandamentos" (12.13–14) e aceitar com gratidão os prazeres simples como dons divinos no meio da brevidade da vida. É uma teologia radical da limitação humana que abre espaço para a revelação transcendente.</p>`,
+verse:'"Tema a Deus e guarde os seus mandamentos, pois isto é o dever de todo ser humano." <cite>Eclesiastes 12.13 — NAA</cite>'},
+
+ct:{num:'Livro 22 · Antigo Testamento',title:'Cantares',abbr:'Ct · Poéticos · Sapienciais',
+author:'Salomão',
+chars:['Salomão','A Sulamita'],
+tags:['Amor Conjugal','Eros','Alegoria','Aliança','Beleza','Salomão'],
+body:`<p><strong>Contexto:</strong> Cantares de Salomão (<em>Shir Hashirim</em> — "o mais sublime dos cânticos") é um poema de amor erótico entre um homem e uma mulher. É um dos livros mais debatidos hermeneuticamente: deve ser lido literalmente (celebração do amor conjugal), alegoricamente (amor entre Deus e Israel / Cristo e a Igreja) ou de ambas as maneiras?</p>
+<p><strong>Interpretações:</strong> A tradição judaica alegoriza o livro como expressão do amor de YHWH por Israel — Rabbi Akiva o chamou de "Santo dos Santos dos escritos." A tradição cristã, desde Orígenes e Bernardo de Claraval, o leu como o amor de Cristo pela Igreja. Ambas as leituras têm fundamento na teologia bíblica da aliança, que frequentemente usa a metáfora conjugal para descrever a relação entre Deus e seu povo (Os 1–3; Ef 5.25–32).</p>
+<p><strong>Teologia da sexualidade:</strong> O texto em si é explicitamente sensual e celebra a sexualidade humana dentro do amor comprometido como algo bom e sagrado — criado por Deus, bênção do Éden. O livro corrige tanto o ascetismo que rejeita o corpo como o erotismo desvinculado do amor fiel. A tensão produtiva entre as leituras literal e alegórica sugere que a sexualidade humana é, ela mesma, metáfora da aliança divina.</p>`,
+verse:'"Forte como a morte é o amor, e cruel como o reino dos mortos é o ciúme; as suas brasas são brasas de fogo, uma chama do <span style="font-variant:small-caps">Senhor</span>." <cite>Cantares 8.6 — NAA</cite>'},
+
+is:{num:'Livro 23 · Antigo Testamento',title:'Isaías',abbr:'Is · Profetas Maiores',
+author:'Isaías, filho de Amoz',
+chars:['Isaías','Ezequias','Acaz','Senaqueribe','O Servo Sofredor'],
+tags:['Messias','Servo Sofredor','Santo de Israel','Consolação','Novo Êxodo','Escatologia'],
+body:`<p><strong>Contexto:</strong> Isaías é o maior dos profetas e o livro mais citado no Novo Testamento — mais de 400 citações ou alusões. Chamado de "o Evangelho do AT" ou "o quinto Evangelho," Isaías profetizou em Jerusalém durante o reinado de quatro reis: Uzias, Jotão, Acaz e Ezequias (740–700 a.C.), um ministério de cerca de 40 anos.</p>
+<p><strong>Estrutura:</strong> O livro divide-se em dois grandes blocos: Isaías 1–39 ("proto-Isaías"), com foco no julgamento de Israel, Judá e as nações, culminando no episódio histórico da invasão assíria e a libertação miraculosa de Jerusalém sob Ezequias; e Isaías 40–66 ("deutero/trito-Isaías"), com foco na consolação, restauração e salvação escatológica, endereçado à comunidade do exílio babilônico e além.</p>
+<p><strong>Profecia messiânica:</strong> Os quatro "Cânticos do Servo" (42; 49; 50; 52–53) são o ápice do messianismo pré-cristão. Isaías 53 — o servo ferido "por causa das nossas transgressões, moído por causa das nossas iniquidades, o castigo que nos traz paz estava sobre ele" — é o texto messiânico mais explícito do AT e foi amplamente citado pelos apóstolos. Isaías também profetizou o nascimento virginal (7.14), o Príncipe da Paz (9.6–7), e a nova criação (65–66).</p>`,
+verse:'"Mas ele foi traspassado por causa das nossas transgressões e esmagado por causa das nossas iniquidades." <cite>Isaías 53.5 — NAA</cite>'},
+
+jr:{num:'Livro 24 · Antigo Testamento',title:'Jeremias',abbr:'Jr · Profetas Maiores',
+author:'Jeremias (com Baruc como escriba)',
+chars:['Jeremias','Baruc','Joiaquim','Zedequias','Paxur','Nebuzaradã'],
+tags:['Nova Aliança','Julgamento','Lamento','Exílio Babilônico','Missão às Nações','Perseguição'],
+body:`<p><strong>Contexto:</strong> Jeremias profetizou nos últimos anos do reino de Judá — de Josias até a destruição de Jerusalém em 586 a.C. e o início do exílio. É o profeta que mais revelou seu mundo interior, sendo chamado de "o profeta lacrimoso." Chamado ainda jovem, resistiu ao chamado divino ("não sei falar, sou ainda jovem" — 1.6) e viveu um ministério de constante rejeição, prisão e isolamento.</p>
+<p><strong>As "Confissões" de Jeremias:</strong> Os capítulos 11–20 contêm orações de angústia únicas na literatura bíblica — Jeremias questiona Deus sobre seu próprio sofrimento, chega a amaldiçoar o dia de seu nascimento (cap. 20). Essa honestidade brutal antecipa a linguagem de abandono de Jesus na Cruz e torna Jeremias o profeta mais "humano" da Bíblia.</p>
+<p><strong>A Nova Aliança (cap. 31):</strong> O ponto alto teológico do livro e um dos textos mais importantes do AT. Deus promete uma aliança nova — não como a do Sinai que Israel rompeu — em que sua lei será escrita no coração do povo, não em tábuas de pedra. Este texto é citado em Hebreus 8–10 como cumprido na mediação de Cristo. A carta de Jeremias aos exilados (cap. 29) com a exortação a "buscar o shalom da cidade" tornou-se texto fundacional para a teologia da missão cultural.</p>`,
+verse:'"Pois eu sei os planos que tenho para vocês, diz o <span style="font-variant:small-caps">Senhor</span>, planos de fazê-los prosperar e não de causar dano, planos de dar a vocês esperança e um futuro." <cite>Jeremias 29.11 — NAA</cite>'},
+
+lm:{num:'Livro 25 · Antigo Testamento',title:'Lamentações',abbr:'Lm · Profetas Maiores',
+author:'Jeremias (tradição judaica e cristã)',
+chars:['Jeremias','Jerusalém (personificada)'],
+tags:['Lamento','Destruição de Jerusalém','Misericórdias','Fé no Sofrimento','Poesia Acróstica','Esperança'],
+body:`<p><strong>Contexto:</strong> Lamentações é uma coleção de cinco poemas sobre a destruição de Jerusalém em 586 a.C. pela Babilônia. A tradição hebraica e cristã associa o livro a Jeremias. Os quatro primeiros poemas são acrósticos hebraicos — cada verso começa com uma letra do alfabeto hebraico de 22 letras — sugerindo que a expressão da dor foi artisticamente estruturada: o lamento tem forma, não é caos.</p>
+<p><strong>O choro e a esperança:</strong> O livro abre com um choro agudo: "Como está solitária a cidade que era tão populosa!" (1.1). A personificação de Jerusalém como mulher viúva e desolada cria pathos literário de rara intensidade. Os poemas oscilam entre descrição da catástrofe, confissão de que o julgamento era merecido, clamor a Deus e esperança.</p>
+<p><strong>O coração do livro (cap. 3):</strong> No centro exato do livro está uma das declarações mais extraordinárias da fé bíblica — feita no meio da maior catástrofe da história de Israel: "As misericórdias do Senhor certamente não têm fim, as suas misericórdias não se esgotam; renovam-se cada manhã. Grande é a tua fidelidade!" (3.22–23). Esta afirmação de <em>hesed</em> divino, proferida na escuridão total, torna-se o fundamento da esperança que não depende das circunstâncias.</p>`,
+verse:'"As misericórdias do <span style="font-variant:small-caps">Senhor</span> jamais cessam; as suas compaixões nunca se esgotam; renovam-se cada manhã. Grande é a tua fidelidade!" <cite>Lamentações 3.22–23 — NAA</cite>'},
+
+ez:{num:'Livro 26 · Antigo Testamento',title:'Ezequiel',abbr:'Ez · Profetas Maiores',
+author:'Ezequiel, filho de Buzi (sacerdote-profeta)',
+chars:['Ezequiel','Nabucodonosor','O Príncipe de Tiro'],
+tags:['Visões','Glória de Deus','Exílio','Merkavah','Ossos Secos','Novo Templo'],
+body:`<p><strong>Contexto:</strong> Ezequiel profetizou entre os exilados na Babilônia (593–571 a.C.). Sacerdote antes de ser profeta, sua teologia é profundamente litúrgica e visionária. O livro é o mais simbólico dos profetas maiores e exerceu enorme influência sobre a literatura apocalíptica judaica e o Apocalipse de João.</p>
+<p><strong>A visão da <em>merkavah</em> (cap. 1):</strong> A carruagem divina — quatro criaturas viventes com asas e rodas dentro de rodas — é a visão de abertura. Representa a onipresença e mobilidade da glória de YHWH, que não está presa ao Templo de Jerusalém. A subsequente partida da glória divina do Templo (caps. 8–11) é o momento mais assustador do livro: Deus abandona o Templo corrompido antes que os babilônios o destruam.</p>
+<p><strong>Oráculos de julgamento e restauração:</strong> Os capítulos 4–24 contêm oráculos de julgamento dramatizados em ações simbólicas de Ezequiel. Os capítulos 25–32 são oráculos contra as nações. A parte final (caps. 33–48) é de esperança: a visão dos ossos secos que voltam à vida (cap. 37 — imagem da restauração de Israel e, para o NT, da ressurreição corporal), e a visão do novo Templo escatológico com um rio que flui do santuário vivificando o mar Morto (caps. 40–48).</p>`,
+verse:'"Darei a vocês um coração novo e porei dentro de vocês um espírito novo." <cite>Ezequiel 36.26 — NAA</cite>'},
+
+dn:{num:'Livro 27 · Antigo Testamento',title:'Daniel',abbr:'Dn · Profetas Maiores',
+author:'Daniel',
+chars:['Daniel','Sadraque','Mesaque','Abede-Nego','Nabucodonosor','Belsazar'],
+tags:['Fidelidade na Corte','Filho do Homem','Apocalipse','Impérios','Visões','Messias'],
+body:`<p><strong>Contexto:</strong> Daniel combina de modo único narrativas de fidelidade em corte pagã (caps. 1–6) com visões apocalípticas sobre o destino dos reinos da história (caps. 7–12). Escrito parcialmente em aramaico (2.4–7.28), é o livro mais apocalíptico do AT e o mais citado no Apocalipse de João.</p>
+<p><strong>As narrativas (caps. 1–6):</strong> A recusa de Daniel e seus amigos de comer a comida do rei (cap. 1 — fidelidade mesmo no pequeno); a interpretação do sonho de Nabucodonosor (cap. 2 — estátua de metais = sucessivos impérios mundiais, destruídos por uma pedra não talhada por mãos humanas); os três jovens na fornalha ardente (cap. 3 — "mesmo que não, não serviremos a teus deuses"); a loucura de Nabucodonosor (cap. 4); a escrita na parede no banquete de Belsazar (cap. 5); Daniel na cova dos leões (cap. 6).</p>
+<p><strong>As visões (caps. 7–12):</strong> A visão central é do capítulo 7 — quatro bestas representando impérios, o Ancião de Dias em julgamento, e o "Filho do Homem" que recebe um reino eterno de toda a humanidade. Este título, que Jesus aplicou a si mesmo com mais frequência do que qualquer outro, é a identidade messiânica mais explicitamente definida no AT.</p>`,
+verse:'"Eu estava contemplando nas visões da noite, quando surgiu alguém semelhante a um filho do homem, vindo com as nuvens do céu." <cite>Daniel 7.13 — NAA</cite>'},
+
+os:{num:'Livro 28 · Antigo Testamento',title:'Oséias',abbr:'Os · Profetas Menores',
+author:'Oséias, filho de Beeri',
+chars:['Oséias','Gômer'],
+tags:['Amor de Aliança','Hesed','Infidelidade','Metáfora Conjugal','Reino do Norte','Restauração'],
+body:`<p><strong>Contexto:</strong> Oséias foi o primeiro dos doze profetas menores e profetizou ao reino do Norte (Israel) no século 8 a.C., contemporâneo de Amós, Isaías e Miquéias. Sua característica única é que sua vida pessoal — o casamento com Gômer, mulher infiel — torna-se metáfora viva e visceral da relação de Deus com Israel.</p>
+<p><strong>A metáfora conjugal:</strong> Deus manda Oséias casar com uma mulher que o trairá repetidamente, para que o profeta experimente na própria carne o que Deus sente quando Israel se prostitui com os deuses cananeus de Baal. O amor persistente e redentor de Oséias por Gômer — ele a compra de volta depois de ela ter sido vendida (cap. 3) — ilustra o <em>hesed</em> de Deus: amor de aliança inabalável por um povo que não o merece.</p>
+<p><strong>Teologia:</strong> O capítulo 11 é um dos textos mais emocionalmente poderosos do AT: "Quando Israel era menino, eu o amei; do Egito chamei meu filho... mas eles não perceberam que eu cuidava deles." A tensão entre julgamento merecido e amor que não abandona é o coração do livro — e da teologia bíblica. Mateus 2.15 cita Oséias 11.1 como cumprido no retorno da família de Jesus do Egito.</p>`,
+verse:'"Porque eu quero amor leal e não sacrifício, e o conhecimento de Deus em vez de holocaustos." <cite>Oséias 6.6 — NAA</cite>'},
+
+jl:{num:'Livro 29 · Antigo Testamento',title:'Joel',abbr:'Jl · Profetas Menores',
+author:'Joel, filho de Petuel',
+chars:['Joel'],
+tags:['Dia do Senhor','Espírito Santo','Gafanhotos','Arrependimento','Pentecostes','Escatologia'],
+body:`<p><strong>Contexto:</strong> Joel profetizou a Judá em data incerta (possivelmente século 9 ou 5 a.C.). O livro começa com uma calamidade imediata — uma devastadora invasão de gafanhotos que destruiu as colheitas — e a usa como ponto de partida para anunciar o "Dia do Senhor," tema central da escatologia profética bíblica.</p>
+<p><strong>Julgamento e apelo:</strong> Os capítulos 1–2 descrevem a devastação em linguagem que oscila entre o literal e o apocalíptico. O exército de gafanhotos torna-se imagem de um juízo escatológico. A chamada ao arrependimento é intensa: "rasgai o vosso coração e não as vossas vestes, e convertei-vos ao Senhor vosso Deus" (2.13) — o arrependimento interno, não apenas externo.</p>
+<p><strong>A promessa do Espírito (Joel 2.28–32):</strong> É o texto mais famoso do livro e sua contribuição mais decisiva à teologia bíblica. "Derramarei o meu Espírito sobre toda a carne; vossos filhos e vossas filhas profetizarão, vossos velhos terão sonhos, vossos mancebos terão visões." Este texto é citado por Pedro no Pentecostes (At 2.17–21) como cumprimento imediato na efusão do Espírito Santo. Joel é o profeta do Espírito derramado igualmente sobre todos — homens e mulheres, jovens e velhos — quebrando barreiras de gênero, geração e classe.</p>`,
+verse:'"Depois disso, derramarei o meu Espírito sobre toda a humanidade; os seus filhos e as suas filhas profetizarão." <cite>Joel 2.28 — NAA</cite>'},
+
+am:{num:'Livro 30 · Antigo Testamento',title:'Amós',abbr:'Am · Profetas Menores',
+author:'Amós de Tecoa (pastor e agricultor)',
+chars:['Amós','Jeroboão II','Amazias'],
+tags:['Justiça Social','Pobres','Julgamento','Culto Vazio','Concílio de Jerusalém','Davi'],
+body:`<p><strong>Contexto:</strong> Amós era pastor e cultivador de sicômoros de Tecoa, em Judá — um laico chamado por Deus para profetizar ao próspero reino do Norte (Israel) durante o reinado de Jeroboão II (século 8 a.C.). É o profeta da justiça social por excelência na Bíblia.</p>
+<p><strong>Estratégia retórica:</strong> O livro abre com oráculos de julgamento contra as nações vizinhas de Israel — criando um efeito de cumplicidade no ouvinte que aplaudia o julgamento dos outros — antes de virar repentinamente contra Israel e Judá. A acusação é específica e atual: prosperidade material acompanhada de opressão dos pobres, corrupção dos tribunais, e culto religioso pomposo que não se traduz em ética social.</p>
+<p><strong>Os textos mais incisivos:</strong> "Odeio, desprezo as vossas festas solenes... Que flua como as águas o direito, e a justiça como ribeiro perene" (5.21–24) — citado por Martin Luther King em Washington, 1963. "Os que transformais o direito em veneno" (6.12). O capítulo 9 encerra com a promessa de restauração da "cabana caída de Davi" — texto citado por Tiago no Concílio de Jerusalém (At 15.16–17) como fundamento para a abertura da missão aos gentios.</p>`,
+verse:'"Mas que o direito corra como água e a justiça como um rio perene!" <cite>Amós 5.24 — NAA</cite>'},
+
+ob:{num:'Livro 31 · Antigo Testamento',title:'Obadias',abbr:'Ob · Profetas Menores',
+author:'Obadias (identidade desconhecida)',
+chars:['Obadias','Edom (nação personificada)'],
+tags:['Edom','Orgulho','Julgamento','Dia do Senhor','Retribuição','Irmãos em Conflito'],
+body:`<p><strong>Contexto:</strong> Obadias é o menor livro do Antigo Testamento (apenas 21 versículos) — um oráculo de julgamento inteiramente dirigido a Edom, povo descendente de Esaú, irmão gêmeo de Jacó. A tensão entre as nações "irmãs" remonta ao ventre de Rebeca. Provavelmente escrito após a destruição de Jerusalém em 586 a.C., quando Edom não apenas se alegrou com a calamidade de Israel, mas colaborou com os invasores babilônios.</p>
+<p><strong>O pecado central de Edom:</strong> O orgulho alimentado por sua posição geográfica nas fortalezas rochosas de Petra: "A arrogância do teu coração te enganou, pois moras nas fendas das rochas, na sua altura elevada... dizendo: quem me derrubará à terra?" (v.3). A ironia é que a suposta invulnerabilidade tornará Edom alvo de julgamento ainda mais severo.</p>
+<p><strong>O princípio da retribuição:</strong> "Como fizeste, assim te será feito; a tua recompensa cairá sobre a tua própria cabeça" (v.15) — o princípio da reciprocidade divina. O livro encerra com a visão do monte Sião prevalecendo e o reino pertencendo ao Senhor. Edom desapareceu da história; Israel sobreviveu — o que o profeta anunciou como destinado.</p>`,
+verse:'"Como você fez, assim te será feito; a sua recompensa cairá sobre a sua própria cabeça." <cite>Obadias 15 — NAA</cite>'},
+
+jn:{num:'Livro 32 · Antigo Testamento',title:'Jonas',abbr:'Jn · Profetas Menores',
+author:'Jonas, filho de Amitai',
+chars:['Jonas','O Rei de Nínive'],
+tags:['Missão Universal','Nínive','Fuga','Peixe Grande','Arrependimento','Graça aos Gentios'],
+body:`<p><strong>Contexto:</strong> Jonas é único entre os livros proféticos: em vez de registrar as mensagens do profeta, narra uma história sobre o próprio profeta — e sua recusa em obedecer a Deus. Chamado a pregar em Nínive (capital da cruel Assíria, inimiga de Israel), Jonas foge na direção oposta, embarca num navio para Társis, e Deus o intercepta com uma tempestade e um peixe.</p>
+<p><strong>O verdadeiro problema:</strong> A narrativa do peixe é famosa, mas é apenas o episódio central de uma história maior. O problema real de Jonas não é a desobediência inicial — é sua atitude depois. Após pregar em Nínive, Jonas testemunha o maior avivamento registrado na Bíblia em proporção (toda a cidade, do rei ao animal, se arrepende em saco e cinza), e então fica <em>com raiva</em> porque Deus não a destruiu. Ele preferia a morte dos ninivitas a aceitar que a graça divina os alcançasse.</p>
+<p><strong>Mensagem e tipologia:</strong> O final irresolvido convida o leitor a posicionar-se. Jesus citou Jonas como sinal de sua própria morte e ressurreição (Mt 12.40 — "três dias e três noites no ventre da terra") e usou o arrependimento de Nínive como contraste com a dureza religiosa de Israel (Lc 11.32). Jonas é o livro que mais radicalmente desafia o etnocentrismo religioso e anuncia que a graça de Deus é para todas as nações.</p>`,
+verse:'"Pois eu sabia que você é um Deus gracioso e misericordioso, tardio em irar-se e transbordante de amor leal." <cite>Jonas 4.2 — NAA</cite>'},
+
+mq:{num:'Livro 33 · Antigo Testamento',title:'Miquéias',abbr:'Mq · Profetas Menores',
+author:'Miquéias de Moreste',
+chars:['Miquéias'],
+tags:['Justiça Social','Belém','Messias','Líderes Corruptos','O Que Deus Pede','Restauração'],
+body:`<p><strong>Contexto:</strong> Miquéias profetizou em Judá no século 8 a.C., contemporâneo de Isaías e Oséias. Como Amós, é profeta da justiça social e dos pobres; como Isaías, tem visões messiânicas notáveis. O livro alterna ciclos de julgamento e restauração.</p>
+<p><strong>Acusações concretas:</strong> Líderes que "comem a carne" de seu povo (3.2–3), profetas que profetizam apenas pelo que recebem (3.11), sacerdotes que ensinam por salário. A corrupção dos líderes atrai o julgamento sobre a nação inteira. O capítulo 3.12 — "Sião será lavrada como campo, Jerusalém se tornará montes de entulho" — foi tão chocante que foi citado décadas depois para salvar Jeremias da execução (Jr 26.18).</p>
+<p><strong>As profecias maiores:</strong> Miquéias 5.2 é uma das mais precisas profecias messiânicas do AT: "E tu, Belém Efrata, embora pequena... de ti sairá aquele que será governador em Israel" — citado pelos escribas quando os magos perguntaram onde nasceria o Messias (Mt 2.6). E o versículo mais famoso de Miquéias — 6.8 — define a ética que Deus quer em três exigências: "praticar a justiça, amar a misericórdia e andar humildemente com o teu Deus."</p>`,
+verse:'"Praticar a justiça, amar a misericórdia e andar humildemente com o seu Deus." <cite>Miquéias 6.8 — NAA</cite>'},
+
+na:{num:'Livro 34 · Antigo Testamento',title:'Naum',abbr:'Na · Profetas Menores',
+author:'Naum de Elcós',
+chars:['Naum','Nínive (nação personificada)'],
+tags:['Nínive','Julgamento','Assíria','Soberania Divina','Conforto para Israel','Queda do Opressor'],
+body:`<p><strong>Contexto:</strong> Naum é cronologicamente posterior a Jonas: enquanto Jonas registra o arrependimento de Nínive (século 8 a.C.), Naum anuncia sua destruição definitiva. A queda de Nínive ocorreu em 612 a.C., quando a aliança medo-babilônica destruiu a capital assíria. O nome "Naum" significa "conforto" — o livro é conforto para Israel e Judá, que sofreram décadas sob o terror assírio.</p>
+<p><strong>A Assíria e o julgamento divino:</strong> A Assíria era conhecida na antiguidade pela crueldade sistemática: empalação, deportação em massa, bibliotecas de cabeças humanas. O julgamento divino sobre ela não contradiz o caráter amoroso de Deus — é a expressão de sua justiça contra o opressor. Deus usa nações poderosas como instrumentos e depois as julga por seu orgulho (cf. Is 10).</p>
+<p><strong>Abertura teológica (cap. 1):</strong> O livro abre com uma teofania: "O Senhor é ciumento e vingador... mas é lento para a ira e bom como refúgio no dia da adversidade, e conhece os que nele confiam" (1.2–7). O mesmo Deus que é assustador para o opressor é refúgio seguro para o oprimido. A descrição poética da queda de Nínive (caps. 2–3) é de extraordinária vivacidade literária e precisão histórica.</p>`,
+verse:'"O <span style="font-variant:small-caps">Senhor</span> é bom, um refúgio seguro no dia da tribulação; e cuida dos que nele confiam." <cite>Naum 1.7 — NAA</cite>'},
+
+hc:{num:'Livro 35 · Antigo Testamento',title:'Habacuque',abbr:'Hc · Profetas Menores',
+author:'Habacuque (profeta e músico)',
+chars:['Habacuque'],
+tags:['Diálogo com Deus','Fé','Teodiceia','Babilônia','O Justo Viverá pela Fé','Reforma'],
+body:`<p><strong>Contexto:</strong> Habacuque é único entre os profetas: em vez de trazer mensagem de Deus ao povo, o livro registra um diálogo entre o profeta e Deus. Habacuque questiona Deus diretamente — e Deus responde. É a Bíblia em sua forma mais dialogicamente honesta.</p>
+<p><strong>O diálogo:</strong> Primeira queixa (1.2–4): por que Deus tolera a injustiça dentro de Israel? A resposta divina é chocante: Deus está levantando os babilônios — um povo mais cruel — para punir seu povo (1.5–11). Segunda queixa (1.12–2.1): mas como pode Deus usar um povo mais ímpio para castigar Israel? Habacuque "sobe à sentinela" para esperar a resposta.</p>
+<p><strong>A resposta e o versículo pivô:</strong> A resposta de Deus (2.2–20) inclui o versículo que mudou a história da Igreja: "o justo viverá pela sua fé" (2.4) — citado três vezes no NT (Rm 1.17; Gl 3.11; Hb 10.38) e que se tornou o lema da Reforma Protestante de Lutero. O capítulo 3 é um salmo de teofania de extrema beleza: Habacuque, mesmo sem entender tudo, escolhe confiar: "Embora a figueira não floresça... ainda assim me alegrarei no Senhor" (3.17–18) — fé nua que sobrevive ao colapso de todas as circunstâncias.</p>`,
+verse:'"O justo viverá por sua fidelidade." <cite>Habacuque 2.4 — NAA</cite>'},
+
+sf:{num:'Livro 36 · Antigo Testamento',title:'Sofonias',abbr:'Sf · Profetas Menores',
+author:'Sofonias, filho de Cusi',
+chars:['Sofonias','Josias'],
+tags:['Dia do Senhor','Dies Irae','Remanescente','Julgamento Cósmico','Gozo de Deus','Josias'],
+body:`<p><strong>Contexto:</strong> Sofonias profetizou em Judá no reinado de Josias (640–609 a.C.), antes da grande reforma religiosa. O livro é dominado pelo tema do "Dia do Senhor" — o tema mais intensamente apocalíptico de todos os profetas menores. O hino medieval latino "Dies Irae" (Dia da Ira) foi inspirado diretamente na linguagem de Sofonias 1.</p>
+<p><strong>Julgamento cósmico (cap. 1):</strong> "Farei total destruição de tudo sobre a face da terra... Farei destruição dos homens e dos animais" (1.2–3). O julgamento abrange os sacerdotes sincretistas, os que adoram o exército celestial, os que mesclam culto a YHWH com culto a Baal. A chamada ao silêncio diante de Deus — "Silêncio diante do Senhor Deus!" (1.7) — é de uma solenidade esmagadora.</p>
+<p><strong>A virada (cap. 3):</strong> Após o julgamento das nações e de Jerusalém, Sofonias 3.17 oferece uma das declarações mais ternamente belas de todo o AT sobre o amor de Deus: "O Senhor teu Deus está no meio de ti como poderoso Salvador; ele se alegrará sobre ti com regozijo; em seu amor te renovará; regozijar-se-á sobre ti com cânticos." Deus não apenas suporta seu povo — ele canta sobre ele com alegria.</p>`,
+verse:'"O <span style="font-variant:small-caps">Senhor</span>, o seu Deus, está no meio de você como Guerreiro poderoso que salva; ele se alegrará sobre você com gozo, renovará você com o seu amor e exultará sobre você com cânticos de júbilo." <cite>Sofonias 3.17 — NAA</cite>'},
+
+ag:{num:'Livro 37 · Antigo Testamento',title:'Ageu',abbr:'Ag · Profetas Menores',
+author:'Ageu (profeta pós-exílico)',
+chars:['Ageu','Zorobabel','Josué (sumo sacerdote)'],
+tags:['Segundo Templo','Pós-exílio','Prioridades','Crise Econômica','Restauração','Zorobabel'],
+body:`<p><strong>Contexto:</strong> Ageu é o primeiro profeta pós-exílico, tendo profetizado em 520 a.C. — exatamente 16 anos após o retorno do exílio e 16 anos antes da conclusão do Segundo Templo (516 a.C.). O povo havia iniciado a reconstrução do Templo, mas parado diante da oposição e das dificuldades. Ageu tem uma missão única e clara: motivar o povo a completar o Templo.</p>
+<p><strong>O argumento econômico-espiritual:</strong> Ageu conecta a espiritualidade ao cotidiano com lógica desconcertante: "Este povo diz: Ainda não é tempo de vir, o tempo de se reedificar a casa do Senhor. Será que é tempo de vós habitardes em vossas casas apaineladas, enquanto esta casa está em ruínas?" (1.2–4). A seca e a escassez econômica são apresentadas como consequência direta do descuido com as prioridades divinas.</p>
+<p><strong>A promessa escatológica:</strong> O capítulo 2 contém uma promessa surpreendente: embora o Segundo Templo fosse fisicamente inferior ao de Salomão, "a glória desta última casa será maior do que a da primeira" (2.9) — interpretado messianicamente como referência à presença de Cristo no Templo. O livro fecha com uma palavra de encorajamento a Zorobabel, governador — figura tipológica do Messias.</p>`,
+verse:'"Assim diz o <span style="font-variant:small-caps">Senhor</span> dos Exércitos: Considerem os seus caminhos!" <cite>Ageu 1.7 — NAA</cite>'},
+
+zc:{num:'Livro 38 · Antigo Testamento',title:'Zacarias',abbr:'Zc · Profetas Menores',
+author:'Zacarias, filho de Berequias',
+chars:['Zacarias','Zorobabel','Josué (sumo sacerdote)','O Anjo do Senhor'],
+tags:['Visões Noturnas','Messias','Entrada Triunfal','30 Moedas de Prata','Apocalipse','Restauração'],
+body:`<p><strong>Contexto:</strong> Zacarias é o mais longo dos profetas menores e o mais citado no NT depois de Isaías. Contemporâneo de Ageu, profetizou ao povo pós-exílico durante a reconstrução do Templo. O livro divide-se em dois blocos: Zacarias 1–8 (profecias datadas com oito visões noturnas) e Zacarias 9–14 (oráculos apocalípticos de caráter escatológico intenso).</p>
+<p><strong>As visões noturnas (caps. 1–6):</strong> Oito visões simbólicas — cavaleiros entre as mirtas, os quatro chifres, o homem com linha de medir, o sumo sacerdote Josué diante de Satanás, o candelabro e as oliveiras, o rolo voador, a mulher no efa, os quatro carros — fornecem uma teologia da soberania divina sobre a história. O simbolismo denso antecipa o Apocalipse de João.</p>
+<p><strong>As profecias messiânicas:</strong> "Eis que o teu rei virá a ti, justo e salvador, humilde e montado em jumento" (9.9) — Mt 21.5 cita como cumprido na entrada triunfal de Jesus. Zacarias 11.12 profetiza as 30 moedas de prata. O capítulo 12.10 — "olharão para mim, a quem traspassaram" — é citado em Jo 19.37. O capítulo 13.7 — "fere o pastor e as ovelhas se dispersarão" — é citado por Jesus na noite da prisão (Mt 26.31).</p>`,
+verse:'"Alegra-te muito, ó filha de Sião! Dá um grito de júbilo, ó filha de Jerusalém! Eis que o seu rei vem a você; ele é justo e salvador, humilde e montado num jumento." <cite>Zacarias 9.9 — NAA</cite>'},
+
+ml:{num:'Livro 39 · Antigo Testamento',title:'Malaquias',abbr:'Ml · Profetas Menores',
+author:'Malaquias (ou anônimo — "meu mensageiro")',
+chars:['Malaquias','Elias (prometido)'],
+tags:['Culto Degradado','Sacerdócio','Dízimos','Elias','João Batista','Fim do AT'],
+body:`<p><strong>Contexto:</strong> Malaquias ("meu mensageiro") é o último livro do AT canônico protestante, escrito provavelmente no século 5 a.C., após o retorno do exílio. O livro é estruturado em seis disputas ou diálogos: Deus faz uma afirmação, o povo questiona, e Deus responde com evidências e advertências.</p>
+<p><strong>Acusações ao culto e ao sacerdócio:</strong> Sacerdotes que oferecem animais cegos e coxos no altar — o que dariam a um governador? (1.8). Que ensinam erroneamente e mostram parcialidade (2.8–9). Que se divorciaram de suas esposas judias para casar-se com estrangeiras — "o Senhor é testemunha entre ti e a mulher da tua mocidade" (2.14). A deterioração do culto reflete a deterioração moral e espiritual da comunidade.</p>
+<p><strong>O encerramento do AT:</strong> Malaquias 4.5–6 promete o retorno de "Elias o profeta" antes do "grande e terrível Dia do Senhor" para reconciliar gerações. Jesus identificou João Batista como esse Elias (Mt 11.14; 17.12). Este final cria uma expectativa dramática — após séculos de silêncio profético, a promessa fica em aberto. O NT começa exatamente com João Batista no deserto cumprindo o que Malaquias anunciou.</p>`,
+verse:'"Tragam todos os dízimos ao depósito do templo... e ponham-me à prova nisso, diz o <span style="font-variant:small-caps">Senhor</span> dos Exércitos." <cite>Malaquias 3.10 — NAA</cite>'},
+
+mt:{num:'Livro 40 · Novo Testamento',title:'Mateus',abbr:'Mt · Evangelhos',
+author:'Mateus (apóstolo, cobrador de impostos)',
+chars:['Jesus','Pedro','João Batista','Maria','José','Herodes','Pilatos'],
+tags:['Messias de Israel','Sermão do Monte','Reino dos Céus','Cinco Discursos','Lei Cumprida','Grande Comissão'],
+body:`<p><strong>Contexto:</strong> O Evangelho de Mateus foi escrito para uma audiência predominantemente judaica e apresenta Jesus como o cumprimento de toda a história e esperança de Israel — o Messias, o novo Moisés, o filho de Davi, o Emanuel. A abertura com a genealogia de Abraão a Jesus e as citações explícitas de cumprimento ("para que se cumprisse o que foi dito pelo profeta...") estruturam Jesus dentro da narrativa do AT.</p>
+<p><strong>Os cinco discursos:</strong> A estrutura literária mais característica de Mateus são os cinco grandes discursos de Jesus, paralelos aos cinco livros de Moisés: o Sermão do Monte (caps. 5–7), o Discurso Missionário (cap. 10), as Parábolas do Reino (cap. 13), o Discurso sobre a Igreja (cap. 18) e o Discurso Escatológico (caps. 24–25).</p>
+<p><strong>O Sermão do Monte:</strong> Os capítulos 5–7 são o ensinamento ético mais extenso e sistemático de Jesus. As Bem-aventuranças (5.3–12) subvertem os valores do mundo. As antíteses — "Ouvistes que foi dito... mas eu vos digo..." — revelam a autoridade messiânica que aprofunda a Lei, não a abole. A Grande Comissão (28.18–20), com o mandato universal de fazer discípulos de todas as nações, encerra o livro com a missão que define a Igreja até o fim dos tempos.</p>`,
+verse:'"Portanto, vão e façam discípulos de todas as nações, batizando-os em nome do Pai e do Filho e do Espírito Santo." <cite>Mateus 28.19 — NAA</cite>'},
+
+mc:{num:'Livro 41 · Novo Testamento',title:'Marcos',abbr:'Mc · Evangelhos',
+author:'João Marcos (discípulo de Pedro)',
+chars:['Jesus','Pedro','João Batista','Pilatos','Maria Madalena'],
+tags:['Servo','Urgência','Euthys','Segredo Messiânico','Cruz','Ação'],
+body:`<p><strong>Contexto:</strong> Marcos é o mais curto e dinâmico dos quatro Evangelhos — provavelmente o primeiro a ser escrito (55–65 d.C.) e a fonte primária de Mateus e Lucas. A tradição associa Marcos ao apóstolo Pedro, cujas memórias diretas e vívidas estão por trás do relato. A palavra grega <em>euthys</em> ("imediatamente", "logo") aparece mais de 40 vezes, criando ritmo de urgência narrativa.</p>
+<p><strong>Jesus como Servo Sofredor:</strong> O versículo-chave é 10.45: "o Filho do Homem veio para servir e dar a sua vida em resgate de muitos." Marcos apresenta Jesus primariamente como aquele que age — milagre após milagre, exorcismo após exorcismo — antes de falar extensivamente. O chamado "segredo messiânico" (Jesus que proíbe que se divulgue sua identidade) cria tensão dramática que culmina na confissão de Pedro: "Tu és o Cristo" (8.29) — ponto médio e pivô de todo o livro.</p>
+<p><strong>A Paixão:</strong> Os capítulos 14–16 constituem quase 40% do Evangelho, confirmando que Marcos é fundamentalmente uma "narrativa da Paixão com um prólogo extenso." O final abrupto do manuscrito mais antigo (16.8 — "nada disseram a ninguém, pois tinham medo") é literariamente desconcertante e teologicamente provocador: convida o leitor a ser ele mesmo a continuação da história de Jesus.</p>`,
+verse:'"Pois o Filho do Homem também não veio para ser servido, mas para servir e dar a sua vida em resgate de muitos." <cite>Marcos 10.45 — NAA</cite>'},
+
+lc:{num:'Livro 42 · Novo Testamento',title:'Lucas',abbr:'Lc · Evangelhos',
+author:'Lucas (médico e companheiro de Paulo)',
+chars:['Jesus','Maria','Zacarias','Isabel','João Batista','Simão','Pilatos'],
+tags:['Pobres','Mulheres','Espírito Santo','Gentios','Alegria','Parábolas Únicas'],
+body:`<p><strong>Contexto:</strong> Lucas é o mais literariamente sofisticado dos quatro Evangelhos, escrito pelo médico gentio Lucas como primeiro volume de uma obra em dois tomos (o segundo sendo Atos dos Apóstolos). O prólogo (1.1–4) segue o padrão da historiografia grega clássica, e Lucas escreve explicitamente para Teófilo — possivelmente um patrono romano de alta posição que financia a pesquisa.</p>
+<p><strong>Temas distintivos:</strong> Lucas dá especial atenção a grupos marginalizados: os pobres e excluídos, as mulheres (Maria, Isabel, Ana, as discípulas de Jesus), os samaritanos e gentios, os pecadores arrependidos. O Espírito Santo aparece com frequência incomum antes mesmo de Pentecostes. A oração de Jesus é um tema recorrente em momentos decisivos. A alegria permeia o livro, do anúncio do anjo a Zacarias até os discípulos que retornam a Jerusalém com grande gozo.</p>
+<p><strong>As parábolas exclusivas de Lucas:</strong> Incluem algumas das mais amadas de Jesus — o Bom Samaritano (10.25–37), o Filho Pródigo (15.11–32), o Rico e Lázaro (16.19–31), o Fariseu e o Publicano (18.9–14). A genealogia de Jesus remonta a Adão — não apenas a Abraão —, enfatizando a universalidade da salvação. O Magnificat de Maria (1.46–55) é um dos hinos de teologia mais profunda sobre a inversão dos valores do reino.</p>`,
+verse:'"O Espírito do <span style="font-variant:small-caps">Senhor</span> está sobre mim, porque ele me ungiu para anunciar boas-novas aos pobres." <cite>Lucas 4.18 — NAA</cite>'},
+
+joe:{num:'Livro 43 · Novo Testamento',title:'João',abbr:'Jo · Evangelhos',
+author:'João Apóstolo, filho de Zebedeu',
+chars:['Jesus','Maria Madalena','Nicodemos','Lázaro','Tomé','Pilatos'],
+tags:['Logos','Encarnação','EU SOU','Sinais','Amor','Divindade de Cristo'],
+body:`<p><strong>Contexto:</strong> O Quarto Evangelho — atribuído ao apóstolo João — é teologica e literariamente diferente dos sinóticos (Mateus, Marcos, Lucas). Escrito por último (~90–100 d.C.), é o mais contemplativo e teológico, estruturado em torno de sinais selecionados e longos diálogos/discursos que revelam progressivamente a identidade divina de Jesus.</p>
+<p><strong>O prólogo (Jo 1.1–18):</strong> A abertura mais teologicamente densa da Bíblia. "No princípio era o Verbo (<em>Logos</em>), e o Verbo estava com Deus, e o Verbo era Deus." O Logos pré-existente, agente da criação, encarnou-se na história humana — a doutrina da Encarnação em sua formulação mais explícita e mais filosófica. A estrutura do livro: o "Livro dos Sinais" (caps. 1–12) com sete sinais selecionados; e o "Livro da Glória" (caps. 13–21) com os discursos do Cenáculo e a Paixão-Ressurreição.</p>
+<p><strong>Os sete "EU SOU":</strong> Declarações de identidade divina que ecoam o nome de Deus no AT (Êx 3.14): "Eu sou o pão da vida" (6.35), "a luz do mundo" (8.12), "a porta" (10.9), "o bom pastor" (10.11), "a ressurreição e a vida" (11.25), "o caminho, a verdade e a vida" (14.6), "a videira verdadeira" (15.1). João 3.16 é provavelmente o versículo mais memorizado do mundo.</p>`,
+verse:'"Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna." <cite>João 3.16 — NAA</cite>'},
+
+at:{num:'Livro 44 · Novo Testamento',title:'Atos dos Apóstolos',abbr:'At · Histórico NT',
+author:'Lucas (médico e companheiro de Paulo)',
+chars:['Pedro','Paulo','Estêvão','Barnabé','Filipe','Cornélio','Tiago'],
+tags:['Espírito Santo','Pentecostes','Paulo','Missão','Igreja Primitiva','Pedro'],
+body:`<p><strong>Contexto:</strong> Atos é o segundo volume da obra de Lucas e narra o nascimento e expansão da Igreja cristã desde o Pentecostes em Jerusalém (~33 d.C.) até a chegada de Paulo a Roma (~62 d.C.). É o único livro histórico do NT. O título "Atos dos Apóstolos" é impreciso — seria mais exato "Atos do Espírito Santo," pois o Espírito é o protagonista invisível de todo o livro.</p>
+<p><strong>Estrutura geográfica:</strong> O mandato de At 1.8 organiza o livro: "Recebereis poder... e sereis minhas testemunhas em Jerusalém, em toda a Judeia e Samaria, e até os confins da terra." A primeira metade (1–12) centra-se em Jerusalém e Pedro; a segunda (13–28), nas três viagens missionárias de Paulo pelo Mediterrâneo. Pentecostes (cap. 2) é o evento fundador: a efusão do Espírito Santo constitui a Igreja como comunidade profética e missionária, cumprindo Joel 2.</p>
+<p><strong>Episódios decisivos:</strong> A conversão de Paulo (cap. 9 — talvez o evento mais consequente da história cristã depois da Ressurreição); a visão de Pedro e a conversão de Cornélio (cap. 10 — abertura formal da missão aos gentios); o Concílio de Jerusalém (cap. 15 — primeira crise e resolução teológica da Igreja). O livro termina com Paulo em Roma pregando o reino "sem impedimento" — final aberto que anuncia a continuação da missão.</p>`,
+verse:'"Mas vocês receberão poder quando o Espírito Santo vier sobre vocês, e serão minhas testemunhas... até os confins da terra." <cite>Atos 1.8 — NAA</cite>'},
+
+rm:{num:'Livro 45 · Novo Testamento',title:'Romanos',abbr:'Rm · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+chars:['Paulo','Febe','Priscila','Áquila'],
+tags:['Justificação pela Fé','Graça','Eleição','Pecado Universal','Espírito','Ética'],
+body:`<p><strong>Contexto:</strong> Romanos é a mais sistemática e doutrinalmente densa das cartas de Paulo — frequentemente chamada de "a catedral do NT." Escrita de Corinto (~57 d.C.) para uma Igreja que Paulo não fundou mas pretendia visitar no caminho à Espanha, é uma exposição deliberada e completa do evangelho que Paulo pregava — sua carta de apresentação teológica.</p>
+<p><strong>Estrutura:</strong> Os capítulos 1–3 estabelecem a condenação universal — gentios e judeus igualmente sob julgamento divino, "pois todos pecaram e carecem da glória de Deus" (3.23). Os capítulos 3–5 proclamam a justificação pela fé: o pecador é declarado justo por Deus com base na obra de Cristo, recebida pela fé, totalmente independente de obras da Lei. Abraão é o paradigma (cap. 4). Os capítulos 5–8 tratam da nova vida no Espírito, culminando no inesquecível capítulo 8: "nada nos separará do amor de Deus em Cristo Jesus." Os capítulos 9–11 abordam o mistério da eleição e o futuro de Israel. Os capítulos 12–16 são ética prática — o "sacrifício vivo" da vida inteira a Deus (12.1–2).</p>
+<p><strong>Impacto histórico:</strong> A leitura de Romanos 13 converteu Agostinho. A descoberta de Romanos 1.17 desencadeou a Reforma Protestante de Lutero. A leitura do prefácio de Lutero a Romanos converteu João Wesley. É, possivelmente, o texto mais influente da história do Ocidente depois das Escrituras como um todo.</p>`,
+verse:'"Pois não me envergonho do evangelho, porque ele é o poder de Deus para a salvação de todo aquele que crê." <cite>Romanos 1.16 — NAA</cite>'},
+
+co1:{num:'Livro 46 · Novo Testamento',title:'1 Coríntios',abbr:'1Co · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+chars:['Paulo','Apolo','Pedro','Cefas','Estêvão'],
+tags:['Cruz','Dons Espirituais','Amor','Ressurreição','Unidade','Culto'],
+body:`<p><strong>Contexto:</strong> 1 Coríntios foi escrita por Paulo de Éfeso (~54 d.C.) para a jovem Igreja em Corinto — metrópole cosmopolita, portuária e moralmente libertária, famosa pelo templo de Afrodite. A carta responde a relatórios de divisões e a uma lista de perguntas enviadas pelos próprios coríntios. É extraordinariamente rica, prática e variada.</p>
+<p><strong>Conteúdo:</strong> Os capítulos 1–4 tratam das divisões partidárias com a teologia da cruz que inverte a sabedoria do mundo: "a palavra da cruz é loucura para os que se perdem." Os capítulos 5–6 tratam de imoralidade sexual e processos judiciais entre irmãos. O capítulo 7 trata do casamento e celibato. Os capítulos 8–10 abordam a liberdade cristã limitada pelo amor ao irmão mais fraco.</p>
+<p><strong>Os capítulos centrais:</strong> O capítulo 11 trata do culto e da Ceia do Senhor. Os capítulos 12–14 são o tratamento mais completo dos dons espirituais no NT — enquadrado pelo capítulo 13, o hino ao amor (<em>agapê</em>), que Paulo apresenta como "o caminho mais excelente" acima de qualquer dom. O capítulo 15 é a mais extensa defesa da ressurreição corporal no NT: "se Cristo não ressuscitou, vã é a nossa pregação" — a ressurreição não é periférica ao evangelho, é o seu coração.</p>`,
+verse:'"Ainda que eu fale as línguas dos homens e dos anjos, se não tiver amor, serei como o bronze que ressoa ou o címbalo que retine." <cite>1 Coríntios 13.1 — NAA</cite>'},
+
+co2:{num:'Livro 47 · Novo Testamento',title:'2 Coríntios',abbr:'2Co · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+tags:['Apostolado','Sofrimento','Graça na Fraqueza','Reconciliação','Generosidade','Espinho na Carne'],
+body:`<p><strong>Contexto:</strong> 2 Coríntios é a mais pessoal e autobiográfica das cartas de Paulo — e talvez a mais emocionalmente intensa do NT. Escrita cerca de um ano após 1 Coríntios, reflete uma relação complexa e ferida: há referências a uma "carta severa" perdida, a uma visita dolorosa, e a "superapóstolos" que desafiavam a autoridade e autenticidade de Paulo.</p>
+<p><strong>O tesouro em vasos de barro (caps. 1–7):</strong> "Somos atribulados em tudo, mas não angustiados; perplexos, mas não desesperados; perseguidos, mas não abandonados; abatidos, mas não destruídos" (4.8–9). A metáfora do "tesouro em vasos de barro" captura o paradoxo do ministério cristão: o poder divino se manifesta precisamente na fragilidade humana. O capítulo 5 proclama a grande declaração da reconciliação: "Deus estava em Cristo reconciliando consigo o mundo."</p>
+<p><strong>O espinho na carne (cap. 12):</strong> Paulo revela que recebeu uma "revelação sublime" (uma experiência mística), mas também um "espinho na carne" — um mensageiro de Satanás para o esbofetear. Sua oração pela remoção foi negada três vezes. A resposta divina tornou-se um dos versículos mais consoladores da Bíblia: "A minha graça te é suficiente, pois o meu poder se aperfeiçoa na fraqueza" (12.9).</p>`,
+verse:'"A minha graça é suficiente para você, porque o meu poder se aperfeiçoa na fraqueza." <cite>2 Coríntios 12.9 — NAA</cite>',
+chars:['Paulo','Tito','Barnabé','Apolo','Cornélio','Onésimo']},
+
+gl:{num:'Livro 48 · Novo Testamento',title:'Gálatas',abbr:'Gl · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+tags:['Liberdade Cristã','Justificação','Obra da Lei','Graça','Fruto do Espírito','Reforma'],
+body:`<p><strong>Contexto:</strong> Gálatas é a "Magna Carta da liberdade cristã" — um dos escritos mais apaixonados e urgentes de Paulo. Escrita às igrejas da Galácia (~48–55 d.C.), responde a uma crise aguda: "judaizantes" haviam chegado após Paulo ensinando que os gentios convertidos deviam ser circuncidados e guardar a Lei de Moisés para ser plenamente salvos.</p>
+<p><strong>A confrontação:</strong> Paulo começa sem cumprimentos — vai direto ao ponto: "estou maravilhado que tão depressa vos estejais desviando" (1.6). A carta inclui a narrativa da confrontação direta com Pedro em Antioquia (cap. 2) — uma cena de franqueza apostólica extraordinária que Paulo narra publicamente. A justificação somente pela fé é afirmada com toda a força: "o homem não é justificado por obras da lei, mas pela fé em Jesus Cristo" (2.16).</p>
+<p><strong>Teologia da liberdade:</strong> O capítulo 3 usa Abraão para demonstrar que a fé sempre foi o princípio da justificação — a Lei foi adicionada posteriormente como "tutor" até Cristo (3.24). O capítulo 4 usa a alegoria de Agar e Sara — escravidão vs. liberdade. O capítulo 5 celebra: "Para a liberdade foi que Cristo nos libertou" — liberdade que não é licença mas serviço pelo amor. O fruto do Espírito (5.22–23) é o contraponto às obras da carne.</p>`,
+verse:'"Foi para a liberdade que Cristo nos libertou. Portanto, fiquem firmes e não se submetam novamente ao jugo da escravidão." <cite>Gálatas 5.1 — NAA</cite>',
+chars:['Paulo','Pedro','Barnabé','Tito','Abraão','Agar']},
+
+ef:{num:'Livro 49 · Novo Testamento',title:'Efésios',abbr:'Ef · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+tags:['Igreja','Eleição','Novo Homem','Armadura de Deus','Unidade','Plano Eterno'],
+body:`<p><strong>Contexto:</strong> Efésios — provavelmente uma circular enviada a várias igrejas da Ásia Menor (~60–62 d.C., durante a prisão de Paulo em Roma) — é uma das mais grandiosas reflexões teológicas sobre a Igreja e o plano eterno de Deus no NT. O livro divide-se claramente em duas metades: teologia (caps. 1–3) e ética (caps. 4–6).</p>
+<p><strong>O plano eterno (caps. 1–3):</strong> Um hino prolongado à glória do propósito divino desde a eternidade: eleição em Cristo antes da fundação do mundo (1.4), adoção como filhos, redenção pelo sangue, selagem pelo Espírito. O capítulo 2 contém a formulação mais clara da graça soberana: "Pela graça sois salvos, mediante a fé; e isto não vem de vós; é dom de Deus; não de obras, para que ninguém se glorie" (2.8–9). A criação de "um só novo homem" — judeu e gentio reconciliados em Cristo — é o mistério que era oculto e agora é revelado.</p>
+<p><strong>Ética e guerra espiritual (caps. 4–6):</strong> A unidade da Igreja baseada nos "sete uns" (4.4–6), os relacionamentos transformados (5–6: marido-esposa, pais-filhos, amos-servos), e a "Armadura de Deus" (6.10–18) — imagem militar da guerra espiritual que usa peças da armadura romana como metáforas das virtudes cristãs.</p>`,
+verse:'"Pois vocês são salvos pela graça, mediante a fé, e isso não vem de vocês; é dom de Deus." <cite>Efésios 2.8 — NAA</cite>',
+chars:['Paulo','Tíquico','Priscila','Áquila','Trifena','Trifosa']},
+
+fp:{num:'Livro 50 · Novo Testamento',title:'Filipenses',abbr:'Fp · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+tags:['Alegria','Humildade','Kenosis','Contentamento','Cristo Supremo','Prisão'],
+body:`<p><strong>Contexto:</strong> Filipenses é a mais pessoal e afetuosa das cartas de Paulo — "a epístola da alegria." Escrita da prisão (~60–62 d.C.) para a Igreja de Filipos — sua primeira na Europa, fundada através de uma visão noturna (At 16) e de um terremoto que libertou Paulo e converteu o carcereiro. A palavra "alegria" ou "regozijar-se" aparece 16 vezes em apenas 4 capítulos. Que Paulo escreva sobre alegria estando preso é em si uma proclamação teológica.</p>
+<p><strong>O hino da Kenosis (cap. 2):</strong> O Carmen Christi (2.6–11) é o mais famoso hino cristológico do NT: Cristo, sendo na "forma de Deus" (<em>morphe theou</em>), esvaziou-se (<em>kenosis</em>) — não de sua divindade, mas de suas prerrogativas divinas — tomou forma de servo, humilhou-se até a morte da cruz, e por isso Deus o exaltou e lhe deu o nome acima de todo nome. É uma das mais profundas declarações da Encarnação e Exaltação na Bíblia.</p>
+<p><strong>O contentamento aprendido (cap. 4):</strong> Paulo não diz que contentamento é um dom — diz que é uma habilidade aprendida: "aprendi a contentar-me em qualquer estado" (4.11). O segredo é o versículo 13: "Tudo posso naquele que me fortalece" — não promessa de poder mágico, mas declaração de suficiência em Cristo em qualquer circunstância.</p>`,
+verse:'"Tudo posso naquele que me fortalece." <cite>Filipenses 4.13 — NAA</cite>',
+chars:['Paulo','Timóteo','Epafrodito','Clemente','Evódia','Síntique']},
+
+cl:{num:'Livro 51 · Novo Testamento',title:'Colossenses',abbr:'Cl · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+tags:['Supremacia de Cristo','Falsa Filosofia','Cosmos','Cabeça da Igreja','Vida Prática','Colossenses'],
+body:`<p><strong>Contexto:</strong> Colossenses foi escrita da prisão de Paulo (~60–62 d.C.) para a Igreja em Colossos — cidade da Frígia que Paulo provavelmente não visitou pessoalmente. A carta responde a uma "filosofia" sincretista que mesclava judaísmo, elementos proto-gnósticos, culto a anjos e práticas ascéticas, ameaçando reduzir Cristo a um mediador entre outros.</p>
+<p><strong>O hino cristológico (1.15–20):</strong> Talvez o texto mais elevado sobre a supremacia cósmica de Cristo no NT: "Ele é a imagem do Deus invisível, o primogênito de toda a criação; pois nele foram criadas todas as coisas... todas as coisas foram criadas por ele e para ele; ele é antes de tudo, e nele tudo subsiste." Cristo não é um mediador entre Deus e o cosmos — ele é o criador e sustentador do cosmos. A "plenitude" (<em>pleroma</em>) divina habita nele corporalmente (2.9).</p>
+<p><strong>A polêmica filosófica (cap. 2) e a ética (caps. 3–4):</strong> "Vejam que ninguém os escravize por meio de filosofia e de vãs sutilezas" (2.8) — não anti-intelectualismo, mas desmascaramento de especulação que não é "segundo Cristo." Em Cristo estão todos os tesouros da sabedoria e do conhecimento (2.3). A aplicação prática inclui a visão transformadora de toda a vida: "tudo o que fizerdes... fazei-o de todo o coração como para o Senhor" (3.23).</p>`,
+verse:'"Nele estão escondidos todos os tesouros da sabedoria e do conhecimento." <cite>Colossenses 2.3 — NAA</cite>',
+chars:['Paulo','Tíquico','Onésimo','Epafras','Marcos','Lucas']},
+
+ts1:{num:'Livro 52 · Novo Testamento',title:'1 Tessalonicenses',abbr:'1Ts · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+tags:['Escatologia','Parousia','Ressurreição dos Mortos','Santidade','Oração','Consolação'],
+body:`<p><strong>Contexto:</strong> 1 Tessalonicenses é provavelmente a mais antiga das cartas de Paulo e possivelmente o escrito mais antigo do NT (~50 d.C.), escrita poucos meses após a fundação da Igreja em Tessalônica durante a segunda viagem missionária. A carta transborda afeto paternal pela jovem comunidade que perseverou apesar da perseguição.</p>
+<p><strong>A preocupação escatológica:</strong> Alguns membros haviam morrido antes do retorno de Cristo, e os tessalonicenses temiam que eles "perdessem" a ressurreição. Paulo responde com a passagem mais explícita do NT sobre a <em>parousia</em> (4.13–18): "os que morreram em Cristo ressuscitarão primeiro; depois nós, os que estivermos vivos... seremos arrebatados com eles nas nuvens para encontrar o Senhor no ar." Esta passagem é o texto central do debate sobre o "arrebatamento" na escatologia evangélica.</p>
+<p><strong>A santidade prática (caps. 4–5):</strong> "A vontade de Deus é a vossa santificação" (4.3). O "dia do Senhor vem como ladrão de noite" (5.2) — mas os filhos da luz não estão nas trevas para serem surpreendidos. O encerramento inclui uma série de exortações concisas que sintetizam a vida cristã: "Orai sem cessar. Em tudo dai graças, pois esta é a vontade de Deus em Cristo Jesus para convosco" (5.17–18).</p>`,
+verse:'"Orem continuamente. Deem graças em todas as circunstâncias, pois esta é a vontade de Deus em Cristo Jesus para com vocês." <cite>1 Tessalonicenses 5.17–18 — NAA</cite>',
+chars:['Paulo','Silvano','Timóteo','Jasão','Aristarco','Segundo']},
+
+ts2:{num:'Livro 53 · Novo Testamento',title:'2 Tessalonicenses',abbr:'2Ts · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+tags:['Homem da Iniquidade','Dia do Senhor','Desordem','Trabalho','Apostasia','Escatologia'],
+body:`<p><strong>Contexto:</strong> 2 Tessalonicenses foi escrita logo após a primeira carta (~51 d.C.) para corrigir um mal-entendido grave: alguns membros acreditavam que o "dia do Senhor" já havia chegado — possivelmente com base em uma carta falsa atribuída a Paulo. Isso gerava desordem prática: por que trabalhar se o fim já chegou?</p>
+<p><strong>O homem da iniquidade (cap. 2):</strong> Paulo ensina que antes do "dia do Senhor" deve ocorrer a apostasia e a revelação do "homem da iniquidade" — o "filho da perdição" (2.3–4) que se proclamará Deus no templo. Quem ou o que "retém" esse homem (2.6–7) é um dos maiores enigmas da escatologia bíblica — interpretado ao longo da história como o Espírito Santo, o Império Romano, o arcanjo Miguel, entre outros.</p>
+<p><strong>A resposta prática:</strong> A correção escatológica gera responsabilidade prática: "Se alguém não quer trabalhar, também não coma" (3.10) — uma das declarações mais diretas da Bíblia sobre responsabilidade e ética do trabalho. Paulo usa seu próprio exemplo de trabalhar com as próprias mãos para não ser ônus a ninguém. A carta encerra com bênção de paz "em todo tempo e de todo modo."</p>`,
+verse:'"Se alguém não quer trabalhar, também não coma." <cite>2 Tessalonicenses 3.10 — NAA</cite>',
+chars:['Paulo','Silvano','Timóteo']},
+
+tm1:{num:'Livro 54 · Novo Testamento',title:'1 Timóteo',abbr:'1Tm · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+tags:['Pastoral','Ordem na Igreja','Liderança','Doutrina Sã','Oração','Mulheres'],
+body:`<p><strong>Contexto:</strong> 1 Timóteo é a primeira das "Epístolas Pastorais" (com 2 Timóteo e Tito) — cartas a líderes individuais em vez de congregações. Escrita a Timóteo em Éfeso (~62–65 d.C.), é um manual de ordem e liderança eclesiástica para um jovem pastor que Paulo chama de "filho verdadeiro na fé."</p>
+<p><strong>Conteúdo:</strong> Combate a falsas doutrinas que perturbavam a Igreja em Éfeso (caps. 1; 4; 6); instrução sobre a oração pública e o papel das mulheres no culto (cap. 2 — um dos textos mais debatidos do NT exegética e culturalmente); qualificações dos bispos (<em>episkopoi</em>) e diáconos (cap. 3 — ênfase no caráter antes das habilidades); cuidado de viúvas (cap. 5); e advertências contra o amor ao dinheiro como "raiz de todos os males" (cap. 6).</p>
+<p><strong>Declaração cristológica central:</strong> "Há um só mediador entre Deus e os homens: Jesus Cristo homem" (2.5) — fundamento da doutrina cristã da unicidade da mediação, contra todo sistema de santos ou anjos intermediários. O encerramento do capítulo 6 — "guarda o bom depósito" — é um chamado à fidelidade doutrinária que ressoa através dos séculos como mandato ao ministério.</p>`,
+verse:'"Pois há um só Deus e um só mediador entre Deus e os homens, Cristo Jesus, ele mesmo homem." <cite>1 Timóteo 2.5 — NAA</cite>',
+chars:['Paulo','Timóteo','Himeneu','Alexandre','Priscila','Áquila']},
+
+tm2:{num:'Livro 55 · Novo Testamento',title:'2 Timóteo',abbr:'2Tm · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+tags:['Testamento de Paulo','Inspiração das Escrituras','Perseverança','Martírio','Bom Combate','Solidão'],
+body:`<p><strong>Contexto:</strong> 2 Timóteo é provavelmente a última carta de Paulo — seu testamento espiritual, escrito da segunda prisão em Roma (~66–67 d.C.) pouco antes de sua execução sob Nero. O tom é profundamente pessoal, urgente e emocionante. Paulo está sozinho ("todos me abandonaram"), sente-se como "libação derramada" (4.6) sobre o altar, mas sem ressentimento — com serenidade e confiança.</p>
+<p><strong>"Já combati o bom combate" (4.7–8):</strong> Uma das frases mais memoráveis do NT — não arrogância, mas constatação sóbria de fidelidade até o fim. Paulo usa três metáforas: o atleta que termina a prova, o soldado que guarda o posto, e a corrida completada. A coroa da justiça aguarda — não apenas Paulo, "mas também a todos os que amam a sua vinda."</p>
+<p><strong>A inspiração das Escrituras (3.16–17):</strong> "Toda a Escritura é inspirada por Deus (<em>theopneustos</em> — literalmente 'exalada por Deus') e útil para ensinar, repreender, corrigir, instruir na justiça, para que o homem de Deus seja perfeito." Este texto tornou-se o fundamento da doutrina evangélica da inspiração verbal das Escrituras. A carta termina com pedidos pessoais tocantes: tragam o manto, e os livros, especialmente os pergaminhos.</p>`,
+verse:'"Combati o bom combate, completei a corrida, guardei a fé." <cite>2 Timóteo 4.7 — NAA</cite>',
+chars:['Paulo','Timóteo','Lucas','Marcos','Demás','Crescente']},
+
+tt:{num:'Livro 56 · Novo Testamento',title:'Tito',abbr:'Tt · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+tags:['Creta','Liderança','Graça','Boas Obras','Sã Doutrina','Contexto Cultural'],
+body:`<p><strong>Contexto:</strong> Tito é a segunda Epístola Pastoral, dirigida a Tito — colaborador grego de Paulo deixado em Creta para organizar as igrejas da ilha (~62–65 d.C.). É a mais breve das três pastorais (apenas 3 capítulos) mas densa em conteúdo prático e teológico.</p>
+<p><strong>O desafio cretense:</strong> Paulo cita um poeta cretense — "os cretenses sempre mentirosos, bestas ruins, ventres preguiçosos" (1.12) — não como insulto racista, mas para ilustrar o desafio da inculturação do evangelho em ambientes moralmente difíceis. A carta trata de qualificações de presbíteros (cap. 1), instrução para diferentes grupos na comunidade (idosos, jovens, mulheres, escravos — cap. 2), e a relação entre graça e boas obras (caps. 2–3).</p>
+<p><strong>A passagem teológica central (2.11–14):</strong> "A graça de Deus se manifestou trazendo salvação a todos os homens, ensinando-nos a renunciar à impiedade e às paixões mundanas... aguardando a bem-aventurada esperança e a manifestação da glória do nosso grande Deus e Salvador Jesus Cristo." Esta é uma das declarações mais explícitas da divindade de Jesus no corpus paulino. A tensão bíblica entre salvação pela graça e vida em boas obras é perfeitamente equilibrada em Tito.</p>`,
+verse:'"Pois a graça de Deus foi manifestada para a salvação de todos os homens, ensinando-nos a renunciar à impiedade e às paixões mundanas." <cite>Tito 2.11–12 — NAA</cite>',
+chars:['Paulo','Tito','Zenas','Apolo','Artemas','Tíquico']},
+
+fm:{num:'Livro 57 · Novo Testamento',title:'Filemom',abbr:'Fm · Epístolas Paulinas',
+author:'Paulo (apóstolo)',
+tags:['Escravidão','Reconciliação','Perdão','Irmandade em Cristo','Onésimo','Graça Social'],
+body:`<p><strong>Contexto:</strong> Filemom é a carta mais pessoal e privada de Paulo — um bilhete de apenas 25 versículos endereçado a Filemom, cristão de Colossos e dono do escravo Onésimo. Onésimo havia fugido de seu senhor — possivelmente roubando-o — e encontrado Paulo na prisão em Roma, onde se converteu ao cristianismo. Paulo o envia de volta com esta carta que transforma o retorno em convite à reconciliação.</p>
+<p><strong>A arte do apelo:</strong> A carta é modelo de tato diplomático e pastoral. Paulo usa toda sua habilidade retórica para persuadir sem ordenar: "preferi não fazer nada sem o teu consentimento, para que a tua bondade não fosse como que por compulsão, mas voluntária" (v.14). Ele joga com o significado do nome Onésimo ("útil") e se oferece como garantidor: "se te deve alguma coisa, lança isso em minha conta" (v.18) — imagem vívida da imputação substitutiva.</p>
+<p><strong>Subversão social pelo evangelho:</strong> A carta não condena a escravidão explicitamente, mas semeia os princípios que a tornaram incompatível com o evangelho: Onésimo deve ser recebido "não mais como escravo, mas como muito mais do que escravo: como irmão amado" (v.16). É o documento mais sutilmente subversivo do NT sobre as estruturas sociais — não por revolução legal, mas pela transformação dos relacionamentos pela lógica do amor de Cristo.</p>`,
+verse:'"Não mais como escravo, mas bem melhor do que escravo: como irmão amado." <cite>Filemom 16 — NAA</cite>',
+chars:['Paulo','Filemom','Onésimo','Áfia','Arquipo','Timóteo']},
+
+hb:{num:'Livro 58 · Novo Testamento',title:'Hebreus',abbr:'Hb · Epístolas Gerais',
+author:'Anônimo (atribuído a Paulo, Apolo ou Barnabé)',
+tags:['Sumo Sacerdote','Melquisedeque','Nova Aliança','Fé','Hall da Fé','Superioridade de Cristo'],
+body:`<p><strong>Contexto:</strong> Hebreus é um dos mais complexos e magníficos escritos do NT — uma homilia teológica de altíssimo nível dirigida a cristãos de origem judaica em risco de apostatar e retornar ao judaísmo diante da perseguição. A autoria é incerta — Paulo, Apolo, Barnabé e Priscila são candidatos — levando Orígenes a dizer: "quem a escreveu, somente Deus sabe."</p>
+<p><strong>O argumento da superioridade:</strong> O tema central é a superioridade absoluta de Cristo: superior aos anjos (caps. 1–2), a Moisés (cap. 3), a Josué (cap. 4), ao sacerdócio levítico (caps. 5–7), à Antiga Aliança e ao Tabernáculo (caps. 8–10). Cristo é o Sumo Sacerdote definitivo segundo a ordem de Melquisedeque — sacerdócio anterior e superior ao aaronico — que entrou no próprio santuário celestial com seu próprio sangue, obtendo redenção eterna.</p>
+<p><strong>O capítulo 11 — "Hall da Fé":</strong> Define fé como "certeza das coisas que se esperam, convicção das que não se veem" e percorre a história bíblica de Abel a Abraão, Sara, Moisés, Raabe, e heróis anônimos que "não receberam o que lhes foi prometido" — pois esperavam algo melhor que incluiria os crentes do NT. O capítulo 12 usa a imagem da corrida: "corramos com perseverança... olhando para Jesus, o Autor e Consumador da nossa fé."</p>`,
+verse:'"A fé é a certeza daquilo que esperamos e a prova das coisas que não vemos." <cite>Hebreus 11.1 — NAA</cite>',
+chars:['Abraão','Moisés','Raabe','Melquisedeque','Sara','Enoque']},
+
+tg:{num:'Livro 59 · Novo Testamento',title:'Tiago',abbr:'Tg · Epístolas Gerais',
+author:'Tiago, irmão do Senhor (líder da Igreja de Jerusalém)',
+tags:['Fé e Obras','Língua','Sabedoria','Ricos e Pobres','Oração','Ética Prática'],
+body:`<p><strong>Contexto:</strong> Tiago é uma das cartas mais práticas e eticamente exigentes do NT, escrita por Tiago, irmão do Senhor e líder da Igreja de Jerusalém (~45–49 d.C.) — possivelmente o escrito mais antigo do NT junto com 1 Tessalonicenses. Martinho Lutero chamou-a de "epístola de palha" por aparentemente contradizer a justificação somente pela fé — mas a tensão é resolvida quando se percebe que Tiago trata de uma fé morta vs. Paulo trata de uma fé viva que naturalmente gera obras.</p>
+<p><strong>Os grandes temas:</strong> Alegria e perseverança nas tribulações (cap. 1); imparcialidade absoluta em relação a ricos e pobres na assembleia — "não tenhais a fé de nosso Senhor... com acepção de pessoas" (cap. 2); a língua como fogo que destrói (cap. 3 — "nenhum homem pode domar a língua"); a humildade contra o orgulho mundano e a sabedoria de cima vs. a de baixo (cap. 4); advertência devastadora aos ricos que oprimem os trabalhadores (5.1–6); perseverança, oração e cura dos doentes pelos anciãos (5.13–18).</p>
+<p><strong>"A fé sem obras é morta" (2.14–26):</strong> Tiago usa Abraão (crença + ação na oferta de Isaque) e Raabe (crença + ação ao esconder os espias) como exemplos de fé que se manifesta em conduta concreta. O texto não contradiz Paulo — complementa: a fé que justifica é uma fé viva que inevitavelmente se traduz em obras de amor.</p>`,
+verse:'"Assim também a fé, se não tiver obras, por si mesma está morta." <cite>Tiago 2.17 — NAA</cite>',
+chars:['Tiago','Abraão','Raabe','Elias','Jó']},
+
+pe1:{num:'Livro 60 · Novo Testamento',title:'1 Pedro',abbr:'1Pe · Epístolas Gerais',
+author:'Pedro (apóstolo)',
+tags:['Sofrimento','Esperança Viva','Exilados e Peregrinos','Santidade','Submissão','Sacerdócio Real'],
+body:`<p><strong>Contexto:</strong> 1 Pedro foi escrita pelo apóstolo Pedro (~62–64 d.C.) de Roma — chamada de "Babilônia" (5.13), código para Roma no contexto de perseguição — para cristãos espalhados pela Ásia Menor que enfrentavam crescente hostilidade social e possivelmente perseguição do Estado sob Nero. É um manual de esperança e conduta cristã em contexto de sofrimento.</p>
+<p><strong>Identidade e missão:</strong> "Vós sois a geração eleita, o sacerdócio real, a nação santa, o povo adquirido por Deus, para que proclameis as excelências daquele que vos chamou das trevas para a sua maravilhosa luz" (2.9) — aplicação ao povo messiânico das categorias que o AT reservava a Israel. A identidade como "estrangeiros e peregrinos" (2.11) é chamado a viver com a leveza de quem não tem aqui cidadania permanente.</p>
+<p><strong>Sofrimento e esperança:</strong> A teologia do sofrimento em 1 Pedro é notável: o sofrimento do cristão é participação no sofrimento de Cristo (4.13), purificação da fé como ouro no fogo (1.7), e testemunho aos olhos do mundo. A "esperança viva" da ressurreição (1.3) transforma o significado de tudo. "Lançai sobre ele toda a vossa ansiedade, porque ele tem cuidado de vós" (5.7) é um dos versículos mais consoladores do NT.</p>`,
+verse:'"Lancem sobre ele toda a ansiedade de vocês, porque ele cuida de vocês." <cite>1 Pedro 5.7 — NAA</cite>',
+chars:['Pedro','Silvano','Marcos','Babilônia','Priscila','Áquila']},
+
+pe2:{num:'Livro 61 · Novo Testamento',title:'2 Pedro',abbr:'2Pe · Epístolas Gerais',
+author:'Pedro (apóstolo)',
+tags:['Falsos Mestres','Inspiração das Escrituras','Escatologia','Crescimento','Apostasia','Paciência Divina'],
+body:`<p><strong>Contexto:</strong> 2 Pedro é o último escrito do apóstolo Pedro — seu testamento, composto com consciência da morte iminente (~64–68 d.C.). A carta tem tom urgente e combativo, tratando principalmente de dois temas: o crescimento na graça (cap. 1) e o perigo dos falsos mestres que negariam o senhorio de Cristo e promoveriam libertinagem moral (caps. 2–3).</p>
+<p><strong>Inspiração das Escrituras (1.16–21):</strong> Pedro afirma ter sido testemunha ocular da Transfiguração de Jesus — "ouvimos esta voz vinda dos céus" — e em seguida declara: "a profecia não teve origem na vontade dos homens; mas os santos homens de Deus falaram movidos pelo Espírito Santo" (1.21). A memória apostólica e a inspiração profética convergem como fundamentos do NT.</p>
+<p><strong>A paciência escatológica (cap. 3):</strong> Escarnecedores que zombam da promessa do retorno de Cristo recebem resposta: "para o Senhor um dia é como mil anos, e mil anos como um dia" (3.8) — a relatividade do tempo divino. O "atraso" é na verdade paciência: "o Senhor não retarda a sua promessa... mas é longânimo para convosco, não querendo que nenhum pereça." O mundo será renovado por fogo, e o horizonte é "novos céus e nova terra nos quais habita a justiça" (3.13).</p>`,
+verse:'"Antes, cresçam na graça e no conhecimento de nosso Senhor e Salvador Jesus Cristo." <cite>2 Pedro 3.18 — NAA</cite>',
+chars:['Pedro','Paulo','Noé','Ló','Balaão']},
+
+jo1:{num:'Livro 62 · Novo Testamento',title:'1 João',abbr:'1Jo · Epístolas Gerais',
+author:'João Apóstolo, filho de Zebedeu',
+tags:['Amor','Luz','Encarnação','Anticristos','Vida Eterna','Testes da Fé'],
+body:`<p><strong>Contexto:</strong> 1 João é uma carta-sermão de João Apóstolo (~90–100 d.C.) dirigida a comunidades que enfrentavam divisão causada por proto-gnósticos: professores que negavam a plena encarnação de Cristo ("Jesus não veio em carne real") e afirmavam ter um conhecimento espiritual superior que os colocava acima das normas éticas comuns.</p>
+<p><strong>Os três testes:</strong> O livro é estruturado em torno de três pares de testes para verificar a autenticidade da fé cristã: <em>doutrinário</em> (confissão de Cristo encarnado), <em>ético</em> (guardar os mandamentos) e <em>relacional</em> (amor fraternal). Esses testes se entrelaçam ao longo do livro, aplicados progressivamente.</p>
+<p><strong>As grandes afirmações:</strong> "Deus é luz, e nele não há treva alguma" (1.5); "Se confessarmos os nossos pecados, ele é fiel e justo para nos perdoar e nos purificar de toda injustiça" (1.9 — texto pastoral por excelência); "Deus é amor" (4.8.16 — declaração ontológica única na Bíblia); "Aquele que não ama permanece na morte" (3.14). O capítulo 5 afirma diretamente a vida eterna como posse presente do crente: "Estas coisas vos escrevi para que saibais que tendes a vida eterna" (5.13).</p>`,
+verse:'"Deus é amor. Aquele que permanece no amor permanece em Deus, e Deus permanece nele." <cite>1 João 4.16 — NAA</cite>',
+chars:['João','Jesus']},
+
+jo2:{num:'Livro 63 · Novo Testamento',title:'2 João',abbr:'2Jo · Epístolas Gerais',
+author:'João Apóstolo, filho de Zebedeu',
+tags:['Amor e Verdade','Hospitalidade Discernida','Falsos Mestres','Anciãos','Igreja Local'],
+body:`<p><strong>Contexto:</strong> 2 João é um dos mais curtos escritos do NT — apenas 13 versículos — endereçado pelo "Presbítero" (provavelmente João Apóstolo) à "senhora eleita e a seus filhos," possivelmente metáfora para uma Igreja local específica. O tema é o equilíbrio delicado entre amor e verdade.</p>
+<p><strong>Amor e verdade:</strong> A carta começa combinando os dois grandes valores joaninos: "A verdade" e "o amor" não são opostos — o amor caminha "segundo os seus mandamentos" (v.6) e a verdade define os limites do amor cristão. Esta tensão é central para a teologia de João: o amor que aceita tudo não é amor cristão.</p>
+<p><strong>A hospitalidade problemática:</strong> Os falsos mestres — que "não confessam Jesus Cristo vindo em carne" (v.7) — não devem ser recebidos em casa nem saudados: "quem os saúda participa de suas obras más" (v.11). Esta instrução parece em tensão com o princípio do amor, mas João entende que acolher ativamente o erro é ser cúmplice da destruição de almas. O equilíbrio entre hospitalidade generosa e discernimento doutrinário é uma das tensões que a Igreja em toda época precisa manejar com sabedoria pastoral.</p>`,
+verse:'"Todo aquele que vai além e não permanece no ensino de Cristo não tem a Deus." <cite>2 João 9 — NAA</cite>',
+chars:['João','A Senhora Eleita']},
+
+jo3:{num:'Livro 64 · Novo Testamento',title:'3 João',abbr:'3Jo · Epístolas Gerais',
+author:'João Apóstolo, filho de Zebedeu',
+tags:['Hospitalidade','Gaio','Diótrefes','Autoridade Eclesial','Missão Itinerante','Caráter'],
+body:`<p><strong>Contexto:</strong> 3 João, também do "Presbítero" João (~90–100 d.C.), é uma carta pessoal a Gaio — um cristão específico elogiado por sua hospitalidade generosa aos missionários itinerantes. É o contraponto positivo de 2 João: onde o segundo adverte contra a hospitalidade imprudente a falsos mestres, o terceiro elogia a hospitalidade fiel aos servos do evangelho.</p>
+<p><strong>Três personagens:</strong> <strong>Gaio</strong> — cristão fiel cuja "alma prospera" assim como prospera sua vida exterior (v.2 — texto frequentemente mal aplicado a prosperidade material fora de contexto). <strong>Diótrefes</strong> — líder local que "ama ser o primeiro" (v.9), recusa receber os missionários de João, fala maldades contra eles com palavras vãs, e exclui da Igreja os que os recebem. É um dos raros vislumbres de conflito eclesiástico concreto no NT — o perigo do autoritarismo que serve ao ego. <strong>Demétrio</strong> — contra-exemplo positivo recomendado por todos e pela própria verdade.</p>
+<p><strong>Mensagem:</strong> A hospitalidade como ministério missionário é uma das formas primárias de participar na obra do evangelho sem ser o pregador. "Aqueles que trabalhamos juntos com a verdade" (v.8) — a missão cristã é sempre colaborativa. "Não imites o que é mau, mas o que é bom. Quem pratica o bem é de Deus" (v.11).</p>`,
+verse:'"Amado, não imite o que é mau, mas o que é bom. Quem pratica o bem é de Deus." <cite>3 João 11 — NAA</cite>',
+chars:['João','Gaio','Diótrefes','Demétrio']},
+
+jd:{num:'Livro 65 · Novo Testamento',title:'Judas',abbr:'Jd · Epístolas Gerais',
+author:'Judas, irmão do Senhor',
+tags:['Combater pela Fé','Falsos Mestres','Literatura Apócrifa','Misericórdia','Apostasia','Doxologia'],
+body:`<p><strong>Contexto:</strong> Judas — escrita por Judas, irmão de Tiago e portanto irmão do Senhor (~60–80 d.C.) — é um dos escritos mais vigorosos e militantes do NT. Em apenas 25 versículos, Judas exorta os crentes a "combater pela fé que uma vez por todas foi entregue aos santos" (v.3) contra "certos homens" que se infiltraram na comunidade promovendo libertinagem e negando o senhorio de Cristo.</p>
+<p><strong>Exemplos do AT e apócrifos:</strong> Judas usa exemplos do AT de forma incomum — anjos que não guardaram sua posição, Sodoma e Gomorra, Caim, Balaão, Coré — e duas referências a textos apócrifos: a disputa de Miguel com Satanás pelo corpo de Moisés (da "Assunção de Moisés") e a citação explícita do Livro de Enoque (v.14–15). Judas não hesita em usar fontes extrabíblicas quando confirmam a verdade revelada — um exemplo de pragmatismo hermenêutico.</p>
+<p><strong>O equilíbrio combate-misericórdia (vv.20–23):</strong> Após o apelo ao combate, Judas equilibra com apelo ao cuidado pastoral: "tende misericórdia de alguns que estão em dúvida; a outros salvai, arrebatando-os do fogo; de outros ainda, tende misericórdia com temor." A doxologia final (vv.24–25) é uma das mais belas do NT: "Àquele que é poderoso para vos guardar de tropeçar e apresentar-vos diante da sua glória irrepreensíveis, em exultação..."</p>`,
+verse:'"Batalhem pela fé que foi confiada de uma vez por todas aos santos." <cite>Judas 3 — NAA</cite>',
+chars:['Judas','Miguel','Enoque','Moisés','Caim','Balaão']},
+
+ap:{num:'Livro 66 · Novo Testamento',title:'Apocalipse',abbr:'Ap · Profético NT',
+author:'João Apóstolo (exilado em Patmos)',
+tags:['Visões','Cordeiro','Nova Criação','Besta','Sete Igrejas','Vitória Final'],
+body:`<p><strong>Contexto:</strong> Apocalipse (<em>apokalypsis</em> — "revelação, desvelamento") é o livro mais debatido e mais fascinante da Bíblia. Escrito por João (~95 d.C.) quando exilado na ilha de Patmos durante a perseguição do imperador Domiciano, é uma carta profética de conforto e encorajamento para igrejas sob intensa pressão imperial. Não é primariamente um calendário de eventos futuros para decodificar — é uma revelação da realidade celestial que governa a terrena.</p>
+<p><strong>Gênero e interpretação:</strong> O apocalipse é um gênero literário específico da Antiguidade — literatura simbólica de visões que revela realidades espirituais por trás das históricas. As bestas, dragões, números e cores devem ser interpretados simbolicamente, não literalmente. A "Besta" é o poder imperial romano (e suas imitações em cada era) que exige adoração absoluta. O "Cordeiro" — imagem que aparece 28 vezes — é Cristo crucificado e ressurreto, o verdadeiro Senhor do cosmos.</p>
+<p><strong>A estrutura e o clímax:</strong> O livro percorre as cartas às sete igrejas (caps. 2–3), a visão do trono celestial e o Cordeiro abrindo os selos (caps. 4–7), as trombetas (caps. 8–11), o conflito cósmico (caps. 12–14), as taças (caps. 15–16), a queda da "Babilônia"/Roma (caps. 17–18), a vitória do Cordeiro, o milênio, o julgamento final (caps. 19–20), e a Nova Jerusalém (caps. 21–22). O clímax da Bíblia inteira: "Eis que faço novas todas as coisas" (21.5) — Deus habitando com sua criação renovada, sem morte, pranto ou dor. O Éden perdido torna-se uma Cidade.</p>`,
+verse:'"Eis que faço novas todas as coisas... Eu sou o Alfa e o Ômega, o princípio e o fim." <cite>Apocalipse 21.5–6 — NAA</cite>',
+chars:['João','Jesus','Miguel','Besta','Dragão','Noiva do Cordeiro']},
+};
+
+// ══════════════════════════════════════════
+// MODAL LOGIC
+// ══════════════════════════════════════════
+function show(id){
+  const b=DB[id]; if(!b) return;
+  document.getElementById('m-num').textContent   = b.num;
+  document.getElementById('m-title').textContent = b.title;
+  document.getElementById('m-abbr').textContent  = b.abbr;
+  const au=document.getElementById('m-author');
+  document.getElementById('m-author-text').textContent = b.author||'';
+  au.style.display = b.author ? 'inline-flex' : 'none';
+  const cw=document.getElementById('m-chars-wrap');
+  const cc=document.getElementById('m-chars');
+  if(b.chars && b.chars.length){
+    cc.innerHTML = b.chars.map(c=>`<span class="mchar-tag">${c}</span>`).join('');
+    cw.style.display='block';
+  } else { cw.style.display='none'; }
+  document.getElementById('m-tags').innerHTML    = b.tags.map(t=>`<span class="mtag">${t}</span>`).join('');
+  document.getElementById('m-body').innerHTML    = b.body;
+  const ve=document.getElementById('m-verse');
+  ve.innerHTML=b.verse||''; ve.style.display=b.verse?'block':'none';
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  document.getElementById('modal').scrollTop=0;
+}
+function closeModal(){
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeOnBg(e){if(e.target===document.getElementById('overlay'))closeModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+// ══════════════════════════════════════════
+// IMAGE DOWNLOAD
+// ══════════════════════════════════════════
+async function downloadImage(){
+  const btn=document.getElementById('dlBtn'),lbl=document.getElementById('dlLabel');
+  btn.classList.add('busy'); lbl.textContent='Gerando…';
+  document.getElementById('toolbar').style.visibility='hidden';
+  try{
+    const canvas=await html2canvas(document.getElementById('capture'),{
+      backgroundColor:'#0a1628', scale:2, useCORS:true, allowTaint:true, logging:false
+    });
+    const a=document.createElement('a');
+    a.download='tabela-biblica.png';
+    a.href=canvas.toDataURL('image/png'); a.click();
+  }catch(e){alert('Erro ao gerar imagem. Tente novamente.');console.error(e);}
+  finally{
+    document.getElementById('toolbar').style.visibility='visible';
+    btn.classList.remove('busy'); lbl.textContent='Baixar PNG';
+  }
+}
+</script>
+</body>
+</html>

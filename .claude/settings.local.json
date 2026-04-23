@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python skills/ui-ux-pro-max/scripts/search.py \"biblical study educational dark elegant\" --design-system -f markdown)",
+      "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"biblical study educational dark elegant\" --design-system -f markdown)",
+      "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"biblical historical study ancient scholarly dark\" --design-system -p \"Livros Históricos\" -f markdown)"
+    ]
+  }
+}
