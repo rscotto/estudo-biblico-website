@@ -7,17 +7,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy:       #0a1628;
-  --navy-mid:   #0f2040;
-  --navy-light: #1a3054;
+  --navy:       #2c2416;
+  --navy-mid:   #3a3020;
+  --navy-light: #4a3e28;
   --gold:       #FFA400;
   --gold-dim:   #cc8500;
-  --sand:       #e8d8b8;
-  --sand-dim:   #b8a888;
+  --sand:       #f0e6d0;
+  --sand-dim:   #c8b898;
   --men:        #3a8c6e;
   --men-dim:    #2d6e55;
-  --shadow-sm:  0 2px 8px rgba(10,22,40,0.22);
-  --shadow-md:  0 8px 32px rgba(10,22,40,0.32);
+  --shadow-sm:  0 2px 8px rgba(20,16,8,0.22);
+  --shadow-md:  0 8px 32px rgba(20,16,8,0.32);
   --radius-sm:  6px;
   --radius-md:  12px;
   --transition: 250ms ease;
@@ -29,8 +29,8 @@ html{scroll-behavior:smooth;}
 body{
   background:var(--navy);
   background-image:
-    radial-gradient(ellipse at 15% 0%,rgba(255,164,0,0.07) 0%,transparent 55%),
-    radial-gradient(ellipse at 85% 100%,rgba(255,164,0,0.04) 0%,transparent 50%);
+    radial-gradient(ellipse at 15% 0%,rgba(255,164,0,0.09) 0%,transparent 55%),
+    radial-gradient(ellipse at 85% 100%,rgba(255,164,0,0.06) 0%,transparent 50%);
   color:var(--sand);
   font-family:'EB Garamond',serif;
   font-size:18px;line-height:1.8;
@@ -42,7 +42,7 @@ p{text-align:justify;hyphens:auto;}
 
 .sidebar{
   width:var(--nav-w);flex-shrink:0;
-  background:linear-gradient(180deg,rgba(15,32,64,0.98) 0%,rgba(10,22,40,0.98) 100%);
+  background:linear-gradient(180deg,rgba(44,36,22,0.98) 0%,rgba(20,16,8,0.98) 100%);
   border-right:1px solid rgba(255,164,0,0.14);
   position:fixed;top:0;left:0;bottom:0;
   overflow-y:auto;overflow-x:hidden;
@@ -89,7 +89,7 @@ p{text-align:justify;hyphens:auto;}
 
 .hero{
   padding:48px 52px 36px;
-  background:linear-gradient(160deg,rgba(15,32,64,0.9) 0%,transparent 100%);
+  background:linear-gradient(160deg,rgba(44,36,22,0.9) 0%,transparent 100%);
   border-bottom:1px solid rgba(255,164,0,0.12);
   position:relative;overflow:hidden;
 }
@@ -165,7 +165,7 @@ p{text-align:justify;hyphens:auto;}
 .tl-date{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;opacity:.8;margin-bottom:4px;}
 .tl-text{font-family:'EB Garamond',serif;font-size:16px;color:var(--sand);line-height:1.6;text-align:justify;hyphens:auto;}
 
-.geo-box{background:rgba(255,164,0,0.04);border:1px solid rgba(255,164,0,0.14);border-radius:var(--radius-md);padding:28px 32px;margin-bottom:28px;}
+.geo-box{background:rgba(255,164,0,0.06);border:1px solid rgba(255,164,0,0.14);border-radius:var(--radius-md);padding:28px 32px;margin-bottom:28px;}
 .geo-box p{font-size:17px;color:var(--sand);line-height:1.8;margin-bottom:12px;text-align:justify;hyphens:auto;}
 .geo-box p:last-child{margin-bottom:0;}
 .geo-box strong{color:var(--gold);}
@@ -181,7 +181,7 @@ p{text-align:justify;hyphens:auto;}
   cursor:pointer;align-items:center;justify-content:center;
   touch-action:manipulation;-webkit-tap-highlight-color:transparent;
 }
-.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(10,22,40,0.7);backdrop-filter:blur(2px);z-index:40;}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(20,16,8,0.7);backdrop-filter:blur(2px);z-index:40;}
 
 @media(max-width:900px){
   .menu-toggle{display:flex;}

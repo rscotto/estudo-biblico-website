@@ -11,25 +11,25 @@
 *:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
 
 :root{
-  --navy:#0a1628; --navy-mid:#0f2040; --navy-light:#1a3054;
+  --navy:#2c2416; --navy-mid:#3a3020; --navy-light:#4a3e28;
   --gold:#FFA400; --gold-dim:#cc8500;
-  --sand:#e8d8b8; --sand-dim:#b8a888;
+  --sand:#f0e6d0; --sand-dim:#c8b898;
 
-  /* Category accent colors — kept vibrant against dark bg */
-  --pen:#e8a830;  --his:#e05050;  --poe:#d4a020;
-  --mai:#5090e0;  --men:#30c090;  --eva:#e06060;
-  --ato:#e08030;  --pau:#a060e0;  --ger:#40c070;  --apo:#d04040;
+  /* Category accent colors — amber/orange family */
+  --pen:#FFA400;  --his:#e8820a;  --poe:#f0c040;
+  --mai:#e06a10;  --men:#d4a020;  --eva:#ffb830;
+  --ato:#c87820;  --pau:#f0900a;  --ger:#e8b840;  --apo:#cc6010;
 
   --cell-border:rgba(255,164,0,.14);
   --cell-bg-op:.08; --cell-bg-op-h:.22;
   --leg-bg:rgba(255,255,255,.03); --leg-border:rgba(255,164,0,.12);
-  --modal-bg:#0e1f3a; --modal-border:rgba(255,164,0,.18);
-  --modal-inner:rgba(255,255,255,.04);
+  --modal-bg:#2c2416; --modal-border:rgba(255,164,0,.18);
+  --modal-inner:rgba(255,255,255,.05);
   --tag-bg:rgba(255,164,0,.10); --tag-color:var(--gold);
-  --overlay:rgba(5,12,25,.75);
+  --overlay:rgba(20,16,8,.80);
   --hint:var(--sand-dim); --divline-op:.5;
   --scroll-thumb:rgba(255,164,0,.25);
-  --shadow-cell:0 8px 28px rgba(0,0,0,.45);
+  --shadow-cell:0 8px 28px rgba(0,0,0,.35);
   --shadow-modal:0 32px 100px rgba(0,0,0,.6);
 }
 
@@ -236,16 +236,15 @@ h1 em{color:var(--gold);font-style:italic;}
 /* ── MODAL ── */
 .overlay{
   display:none; position:fixed; inset:0; z-index:2000;
-  background:var(--overlay);
+  background:rgba(20,16,8,.85);
   align-items:center; justify-content:center; padding:16px;
-  backdrop-filter:blur(8px);
 }
 .overlay.open{display:flex;animation:fadeIn .2s ease;}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes slideUp{from{opacity:0;transform:translateY(28px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 
 .modal{
-  background:var(--modal-bg); border:1px solid var(--modal-border);
+  background:#2c2416; border:1px solid var(--modal-border);
   border-radius:14px; max-width:700px; width:100%;
   max-height:90vh; overflow-y:auto;
   padding:0; position:relative;
@@ -561,16 +560,16 @@ h1 em{color:var(--gold);font-style:italic;}
 <!-- LEGEND -->
 <div class="tdiv" style="max-width:1100px;margin:28px auto 0;"><div class="tline r"></div><div class="tlabel" data-pt="✦ LEGENDA ✦" data-en="✦ LEGEND ✦">✦ LEGENDA ✦</div><div class="tline"></div></div>
 <div class="legend">
-  <div class="li"><div class="lsw" style="background:rgba(200,168,75,.14);border:1px solid rgba(200,168,75,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pen)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg></div><div><span class="lcat" style="color:var(--pen)" data-pt="AT · Lei" data-en="OT · Law">AT · Lei</span><span class="lname" style="color:var(--pen)" data-pt="Pentateuco" data-en="Pentateuch">Pentateuco</span></div><span class="lcount">5</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(224,82,82,.14);border:1px solid rgba(224,82,82,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--his)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><span class="lcat" style="color:var(--his)" data-pt="AT · Narrativa" data-en="OT · Narrative">AT · Narrativa</span><span class="lname" style="color:var(--his)" data-pt="Históricos" data-en="Historical">Históricos</span></div><span class="lcount">12</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(212,160,23,.14);border:1px solid rgba(212,160,23,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--poe)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div><span class="lcat" style="color:var(--poe)" data-pt="AT · Sabedoria" data-en="OT · Wisdom">AT · Sabedoria</span><span class="lname" style="color:var(--poe)" data-pt="Poéticos" data-en="Poetic">Poéticos</span></div><span class="lcount">5</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(74,159,212,.14);border:1px solid rgba(74,159,212,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--mai)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg></div><div><span class="lcat" style="color:var(--mai)" data-pt="AT · Profecia" data-en="OT · Prophecy">AT · Profecia</span><span class="lname" style="color:var(--mai)" data-pt="Prof. Maiores" data-en="Maj. Prophets">Prof. Maiores</span></div><span class="lcount">5</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(26,188,156,.14);border:1px solid rgba(26,188,156,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--men)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><span class="lcat" style="color:var(--men)" data-pt="AT · Profecia" data-en="OT · Prophecy">AT · Profecia</span><span class="lname" style="color:var(--men)" data-pt="Prof. Menores" data-en="Min. Prophets">Prof. Menores</span></div><span class="lcount">12</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(231,76,60,.14);border:1px solid rgba(231,76,60,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--eva)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><div><span class="lcat" style="color:var(--eva)" data-pt="NT · Biografia" data-en="NT · Biography">NT · Biografia</span><span class="lname" style="color:var(--eva)" data-pt="Evangelhos" data-en="Gospels">Evangelhos</span></div><span class="lcount">4</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(230,126,34,.14);border:1px solid rgba(230,126,34,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ato)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div><span class="lcat" style="color:var(--ato)" data-pt="NT · Narrativa" data-en="NT · Narrative">NT · Narrativa</span><span class="lname" style="color:var(--ato)" data-pt="Atos" data-en="Acts">Atos</span></div><span class="lcount">1</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(160,102,204,.14);border:1px solid rgba(160,102,204,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pau)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><span class="lcat" style="color:var(--pau)" data-pt="NT · Epístola" data-en="NT · Epistle">NT · Epístola</span><span class="lname" style="color:var(--pau)" data-pt="Paulinas" data-en="Pauline">Paulinas</span></div><span class="lcount">13</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(46,204,113,.14);border:1px solid rgba(46,204,113,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ger)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div><span class="lcat" style="color:var(--ger)" data-pt="NT · Epístola" data-en="NT · Epistle">NT · Epístola</span><span class="lname" style="color:var(--ger)" data-pt="Gerais" data-en="General">Gerais</span></div><span class="lcount">8</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(231,76,60,.14);border:1px solid rgba(231,76,60,.4)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--apo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><div><span class="lcat" style="color:var(--apo)" data-pt="NT · Profecia" data-en="NT · Prophecy">NT · Profecia</span><span class="lname" style="color:var(--apo)" data-pt="Apocalipse" data-en="Revelation">Apocalipse</span></div><span class="lcount">1</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(255,164,0,.14);border:1px solid rgba(255,164,0,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pen)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg></div><div><span class="lcat" style="color:var(--pen)" data-pt="AT · Lei" data-en="OT · Law">AT · Lei</span><span class="lname" style="color:var(--pen)" data-pt="Pentateuco" data-en="Pentateuch">Pentateuco</span></div><span class="lcount">5</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(232,130,10,.14);border:1px solid rgba(232,130,10,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--his)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><span class="lcat" style="color:var(--his)" data-pt="AT · Narrativa" data-en="OT · Narrative">AT · Narrativa</span><span class="lname" style="color:var(--his)" data-pt="Históricos" data-en="Historical">Históricos</span></div><span class="lcount">12</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(240,192,64,.14);border:1px solid rgba(240,192,64,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--poe)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div><span class="lcat" style="color:var(--poe)" data-pt="AT · Sabedoria" data-en="OT · Wisdom">AT · Sabedoria</span><span class="lname" style="color:var(--poe)" data-pt="Poéticos" data-en="Poetic">Poéticos</span></div><span class="lcount">5</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(224,106,16,.14);border:1px solid rgba(224,106,16,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--mai)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg></div><div><span class="lcat" style="color:var(--mai)" data-pt="AT · Profecia" data-en="OT · Prophecy">AT · Profecia</span><span class="lname" style="color:var(--mai)" data-pt="Prof. Maiores" data-en="Maj. Prophets">Prof. Maiores</span></div><span class="lcount">5</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(212,160,32,.14);border:1px solid rgba(212,160,32,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--men)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><span class="lcat" style="color:var(--men)" data-pt="AT · Profecia" data-en="OT · Prophecy">AT · Profecia</span><span class="lname" style="color:var(--men)" data-pt="Prof. Menores" data-en="Min. Prophets">Prof. Menores</span></div><span class="lcount">12</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(255,184,48,.14);border:1px solid rgba(255,184,48,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--eva)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><div><span class="lcat" style="color:var(--eva)" data-pt="NT · Biografia" data-en="NT · Biography">NT · Biografia</span><span class="lname" style="color:var(--eva)" data-pt="Evangelhos" data-en="Gospels">Evangelhos</span></div><span class="lcount">4</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(200,120,32,.14);border:1px solid rgba(200,120,32,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ato)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div><span class="lcat" style="color:var(--ato)" data-pt="NT · Narrativa" data-en="NT · Narrative">NT · Narrativa</span><span class="lname" style="color:var(--ato)" data-pt="Atos" data-en="Acts">Atos</span></div><span class="lcount">1</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(240,144,10,.14);border:1px solid rgba(240,144,10,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pau)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><span class="lcat" style="color:var(--pau)" data-pt="NT · Epístola" data-en="NT · Epistle">NT · Epístola</span><span class="lname" style="color:var(--pau)" data-pt="Paulinas" data-en="Pauline">Paulinas</span></div><span class="lcount">13</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(232,184,64,.14);border:1px solid rgba(232,184,64,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ger)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div><span class="lcat" style="color:var(--ger)" data-pt="NT · Epístola" data-en="NT · Epistle">NT · Epístola</span><span class="lname" style="color:var(--ger)" data-pt="Gerais" data-en="General">Gerais</span></div><span class="lcount">8</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(204,96,16,.14);border:1px solid rgba(204,96,16,.4)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--apo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><div><span class="lcat" style="color:var(--apo)" data-pt="NT · Profecia" data-en="NT · Prophecy">NT · Profecia</span><span class="lname" style="color:var(--apo)" data-pt="Apocalipse" data-en="Revelation">Apocalipse</span></div><span class="lcount">1</span></div>
 </div>
 
 </div><!-- /capture -->
@@ -1217,7 +1216,7 @@ async function downloadImage(){
   document.getElementById('toolbar').style.visibility='hidden';
   try{
     const canvas=await html2canvas(document.getElementById('capture'),{
-      backgroundColor:'#0a1628', scale:2, useCORS:true, allowTaint:true, logging:false
+      backgroundColor:'#2c2416', scale:2, useCORS:true, allowTaint:true, logging:false
     });
     const a=document.createElement('a');
     a.download='tabela-biblica.png';
