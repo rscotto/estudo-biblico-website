@@ -432,6 +432,18 @@ p{text-align:justify;hyphens:auto;}
 
       <div class="tab-panel active" id="jeremias-ctx">
         <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">52 capítulos — o mais longo de todos os profetas em número de palavras</div></div>
+            <div class="info-card"><div class="info-card-label">Período</div><div class="info-card-value">~627–582 a.C. · abrange os cinco últimos reis de Judá</div></div>
+            <div class="info-card"><div class="info-card-label">Nome hebraico</div><div class="info-card-value">Yirmeyahu — "o Senhor exalta" ou "o Senhor lança"</div></div>
+            <div class="info-card"><div class="info-card-label">Nova Aliança</div><div class="info-card-value">Jr 31.31–34 — único texto do AT com a expressão "aliança nova" (berit chadashah)</div></div>
+            <div class="info-card"><div class="info-card-label">Escriba</div><div class="info-card-value">Baraque ben Nerias — identificado arqueologicamente por selo (bulla) encontrado em 2001</div></div>
+            <div class="info-card"><div class="info-card-label">Ordem no cânon</div><div class="info-card-value">TM: capítulos fora de ordem cronológica · LXX: versão mais curta e diferente ordenação</div></div>
+          </div>
+        </div>
+
+        <div class="study-block">
           <div class="block-title">O Profeta da Agonia Nacional</div>
           <div class="block-body">
             <p>Jeremias ministrou durante o período mais catastrófico da história de Judá — desde o décimo terceiro ano do rei Josias (~627 a.C.) até depois da queda de Jerusalém em 586 a.C. Sua vida se estendeu pelos últimos cinco reis de Judá: Josias, Joacaz, Jeoaquim, Joaquim e Zedequias — cada um mais distante de Deus que o anterior. Ele viu com os próprios olhos a destruição do Templo de Salomão, a queima da cidade e a deportação do povo.</p>
@@ -624,6 +636,18 @@ p{text-align:justify;hyphens:auto;}
       </div>
 
       <div class="tab-panel active" id="ezequiel-ctx">
+        <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">48 capítulos · ministério documentado por 22 anos (593–571 a.C.)</div></div>
+            <div class="info-card"><div class="info-card-label">Autor</div><div class="info-card-value">Ezequiel ben Buzi — sacerdote exilado em 597 a.C., profeta em Tel-Abibe (Babilônia)</div></div>
+            <div class="info-card"><div class="info-card-label">Estrutura</div><div class="info-card-value">Caps. 1–24: julgamento de Judá · 25–32: oráculos às nações · 33–48: restauração</div></div>
+            <div class="info-card"><div class="info-card-label">Nome de Deus</div><div class="info-card-value">"Senhor Deus" (Adonai YHWH) — aparece mais de 200 vezes, mais do que em qualquer outro livro</div></div>
+            <div class="info-card"><div class="info-card-label">Ben Adam</div><div class="info-card-value">"Filho do homem" — título com que Deus chama Ezequiel 93 vezes · ênfase na humildade humana diante do divino</div></div>
+            <div class="info-card"><div class="info-card-label">Visão principal</div><div class="info-card-value">Ez 1 (Merkavá) — fundamento da mística judaica; Ez 36–37 (coração novo e ossos secos) — fundamento da pneumatologia do NT</div></div>
+          </div>
+        </div>
+
         <div class="study-block">
           <div class="block-title">O Profeta Sacerdote no Exílio</div>
           <div class="block-body">
@@ -828,6 +852,7 @@ function showBook(id){
   const btn=document.querySelector('[data-book="'+id+'"]');
   if(btn)btn.classList.add('active');
   if(window.innerWidth<=900)closeSidebar();
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function showTab(btn,bookId,tabId){

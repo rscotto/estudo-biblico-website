@@ -446,6 +446,11 @@
     margin: 28px 0;
   }
 
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-bottom:32px;}
+  .info-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,164,0,0.12);border-radius:var(--radius-sm);padding:18px 20px;}
+  .info-card-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;opacity:.75;margin-bottom:6px;}
+  .info-card-value{font-family:'EB Garamond',serif;font-size:16px;color:var(--sand);line-height:1.4;}
+
   .card {
     border: 1px solid rgba(255,164,0,0.15);
     border-top: 2px solid var(--gold);
@@ -1670,6 +1675,15 @@
       <p><strong>Nome hebraico:</strong> <em>Bereshit</em> (בְּרֵאשִׁית) — "No princípio", da frase de abertura. <strong>Nome grego (LXX):</strong> <em>Genesis</em> — "origem, geração." <strong>Capítulos:</strong> 50. <strong>Período histórico abrangido:</strong> da criação até a morte de José no Egito (c. 1805 a.C.). <strong>Autor:</strong> Moisés (Jo 5.46–47; Mc 10.3–5). <strong>Versículo central:</strong> "No princípio criou Deus os céus e a terra." (1.1)</p>
     </div>
 
+    <div class="info-grid reveal">
+      <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">50 capítulos · da criação à morte de José no Egito (~1805 a.C.)</div></div>
+      <div class="info-card"><div class="info-card-label">Estrutura</div><div class="info-card-value">10 toledot ("gerações") como marcadores narrativos · História Primordial (1–11) e Patriarcal (12–50)</div></div>
+      <div class="info-card"><div class="info-card-label">Protoevangelium</div><div class="info-card-value">Gn 3.15 — primeira promessa messiânica da Bíblia · "este te ferirá a cabeça"</div></div>
+      <div class="info-card"><div class="info-card-label">Aliança Abraâmica</div><div class="info-card-value">Gn 12.1–3 — pivot de toda a história bíblica: terra, descendência e bênção a todas as nações</div></div>
+      <div class="info-card"><div class="info-card-label">Citações no NT</div><div class="info-card-value">Mais de 200 alusões ao NT · livro mais referenciado do AT no Novo Testamento</div></div>
+      <div class="info-card"><div class="info-card-label">Imago Dei</div><div class="info-card-value">Gn 1.26–27 — fundamento da dignidade humana · Cristo é sua restauração plena (Cl 1.15; Rm 8.29)</div></div>
+    </div>
+
     <h2 class="reveal">Estrutura do Livro — As Dez Toledot</h2>
     <p>A palavra estruturante de Gênesis é <em>toledot</em> (תּוֹלְדוֹת — "gerações, história, descendência"), que aparece dez vezes e funciona como marcador narrativo. O livro se divide em duas grandes seções: <strong>História Primordial</strong> (caps. 1–11) e <strong>História Patriarcal</strong> (caps. 12–50).</p>
 
@@ -1775,6 +1789,15 @@
       <p><strong>Nome hebraico:</strong> <em>Shemot</em> (שְׁמוֹת) — "Nomes", da frase de abertura "Estes são os nomes dos filhos de Israel." <strong>Nome grego (LXX):</strong> <em>Exodus</em> — "saída, partida." <strong>Capítulos:</strong> 40. <strong>Período histórico abrangido:</strong> c. 1526–1446 a.C. (do nascimento de Moisés ao erguimento do Tabernáculo). <strong>Autor:</strong> Moisés (confirmado em Êx 24.4; Mc 12.26).</p>
     </div>
 
+    <div class="info-grid">
+      <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">40 capítulos · ~1526–1446 a.C. · do nascimento de Moisés ao Tabernáculo erguido</div></div>
+      <div class="info-card"><div class="info-card-label">Nome de Deus</div><div class="info-card-value">YHWH revelado em Êx 3.14 ("EU SOU O QUE SOU") e 34.6–7 — as duas maiores revelações do caráter divino no AT</div></div>
+      <div class="info-card"><div class="info-card-label">As dez pragas</div><div class="info-card-value">Guerra teológica sistemática contra o panteão egípcio — cada praga ataca uma divindade específica</div></div>
+      <div class="info-card"><div class="info-card-label">Aliança do Sinai</div><div class="info-card-value">Cap. 19–24: Decálogo + Código da Aliança + ratificação com sangue · a mais abrangente teofania do AT</div></div>
+      <div class="info-card"><div class="info-card-label">Tipologia cristológica</div><div class="info-card-value">Cordeiro pascal, maná, rocha, sacerdote, tabernáculo, véu — um dos livros mais cristológicos do AT</div></div>
+      <div class="info-card"><div class="info-card-label">Meta do Êxodo</div><div class="info-card-value">Não é Canaã — é o Tabernáculo (cap. 40): Deus vem habitar no meio do povo libertado</div></div>
+    </div>
+
     <h2>Estrutura do Livro</h2>
     <div class="timeline">
       <div class="timeline-item">
@@ -1857,6 +1880,15 @@
     <div class="callout callout-theological">
       <span class="callout-type">Dados Introdutórios</span>
       <p><strong>Nome hebraico:</strong> <em>Vayikra</em> (וַיִּקְרָא) — "E chamou", da frase de abertura. <strong>Nome grego (LXX):</strong> <em>Leuitikon</em> — "sobre os levitas" (embora o livro trate do sacerdócio aaronita, não apenas dos levitas). <strong>Capítulos:</strong> 27. <strong>Período histórico:</strong> c. 1446 a.C. — todo o livro se passa no Sinai, durante o primeiro mês após a erguida do Tabernáculo. <strong>Versículo central:</strong> "Sede santos, porque eu, o SENHOR vosso Deus, sou santo" (19.2).</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">27 capítulos · todo o livro se passa no Sinai · primeiro mês após o Tabernáculo erguido</div></div>
+      <div class="info-card"><div class="info-card-label">As 5 ofertas</div><div class="info-card-value">Holocausto, manjares, paz, pecado, culpa — cada uma expressa uma dimensão diferente da reconciliação com Deus</div></div>
+      <div class="info-card"><div class="info-card-label">Yom Kippur</div><div class="info-card-value">Cap. 16 — dia mais sagrado: sangue no propiciatório + bode expiatório · fundamento de Hebreus 9–10</div></div>
+      <div class="info-card"><div class="info-card-label">Código de Santidade</div><div class="info-card-value">Caps. 17–27 — inclui amor ao próximo (19.18) citado por Jesus como o segundo maior mandamento</div></div>
+      <div class="info-card"><div class="info-card-label">Festas sagradas</div><div class="info-card-value">Cap. 23 — 7 festas de Israel · Páscoa, Pentecoste, Tabernáculos · todas com cumprimento cristológico</div></div>
+      <div class="info-card"><div class="info-card-label">Jubileu</div><div class="info-card-value">Cap. 25 — a cada 50 anos: libertação de escravos, devolução de terras · Jesus cita Lv 25 em Lc 4.18–19</div></div>
     </div>
 
     <h2>Estrutura do Livro</h2>
@@ -1943,6 +1975,15 @@
       <p><strong>Nome hebraico:</strong> <em>Bamidbar</em> (בְּמִדְבַּר) — "No deserto", da frase de abertura. <strong>Nome grego (LXX):</strong> <em>Arithmoi</em> — "Números" (pelos dois censos do livro). <strong>Capítulos:</strong> 36. <strong>Período histórico abrangido:</strong> c. 1446–1406 a.C. — do Sinai às planícies de Moabe, quase 40 anos. <strong>Estrutura central:</strong> dois censos (cap. 1 e 26) enquadram a tragédia da geração perdida.</p>
     </div>
 
+    <div class="info-grid">
+      <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">36 capítulos · ~1446–1406 a.C. · quase 40 anos de peregrinação no deserto</div></div>
+      <div class="info-card"><div class="info-card-label">Dois censos</div><div class="info-card-value">Cap. 1: 603.550 homens (1ª geração) · cap. 26: 601.730 (2ª geração) · estrutura teológica da substituição geracional</div></div>
+      <div class="info-card"><div class="info-card-label">Cades-Barneia</div><div class="info-card-value">Caps. 13–14: 10 espias com relatório negativo → toda a geração condenada a morrer no deserto por incredulidade</div></div>
+      <div class="info-card"><div class="info-card-label">Bênção aaronita</div><div class="info-card-value">Nm 6.24–26 — encontrada em amuletos de prata do séc. VII a.C. em Ketef Hinom · texto bíblico mais antigo fora da Escritura</div></div>
+      <div class="info-card"><div class="info-card-label">Serpente de bronze</div><div class="info-card-value">Nm 21.8–9 — tipologia da crucificação citada por Jesus em Jo 3.14: "assim também o Filho do Homem precisa ser levantado"</div></div>
+      <div class="info-card"><div class="info-card-label">Advertência no NT</div><div class="info-card-value">1Co 10.1–12: Paulo usa os eventos do deserto como "exemplos e advertência" para os crentes da nova aliança</div></div>
+    </div>
+
     <h2>Estrutura Bipartida — Dois Censos, Duas Gerações</h2>
     <p>O livro é organizado em torno de dois recenseamentos militares. Entre eles, uma geração inteira perece no deserto por incredulidade. A estrutura é teológica, não apenas cronológica:</p>
 
@@ -2027,6 +2068,15 @@
     <div class="callout callout-theological">
       <span class="callout-type">Dados Introdutórios</span>
       <p><strong>Nome hebraico:</strong> <em>Devarim</em> (דְּבָרִים) — "Palavras", da frase de abertura "Estas são as palavras que Moisés falou a todo o Israel." <strong>Nome grego (LXX):</strong> <em>Deuteronomion</em> — "segunda lei" (expressão retirada de Dt 17.18, onde o rei deve copiar <em>mishneh hatorah</em> — "uma cópia desta lei"). <strong>Capítulos:</strong> 34. <strong>Período histórico:</strong> planícies de Moabe, último mês antes da travessia do Jordão, c. 1406 a.C. <strong>Forma literária:</strong> tratado de aliança suzerano — o mais extenso do Pentateuco.</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">34 capítulos · planícies de Moabe · último mês antes da entrada em Canaã (~1406 a.C.)</div></div>
+      <div class="info-card"><div class="info-card-label">Forma literária</div><div class="info-card-value">Tratado de aliança suzerano-vassalo — paralelo estrutural aos tratados hititas do séc. XIV–XIII a.C.</div></div>
+      <div class="info-card"><div class="info-card-label">Shemá</div><div class="info-card-value">Dt 6.4–5 — "Ouve, Israel: o Senhor é o nosso Deus, o único Senhor" · chamado pelo Jesus o maior mandamento</div></div>
+      <div class="info-card"><div class="info-card-label">Profeta prometido</div><div class="info-card-value">Dt 18.15–18 — "o Senhor suscitará um profeta semelhante a mim" · citado em At 3.22 e Jo 6.14 como referência a Jesus</div></div>
+      <div class="info-card"><div class="info-card-label">Livro mais citado por Jesus</div><div class="info-card-value">Nas três tentações no deserto (Mt 4), Jesus cita Deuteronômio três vezes · o livro da obediência filial</div></div>
+      <div class="info-card"><div class="info-card-label">Morte de Moisés</div><div class="info-card-value">Cap. 34: Moisés vê Canaã do Monte Nebo e morre sem entrar · "nunca mais se levantou em Israel profeta igual a Moisés" (34.10)</div></div>
     </div>
 
     <h2>Deuteronômio e os Tratados Hititas</h2>

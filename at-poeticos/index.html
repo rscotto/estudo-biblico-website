@@ -626,6 +626,18 @@ p{text-align:justify;hyphens:auto;}
       <!-- PROVÉRBIOS — Tab 1 -->
       <div class="tab-panel active" id="proverbios-ctx">
         <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">31 capítulos · ~950–700 a.C. · compilação final sob Ezequias</div></div>
+            <div class="info-card"><div class="info-card-label">Autores</div><div class="info-card-value">Salomão (principal), Agur filho de Jaqué (cap. 30), Lemuel rei de Massá (cap. 31)</div></div>
+            <div class="info-card"><div class="info-card-label">Estrutura</div><div class="info-card-value">Caps. 1–9: poemas didáticos · caps. 10–31: sentenças em dísticos · Mulher Virtuosa como acróstico final</div></div>
+            <div class="info-card"><div class="info-card-label">Versículo central</div><div class="info-card-value">Pv 1.7 — "O temor do Senhor é o princípio da sabedoria" · aparece como moldura em 1.7 e 9.10</div></div>
+            <div class="info-card"><div class="info-card-label">Sabedoria personificada</div><div class="info-card-value">Cap. 8 — Sabedoria presente antes da criação · base da identificação cristã com o Logos (Jo 1; 1Co 1.24; Cl 1.15–17)</div></div>
+            <div class="info-card"><div class="info-card-label">Influência externa</div><div class="info-card-value">Pv 22.17–24.11 tem sobreposição extensa com a Instrução de Amenemope egípcia (~1100 a.C.) · Israel transformou o gênero sapiencial oriental</div></div>
+          </div>
+        </div>
+
+        <div class="study-block">
           <div class="block-title">A Arte de Viver Bem</div>
           <div class="block-body">
             <p>Provérbios é a principal coleção sapiencial de Israel — a sistematização da <em>chokmá</em> (sabedoria) como arte de viver em harmonia com a ordem criada por Deus. Não se trata de leis ou mandamentos no sentido imperativo, mas de observações sobre como a realidade funciona — destiladas em forma aforística e passadas de geração em geração.</p>
@@ -985,6 +997,7 @@ function showBook(id){
   const btn=document.querySelector('[data-book="'+id+'"]');
   if(btn)btn.classList.add('active');
   if(window.innerWidth<=900)closeSidebar();
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function showTab(btn,bookId,tabId){
