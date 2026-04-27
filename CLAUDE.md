@@ -6,9 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Static HTML website for Bible study in Brazilian Portuguese. No build system, no dependencies to install — open any `.html` file directly in a browser.
 
+## Directory structure
+
+- Root (`/`) — production version: dark navy/gold theme.
+- `v2/` — alternate version with warm amber-brown background (`#2c2416`) instead of navy. Same file structure and all CSS/JS inline. When editing a feature in both versions, changes must be applied to both trees independently.
+
 ## Architecture
 
-Six self-contained HTML files, each with all CSS and JavaScript embedded inline (no external `.css` or `.js` files):
+Six self-contained HTML files per version, each with all CSS and JavaScript embedded inline (no external `.css` or `.js` files):
 
 - `index.html` — Main page: interactive grid of all 66 canonical books. Each book cell opens a modal with theological commentary. Includes a PNG export feature via `html2canvas` (CDN).
 - `at-pentateuco/index.html` — Deep-dive study of the 5 books of Moses.
@@ -19,7 +24,7 @@ Six self-contained HTML files, each with all CSS and JavaScript embedded inline 
 
 ### Navigation
 
-- `index.html` section labels (`<a class="slabel slabel-link">`) link to each sub-page.
+- `index.html` section labels (`<a class="slabel slabel-link">`) link to each sub-page. These links are `font-weight:700` (bold).
 - Sub-pages link back with `../index.html` via the "Voltar à Bíblia" button (`.sidebar-back`) in the sidebar.
 
 ### Sub-page layout pattern (at-historicos, at-poeticos, at-profetas-maiores, at-profetas-menores)
@@ -49,11 +54,22 @@ The `show(id)` function populates the modal from `DB[id]` on cell click.
 
 ### Styling conventions
 
-- Dark navy/gold theme via CSS custom properties on `:root`. All sub-pages use `--gold: #FFA400` as the primary accent color.
 - Bible quotations use the **NAA (Nova Almeida Atualizada)** version, cited as `— NAA`.
 - The Tetragrammaton (LORD) is rendered with small-caps: `<span style="font-variant:small-caps">Senhor</span>`.
 - `p { text-align: justify; hyphens: auto; }` is set globally.
-- `--men: #3a8c6e` (teal/green) is defined in `at-profetas-menores` but all UI uses `--gold` for visual consistency with other sub-pages.
+- All sub-pages use `--gold: #FFA400` as the primary UI accent color. `--men: #3a8c6e` is defined in `at-profetas-menores` CSS variables but is not used in any UI rule — all UI references use `--gold`.
+
+### Color palettes
+
+**Root version** — navy/gold:
+
+- `--navy: #0a1628`, `--navy-mid: #0f2040`, `--navy-light: #1a3054`
+
+**v2 version** — warm amber-brown:
+
+- `--navy: #2c2416`, `--navy-mid: #3a3020`, `--navy-light: #4a3e28`
+- Category accent colors are all within the amber/orange family (no blues or greens).
+- Modal uses solid `background:#2c2416` (no `backdrop-filter`) to avoid color bleed.
 
 ### Info-grid component ("Dados do Livro")
 
