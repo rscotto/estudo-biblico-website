@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livros Históricos — Estudo Bíblico</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:       #1c1f2e;
+  --navy-mid:   #252838;
+  --navy-light: #2f3347;
+  --gold:       #FFA400;
+  --gold-dim:   #cc8500;
+  --sand:       #f0e6d0;
+  --sand-dim:   #c8b898;
+  --shadow-sm:  0 2px 8px rgba(28,31,46,0.22);
+  --shadow-md:  0 8px 32px rgba(28,31,46,0.32);
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --transition: 250ms ease;
+  --nav-w:      272px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+*:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--navy);
+  background-image:
+    radial-gradient(ellipse at 15% 0%,rgba(255,164,0,0.06) 0%,transparent 55%),
+    radial-gradient(ellipse at 85% 100%,rgba(255,164,0,0.03) 0%,transparent 50%);
+  color:var(--sand);
+  font-family:'EB Garamond',serif;
+  font-size:18px;line-height:1.8;
+  min-height:100dvh;
+}
+p{text-align:justify;hyphens:auto;}
+
+/* ── LAYOUT ── */
+.layout{display:flex;min-height:100dvh;}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  width:var(--nav-w);flex-shrink:0;
+  background:linear-gradient(180deg,rgba(37,40,56,0.98) 0%,rgba(28,31,46,0.98) 100%);
+  border-right:1px solid rgba(255,164,0,0.12);
+  position:fixed;top:0;left:0;bottom:0;
+  overflow-y:auto;overflow-x:hidden;
+  z-index:50;display:flex;flex-direction:column;
+}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,164,0,0.2);border-radius:4px;}
+
+.sidebar-header{
+  padding:28px 20px 20px;
+  border-bottom:1px solid rgba(255,164,0,0.10);
+  flex-shrink:0;
+}
+.sidebar-back{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--sand-dim);font-family:'Cinzel',serif;
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;margin-bottom:16px;
+  transition:color var(--transition);
+}
+.sidebar-back:hover{color:var(--gold);}
+.sidebar-title{
+  font-family:'Cinzel Decorative',serif;font-size:13px;
+  color:var(--gold);line-height:1.4;letter-spacing:0.5px;
+}
+.sidebar-subtitle{
+  font-family:'Cinzel',serif;font-size:10px;
+  color:var(--sand-dim);letter-spacing:3px;
+  text-transform:uppercase;margin-top:4px;
+}
+
+.sidebar-nav{padding:12px 0 24px;flex:1;}
+.nav-item{
+  display:flex;align-items:center;gap:12px;
+  width:100%;padding:11px 20px;
+  background:none;border:none;cursor:pointer;
+  text-align:left;transition:background var(--transition),border-left-color var(--transition);
+  border-left:3px solid transparent;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  min-height:44px;
+}
+.nav-item:hover{background:rgba(255,164,0,0.06);border-left-color:rgba(255,164,0,0.3);}
+.nav-item.active{background:rgba(255,164,0,0.10);border-left-color:var(--gold);}
+.nav-num{font-family:'Cinzel',serif;font-size:10px;color:var(--gold-dim);letter-spacing:1px;min-width:22px;opacity:0.7;}
+.nav-item.active .nav-num{opacity:1;color:var(--gold);}
+.nav-abbr{font-family:'Cinzel',serif;font-size:11px;font-weight:600;color:var(--gold);min-width:32px;opacity:0.7;}
+.nav-item.active .nav-abbr{opacity:1;}
+.nav-name{font-family:'EB Garamond',serif;font-size:15px;color:var(--sand);opacity:0.75;line-height:1.2;}
+.nav-item.active .nav-name,.nav-item:hover .nav-name{opacity:1;}
+
+/* ── MAIN ── */
+.main{margin-left:var(--nav-w);flex:1;min-width:0;}
+
+/* ── HERO ── */
+.hero{
+  padding:48px 52px 36px;
+  background:linear-gradient(160deg,rgba(37,40,56,0.9) 0%,transparent 100%);
+  border-bottom:1px solid rgba(255,164,0,0.12);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(255,164,0,0.015) 80px,rgba(255,164,0,0.015) 81px);
+  pointer-events:none;
+}
+.hero-eyebrow{font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;opacity:.75;margin-bottom:12px;}
+.hero-title{font-family:'Cinzel Decorative',serif;font-size:clamp(22px,3vw,36px);color:var(--sand);line-height:1.25;margin-bottom:10px;}
+.hero-title span{color:var(--gold);}
+.hero-desc{font-family:'EB Garamond',serif;font-size:17px;color:var(--sand-dim);max-width:600px;line-height:1.65;}
+
+/* ── CONTENT ── */
+.content{padding:0 52px 80px;}
+
+/* ── BOOK PANELS ── */
+.book-panel{display:none;animation:fadeIn 300ms ease;}
+.book-panel.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+.book-header{padding:44px 0 32px;border-bottom:1px solid rgba(255,164,0,0.12);margin-bottom:36px;}
+.book-eyebrow{font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;opacity:.7;margin-bottom:10px;}
+.book-title{font-family:'Cinzel Decorative',serif;font-size:clamp(24px,3.5vw,42px);color:var(--sand);line-height:1.15;margin-bottom:14px;}
+.book-title span{color:var(--gold);}
+.book-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+.book-tag{
+  display:inline-flex;align-items:center;padding:4px 12px;
+  background:rgba(255,164,0,0.09);border:1px solid rgba(255,164,0,0.18);
+  border-radius:20px;font-family:'Cinzel',serif;font-size:10px;
+  letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;
+}
+.book-verse{
+  font-family:'EB Garamond',serif;font-size:20px;font-style:italic;
+  color:var(--sand-dim);border-left:3px solid var(--gold);
+  padding-left:20px;line-height:1.55;max-width:620px;
+}
+.book-verse cite{display:block;font-style:normal;font-size:13px;font-family:'Cinzel',serif;letter-spacing:1.5px;color:var(--gold);opacity:.75;margin-top:6px;}
+
+/* ── TABS ── */
+.tabs{display:flex;border-bottom:1px solid rgba(255,164,0,0.15);margin-bottom:40px;overflow-x:auto;}
+.tabs::-webkit-scrollbar{height:0;}
+.tab-btn{
+  padding:12px 24px;background:none;border:none;
+  border-bottom:2px solid transparent;cursor:pointer;
+  font-family:'Cinzel',serif;font-size:11px;letter-spacing:2.5px;
+  color:var(--sand-dim);text-transform:uppercase;white-space:nowrap;
+  transition:color var(--transition),border-color var(--transition);
+  margin-bottom:-1px;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.tab-btn:hover{color:var(--sand);}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;animation:fadeIn 250ms ease;}
+
+/* ── STUDY BLOCKS ── */
+.study-block{margin-bottom:48px;}
+.study-block+.study-block{padding-top:40px;border-top:1px solid rgba(255,164,0,0.08);}
+.block-title{
+  font-family:'Cinzel',serif;font-size:13px;letter-spacing:3px;
+  color:var(--gold);text-transform:uppercase;
+  margin-bottom:20px;display:flex;align-items:center;gap:12px;
+}
+.block-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,164,0,0.25),transparent);}
+.block-body p{color:var(--sand);font-size:18px;line-height:1.85;margin-bottom:16px;max-width:72ch;text-align:justify;hyphens:auto;}
+.block-body p:last-child{margin-bottom:0;}
+.block-body strong{color:var(--gold);font-weight:600;}
+
+/* ── INFO GRID ── */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-bottom:32px;}
+.info-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,164,0,0.12);border-radius:var(--radius-md);padding:18px 20px;}
+.info-card-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;opacity:.75;margin-bottom:6px;}
+.info-card-value{font-family:'EB Garamond',serif;font-size:16px;color:var(--sand);line-height:1.4;}
+
+/* ── TIMELINE ── */
+.timeline{border-left:2px solid rgba(255,164,0,0.18);padding-left:28px;margin-left:8px;}
+.tl-item{position:relative;margin-bottom:28px;}
+.tl-item::before{content:'';position:absolute;left:-37px;top:5px;width:12px;height:12px;background:var(--gold);border-radius:50%;border:2px solid var(--navy);box-shadow:0 0 0 2px rgba(255,164,0,0.3);}
+.tl-date{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;opacity:.8;margin-bottom:4px;}
+.tl-text{font-family:'EB Garamond',serif;font-size:16px;color:var(--sand);line-height:1.6;text-align:justify;hyphens:auto;}
+
+/* ── GEO BOX ── */
+.geo-box{background:rgba(255,164,0,0.04);border:1px solid rgba(255,164,0,0.14);border-radius:var(--radius-md);padding:28px 32px;margin-bottom:28px;}
+.geo-box p{font-size:17px;color:var(--sand);line-height:1.8;margin-bottom:12px;text-align:justify;hyphens:auto;}
+.geo-box p:last-child{margin-bottom:0;}
+.geo-box strong{color:var(--gold);}
+
+/* ── KEY VERSE ── */
+.key-verse{background:rgba(255,164,0,0.06);border-left:4px solid var(--gold);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:20px 24px;margin:28px 0;}
+.key-verse p{font-family:'EB Garamond',serif;font-size:19px;font-style:italic;color:var(--sand);line-height:1.6;margin-bottom:6px;}
+.key-verse cite{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--gold);opacity:.8;font-style:normal;}
+
+/* ── MOBILE ── */
+.menu-toggle{
+  display:none;position:fixed;top:16px;left:16px;z-index:200;
+  width:44px;height:44px;background:var(--navy-mid);
+  border:1px solid rgba(255,164,0,0.2);border-radius:var(--radius-sm);
+  cursor:pointer;align-items:center;justify-content:center;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(28,31,46,0.7);backdrop-filter:blur(2px);z-index:40;}
+
+/* ── TABLET / HAMBURGER (≤ 900px) ── */
+@media(max-width:900px){
+  .menu-toggle{display:flex;}
+  .sidebar{
+    left:calc(-1 * var(--nav-w));
+    transition:left var(--transition);
+    z-index:100;
+    box-shadow:var(--shadow-md);
+  }
+  .sidebar.open{left:0;}
+  .sidebar-overlay.open{display:block;}
+  .main{margin-left:0;}
+  .sidebar-header{padding-top:76px;}
+  .hero{padding:68px 28px 28px;}
+  .hero-desc{font-size:16px;}
+  .content{padding:0 28px 64px;}
+  .book-header{padding:28px 0 22px;}
+  .book-verse{font-size:17px;}
+  .tabs{gap:0;}
+  .tab-btn{padding:11px 18px;font-size:10px;letter-spacing:2px;}
+  .block-body p{font-size:17px;max-width:none;}
+  .geo-box p{font-size:16px;}
+  .key-verse p{font-size:17px;}
+  .info-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
+}
+
+/* ── MOBILE (≤ 600px) ── */
+@media(max-width:600px){
+  :root{--nav-w:85vw;}
+  body{font-size:16px;}
+
+  .hero{padding:64px 18px 24px;}
+  .hero-eyebrow{font-size:9px;letter-spacing:3px;}
+  .hero-title{font-size:20px;line-height:1.3;}
+  .hero-desc{font-size:15px;line-height:1.6;}
+
+  .content{padding:0 18px 56px;}
+
+  .book-header{padding:24px 0 18px;}
+  .book-eyebrow{font-size:9px;letter-spacing:2.5px;}
+  .book-title{font-size:24px;line-height:1.2;}
+  .book-meta{gap:6px;}
+  .book-tag{font-size:9px;padding:3px 10px;}
+  .book-verse{font-size:16px;padding-left:14px;}
+  .book-verse cite{font-size:11px;}
+
+  .tabs{margin-bottom:28px;}
+  .tab-btn{padding:10px 12px;font-size:9px;letter-spacing:1.5px;}
+
+  .study-block{margin-bottom:32px;}
+  .study-block+.study-block{padding-top:28px;}
+  .block-title{font-size:11px;letter-spacing:2px;margin-bottom:14px;}
+  .block-body p{font-size:16px;line-height:1.75;max-width:none;}
+
+  .info-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .info-card{padding:14px 14px;}
+  .info-card-label{font-size:8px;}
+  .info-card-value{font-size:14px;}
+
+  .timeline{padding-left:20px;margin-left:4px;}
+  .tl-item{margin-bottom:20px;}
+  .tl-item::before{left:-28px;width:10px;height:10px;}
+  .tl-date{font-size:9px;}
+  .tl-text{font-size:15px;}
+
+  .geo-box{padding:18px 18px;margin-bottom:20px;}
+  .geo-box p{font-size:15px;line-height:1.7;}
+
+  .key-verse{padding:16px 18px;margin:20px 0;}
+  .key-verse p{font-size:16px;line-height:1.55;}
+  .key-verse cite{font-size:9px;}
+
+  .sidebar-header{padding:76px 16px 16px;}
+  .sidebar-title{font-size:12px;}
+  .sidebar-subtitle{font-size:9px;}
+  .nav-item{padding:10px 16px;gap:10px;}
+  .nav-num{font-size:9px;min-width:18px;}
+  .nav-abbr{font-size:10px;min-width:28px;}
+  .nav-name{font-size:14px;}
+}
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="sidebar-back">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      Voltar à Bíblia
+    </a>
+    <div class="sidebar-title">Livros Históricos</div>
+    <div class="sidebar-subtitle">Antigo Testamento · 12 Livros</div>
+  </div>
+  <nav class="sidebar-nav" aria-label="Navegação dos livros históricos">
+    <button class="nav-item active" onclick="showBook('josue')" data-book="josue"><span class="nav-num">6</span><span class="nav-abbr">Js</span><span class="nav-name">Josué</span></button>
+    <button class="nav-item" onclick="showBook('juizes')" data-book="juizes"><span class="nav-num">7</span><span class="nav-abbr">Jz</span><span class="nav-name">Juízes</span></button>
+    <button class="nav-item" onclick="showBook('rute')" data-book="rute"><span class="nav-num">8</span><span class="nav-abbr">Rt</span><span class="nav-name">Rute</span></button>
+    <button class="nav-item" onclick="showBook('samuel1')" data-book="samuel1"><span class="nav-num">9</span><span class="nav-abbr">1Sm</span><span class="nav-name">1 Samuel</span></button>
+    <button class="nav-item" onclick="showBook('samuel2')" data-book="samuel2"><span class="nav-num">10</span><span class="nav-abbr">2Sm</span><span class="nav-name">2 Samuel</span></button>
+    <button class="nav-item" onclick="showBook('reis1')" data-book="reis1"><span class="nav-num">11</span><span class="nav-abbr">1Rs</span><span class="nav-name">1 Reis</span></button>
+    <button class="nav-item" onclick="showBook('reis2')" data-book="reis2"><span class="nav-num">12</span><span class="nav-abbr">2Rs</span><span class="nav-name">2 Reis</span></button>
+    <button class="nav-item" onclick="showBook('cronicas1')" data-book="cronicas1"><span class="nav-num">13</span><span class="nav-abbr">1Cr</span><span class="nav-name">1 Crônicas</span></button>
+    <button class="nav-item" onclick="showBook('cronicas2')" data-book="cronicas2"><span class="nav-num">14</span><span class="nav-abbr">2Cr</span><span class="nav-name">2 Crônicas</span></button>
+    <button class="nav-item" onclick="showBook('esdras')" data-book="esdras"><span class="nav-num">15</span><span class="nav-abbr">Ed</span><span class="nav-name">Esdras</span></button>
+    <button class="nav-item" onclick="showBook('neemias')" data-book="neemias"><span class="nav-num">16</span><span class="nav-abbr">Ne</span><span class="nav-name">Neemias</span></button>
+    <button class="nav-item" onclick="showBook('ester')" data-book="ester"><span class="nav-num">17</span><span class="nav-abbr">Et</span><span class="nav-name">Ester</span></button>
+  </nav>
+</aside>
+
+<main class="main">
+  <header class="hero">
+    <div class="hero-eyebrow">✦ Estudo Bíblico Aprofundado ✦</div>
+    <h1 class="hero-title">Livros <span>Históricos</span></h1>
+    <p class="hero-desc">Doze livros que narram a jornada de Israel — da conquista de Canaã ao exílio e restauração. Contexto histórico, geografia e análise teológica de cada obra.</p>
+  </header>
+
+  <div class="content">
+
+    <!-- ════════════════════════════════ JOSUÉ ════════════════════════════════ -->
+    <article class="book-panel active" id="panel-josue">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 6 · Históricos · Antigo Testamento</div>
+        <h2 class="book-title"><span>Josué</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~1406–1375 a.C.</span>
+          <span class="book-tag">Conquista de Canaã</span>
+          <span class="book-tag">24 capítulos</span>
+          <span class="book-tag">Autor: Josué / Escribas</span>
+        </div>
+        <div class="book-verse">"Seja forte e corajoso! Não se apavore, nem se desanime, pois o <span style="font-variant:small-caps">Senhor</span>, o seu Deus, estará com você por onde quer que você andar."<cite>Josué 1.9 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'josue','ctx')">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'josue','geo')">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'josue','study')">Estudo Aprofundado</button>
+      </div>
+      <div class="tab-panel active" id="josue-ctx">
+        <div class="study-block">
+          <div class="block-title">O Mundo do Bronze Tardio</div>
+          <div class="block-body">
+            <p>Josué se passa aproximadamente entre <strong>1406 e 1375 a.C.</strong>, no período do Bronze Tardio — uma das eras mais transformadoras do Oriente Próximo. O Egito dominava Canaã como zona de influência, mas sua presença enfraquecia sob Amenhotep IV (Akhenaton), que concentrou toda sua energia na revolução religiosa do monoteísmo do Aton e deixou as cidades-estado cananéias sem proteção militar efetiva.</p>
+            <p>As <strong>Cartas de Amarna</strong> (c. 1350 a.C.) — correspondência entre faraós egípcios e reis cananeus — registram cidades-estado pedindo socorro ao Egito contra invasores chamados <em>Hapiru</em>, que muitos estudiosos associam, ao menos em parte, aos hebreus. A paisagem política de Canaã era de fragmentação: dezenas de cidades-estado independentes (Jericó, Ai, Hazor, Jerusalém, Laquis) sem unidade política, altamente vulneráveis a uma força coesa.</p>
+            <p>Israel chega após <strong>40 anos no deserto</strong>, forjado como nação sob Moisés. A geração dos cativos do Egito havia morrido; a nova geração — nascida livre — é a que cruza o Jordão. Josué, da tribo de Efraim, já havia servido como espião (Nm 13) e general de Moisés (Êx 17).</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Cronologia dos Eventos</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-date">~1406 a.C.</div><div class="tl-text">Morte de Moisés no Monte Nebo. Josué assume o comando em Sitim.</div></div>
+            <div class="tl-item"><div class="tl-date">~1406 a.C.</div><div class="tl-text">Travessia milagrosa do Rio Jordão durante a cheia da primavera. Acampamento em Gilgal.</div></div>
+            <div class="tl-item"><div class="tl-date">~1406 a.C.</div><div class="tl-text">Queda de Jericó. Campanha central: derrota de Ai, aliança com os gibeonitas.</div></div>
+            <div class="tl-item"><div class="tl-date">~1400 a.C.</div><div class="tl-text">Campanha sul: derrota da coalizão dos cinco reis amoritas. Conquista de Laquis, Hebrom e Debir.</div></div>
+            <div class="tl-item"><div class="tl-date">~1399 a.C.</div><div class="tl-text">Campanha norte: derrota da coalizão de Hazor. Destruição de Hazor pelo fogo.</div></div>
+            <div class="tl-item"><div class="tl-date">~1390 a.C.</div><div class="tl-text">Distribuição da terra entre as doze tribos. Discurso de despedida de Josué.</div></div>
+            <div class="tl-item"><div class="tl-date">~1375 a.C.</div><div class="tl-text">Morte de Josué aos 110 anos. Renovação da aliança em Siquém.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="josue-geo">
+        <div class="study-block">
+          <div class="block-title">O Teatro da Conquista</div>
+          <div class="geo-box">
+            <p>Canaã — o território prometido a Abraão — corresponde ao atual <strong>Israel, Palestina, sul do Líbano e sudoeste da Síria</strong>. Com cerca de 400 km de comprimento e 100 km de largura média, concentra uma variedade geográfica extraordinária.</p>
+            <p>A <strong>planície costeira</strong> mediterrânea era a mais fértil, mas Israel nunca a controlou plenamente. A <strong>Sefelá</strong> (baixas colinas de transição) era a fronteira estratégica com os filisteus. A <strong>zona montanhosa central</strong> (Efraim e Judá) foi o coração da conquista — terreno que favorecia a guerrilha sobre os carros de guerra cananeus. O <strong>Rio Jordão</strong>, profundamente encaixado 400 m abaixo do nível do mar, era fronteira natural a leste.</p>
+          </div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Ponto de entrada</div><div class="info-card-value">Gilgal, planície do Jordão, próximo a Jericó</div></div>
+            <div class="info-card"><div class="info-card-label">Primeira cidade</div><div class="info-card-value">Jericó — conquistada com tochas e trombetas</div></div>
+            <div class="info-card"><div class="info-card-label">Maior cidade-estado</div><div class="info-card-value">Hazor, capital cananeia do norte, destruída pelo fogo</div></div>
+            <div class="info-card"><div class="info-card-label">Local da Aliança</div><div class="info-card-value">Siquém — renovação da aliança no cap. 24</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="josue-study">
+        <div class="study-block">
+          <div class="block-title">Estrutura e Mensagem Central</div>
+          <div class="block-body">
+            <p>Josué divide-se em duas metades simétricas: <strong>conquista (caps. 1–12)</strong> e <strong>distribuição da terra (caps. 13–24)</strong>. A primeira é narrativa vívida e militar; a segunda, cadastral e jurídica — mas ambas proclamam a mesma verdade: <em>Deus é fiel à sua promessa a Abraão.</em></p>
+            <p>O livro abre com o Senhor comissionando Josué de forma que ecoa a comissão de Moisés: "Sê forte e corajoso" aparece quatro vezes em um capítulo. A mensagem é clara: a liderança de Josué é legitimada não pela sua força, mas pela presença divina. A condição é a meditação e obediência à Torah (1.8) — Josué é o primeiro cumpridor público da Lei de Moisés.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Jericó — A Teologia da Guerra Santa</div>
+          <div class="block-body">
+            <p>A conquista de Jericó (caps. 2–6) é deliberadamente <em>não militar</em>: sete dias de marcha em silêncio, sete voltas no sétimo dia, toques de trombeta — as muralhas caem por si mesmas. O texto proclama que a conquista é obra de Deus, não de Israel.</p>
+            <p>O conceito de <em>cherem</em> — "destruição devotada" — aparece de forma perturbadora: toda vida em Jericó é dedicada ao Senhor pela destruição. O caso de <strong>Raabe</strong> (caps. 2 e 6) — prostituta cananeia que protege os espias e é salva com sua família — demonstra que o cherem não é questão racial, mas de fé e aliança. Raabe é listada na genealogia de Jesus em Mateus 1.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Aliança em Siquém — Escolha de Quem Servir</div>
+          <div class="block-body">
+            <p>O capítulo 24 encena uma cerimônia de aliança em Siquém estruturada como os tratados suzeranos hititas do segundo milênio a.C.: prólogo histórico, estipulações, ratificação. A passagem culminante é o desafio de Josué: <em>"Escolhei hoje a quem servireis... Quanto a mim e à minha casa, serviremos ao Senhor"</em> (24.15) — uma das declarações mais memoráveis do AT sobre soberania moral e fé de família.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">O Pecado de Acã — Solidariedade Corporativa</div>
+          <div class="block-body">
+            <p>Após a glória de Jericó, a derrota humilhante em Ai (cap. 7) choca Israel. Trinta e seis homens morrem — e Josué prostra-se diante de Deus em desespero. A causa: <strong>Acã, da tribo de Judá</strong>, havia escondido mantos babilônicos, prata e ouro do <em>cherem</em> de Jericó. O texto afirma que "Israel pecou" (7.1) — embora apenas um homem tivesse transgredido.</p>
+            <p>Este é o princípio da <strong>solidariedade corporativa</strong>: na visão bíblica do AT, Israel é um único organismo. O pecado escondido de um membro contamina o todo e torna toda a comunidade vulnerável diante de Deus. Acã é identificado por sorteio — procedimento semelhante ao que revela Jonás no navio. A execução de Acã e sua família é perturbadora para a sensibilidade moderna, mas está dentro da lógica do <em>cherem</em>: o que é dedicado à destruição é destruído por inteiro. O lugar recebe o nome de Vale de Acor — "Vale da Perturbação" — que Oséias (2.15) e Isaías (65.10) transformam em imagem de esperança futura.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Conquista Incompleta e Suas Consequências</div>
+          <div class="block-body">
+            <p>O livro de Josué termina de forma ambígua: "Josué tomou toda aquela terra" (11.23) — mas o capítulo 13 abre com "Josué estava velho... e ainda resta muitíssima terra a tomar". As duas afirmações não se contradizem: Israel conquistou o suficiente para habitar a terra, mas não exterminou os cananeus como Deus havia ordenado. As razões eram pragmáticas — falta de força para certas regiões, falta de fé, acordos proibidos (como com os gibeonitas).</p>
+            <p>As consequências são narradas em Juízes: os cananeus remanescentes tornam-se "espinhos nos flancos" (Nm 33.55) de Israel — seduções religiosas constantes. A conquista incompleta é ao mesmo tempo falha humana e misericórdia divina (Êx 23.29-30): Deus havia dito que expulsaria os cananeus "aos poucos, para que a terra não fique deserta e os animais selvagens não se multipliquem contra ti". A teologia do texto resiste a leituras simplistas.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Josué como Tipo de Jesus</div>
+          <div class="block-body">
+            <p>A conexão entre Josué e Jesus não é acidental: ambos têm o <strong>mesmo nome</strong> — <em>Yehoshua</em> em hebraico, <em>Iēsous</em> em grego (Hb 4.8 usa o nome Josué em referência a Jesus, explicitando a tipologia). Assim como Josué leva o povo de Israel à terra prometida através das águas do Jordão, Jesus conduz o novo Israel ao descanso eterno através das águas do batismo. A <strong>circuncisão em Gilgal</strong> (cap. 5) prefigura o batismo; a <strong>Páscoa celebrada na terra</strong> (5.10-12) prefigura a Ceia do Senhor. O livro de Hebreus (caps. 3–4) desenvolve explicitamente essa tipologia, argumentando que o verdadeiro "descanso de Deus" ainda está à frente — Josué deu a terra, mas Jesus dá o descanso definitivo.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Seja forte e corajoso! Não se apavore, nem se desanime, pois o <span style="font-variant:small-caps">Senhor</span>, o seu Deus, estará com você por onde quer que você andar."</p>
+          <cite>Josué 1.9 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ JUÍZES ════════════════════════════════ -->
+    <article class="book-panel" id="panel-juizes">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 7 · Históricos · Antigo Testamento</div>
+        <h2 class="book-title"><span>Juízes</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~1375–1050 a.C.</span>
+          <span class="book-tag">Era das Tribos</span>
+          <span class="book-tag">21 capítulos</span>
+          <span class="book-tag">Autor: Samuel (tradição)</span>
+        </div>
+        <div class="book-verse">"Naqueles dias não havia rei em Israel; cada um fazia o que parecia certo aos seus próprios olhos."<cite>Juízes 21.25 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'juizes','ctx')">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'juizes','geo')">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'juizes','study')">Estudo Aprofundado</button>
+      </div>
+      <div class="tab-panel active" id="juizes-ctx">
+        <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">21 capítulos · ~1375–1050 a.C.</div></div>
+            <div class="info-card"><div class="info-card-label">Juízes maiores</div><div class="info-card-value">Débora, Gideão, Jefté, Sansão — cada um em região diferente, sem unidade nacional</div></div>
+            <div class="info-card"><div class="info-card-label">Ciclo teológico</div><div class="info-card-value">Apostasia → Opressão → Clamor → Libertação → Paz → Nova Apostasia (repetido 6x)</div></div>
+            <div class="info-card"><div class="info-card-label">Contexto histórico</div><div class="info-card-value">Coincide com colapso do Bronze Tardio (~1200 a.C.) — queda dos hititas, micenas e chegada dos povos do mar</div></div>
+            <div class="info-card"><div class="info-card-label">Heroínas</div><div class="info-card-value">Débora (juíza e profetisa) e Jael (mata Sísera) — heróis inesperados são mulheres nos caps. 4–5</div></div>
+            <div class="info-card"><div class="info-card-label">Argumento implícito</div><div class="info-card-value">"Não havia rei em Israel" (21.25) — repetido 4x como diagnóstico da anarquia tribal</div></div>
+          </div>
+        </div>
+
+        <div class="study-block">
+          <div class="block-title">A Era do Caos Tribal</div>
+          <div class="block-body">
+            <p>O período dos Juízes (~1375–1050 a.C.) é uma das eras mais turbulentas de Israel. Politicamente, Israel ainda não é uma monarquia — é uma confederação frouxa de tribos unidas pela Aliança, sem capital, sem exército permanente, sem burocracia central.</p>
+            <p>No Oriente Próximo, esse período coincide com o <strong>colapso do Bronze Tardio</strong> (c. 1200 a.C.) — um dos maiores desastres civilizacionais da Antiguidade. O Império Hitita desaparece. Micenas colapsa. O Egito recua. Os <strong>Povos do Mar</strong> — migrantes do Egeu incluindo os filisteus — invadem a costa levantina e se instalam na planície costeira de Canaã, tornando-se os principais inimigos de Israel nos séculos seguintes.</p>
+            <p>Os Juízes (<em>shoftim</em> — "libertadores") são líderes carismáticos suscitados pelo Espírito de Deus em momentos de crise para libertar tribos específicas de opressores regionais. A maioria afeta apenas uma ou duas tribos — não há unidade nacional.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">O Ciclo Deuteronômico</div>
+          <div class="block-body">
+            <p>O livro organiza a história em torno de um ciclo teológico repetido: <strong>Apostasia → Opressão → Clamor → Libertação → Paz → Nova Apostasia</strong>. Esse padrão se repete ao menos seis vezes com os juízes maiores. A repetição é deliberada — é o argumento do livro: Israel não aprende com a história porque nunca transforma o coração.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="juizes-geo">
+        <div class="study-block">
+          <div class="block-title">Um País Fragmentado</div>
+          <div class="geo-box">
+            <p>Diferente de Josué, com campanhas amplas, Juízes é geograficamente fragmentado — cada episódio ocorre em região distinta. <strong>Débora e Baraque</strong> enfrentam Sísera no Vale de Jezreel, ao norte. <strong>Gideão</strong> opera em Ofra e a planície de Midiã (Transjordânia). <strong>Jefté</strong> lidera em Gileade, a leste do Jordão. <strong>Sansão</strong> é inteiramente localizado na fronteira com os filisteus (Soreque, Timna, Gaza) na Sefelá, ao sudoeste.</p>
+            <p>A <strong>planície costeira</strong> permanece nas mãos dos filisteus. As <strong>terras altas centrais</strong> são o núcleo israelita. Israel é pressionado em todas as direções simultaneamente.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="juizes-study">
+        <div class="study-block">
+          <div class="block-title">Os Juízes Maiores</div>
+          <div class="block-body">
+            <p><strong>Débora (caps. 4–5):</strong> A única juíza mulher e também profetisa e governante civil. Seu Cântico (cap. 5) é um dos mais antigos poemas hebreus existentes. A vitória sobre Sísera culmina com <strong>Jael</strong> — outra mulher — pregando uma estaca na têmpora do general inimigo. Os heróis inesperados são mulheres; os guerreiros de Méroz são malditos por não ajudarem.</p>
+            <p><strong>Gideão (caps. 6–8):</strong> Começa tímido — escondendo trigo de midiânitas — e termina como libertador que reduz seu exército de 32.000 para 300 homens a pedido divino. A vitória com tochas, jarros e trombetas demonstra que não é pelo poder humano que Israel vence. Tragicamente, Gideão recusa o título de rei mas age como tal — e seu filho Abimeleque instaura tirania sanguinária.</p>
+            <p><strong>Sansão (caps. 13–16):</strong> O mais complexo dos juízes. Nazireu desde o nascimento, com força sobrenatural ligada ao seu cabelo — símbolo externo de consagração. Mas usa seus dons quase exclusivamente para vinganças pessoais. Dalila o trai, ele perde a força, é cegado e aprisionado em Gaza. Sua morte — derrubando as colunas do templo de Dagom — mata mais filisteus do que toda a sua vida. Tragédia: o maior potencial desperdiçado em caprichos pessoais.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Os Apêndices Sombrios (caps. 17–21)</div>
+          <div class="block-body">
+            <p>Os últimos cinco capítulos não seguem o ciclo dos juízes — são dois episódios chocantes como evidência da degradação total: o sacerdócio corrupto de Mica e a migração de Dã (caps. 17–18), e o estupro coletivo da concubina do levita em Gibeá, gerando guerra civil quase genocida contra Benjamim (caps. 19–21). A repetição da frase "não havia rei em Israel" funciona como diagnóstico: a ausência de liderança legítima gera barbárie. O livro é um argumento implícito pela monarquia.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Os Juízes Menores — Uma Galeria Esquecida</div>
+          <div class="block-body">
+            <p>Além dos grandes juízes, o livro menciona <strong>doze juízes menores</strong> em registros brevíssimos: Otniel, Ehud, Sangar, Tola, Jair, Ibsã, Elom, Abdom e Jefté (que tem narrativa mais longa). Cada um representa uma região e uma crise específica. <strong>Jefté</strong> (caps. 11–12) merece destaque: guerreiro marginalizado (filho de prostituta), realiza um voto imprudente antes da batalha — "o que primeiro sair da minha casa" — e sua filha é quem sai primeiro. O texto não diz explicitamente que ela foi sacrificada, gerando séculos de debate exegético. A maioria dos estudiosos modernos entende que ela foi consagrada ao Senhor em celibato perpétuo, não sacrificada literalmente — a lei mosaica proibia sacrifícios humanos.</p>
+            <p><strong>Ehud</strong> (cap. 3) é fascinante: canhoto (característica rara e considerada má fortuna), esconde uma espada curta na coxa direita (onde ninguém revistava canhotos), e mata o gordo rei moabita Eglom com um golpe tão profundo que a gordura "engole" a empunhadura. É narrado com humor macabro deliberado — os servos achando que o rei estava "cobrindo seus pés" (eufemismo para necessidades) quando já estava morto.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Teologia da Graça nos Juízes</div>
+          <div class="block-body">
+            <p>O paradoxo mais profundo de Juízes é teológico: Deus continua salvando um povo que continua abandonando-o. O ciclo não é apenas padrão narrativo — é argumento teológico. A graça de Deus não depende do mérito humano; ela precede a conversão, não é consequência dela. Quando o povo clama, Deus já começa a agir — antes mesmo que a reposta seja sincera.</p>
+            <p>O caso mais explícito é em 10.10-16: o povo clama, Deus diz "vá pedir às divindades que escolheu" (10.14), o povo insiste, e Deus "não pôde mais suportar o sofrimento de Israel" (10.16). A linguagem é antropomórfica intensa — Deus que sente, que se comove, que age não por obrigação mas por compaixão. Juízes é, surpreendentemente, um dos livros mais ricos em graça do AT — precisamente porque a graça nunca foi merecida.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Naqueles dias não havia rei em Israel; cada um fazia o que parecia certo aos seus próprios olhos."</p>
+          <cite>Juízes 21.25 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ RUTE ════════════════════════════════ -->
+    <article class="book-panel" id="panel-rute">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 8 · Históricos · Antigo Testamento</div>
+        <h2 class="book-title"><span>Rute</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~1100 a.C.</span>
+          <span class="book-tag">Período dos Juízes</span>
+          <span class="book-tag">4 capítulos</span>
+          <span class="book-tag">Autor: Anônimo (trad. Samuel)</span>
+        </div>
+        <div class="book-verse">"Onde você morrer, também morrerei eu, e ali serei sepultada. Assim me faça o <span style="font-variant:small-caps">Senhor</span> e assim me acrescente, se outra coisa que não a morte nos separar."<cite>Rute 1.17 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'rute','ctx')">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'rute','geo')">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'rute','study')">Estudo Aprofundado</button>
+      </div>
+      <div class="tab-panel active" id="rute-ctx">
+        <div class="study-block">
+          <div class="block-title">Uma Joia no Caos</div>
+          <div class="block-body">
+            <p>Rute se passa "nos dias em que governavam os juízes" — em plena era do caos descrita em Juízes. Mas enquanto Juízes mostra o pior de Israel, Rute mostra o melhor: lealdade (<em>hesed</em>), generosidade, graça. O contraste é deliberado e teológico.</p>
+            <p>A menção de fome (1.1) evoca Abraão e Jacó — patriarcas que também foram ao estrangeiro por causa da fome. Elimeleque leva a família para <strong>Moabe</strong>, a leste do Mar Morto — território estrangeiro mas culturalmente familiar ao Israel semítico. Lá ele morre, seus dois filhos morrem, e Noemi fica com duas noras moabitas: Orpá e Rute.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="rute-geo">
+        <div class="study-block">
+          <div class="block-title">Belém e Moabe</div>
+          <div class="geo-box">
+            <p><strong>Belém de Judá</strong> fica 8 km ao sul de Jerusalém, no planalto de Judá a ~775 m de altitude. Terra agrícola fértil — o nome significa "Casa do Pão". É a cidade natal de Davi e depois de Jesus; Rute estabelece a linha genealógica que une todas essas figuras.</p>
+            <p><strong>Moabe</strong> fica ao leste do Mar Morto, no atual Jordão. As planícies de Moabe são onde Moisés morreu. A distância entre Moabe e Belém era de 80–100 km — uma jornada de vários dias pelo deserto ou contornando o Mar Morto pelo norte. O regresso de Noemi e Rute foi ato de fé considerável.</p>
+          </div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Belém</div><div class="info-card-value">8 km ao sul de Jerusalém · "Casa do Pão"</div></div>
+            <div class="info-card"><div class="info-card-label">Moabe</div><div class="info-card-value">Platô leste do Mar Morto · atual Jordão</div></div>
+            <div class="info-card"><div class="info-card-label">Campo de Boaz</div><div class="info-card-value">Planície agrícola ao redor de Belém</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="rute-study">
+        <div class="study-block">
+          <div class="block-title">O Go'el — Redentor Familiar</div>
+          <div class="block-body">
+            <p>A chave teológica de Rute é a instituição do <strong><em>go'el</em></strong> (גֹּאֵל) — o "resgatador" ou "redentor de família". A lei mosaica (Lv 25; Dt 25) estabelecia que o parente mais próximo de um homem morto tinha a responsabilidade de resgatar sua propriedade, casar-se com a viúva sem filhos (levirato), e perpetuar o nome da família.</p>
+            <p>Boaz, parente de Elimeleque, age como go'el de Noemi e Rute — resgatando-as da pobreza e do esquecimento. O conceito de <em>go'el</em> ecoa pela Bíblia inteira como tipologia de Cristo: Jó clama "Eu sei que o meu Redentor vive" (Jó 19.25). Em Rute, Boaz paga um preço para resgatar quem não podia se resgatar — imagem perfeita da redenção pela graça.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Rute na Linhagem Messiânica</div>
+          <div class="block-body">
+            <p>O dado mais extraordinário de Rute é seu lugar na genealogia de Davi (4.17–22) e, por extensão, na genealogia de Jesus (Mt 1.5). Uma <strong>moabita</strong> — descendente de povo que a Lei proibia de entrar na assembleia até a décima geração (Dt 23.3) — torna-se bisavó do rei mais amado de Israel.</p>
+            <p>A mensagem é radicalmente inclusiva: a fidelidade (<em>hesed</em>) de Rute supera fronteiras étnicas e religiosas. Seu compromisso com Noemi usa linguagem de aliança — o mesmo vocabulário da aliança de Deus com Israel. Rute abraça voluntariamente o Deus de Israel e se torna parte do povo por escolha, não por nascimento.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title"><em>Hesed</em> — O Conceito Teológico Central</div>
+          <div class="block-body">
+            <p>A palavra hebraica <strong><em>hesed</em></strong> (חֶסֶד) aparece três vezes em Rute — e é impossível traduzir com uma só palavra em português. É ao mesmo tempo: lealdade leal, amor fiel, bondade de aliança, misericórdia comprometida. Diferente do amor romântico (<em>ahavah</em>) ou da compaixão emocional (<em>rachamim</em>), o <em>hesed</em> é amor que se obriga — que age mesmo quando ninguém está olhando, mesmo quando não há obrigação legal de agir.</p>
+            <p>Rute pratica <em>hesed</em> com Noemi ao recusá-la ficar em Moabe; Boaz pratica <em>hesed</em> com Rute ao ir além do exigido pela lei da respiga; o Senhor é descrito por Noemi como praticante de <em>hesed</em> ao providenciar um go'el. O pequeno livro de Rute é uma demonstração vivida de como o <em>hesed</em> humano reflete e responde ao <em>hesed</em> divino — e é por isso que o NT usa o mesmo vocabulário (graça, <em>charis</em>) para descrever a obra de Cristo.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Lei da Respiga — Proteção Social Mosaica</div>
+          <div class="block-body">
+            <p>A cena de Rute espigando nos campos de Boaz (cap. 2) revela um sistema de proteção social embutido na Lei mosaica: a lei da respiga (Lv 19.9-10; 23.22; Dt 24.19-21) proibia os proprietários de colher até os cantos dos campos e de rebuscar o que caía durante a colheita — deixando deliberadamente sobras para <strong>os pobres e os estrangeiros</strong>.</p>
+            <p>Não era caridade voluntária — era lei. O sistema reconhecia que a terra pertencia ao Senhor (Lv 25.23) e que os donos eram apenas administradores com responsabilidade para com os vulneráveis. Boaz vai além da lei: ordena que seus servos deixem feixes inteiros para Rute (2.16). O texto mostra que a generosidade pode superar a lei sem violá-la — e que as instituições justas criam espaço para que a bondade pessoal floresça sobre elas.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Que o <span style="font-variant:small-caps">Senhor</span> recompense as suas obras, e que a sua recompensa seja completa da parte do <span style="font-variant:small-caps">Senhor</span>, o Deus de Israel, sob cujas asas você veio buscar refúgio."</p>
+          <cite>Rute 2.12 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ 1 SAMUEL ════════════════════════════════ -->
+    <article class="book-panel" id="panel-samuel1">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 9 · Históricos · Antigo Testamento</div>
+        <h2 class="book-title"><span>1 Samuel</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~1105–1010 a.C.</span>
+          <span class="book-tag">Surgimento da Monarquia</span>
+          <span class="book-tag">31 capítulos</span>
+          <span class="book-tag">Autor: Samuel / Natã / Gade</span>
+        </div>
+        <div class="book-verse">"O homem vê o que está diante dos olhos, mas o <span style="font-variant:small-caps">Senhor</span> vê o coração."<cite>1 Samuel 16.7b — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'samuel1','ctx')">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'samuel1','geo')">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'samuel1','study')">Estudo Aprofundado</button>
+      </div>
+      <div class="tab-panel active" id="samuel1-ctx">
+        <div class="study-block">
+          <div class="block-title">A Crise Filisteia</div>
+          <div class="block-body">
+            <p>O século XI a.C. é de crise existencial para Israel. Os <strong>filisteus</strong> — instalados na costa sudoeste desde ~1200 a.C. — são tecnologicamente superiores: possuem o monopólio do ferro na região (1Sm 13.19-22), carros de guerra e exércitos profissionais. Israel ainda é organização tribal de guerrilha sem unidade de comando. A derrota de Afec (cap. 4) — onde a Arca da Aliança é capturada — é o trauma nacional que catalisa o pedido por um rei.</p>
+            <p>No contexto mais amplo, é o início da <strong>Idade do Ferro</strong>. O Egito está em decadência. A Assíria ainda não projeta poder sobre Canaã. Há uma janela de oportunidade única para Israel estabelecer um reino — e Deus a aproveita, mesmo que o desejo por um rei seja, segundo o texto, uma rejeição de Deus como rei (1Sm 8.7).</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="samuel1-geo">
+        <div class="study-block">
+          <div class="block-title">Territórios em Conflito</div>
+          <div class="geo-box">
+            <p><strong>Siló</strong>, no coração das montanhas de Efraim, é o centro religioso de Israel no início — onde fica o Tabernáculo e a Arca. Sua destruição pelos filisteus marca o fim de uma era. <strong>Mispa</strong>, em Benjamim, torna-se centro político sob Samuel. <strong>Gibeá</strong>, também em Benjamim, é a capital de Saul. O conflito com os filisteus se concentra na <strong>Sefelá</strong> — incluindo o Vale do Elá, onde Davi mata Golias — e na planície costeira.</p>
+          </div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Centro religioso</div><div class="info-card-value">Siló — sede da Arca, destruída pelos filisteus</div></div>
+            <div class="info-card"><div class="info-card-label">Capital de Saul</div><div class="info-card-value">Gibeá de Benjamim</div></div>
+            <div class="info-card"><div class="info-card-label">Vale do Elá</div><div class="info-card-value">Davi vs. Golias · fronteira da Sefelá</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="samuel1-study">
+        <div class="study-block">
+          <div class="block-title">Três Figuras, Três Destinos</div>
+          <div class="block-body">
+            <p><strong>Samuel (caps. 1–8):</strong> Último juiz e primeiro profeta no sentido clássico. Consagrado antes do nascimento, chamado na infância com a voz de Deus ("Fala, Senhor, pois o teu servo ouve" — 3.10). Sua função histórica é ser a dobradiça: unge os dois primeiros reis de Israel.</p>
+            <p><strong>Saul (caps. 9–31):</strong> Fisicamente impressionante mas tragicamente inseguro. Sua queda tem dois pivôs: o sacrifício ilegal em Gilgal (cap. 13 — "agiste loucamente") e a desobediência na guerra contra Amaleque (cap. 15 — "a obediência é melhor do que o sacrifício"). Saul é destituído não por falta de habilidade, mas por falta de caráter. A perseguição paranóica de Davi ocupa metade do livro.</p>
+            <p><strong>Davi (caps. 16–31):</strong> Ungido em segredo entre seus irmãos mais impressionantes — porque Deus "olha o coração". Sua derrota de Golias (cap. 17) é obra de fé. O vínculo de amizade com Jônatas contrasta com o ódio irracional de Saul. Davi recusa duas oportunidades de matar Saul (caps. 24 e 26): "Não estenderei minha mão contra o ungido do Senhor."</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Oração de Ana — Protótipo do Magnificat</div>
+          <div class="block-body">
+            <p>O livro abre não com um general ou um rei, mas com uma mulher sem filhos orando em silêncio no Tabernáculo — tão fervorosa que o sacerdote Eli a toma por bêbada (1.13). A oração de <strong>Ana</strong> após o nascimento de Samuel (cap. 2) é um dos textos mais explosivos do AT: "O <span style="font-variant:small-caps">Senhor</span> empobrece e enriquece; abate e também exalta. Ele levanta o necessitado do pó, e do monturo eleva o pobre" (2.7-8).</p>
+            <p>O cântico de Ana é o modelo direto do <strong>Magnificat de Maria</strong> (Lc 1.46-55) — a língua, as imagens e a teologia são quase idênticos. Ambas as mulheres — Ana e Maria — carregam nos ventres aquele que transformará Israel, e ambas entoam hinos sobre a inversão divina das ordens estabelecidas. O livro de Samuel começa e é moldado pela teologia de uma mulher em oração.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Jônatas e Davi — A Aliança da Amizade</div>
+          <div class="block-body">
+            <p>A amizade entre Jônatas e Davi (caps. 18–23) é uma das relações mais puras da Bíblia — e também uma das mais politicamente custosas. Jônatas é o herdeiro legítimo do trono; Davi é o rival escolhido por Deus. Ainda assim, Jônatas "amou Davi como a si mesmo" (18.1) e fez aliança com ele, dando-lhe sua própria veste, armas e cinto — símbolos de sua posição real.</p>
+            <p>Jônatas repetidamente arrisca a própria vida para proteger Davi da ira de Saul — até o ponto de receber uma lança do próprio pai por defender o amigo (20.33). A aliança que fazem entre si (23.18 — "Davi permaneceu no bosque, e Jônatas foi para sua casa") é cumprida décadas depois: Davi cuida de Mefibosete, filho paralítico de Jônatas (2Sm 9), "por amor a Jônatas". A amizade de aliança transcende a morte — é modelo do compromisso fiel que o NT chama de <em>ágape</em>.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">O Oráculo de Endor — Limites do Sobrenatural</div>
+          <div class="block-body">
+            <p>O episódio mais enigmático de 1 Samuel é a consulta de Saul à médium de Endor (cap. 28), na véspera de sua última batalha. Saul — que havia expulsado todos os médiuns de Israel — recorre em desespero a uma quando o Senhor não responde mais. A mulher evoca Samuel, e Samuel aparece — irritado por ser perturbado — e confirma o que já havia dito: Saul morrerá no dia seguinte.</p>
+            <p>O texto não explica o mecanismo — mas apresenta o resultado como real: Samuel de fato aparece, fala e profetiza com precisão. A maioria dos intérpretes tradicionais entende que Deus permitiu a aparição real como último ato de julgamento sobre Saul. O episódio é citado em Siracide 46.20 como prova da grandeza de Samuel que mesmo após a morte profetizou. O que o texto proíbe não é a realidade do sobrenatural, mas a tentativa humana de manipulá-lo fora dos canais que Deus estabeleceu.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Acaso o <span style="font-variant:small-caps">Senhor</span> se agrada de holocaustos e sacrifícios como de obediência à voz do <span style="font-variant:small-caps">Senhor</span>? A obediência é melhor do que o sacrifício."</p>
+          <cite>1 Samuel 15.22 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ 2 SAMUEL ════════════════════════════════ -->
+    <article class="book-panel" id="panel-samuel2">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 10 · Históricos · Antigo Testamento</div>
+        <h2 class="book-title"><span>2 Samuel</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~1010–970 a.C.</span>
+          <span class="book-tag">Reino Unido de Davi</span>
+          <span class="book-tag">24 capítulos</span>
+          <span class="book-tag">Autor: Natã / Gade</span>
+        </div>
+        <div class="book-verse">"A sua casa e o seu reino serão estabelecidos para sempre diante de mim; o seu trono será firme para sempre."<cite>2 Samuel 7.16 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'samuel2','ctx')">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'samuel2','geo')">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'samuel2','study')">Estudo Aprofundado</button>
+      </div>
+      <div class="tab-panel active" id="samuel2-ctx">
+        <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">24 capítulos · reinado de Davi ~1010–970 a.C.</div></div>
+            <div class="info-card"><div class="info-card-label">Ponto alto</div><div class="info-card-value">Cap. 7 — Aliança Davídica: "teu trono será firme para sempre" · fundamento do messianismo bíblico</div></div>
+            <div class="info-card"><div class="info-card-label">Queda de Davi</div><div class="info-card-value">Caps. 11–12: adultério com Bate-Seba e assassinato de Urias — narrado com brutalidade psicológica sem paralelo</div></div>
+            <div class="info-card"><div class="info-card-label">Capital escolhida</div><div class="info-card-value">Jerusalém — cidade sem tribo, na fronteira Judá/Benjamim · golpe político genial de Davi</div></div>
+            <div class="info-card"><div class="info-card-label">Rebelião de Absalão</div><div class="info-card-value">Caps. 15–19: filho amado conspira; Davi foge pelo Monte das Oliveiras em pranto</div></div>
+            <div class="info-card"><div class="info-card-label">Encerramento</div><div class="info-card-value">Cap. 24: censo fatal → compra da eira de Araúna → local do futuro Templo de Salomão</div></div>
+          </div>
+        </div>
+
+        <div class="study-block">
+          <div class="block-title">O Apogeu de Israel</div>
+          <div class="block-body">
+            <p>O reinado de Davi (~1010–970 a.C.) coincide com um vácuo de poder sem precedente: o Egito em colapso dinástico, a Assíria ainda não expandida para o oeste, os hititas desaparecidos. Israel nunca mais terá tal janela geopolítica. Davi a aproveita: conquista Jerusalém, expande o território do Eufrates ao Egito (2Sm 8), derrota filisteus, moabitas, sírios, edomitas e amonitas.</p>
+            <p>A escolha de <strong>Jerusalém</strong> como capital é um golpe político genial: cidade que não pertencia a nenhuma tribo, situada na fronteira de Judá e Benjamim, sem ressentimentos tribais. Davi a transforma em capital religiosa trazendo a Arca — unindo poder político e espiritual num único centro.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="samuel2-geo">
+        <div class="study-block">
+          <div class="block-title">Jerusalém e o Império Davídico</div>
+          <div class="geo-box">
+            <p><strong>Jerusalém</strong> fica num promontório rochoso entre os vales de Kidron (leste) e Hinom (oeste/sul), a ~754 m de altitude. Defensável em três lados. Davi a conquista pela tomada do túnel de água (2Sm 5.8). O <strong>império davídico</strong> se estende do norte da Síria (Damasco) ao golfo de Áqaba, incluindo os reinos vassalos de Moabe, Edom, Amom e Aram — o maior território israelita da história.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="samuel2-study">
+        <div class="study-block">
+          <div class="block-title">A Aliança Davídica — O Fundamento Messiânico</div>
+          <div class="block-body">
+            <p>O capítulo 7 é o pivô teológico de todo o AT. Davi deseja construir um Templo para Deus — uma casa de cedro em vez da tenda. A resposta divina por Natã inverte o conceito: não será Davi que construirá uma casa para Deus, mas Deus que construirá uma <em>casa</em> (dinastia) para Davi.</p>
+            <p>A <strong>Aliança Davídica</strong> promete: (1) um filho de Davi construirá o Templo; (2) o trono de Davi será eterno; (3) mesmo se o rei pecar, a misericórdia não será retirada da linhagem. Esta promessa é o fundamento do messianismo bíblico — todos os profetas posteriores constroem sua esperança sobre ela. Jesus é apresentado no NT como "filho de Davi" precisamente por causa desta aliança.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Queda de Davi — Bate-Seba e Urias</div>
+          <div class="block-body">
+            <p>Os capítulos 11–20 narram as consequências do pecado de Davi com Bate-Seba e o assassinato de Urias com brutalidade narrativa sem paralelo. Davi usa todo o aparato do poder real para encobrir o adultério, mandando Urias — um de seus trinta heróis — para a morte. A confrontação de Natã com a parábola da ovelha (cap. 12) é um dos maiores momentos de coragem profética da Bíblia.</p>
+            <p>A punição é tripla: a criança morrerá, a família de Davi será palco de violência, outro dormirá com suas mulheres à vista do sol. Tudo se cumpre: Amom estupra Tamar, Absalão mata Amom e depois se rebela. O pecado privado gera catástrofe pública.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Rebelião de Absalão — O Filho que Desejava o Trono</div>
+          <div class="block-body">
+            <p>Os capítulos 15–19 narram a rebelião de <strong>Absalão</strong> — o filho mais amado e mais belo de Davi, que rouba o coração de Israel com carisma populista (15.1-6) e depois proclama-se rei em Hebrom, a cidade onde Davi foi ungido. Davi foge de Jerusalém descalço, subindo o Monte das Oliveiras em pranto — uma das cenas mais patéticas e humanas da Bíblia.</p>
+            <p>O texto é devastador em sua precisão psicológica: Absalão dorme publicamente com as concubinas de Davi no telhado (cumprimendo a profecia de Natã em 12.11-12), enquanto Aitofel — conselheiro de Davi que havia mudado de lado — recomenda ação decisiva mas é contradito por Husai, agente duplo de Davi. Quando Absalão adota o conselho de Husai, o texto comenta: "Pois o <span style="font-variant:small-caps">Senhor</span> havia determinado frustrar o bom conselho de Aitofel" (17.14). A batalha final no bosque de Efraim — onde Absalão fica preso pelos longos cabelos que eram sua glória — e sua morte pela mão de Joabe, encerram a rebelião. A lamentação de Davi ("Absalão, meu filho!" — 18.33) é um dos textos mais dolorosos da literatura universal.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Os Últimos Capítulos — Poesia, Heróis e o Censo Fatal</div>
+          <div class="block-body">
+            <p>Os capítulos 21–24 são um epílogo em forma de quiasma: dois episódios históricos (21 e 24) enquadram dois poemas (22 e 23) e uma lista de heróis. O <strong>Salmo de Davi</strong> (cap. 22 = Sl 18) é o mais longo poema de 2 Samuel — canto de gratidão pela proteção divina. Os <strong>trinta e três heróis</strong> (cap. 23) incluem Urias o hitita — um lembrete deliberado do pecado de Davi, enterrado na lista de homens que deram a vida por ele.</p>
+            <p>O <strong>censo de Davi</strong> (cap. 24) é um dos episódios mais debatidos do AT. Davi ordena um recenseamento — ato que Joabe tenta dissuadir — e depois é tomado de culpa. O texto não explica por que o censo foi pecado; a maioria dos intérpretes entende que era confiança no poder militar humano em vez de na proteção divina. A punição oferece três opções — fome, perseguição ou peste. Davi escolhe a peste ("cair nas mãos de Deus" em vez das mãos dos inimigos). O livro encerra com a compra da eira de Araúna — que se tornará o local do Templo de Salomão — e o altar de Davi que detém a peste. A escolha do local do Templo emerge do arrependimento de Davi.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"A sua casa e o seu reino serão estabelecidos para sempre diante de mim; o seu trono será firme para sempre."</p>
+          <cite>2 Samuel 7.16 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ 1 REIS ════════════════════════════════ -->
+    <article class="book-panel" id="panel-reis1">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 11 · Históricos · Antigo Testamento</div>
+        <h2 class="book-title"><span>1 Reis</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~970–853 a.C.</span>
+          <span class="book-tag">Salomão · Divisão do Reino</span>
+          <span class="book-tag">22 capítulos</span>
+          <span class="book-tag">Autor: Jeremias (tradição)</span>
+        </div>
+        <div class="book-verse">"Dá ao teu servo um coração que ouça, para que eu possa governar o teu povo e discernir entre o bem e o mal."<cite>1 Reis 3.9 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'reis1','ctx')">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'reis1','geo')">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'reis1','study')">Estudo Aprofundado</button>
+      </div>
+      <div class="tab-panel active" id="reis1-ctx">
+        <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">22 capítulos · ~970–853 a.C. · Salomão e a divisão do reino</div></div>
+            <div class="info-card"><div class="info-card-label">Templo de Salomão</div><div class="info-card-value">Construído em 7 anos (~966–959 a.C.) · cedros do Líbano · ouro de Ofir · destruído em 586 a.C.</div></div>
+            <div class="info-card"><div class="info-card-label">Divisão do reino</div><div class="info-card-value">930 a.C. — Judá (sul) e Israel (norte · 10 tribos) se separam permanentemente por causa da apostasia de Salomão</div></div>
+            <div class="info-card"><div class="info-card-label">Elias Tisbita</div><div class="info-card-value">Surge sem genealogia (17.1) · duelo do Carmelo contra 450 profetas de Baal · "voz mansa e delicada" no Sinai (19.12)</div></div>
+            <div class="info-card"><div class="info-card-label">Jezabel</div><div class="info-card-value">Financia 850 profetas pagãos, mata profetas do Senhor e manda assassinar Nabot para expropriar sua vinha</div></div>
+            <div class="info-card"><div class="info-card-label">Critério editorial</div><div class="info-card-value">Cada rei avaliado pela fidelidade a Deus e centralização do culto em Jerusalém · nenhum rei do norte recebe elogio</div></div>
+          </div>
+        </div>
+
+        <div class="study-block">
+          <div class="block-title">Glória e Ruptura</div>
+          <div class="block-body">
+            <p>1 Reis narra a trajetória de Israel do apogeu ao colapso. O reinado de Salomão (~970–930 a.C.) é o pico da civilização israelita: paz, prosperidade, o Templo de Jerusalém, fama internacional. Mas o livro mostra como as sementes da destruição foram plantadas no próprio auge. A divisão do reino em 930 a.C. é a maior catástrofe política da história israelita — consequência direta da apostasia de Salomão.</p>
+            <p>A segunda metade do livro alterna entre os reis de Israel (norte) e Judá (sul), avaliando cada rei pelo critério de fidelidade a Deus e à centralização do culto em Jerusalém. O norte nunca tem um rei "bom" por esse critério.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="reis1-geo">
+        <div class="study-block">
+          <div class="block-title">O Templo e os Dois Reinos</div>
+          <div class="geo-box">
+            <p>O <strong>Monte Moriá</strong> — onde Abraão quase sacrificou Isaque e onde Davi comprou a eira de Araúna — é o local do Templo de Salomão. O Templo foi construído em 7 anos (~966–959 a.C.) com cedros do Líbano e ouro de Ofir. Com a divisão, <strong>Judá</strong> (sul: Judá + Benjamim, capital Jerusalém) e <strong>Israel</strong> (norte: 10 tribos, capital inicial Siquém, depois Tirsa e depois Samaria) se separam permanentemente.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="reis1-study">
+        <div class="study-block">
+          <div class="block-title">Salomão — Sabedoria e Apostasia</div>
+          <div class="block-body">
+            <p>O pedido de Salomão em Gibeom (cap. 3) — sabedoria em vez de riqueza ou longevidade — é o ponto alto de sua vida espiritual. O julgamento entre as duas mães (3.16-28) demonstra essa sabedoria imediatamente. A construção e dedicação do Templo (caps. 5–8) é o ápice da narrativa — o discurso de Salomão na dedicação (cap. 8) é uma das maiores orações da Bíblia, incluindo a notável oração pelo estrangeiro (8.41-43).</p>
+            <p>Mas Salomão tem <strong>700 esposas e 300 concubinas</strong> (11.3) — representando alianças políticas com cada nação vizinha. O resultado: "suas mulheres lhe perverteram o coração" (11.3). Ele constrói altares para Quemós, Moloque e Astarte. A punição é a divisão do reino — adiada uma geração por causa de Davi.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Elias — A Voz Mansa e Delicada</div>
+          <div class="block-body">
+            <p>A segunda metade de 1 Reis é dominada por <strong>Elias Tisbita</strong> — o maior profeta do reino do norte. Surge abruptamente sem genealogia (17.1) e enfrenta Acabe e Jezabel, o casal real mais ímpio da história israelita. O <strong>Monte Carmelo</strong> (cap. 18) é o duelo definidor: Elias versus 450 profetas de Baal, terminando com fogo descendo do céu. Mas logo depois, ameaçado por Jezabel, Elias foge ao Sinai em colapso emocional — e Deus o encontra não no fogo nem no vento, mas na "<strong>voz mansa e delicada</strong>" (19.12). É a mais bela teofania do AT após o Monte Sinai.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Rainha de Sabá — Sabedoria que Atravessa Fronteiras</div>
+          <div class="block-body">
+            <p>A visita da <strong>Rainha de Sabá</strong> (cap. 10) é um dos episódios mais celebrados de 1 Reis. A Sabá era provavelmente o reino do atual Iêmen — a 2.000 km de Jerusalém. A rainha viajou com "caravana muito grande, com camelos carregados de especiarias" para testar Salomão com questões difíceis. Quando viu sua sabedoria, seu palácio, sua mesa e seu culto, "não havia mais espírito nela" (10.5) — ficou sem fôlego de admiração.</p>
+            <p>Jesus cita este episódio em Mateus 12.42: "A Rainha do Sul se levantará no juízo contra esta geração e a condenará; porque ela veio dos confins da terra para ouvir a sabedoria de Salomão, e eis aqui algo maior do que Salomão." O episódio funciona no texto como símbolo do alcance universal da sabedoria dada por Deus — e também como ironia amarga: uma rainha pagã busca sabedoria com fervor que os próprios israelitas não demonstram.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Jezabel — O Poder do Paganismo Institucionalizado</div>
+          <div class="block-body">
+            <p><strong>Jezabel</strong>, filha do rei de Sidom e esposa de Acabe, é a figura mais ativa e ameaçadora do reino do norte. Não se trata apenas de apostasia religiosa pessoal — Jezabel financia 450 profetas de Baal e 400 de Aserá à custa do tesouro real (18.19), persegue e mata os profetas do Senhor (18.4), e após a derrota no Carmelo escreve cartas em nome do rei ordenando o assassinato de Nabot para que Acabe tome sua vinha (cap. 21).</p>
+            <p>A morte de Nabot é expropriação estatal legitimada por falso testemunho — a fusão do poder real com a injustiça econômica que todos os profetas do AT denunciarão. A confrontação de Elias com Acabe ("Encontraste-me, ó meu inimigo?" — 21.20) e a sentença sobre Jezabel ("Os cães comerão Jezabel no campo de Jezreel") são cumpridas literalmente em 2 Reis 9. O nome "Jezabel" tornou-se sinônimo de perversão religiosa no NT (Ap 2.20).</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Dá ao teu servo um coração que ouça, para que eu possa governar o teu povo e discernir entre o bem e o mal."</p>
+          <cite>1 Reis 3.9 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ 2 REIS ════════════════════════════════ -->
+    <article class="book-panel" id="panel-reis2">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 12 · Históricos · Antigo Testamento</div>
+        <h2 class="book-title"><span>2 Reis</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~853–586 a.C.</span>
+          <span class="book-tag">Exílio Assírio e Babilônico</span>
+          <span class="book-tag">25 capítulos</span>
+          <span class="book-tag">Autor: Jeremias (tradição)</span>
+        </div>
+        <div class="book-verse">"Não tema, pois os que estão conosco são mais do que os que estão com eles."<cite>2 Reis 6.16 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'reis2','ctx')">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'reis2','geo')">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'reis2','study')">Estudo Aprofundado</button>
+      </div>
+      <div class="tab-panel active" id="reis2-ctx">
+        <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">25 capítulos · ~853–586 a.C. · fim dos dois reinos</div></div>
+            <div class="info-card"><div class="info-card-label">Queda do norte</div><div class="info-card-value">Israel cai para a Assíria em 722/721 a.C. · 10 tribos deportadas e substituídas → origem dos samaritanos</div></div>
+            <div class="info-card"><div class="info-card-label">Queda do sul</div><div class="info-card-value">Judá cai para Babilônia · 3 deportações (605, 597, 586 a.C.) · Templo de Salomão destruído em 586 a.C.</div></div>
+            <div class="info-card"><div class="info-card-label">Eliseu</div><div class="info-card-value">Milagres domésticos · cura de Naamã o sírio (cap. 5) · citado por Jesus em Lc 4.27 como exemplo da graça universal</div></div>
+            <div class="info-card"><div class="info-card-label">Ezequias</div><div class="info-card-value">Cerco de Senaqueribe: 185.000 soldados aniquilados numa noite · confirmado no Prisma de Taylor (artefato assírio)</div></div>
+            <div class="info-card"><div class="info-card-label">Josias</div><div class="info-card-value">Descobre o Livro da Lei (~621 a.C.) · reforma radical · mas texto nota: tarde demais para reverter o julgamento por Manassés</div></div>
+          </div>
+        </div>
+
+        <div class="study-block">
+          <div class="block-title">O Colapso dos Dois Reinos</div>
+          <div class="block-body">
+            <p>2 Reis documenta o declínio e fim dos dois reinos. O <strong>reino do norte (Israel)</strong> cai para a <strong>Assíria</strong> em 722/721 a.C. sob Sargão II. As dez tribos são deportadas e substituídas por povos estrangeiros — o início dos "samaritanos" como grupo étnico misto. O <strong>reino do sul (Judá)</strong> sobrevive mais 136 anos, mas cai para a <strong>Babilônia</strong> sob Nabucodonosor: três deportações (605, 597, 586 a.C.), culminando com a destruição do Templo de Salomão.</p>
+            <p>O contexto é a ascensão dos grandes impérios mesopotâmicos: a Assíria domina do século IX ao final do VII; depois a coalizão medo-babilônica destrói Nínive em 612 a.C. e a Babilônia de Nabucodonosor herda o domínio regional.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="reis2-geo">
+        <div class="study-block">
+          <div class="block-title">Das Margens do Jordão à Babilônia</div>
+          <div class="geo-box">
+            <p>O arco geográfico de 2 Reis é imenso: da <strong>Samaria</strong> (destruída em 722 a.C.) à <strong>Nínive</strong> assíria (norte do Iraque atual) e à <strong>Babilônia</strong> (90 km ao sul de Bagdá). Jerusalém é sitiada três vezes. O Templo de Salomão, no Monte Moriá, é incendiado em 586 a.C. — evento que traumatiza o judaísmo para sempre e é lamentado em Lamentações.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="reis2-study">
+        <div class="study-block">
+          <div class="block-title">Eliseu — O Profeta dos Milagres</div>
+          <div class="block-body">
+            <p>Os primeiros capítulos de 2 Reis são dominados por <strong>Eliseu</strong>, sucessor de Elias. Enquanto Elias é figura solitária e de fogo, Eliseu opera em comunidade e seus milagres são notavelmente domésticos: purifica águas, multiplica azeite para uma viúva, ressuscita o filho da sunamita, cura a lepra de <strong>Naamã o sírio</strong>. A cura de Naamã (cap. 5) é especialmente significativa — um general estrangeiro e inimigo recebe a graça de Deus — e é citada por Jesus em Lucas 4.27 como exemplo do alcance universal da graça.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Ezequias e Josias — Os Reis da Reforma</div>
+          <div class="block-body">
+            <p><strong>Ezequias (caps. 18–20):</strong> O rei mais elogiado de Judá depois de Davi. Quando a Assíria de Senaqueribe cerca Jerusalém, Ezequias ora e o anjo do Senhor aniquila 185.000 soldados assírios numa noite. O Prisma de Taylor (texto assírio) confirma o cerco mas registra a retirada de forma evasiva — confirma historicidade sem explicar o milagre.</p>
+            <p><strong>Josias (caps. 22–23):</strong> Descobre o Livro da Lei durante a reforma do Templo (~621 a.C.) e implementa a reforma mais radical da história de Judá, destruindo todos os altares pagãos de Dan a Berseba. Mas o texto registra com tristeza que tudo isso não bastou para reverter o julgamento já decretado por causa de Manassés.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">O Carro de Fogo de Elias — Elevação sem Morte</div>
+          <div class="block-body">
+            <p>A transição entre 1 e 2 Reis é marcada por um dos episódios mais extraordinários da Bíblia: a <strong>elevação de Elias</strong> (2Rs 2). Elias não morre — é arrebatado em um redemoinho, com um carro de fogo e cavalos de fogo separando-o de Eliseu. Eliseu rasga suas vestes (sinal de luto) e exclama: "Pai meu! Pai meu! Carros de Israel e sua cavalaria!" — reconhecendo que Elias era mais valioso para Israel do que todo o exército nacional.</p>
+            <p>Eliseu pede uma "porção dobrada" do espírito de Elias — não o dobro de poder, mas a parte do primogênito (Dt 21.17): ele quer ser reconhecido como o herdeiro legítimo. A prova é o manto de Elias: ao golpear as águas, elas se abrem, como fizeram no Jordão para Moisés e Josué. O manto representa continuidade de autoridade profética. No NT, Elias retorna na Transfiguração (Mc 9) e é identificado com João Batista (Mt 17.12–13) — o precursor que prepara o caminho.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Israel e Judá — Duas Trajetórias Paralelas</div>
+          <div class="block-body">
+            <p>2 Reis alterna sistematicamente entre os reis dos dois reinos, criando uma narrativa paralela que pode confundir. O padrão editorial é consistente: cada rei é apresentado com (1) ano de início em relação ao rei paralelo, (2) duração do reinado, (3) capital, (4) julgamento moral ("fez o que era mau/bom aos olhos do Senhor"), (5) fonte de referência ("Anais dos Reis de Israel/Judá"), e (6) morte e sucessão.</p>
+            <p>O resultado é assimétrico: <strong>Israel (norte)</strong> tem 19 reis em ~210 anos — nenhum recebe elogio; todos "andaram nos pecados de Jeroboão". <strong>Judá (sul)</strong> tem 20 reis em ~345 anos — oito recebem algum elogio, dois (Ezequias e Josias) recebem elogios extraordinários. A diferença é estrutural: Israel nunca teve o Templo em Jerusalém, nunca teve continuidade dinástica (9 golpes de estado), nunca teve um profeta que acompanhasse a dinastia regularmente como Elias/Eliseu. A avaliação do texto é que Israel nasceu sob o pecado institucional de Jeroboão e nunca se recuperou.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Não tema, pois os que estão conosco são mais do que os que estão com eles."</p>
+          <cite>2 Reis 6.16 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ 1 CRÔNICAS ════════════════════════════════ -->
+    <article class="book-panel" id="panel-cronicas1">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 13 · Históricos · Antigo Testamento</div>
+        <h2 class="book-title"><span>1 Crônicas</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~450–400 a.C. (composição)</span>
+          <span class="book-tag">Releitura Pós-Exílica</span>
+          <span class="book-tag">29 capítulos</span>
+          <span class="book-tag">Autor: O Cronista (Esdras?)</span>
+        </div>
+        <div class="book-verse">"Teus, <span style="font-variant:small-caps">Senhor</span>, são a grandeza, o poder, a glória, a vitória e a majestade; pois teus são todos os seres que estão nos céus e na terra."<cite>1 Crônicas 29.11 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'cronicas1','ctx')">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'cronicas1','geo')">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'cronicas1','study')">Estudo Aprofundado</button>
+      </div>
+      <div class="tab-panel active" id="cronicas1-ctx">
+        <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">29 capítulos · composição ~450–400 a.C. · perspectiva pós-exílica</div></div>
+            <div class="info-card"><div class="info-card-label">Autor</div><div class="info-card-value">O Cronista — provavelmente o mesmo redator de Esdras e Neemias</div></div>
+            <div class="info-card"><div class="info-card-label">Genealogias</div><div class="info-card-value">Caps. 1–9: de Adão aos retornados do exílio · situam Israel desde a criação no plano divino</div></div>
+            <div class="info-card"><div class="info-card-label">Davi no Cronista</div><div class="info-card-value">Pecados omitidos · apresentado quase exclusivamente como organizador do culto e planejador do Templo</div></div>
+            <div class="info-card"><div class="info-card-label">Jabez</div><div class="info-card-value">1Cr 4.9–10 — oração audaciosa no meio de lista de nomes esquecidos: "se me abençoasses e alargasses o meu território"</div></div>
+            <div class="info-card"><div class="info-card-label">Satanás</div><div class="info-card-value">1Cr 21.1 vs 2Sm 24.1 — mesmo evento: Cronista nomeia o agente intermediário, refletindo desenvolvimento teológico pós-exílico</div></div>
+          </div>
+        </div>
+
+        <div class="study-block">
+          <div class="block-title">A Teologia do Recomeço</div>
+          <div class="block-body">
+            <p>1 e 2 Crônicas foram compostos após o retorno do exílio babilônico (~450–400 a.C.), provavelmente pelo mesmo autor de Esdras e Neemias — o chamado "Cronista". O contexto é o da <strong>comunidade pós-exílica</strong> tentando reconstruir a identidade nacional em torno do Templo, do sacerdócio e da aliança davídica, sem um rei no trono.</p>
+            <p>O Cronista relê a mesma história de Samuel e Reis, mas com ênfases radicalmente diferentes: omite a maioria dos pecados de Davi (o episódio de Bate-Seba não aparece), omite todo o reino do norte (Israel), e foca quase obsessivamente no Templo, na música litúrgica e no sacerdócio. É história teológica para uma geração que precisa de esperança e identidade.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="cronicas1-geo">
+        <div class="study-block">
+          <div class="block-title">De Adão a Davi</div>
+          <div class="geo-box">
+            <p>Os primeiros 9 capítulos de 1 Crônicas são genealogias — de Adão até os retornados do exílio. O projeto genealógico do Cronista situa Israel no tempo e no espaço: desde a criação, passando pelos patriarcas e as tribos, até o retorno. <strong>Jerusalém</strong> é o centro geográfico e teológico absoluto de toda a narrativa — a cidade onde Deus habita e para onde todo o culto converge.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="cronicas1-study">
+        <div class="study-block">
+          <div class="block-title">Davi — O Rei do Culto</div>
+          <div class="block-body">
+            <p>Em 1 Crônicas, Davi é apresentado quase exclusivamente como organizador do culto e planejador do Templo. Ele organiza os sacerdotes em 24 turnos (cap. 24), os levitas em funções (cap. 23), os músicos (cap. 25 — incluindo os "profetas musicais": filhos de Asafe, Hemã e Jedutum), os porteiros e tesoureiros (cap. 26).</p>
+            <p>Davi não pode construir o Templo porque "derramou muito sangue" (22.8), mas prepara tudo — materiais, planos, recursos humanos — e entrega a Salomão. O Cronista vê Davi como o verdadeiro arquiteto espiritual do Templo, mesmo que Salomão seja o construtor físico.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">As Genealogias como Teologia</div>
+          <div class="block-body">
+            <p>Os primeiros nove capítulos de 1 Crônicas são genealogias — de Adão até os retornados do exílio. Para o leitor moderno, são o trecho mais árido da Bíblia; para o leitor pós-exílico, eram literalmente o mais vital. Após décadas na Babilônia, a questão prática era: <em>quem somos?</em> Quem é sacerdote legítimo? Quem tem direito a que território? Quem pode servir no Templo?</p>
+            <p>Mas o Cronista vai além do registro civil. As genealogias começam em <strong>Adão</strong> (1.1) — não em Abraão. Israel não é apenas um povo entre outros: é a continuação do projeto divino desde a criação. A lista passa por Sem, Abraão, Isaque, Jacó — e então explode nas doze tribos, com Judá e Levi recebendo tratamento especial por razões messiânicas e sacerdotais. Nomes estranhos e obscuros salpicam a lista — como a oração de <strong>Jabez</strong> (4.9-10), brevíssima mas intensa: "Oh! Se me abençoasses e alargasses o meu território!" — um modelo de oração audaciosa no meio de uma lista de nomes esquecidos.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">O Censo de Davi — A Diferença entre os Dois Relatos</div>
+          <div class="block-body">
+            <p>O censo de Davi em 1 Crônicas 21 é o mesmo episódio de 2 Samuel 24 — mas com uma diferença chocante: enquanto em Samuel "o furor do Senhor se acendeu contra Israel e instigou Davi" (2Sm 24.1), em Crônicas "Satanás se levantou contra Israel e instigou Davi" (1Cr 21.1). Esta variação não é contradição — é teologia complementar. Deus é soberano sobre tudo, incluindo Satanás; em Samuel a soberania divina abrange tudo, em Crônicas o agente intermediário é explicitado.</p>
+            <p>A diferença reflete o desenvolvimento teológico do período pós-exílico, quando a angelologia e a figura do Adversário (<em>satan</em> = acusador/adversário) foram articuladas de forma mais explícita — influência que alguns estudiosos associam ao contato com a teologia persa zoroastriana, embora o conceito já esteja em embrião em Jó 1–2. O Cronista usa o termo para proteger a imagem de um Deus que "tenta" ao mal — distinção que o NT tornará doutrina explícita (Tg 1.13: "Deus não é tentado pelo mal e a ninguém tenta").</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Teus, <span style="font-variant:small-caps">Senhor</span>, são a grandeza, o poder, a glória, a vitória e a majestade; pois teus são todos os seres que estão nos céus e na terra."</p>
+          <cite>1 Crônicas 29.11 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ 2 CRÔNICAS ════════════════════════════════ -->
+    <article class="book-panel" id="panel-cronicas2">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 14 · Históricos · Antigo Testamento</div>
+        <h2 class="book-title"><span>2 Crônicas</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~970–586 a.C. (eventos)</span>
+          <span class="book-tag">Salomão ao Exílio</span>
+          <span class="book-tag">36 capítulos</span>
+          <span class="book-tag">Autor: O Cronista</span>
+        </div>
+        <div class="book-verse">"Se o meu povo, que se chama pelo meu nome, se humilhar, orar, buscar a minha face e se converter dos seus maus caminhos, então eu ouvirei do céu, perdoarei os seus pecados e restaurarei a sua terra."<cite>2 Crônicas 7.14 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'cronicas2','ctx')">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'cronicas2','geo')">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'cronicas2','study')">Estudo Aprofundado</button>
+      </div>
+      <div class="tab-panel active" id="cronicas2-ctx">
+        <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">36 capítulos · de Salomão ao exílio · foco exclusivo em Judá (norte ignorado)</div></div>
+            <div class="info-card"><div class="info-card-label">Versículo central</div><div class="info-card-value">2Cr 7.14 — condições da restauração: humilhar, orar, buscar, converter-se · promessa tripla de Deus</div></div>
+            <div class="info-card"><div class="info-card-label">Grandes reformadores</div><div class="info-card-value">Asa, Josafá, Ezequias, Josias — ciclos de reforma e apostasia analisados com tese teológica explícita</div></div>
+            <div class="info-card"><div class="info-card-label">Manassés</div><div class="info-card-value">Cap. 33 — conversão em exílio babilônico: ausente em 2 Reis, presente aqui · argumento pós-exílico de esperança para Israel</div></div>
+            <div class="info-card"><div class="info-card-label">Edito de Ciro</div><div class="info-card-value">Versículo final (36.22–23) quase idêntico ao início de Esdras — obra originalmente unificada</div></div>
+            <div class="info-card"><div class="info-card-label">Tese do exílio</div><div class="info-card-value">36.15–16: "zombaram dos mensageiros de Deus, desprezaram as suas palavras, escarneceram dos seus profetas"</div></div>
+          </div>
+        </div>
+
+        <div class="study-block">
+          <div class="block-title">O Padrão da Reforma e do Esquecimento</div>
+          <div class="block-body">
+            <p>2 Crônicas cobre de Salomão ao exílio — com foco nos ciclos de reforma e apostasia em Judá. Os grandes reformadores são <strong>Asa, Josafá, Ezequias e Josias</strong>. O Cronista interpreta cada crise como resultado direto de fidelidade ou infidelidade: quando o rei busca a Deus, há vitória; quando abandona, há derrota. Esta tese teológica é mais explícita do que em Reis — o Cronista escreve para uma comunidade que precisa entender por que o exílio aconteceu.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="cronicas2-geo">
+        <div class="study-block">
+          <div class="block-title">Judá Sozinha no Mapa</div>
+          <div class="geo-box">
+            <p>2 Crônicas foca exclusivamente em <strong>Judá</strong> — o reino do sul. O norte simplesmente não existe para o Cronista após a divisão. O território de Judá, de Berseba ao norte de Jerusalém, é o palco de toda a narrativa. Cidades importantes: <strong>Laquis</strong> (fortaleza sul — sitiada por Senaqueribe), <strong>Hebrom</strong> e o deserto da Judeia onde reis fugiam.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="cronicas2-study">
+        <div class="study-block">
+          <div class="block-title">2 Cr 7.14 — A Promessa da Restauração</div>
+          <div class="block-body">
+            <p>A resposta divina a Salomão após a dedicação do Templo tornou-se um dos versículos mais invocados em contextos de avivamento e oração nacional. O texto estabelece quatro condições: <strong>humilhar-se, orar, buscar a face de Deus e converter-se dos maus caminhos</strong>. A promessa é tripla: Deus ouvirá do céu, perdoará o pecado e sará a terra. O versículo foi escrito para Israel — mas o Cronista o apresenta como princípio universal que transcende épocas.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Manassés — A Conversão Mais Surpreendente</div>
+          <div class="block-body">
+            <p>2 Crônicas registra um episódio ausente em 2 Reis: a <strong>conversão de Manassés</strong> (cap. 33). Em Reis, Manassés é o pior rei de Judá — culpado pelo exílio. Mas Crônicas adiciona: levado cativo para a Babilônia pelos assírios, Manassés se humilhou diante de Deus em angústia, foi ouvido e restaurado ao trono. Esta adição é teologicamente explosiva: até o pior pecador pode ser restaurado pela humilhação genuína. O Cronista a preserva porque sua audiência pós-exílica precisa ouvir que o perdão é possível para Israel.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Josafá e Asa — Reforma Incompleta e Aliança Perigosa</div>
+          <div class="block-body">
+            <p><strong>Asa</strong> (caps. 14–16) é um dos reis mais promissores de Judá: derrota um exército etíope de um milhão de homens confiando no Senhor (14.11), reforma o culto e remove a rainha-mãe Maacá por causa de um ídolo pornográfico. Mas no final alia-se com a Síria contra Israel pagando com o ouro do Templo — e quando o profeta Hanani o repreende, Asa o aprisionou e oprimiu parte do povo. O Cronista registra: nos anos seguintes, quando Asa adoeceu gravemente dos pés, "não buscou ao Senhor, mas aos médicos" (16.12). A frase não condena a medicina — condena a exclusividade: Asa buscou os médicos em vez de Deus, não junto com Deus.</p>
+            <p><strong>Josafá</strong> (caps. 17–20), filho de Asa, ensina a Lei em todo Judá (17.7-9 — proto-sistema de educação religiosa), mas alia-se perigosamente com Acabe do norte (cap. 18) — aliança que o profeta Jeú condena: "Dás ajuda ao ímpio e amas os que odeiam ao Senhor?" (19.2). O ponto alto é a batalha de 2Cr 20: cercado por moabitas, amonitas e outros, Josafá ora, e Deus diz "a batalha não é vossa, mas de Deus" (20.15). Os adoradores vão à frente do exército cantando — e os inimigos se destroem mutuamente.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">O Exílio como Consequência — A Tese Teológica do Cronista</div>
+          <div class="block-body">
+            <p>O versículo final de 2 Crônicas (36.22-23) — o Edito de Ciro — é quase idêntico ao versículo inicial de Esdras. Os dois livros foram originalmente um só. O Cronista encerra sua obra não com o incêndio do Templo, mas com o decreto de restauração — porque sua teologia é de esperança, não de julgamento final.</p>
+            <p>Mas o Cronista é claro sobre por que o exílio aconteceu: "O Senhor, Deus de seus pais, enviou continuamente mensageiros a eles, porque tinha misericórdia de seu povo e de sua habitação. Mas eles zombavam dos mensageiros de Deus, desprezavam as suas palavras e escarneçam dos seus profetas" (36.15-16). Três verbos — zombar, desprezar, escarnecer — resumem séculos de rejeição profética. O exílio não foi acidente histórico: foi consequência direta e específica de uma padrão repetido de rejeição da Palavra. A audiência pós-exílica do Cronista precisa entender isso para não repetir o ciclo.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Se o meu povo, que se chama pelo meu nome, se humilhar, orar, buscar a minha face e se converter dos seus maus caminhos, então eu ouvirei do céu, perdoarei os seus pecados e restaurarei a sua terra."</p>
+          <cite>2 Crônicas 7.14 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ ESDRAS ════════════════════════════════ -->
+    <article class="book-panel" id="panel-esdras">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 15 · Históricos · Antigo Testamento</div>
+        <h2 class="book-title"><span>Esdras</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~538–458 a.C.</span>
+          <span class="book-tag">Retorno do Exílio</span>
+          <span class="book-tag">10 capítulos</span>
+          <span class="book-tag">Autor: Esdras</span>
+        </div>
+        <div class="book-verse">"Pois Esdras havia dedicado o seu coração a estudar a lei do <span style="font-variant:small-caps">Senhor</span>, a praticá-la e a ensinar os seus preceitos e ordenanças em Israel."<cite>Esdras 7.10 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'esdras','ctx')">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'esdras','geo')">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'esdras','study')">Estudo Aprofundado</button>
+      </div>
+      <div class="tab-panel active" id="esdras-ctx">
+        <div class="study-block">
+          <div class="block-title">Dados do Livro</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Extensão</div><div class="info-card-value">10 capítulos · ~538–458 a.C. · dois retornos do exílio</div></div>
+            <div class="info-card"><div class="info-card-label">Edito de Ciro</div><div class="info-card-value">539 a.C. — Cilindro de Ciro (British Museum) confirma a política persa de tolerância religiosa</div></div>
+            <div class="info-card"><div class="info-card-label">Segundo Templo</div><div class="info-card-value">Concluído em 516 a.C. — 70 anos após destruição do primeiro (Jeremias 25.11), mobilizado por Ageu e Zacarias</div></div>
+            <div class="info-card"><div class="info-card-label">Esdras</div><div class="info-card-value">Sacerdote e escriba · chamado "segundo Moisés" pela tradição · chega em 458 a.C. com mandato de Artaxerxes I</div></div>
+            <div class="info-card"><div class="info-card-label">Documentos aramaicos</div><div class="info-card-value">Esd 4.8–6.18 e 7.12–26 em aramaico — cartas oficiais persas preservadas no idioma original · autenticidade arqueológica</div></div>
+            <div class="info-card"><div class="info-card-label">Crise final</div><div class="info-card-value">Caps. 9–10: casamentos mistos com "povos da terra" · solução drástica de dissolução — lida como sobrevivência espiritual da comunidade frágil</div></div>
+          </div>
+        </div>
+
+        <div class="study-block">
+          <div class="block-title">O Edito de Ciro e o Novo Êxodo</div>
+          <div class="block-body">
+            <p>Em 539 a.C., Ciro II da Pérsia conquista a Babilônia. No ano seguinte (538 a.C.), emite o famoso <strong>Edito de Ciro</strong> permitindo que os povos deportados retornassem a suas terras e reconstruíssem seus templos — política de tolerância radicalmente diferente da assíria. O <strong>Cilindro de Ciro</strong> (encontrado em 1879, no British Museum) confirma historicamente essa política. Para Israel, é percebido como milagre: Isaías havia profetizado Ciro pelo nome 150 anos antes (Is 44.28–45.1).</p>
+            <p>O <strong>Império Persa</strong> (~550–330 a.C.) governa através de sátrapas e permite autonomia religiosa e cultural local — o que torna possível a reconstrução judaica. A <em>Pax Persica</em> é o ambiente em que o judaísmo pós-exílico se consolida.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="esdras-geo">
+        <div class="study-block">
+          <div class="block-title">Babilônia a Jerusalém — 1.600 km</div>
+          <div class="geo-box">
+            <p>A jornada dos exilados da <strong>Babilônia</strong> (sul do Iraque) a <strong>Jerusalém</strong> era de ~1.600 km pelas rotas comerciais — uma caminhada de 3 a 4 meses. Esdras relata dois retornos: o primeiro sob <strong>Zorobabel</strong> (~538 a.C., ~50.000 pessoas) e o segundo sob o próprio <strong>Esdras</strong> (~458 a.C., ~1.700 homens além de mulheres e crianças). Jerusalém em ruínas — muros destruídos, Templo incendiado — era espetáculo desolador para quem retornava.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="esdras-study">
+        <div class="study-block">
+          <div class="block-title">A Reconstrução do Templo</div>
+          <div class="block-body">
+            <p>A reconstrução do Templo (caps. 1–6) enfrenta resistência dos <strong>povos da terra</strong> — os samaritanos e outros grupos que habitavam Canaã durante o exílio. Eles primeiro se oferecem para ajudar (4.1–2) e são recusados; depois sabotam a obra por anos enviando cartas acusatórias aos reis persas. A reconstrução para por 16 anos (536–520 a.C.) — até que os profetas <strong>Ageu e Zacarias</strong> mobilizam o povo e Dario I confirma o Edito de Ciro. O segundo Templo é concluído em 516 a.C. — 70 anos após a destruição do primeiro, cumprindo a profecia de Jeremias.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Esdras — O Pai do Judaísmo Rabínico</div>
+          <div class="block-body">
+            <p>Esdras, sacerdote e escriba (<em>sofer</em>) perito na Lei de Moisés, chega a Jerusalém em 458 a.C. com mandato do rei Artaxerxes I para ensinar a Lei e administrar a comunidade. A tradição judaica o chama de "segundo Moisés" e o credita com a canonização do Pentateuco, a introdução do alfabeto hebraico quadrado (substituindo o paleo-hebraico), e a fundação da Grande Sinagoga — o proto-corpo rabínico. Sua oração de confissão (cap. 9) é um dos textos mais tocantes de intercessão do AT: ele intercede pelos pecados do povo como se fossem seus próprios.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Os Casamentos Mistos — Crise de Identidade e Separação</div>
+          <div class="block-body">
+            <p>O episódio mais perturbador de Esdras é o capítulo final (caps. 9–10): Esdras descobre que sacerdotes, levitas e líderes haviam casado com mulheres das "nações da terra" (9.2). Sua reação é de prostração: rasga as vestes, arranca os cabelos da barba e fica sentado em choque até o sacrifício da tarde. Sua oração de confissão (cap. 9) intercede pelos pecados do povo como se fossem seus próprios — usando "nós" e "nossos" embora ele pessoalmente não estivesse envolvido.</p>
+            <p>A solução adotada é drástica: dissolver os casamentos e enviar as mulheres estrangeiras com seus filhos. Para a sensibilidade moderna, é profundamente perturbador — mulheres e crianças pagando o preço de decisões dos homens. O texto não comenta a questão moral da perspectiva das mulheres. A preocupação de Esdras é teológica: a mistura de cultos — não de raças — havia destruído Israel antes (como Salomão demonstrou). O contexto é extremo: a comunidade pós-exílica é minúscula, frágil, ainda sem muros, rodeada de culturas que a absorveriam. A ação brutal de Esdras é, na sua própria lógica, ato de sobrevivência espiritual de uma comunidade à beira do desaparecimento.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Os Documentos Aramaicos — Janela Histórica Única</div>
+          <div class="block-body">
+            <p>Esdras 4.8–6.18 e 7.12-26 estão escritos em <strong>aramaico</strong> — não em hebraico. O aramaico era a língua diplomática do Império Persa, equivalente ao latim medieval ou ao inglês atual nas relações internacionais. O Cronista preservou documentos oficiais no idioma original sem tradução — uma decisão editorial que demonstra intenção de autenticidade histórica.</p>
+            <p>Esses documentos incluem cartas ao rei Artaxerxes acusando os judeus de rebeldia (4.11-16), a resposta real ordenando que a obra pare (4.17-22), a carta de Tatenai ao rei Dario questionando a autorização (5.6-17), a resposta de Dario confirmando o Edito de Ciro e ordenando que deixem os judeus construir (6.1-12). Arqueólogos encontraram documentos persas do mesmo período que confirmam o estilo e o vocabulário das cartas — o que convenceu muitos céticos do século XIX da autenticidade dos textos de Esdras.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Pois Esdras havia dedicado o seu coração a estudar a lei do <span style="font-variant:small-caps">Senhor</span>, a praticá-la e a ensinar os seus preceitos e ordenanças em Israel."</p>
+          <cite>Esdras 7.10 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ NEEMIAS ════════════════════════════════ -->
+    <article class="book-panel" id="panel-neemias">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 16 · Históricos · Antigo Testamento</div>
+        <h2 class="book-title"><span>Neemias</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~445–430 a.C.</span>
+          <span class="book-tag">Reconstrução dos Muros</span>
+          <span class="book-tag">13 capítulos</span>
+          <span class="book-tag">Autor: Neemias / Redator</span>
+        </div>
+        <div class="book-verse">"O Deus do céu nos concederá sucesso; nós, seus servos, nos levantaremos e construiremos."<cite>Neemias 2.20 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'neemias','ctx')">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'neemias','geo')">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'neemias','study')">Estudo Aprofundado</button>
+      </div>
+      <div class="tab-panel active" id="neemias-ctx">
+        <div class="study-block">
+          <div class="block-title">O Copeiro do Rei</div>
+          <div class="block-body">
+            <p>Neemias é copeiro do rei Artaxerxes I em <strong>Susa</strong> — cargo de extrema confiança (o copeiro provava o vinho do rei para detectar veneno). Quando recebe notícia das condições de Jerusalém — muros destruídos, povo em desgraça — ele chora, jejua e ora por dias. Sua oração (cap. 1) combina adoração, confissão histórica citando Deuteronômio e petição específica. Depois pede ao rei permissão para reconstruir — com ousadia e preparação: já tem em mente o que precisa pedir (madeira, cartas de passagem). O rei concede.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="neemias-geo">
+        <div class="study-block">
+          <div class="block-title">Os Muros de Jerusalém</div>
+          <div class="geo-box">
+            <p>Neemias inspeciona os muros de Jerusalém à noite (2.12-16) — para não revelar seus planos antes de estar pronto. O livro inclui a descrição detalhada de quais grupos reconstruíram quais seções (cap. 3): a <strong>Porta do Peixe, Porta Velha, Porta do Vale, Porta do Esterco, Porta da Fonte, Porta das Águas, Porta dos Cavalos, Porta do Leste, Porta da Guarda</strong> — uma topografia de Jerusalém do século V a.C. de valor arqueológico imenso.</p>
+          </div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Duração da obra</div><div class="info-card-value">52 dias (Neemias 6.15) — recorde de gestão</div></div>
+            <div class="info-card"><div class="info-card-label">Principal oposição</div><div class="info-card-value">Sambalate (Samaria) e Tobias (Amom)</div></div>
+            <div class="info-card"><div class="info-card-label">Ponto mais vulnerável</div><div class="info-card-value">Porta do Esterco — setor mais danificado</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="neemias-study">
+        <div class="study-block">
+          <div class="block-title">52 Dias — Liderança Sob Pressão</div>
+          <div class="block-body">
+            <p>A reconstrução dos muros em apenas <strong>52 dias</strong> (6.15) é um dos feitos de gestão mais notáveis do AT. Neemias enfrenta três tipos de oposição: <strong>ridicularização</strong> ("uma raposa subiria e derrubaria o muro" — 4.3), <strong>ameaça de ataque armado</strong> (os trabalhadores constroem com uma mão e seguram armas com a outra — 4.17), e <strong>pressão interna</strong> (usura entre os judeus — cap. 5). A cada ameaça, Neemias responde com oração imediata e ação prática — nunca só oração, nunca só ação.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Alegria do Senhor como Força</div>
+          <div class="block-body">
+            <p>O capítulo 8 é o clímax espiritual: Esdras lê a Lei de Moisés em praça pública por horas, os levitas explicam o sentido ao povo (proto-homilética), o povo chora ao ouvir as palavras. A resposta é surpreendente: "Não pranteeis nem choreis... A alegria do Senhor é a vossa força" (8.9–10). O luto é transformado em celebração. A Festa dos Tabernáculos é celebrada pela primeira vez desde os dias de Josué (8.17) — 1.000 anos depois.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Reforma Social — Neemias e a Justiça Econômica</div>
+          <div class="block-body">
+            <p>No capítulo 5, em meio à crise da construção, Neemias descobre que judeus ricos estão <strong>cobrando juros de irmãos judeus</strong> que venderam campos e filhos como escravos para sobreviver. É a desigualdade interna enquanto o muro ainda não está concluído. Neemias convoca uma grande assembleia — e a resolução é imediata e radical: os credores restituirão tudo — campos, casas, dinheiro, juros — imediatamente.</p>
+            <p>Para dar o exemplo, Neemias revela que nunca exigiu o salário de governador ao qual tinha direito — alimentando sua própria casa e 150 funcionários do próprio bolso. Sua pergunta retórica é poderosa: "O que vocês estão fazendo não é bom. Não devemos andar no temor do nosso Deus?" (5.9). A liderança moral precede a exigência moral. O texto é um dos mais explícitos do AT sobre a incompatibilidade entre devoção religiosa e exploração econômica dentro da comunidade de fé.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">O Pacto Renovado — Cap. 10 e a Reforma Comunitária</div>
+          <div class="block-body">
+            <p>Após a leitura pública da Lei (cap. 8) e a grande oração de confissão histórica (cap. 9 — uma das mais longas da Bíblia, percorrendo toda a história de Israel do Êxodo ao exílio), o povo firma um pacto escrito (cap. 10) com comprometimentos específicos e práticos: <strong>não casarão com os povos da terra; guardarão o sábado; observarão o ano sabático para as dívidas; contribuirão para a manutenção do Templo; trarão os primogênitos, as primícias, os dízimos.</strong></p>
+            <p>O pacto de Neemias 10 é notável por sua especificidade: não é vaga promessa de "seguir a Deus", mas compromissos jurídicos detalhados. O NT chama isso de "obrigação" (<em>anáthema</em> — comprometer-se formalmente). O Cronista registra os nomes dos signatários — sacerdotes, levitas, líderes, povo. A renovação da aliança é ato público, comunitário, registrado, verificável. A fé bíblica sempre produziu comunidade estruturada, não apenas experiência interior.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"O Deus do céu nos concederá sucesso; nós, seus servos, nos levantaremos e construiremos."</p>
+          <cite>Neemias 2.20 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ ESTER ════════════════════════════════ -->
+    <article class="book-panel" id="panel-ester">
+      <div class="book-header">
+        <div class="book-eyebrow">Livro 17 · Históricos · Antigo Testamento</div>
+        <h2 class="book-title"><span>Ester</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~483–473 a.C.</span>
+          <span class="book-tag">Diáspora Persa</span>
+          <span class="book-tag">10 capítulos</span>
+          <span class="book-tag">Autor: Mardoqueu (tradição)</span>
+        </div>
+        <div class="book-verse">"Quem sabe se você não chegou à posição de rainha precisamente para um momento como este?"<cite>Ester 4.14 — NAA</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'ester','ctx')">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'ester','geo')">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'ester','study')">Estudo Aprofundado</button>
+      </div>
+      <div class="tab-panel active" id="ester-ctx">
+        <div class="study-block">
+          <div class="block-title">O Palácio de Susa e a Ameaça do Genocídio</div>
+          <div class="block-body">
+            <p>Ester se passa na corte persa de <strong>Xerxes I</strong> (Assuero — ~486–465 a.C.) em Susa. É o único livro bíblico que se passa inteiramente fora da terra de Israel e que não menciona o nome de Deus em nenhum momento — na versão hebraica masorética. Apesar da ausência do nome divino, a providência permeia cada detalhe da narrativa.</p>
+            <p>O contexto é a diáspora: judeus que não retornaram com Zorobabel permaneceram no Império Persa. Hamã, o agagita — provável descendente de Agague, rei dos amalecitas que Saul não matou (1Sm 15) — planeja um genocídio de todos os judeus do império como represália ao desrespeito de Mardoqueu. O Palácio de Susa (Shush, Irã atual) foi escavado por arqueólogos franceses no século XIX — confirmando muitos detalhes arquitetônicos do livro.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="ester-geo">
+        <div class="study-block">
+          <div class="block-title">Susa — Capital do Poder Persa</div>
+          <div class="geo-box">
+            <p><strong>Susa</strong> (Shush, sudoeste do Irã atual) era uma das quatro capitais do Império Persa aqueménida, usada como residência de inverno. O palácio de Xerxes — identificado arqueologicamente — tinha a <em>apadana</em> (salão das audiências) com 72 colunas de 20 metros, pátios de mármore e jardins irrigados. O "pátio interior" onde Ester aguarda a convocação (4.11; 5.1) é arqueologicamente identificável.</p>
+          </div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Susa</div><div class="info-card-value">Atual Shush, sudoeste do Irã · capital persa de inverno</div></div>
+            <div class="info-card"><div class="info-card-label">Extensão do Império</div><div class="info-card-value">Da Índia à Etiópia · 127 províncias (Est 1.1)</div></div>
+            <div class="info-card"><div class="info-card-label">Distância a Jerusalém</div><div class="info-card-value">~2.200 km · outro mundo para os judeus da diáspora</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="ester-study">
+        <div class="study-block">
+          <div class="block-title">A Providência Oculta</div>
+          <div class="block-body">
+            <p>A ausência do nome de Deus em Ester é tão significativa quanto sua presença em outros livros. O texto convida o leitor a ver a providência divina através de coincidências impossíveis: Ester torna-se rainha <em>exatamente</em> quando a ameaça surge. Mardoqueu descobre a conspiração contra Xerxes <em>exatamente</em> no tempo certo. O rei tem insônia na noite crucial e manda ler os anais, que <em>exatamente</em> registram o serviço de Mardoqueu ainda não recompensado. Hamã chega ao palácio <em>exatamente</em> quando o rei decide honrar Mardoqueu. A providência age através do natural, não do milagroso.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Para um Momento Como Este</div>
+          <div class="block-body">
+            <p>A frase de Mardoqueu (4.14) é um dos versículos mais teologicamente densos do AT sem mencionar Deus: "Se te calares neste tempo, de algum outro lugar virá alívio e livramento para os judeus, mas tu e a casa de teu pai perecereis. E quem sabe se para um momento como este chegaste a ser rainha?" A premissa é clara: Deus agirá de qualquer forma — a questão é se Ester participará do plano.</p>
+            <p>A resposta de Ester — "se perecer, perecerei" (4.16) — é ato de coragem absoluta: entrar sem convocação ante o rei era punível de morte. A <strong>festa do Purim</strong> (14–15 de Adar) celebra esses eventos até hoje — a festa mais alegre do calendário judaico, onde Ester é lido em voz alta com gritos e chocalhos toda vez que o nome de Hamã é mencionado.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Hamã como Tipo do Anticristo — A Teologia da Perseguição</div>
+          <div class="block-body">
+            <p>Hamã o agagita (3.1) carrega um sobrenome que o leitor atento reconhece imediatamente: é descendente de <strong>Agague, rei dos amalecitas</strong> — o rei que Saul deveria ter destruído e não o fez (1Sm 15). A perseguição de Hamã contra os judeus é, na lógica narrativa da Bíblia, o reaparecimento de uma hostilidade que atravessa gerações. Mardoqueu, benjaminita (como Saul), desta vez não recua.</p>
+            <p>Hamã é apresentado como figura que concentra poder absoluto e usa-o para destruição total: obtém do rei o anel de selar (3.10 — símbolo de autoridade delegada ilimitada), lança o pur (sorte — daí "Purim") para determinar o dia do genocídio, paga 10.000 talentos de prata pela autorização (3.9). Seu orgulho é tão frágil que um único homem que não se prostra (Mardoqueu) o precipita ao genocídio de uma nação inteira. A queda de Hamã é enfaticamente irónica: o poste que mandou construir para enforcar Mardoqueu (5.14) torna-se o instrumento de sua própria execução (7.10). A Bíblia chama isso de retribuição poética — Deus "faz cair o ímpio em suas próprias redes" (Sl 141.10).</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">A Estrutura Quiástica — Arte Literária de Ester</div>
+          <div class="block-body">
+            <p>Ester é uma das obras literariamente mais sofisticadas do AT. O livro tem estrutura de <strong>quiasma</strong> — espelho invertido onde os eventos se correspondem em ordem reversa. O centro do quiasma (caps. 6–7) é a noite de insônia de Xerxes e o honor de Mardoqueu — o ponto de virada onde o destino se inverte. Em torno desse centro, os festins correspondem-se: os dois banquetes iniciais (Xerxes e Vasti; a festa dos 180 dias) espelham os dois banquetes finais de Ester (caps. 5 e 7). Os éditos correspondem-se: o édito de extermínio (cap. 3) é espelhado pelo édito de defesa (cap. 8). As elevações: Hamã elevado (3.1) e depois executado; Mardoqueu humilhado (3.2-4) e depois exaltado (8.2).</p>
+            <p>Esta estrutura não é coincidência — é composição intencional de um escritor de talento extraordinário. O livro pode ser lido como relato histórico e como obra literária ao mesmo tempo; ambas as leituras são ricas. O judaísmo reconheceu essa qualidade: Ester é o único livro bíblico para o qual os rabinos permitiram que fosse copiado por qualquer pessoa, não apenas por escribas — tal era seu valor pedagógico e literário.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">O Jejum de Ester — Arma Espiritual sem Nome Divino</div>
+          <div class="block-body">
+            <p>Quando Ester decide agir, sua primeira ação não é política mas espiritual: "Vai, reúne todos os judeus que se encontram em Susã, e jejuai por mim; não comais nem bebais por três dias, nem de noite nem de dia. Eu também jejuarei" (4.16). O jejum coletivo de três dias — sem que o nome de Deus seja mencionado — é a oração mais intensa que o livro registra. A ausência do nome divino é eloquente: quando não há palavras, o jejum fala.</p>
+            <p>O detalhe do <strong>cetro estendido</strong> (5.2; 8.4) revela a tensão máxima da narrativa: a lei persa que punia de morte quem entrasse sem convocação ante o rei era real (verificada em documentos históricos persas). Ester não entra simplesmente como rainha — entra literalmente arriscando a vida. A coragem de Ester é tanto espiritual quanto física. A Igreja antiga viu em Ester intercedendo ante o rei um tipo de Cristo intercedendo ante o Pai — entrando onde não podia, para salvar quem não podia se salvar.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Quem sabe se você não chegou à posição de rainha precisamente para um momento como este?"</p>
+          <cite>Ester 4.14 — NAA</cite>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /content -->
+</main>
+</div><!-- /layout -->
+
+<script>
+function showBook(id) {
+  document.querySelectorAll('.book-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const panel = document.getElementById('panel-' + id);
+  if (panel) {
+    panel.classList.add('active');
+    panel.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+    panel.querySelectorAll('.tab-panel').forEach((tp, i) => tp.classList.toggle('active', i === 0));
+  }
+  const btn = document.querySelector('[data-book="' + id + '"]');
+  if (btn) btn.classList.add('active');
+  closeSidebar();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showTab(btn, bookId, tabId) {
+  const panel = document.getElementById('panel-' + bookId);
+  if (!panel) return;
+  panel.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  panel.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const tp = document.getElementById(bookId + '-' + tabId);
+  if (tp) tp.classList.add('active');
+}
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar    = document.getElementById('sidebar');
+const overlay    = document.getElementById('sidebarOverlay');
+
+function openSidebar()  { sidebar.classList.add('open'); overlay.classList.add('open'); menuToggle.setAttribute('aria-expanded','true'); }
+function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); }
+
+menuToggle.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+overlay.addEventListener('click', closeSidebar);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
+</script>
+</body>
+</html>
