@@ -1,0 +1,28 @@
+{
+  "id": "et",
+  "num": "Livro 17 · Antigo Testamento",
+  "title": "Esther",
+  "abbr": "Est · Historical",
+  "author": "Anônimo (possivelmente Mardoqueu ou Esdras)",
+  "chars": [
+    "Esther",
+    "Mordecai",
+    "Haman",
+    "Ahasuerus",
+    "Vashti"
+  ],
+  "tags": [
+    "Hidden Providence",
+    "Diaspora",
+    "Haman",
+    "Mordecai",
+    "Purim",
+    "Courage"
+  ],
+  "body": "<p><strong>Context:</strong> Esther is one of the two canonical books that do not mention the name of God — the other is Song of Solomon. This absence is theologically deliberate: the narrative demonstrates divine providence operating in the \"coincidences\" of ordinary life, without explicit miraculous intervention. Set at the Persian court of Susa (5th century BC), it tells how Esther, a Jewish woman in the diaspora, becomes queen and saves her people.</p>\n<p><strong>Structure of reversal:</strong> The book is built around feasts and ironic plot reversals. Haman, the arrogant minister who plans to exterminate all Jews, ends up hanged on the very gallows erected for Mordecai. The death decree becomes a victory decree. The structure is chiastic — the lowest point reverses to the highest with perfect literary symmetry.</p>\n<p><strong>Theology of providence:</strong> Mordecai's programmatic phrase to Esther — \"And who knows whether you have not come to the kingdom for such a time as this?\" (4:14) — is one of the most quoted texts on strategic vocation and divine providence. The book grounds the Jewish feast of Purim, still celebrated today with joy and costumes as a memory of unlikely deliverance.</p>",
+  "verse": "\"And who knows whether you have not come to the kingdom for such a time as this?\" <cite>Esther 4:14 — ESV</cite>",
+  "translation": "ESV",
+  "order": 17,
+  "category": "his",
+  "cellAbbr": "Et"
+}

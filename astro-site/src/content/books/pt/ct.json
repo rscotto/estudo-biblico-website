@@ -1,0 +1,25 @@
+{
+  "id": "ct",
+  "num": "Livro 22 · Antigo Testamento",
+  "title": "Cantares",
+  "abbr": "Ct · Poéticos · Sapienciais",
+  "author": "Salomão",
+  "chars": [
+    "Salomão",
+    "A Sulamita"
+  ],
+  "tags": [
+    "Amor Conjugal",
+    "Eros",
+    "Alegoria",
+    "Aliança",
+    "Beleza",
+    "Salomão"
+  ],
+  "body": "<p><strong>Contexto:</strong> Cantares de Salomão (<em>Shir Hashirim</em> — \"o mais sublime dos cânticos\") é um poema de amor apaixonado entre um homem e uma mulher. É um dos livros mais debatidos hermeneuticamente: deve ser lido literalmente (celebração do amor conjugal), alegoricamente (amor entre Deus e Israel / Cristo e a Igreja) ou de ambas as maneiras?</p>\n<p><strong>Interpretações:</strong> A tradição judaica alegoriza o livro como expressão do amor de YHWH por Israel — Rabbi Akiva o chamou de \"Santo dos Santos dos escritos.\" A tradição cristã, desde Orígenes e Bernardo de Claraval, o leu como o amor de Cristo pela Igreja. Ambas as leituras têm fundamento na teologia bíblica da aliança, que frequentemente usa a metáfora conjugal para descrever a relação entre Deus e seu povo (Os 1–3; Ef 5.25–32).</p>\n<p><strong>Teologia da sexualidade:</strong> O texto em si é explicitamente sensual e celebra a sexualidade humana dentro do amor comprometido como algo bom e sagrado — criado por Deus, bênção do Éden. O livro corrige tanto o ascetismo que rejeita o corpo como o erotismo desvinculado do amor fiel. A tensão produtiva entre as leituras literal e alegórica sugere que a sexualidade humana é, ela mesma, metáfora da aliança divina.</p>",
+  "verse": "\"Forte como a morte é o amor, e cruel como o reino dos mortos é o ciúme; as suas brasas são brasas de fogo, uma chama do <span style=\"font-variant:small-caps\">Senhor</span>.\" <cite>Cantares 8.6 — NAA</cite>",
+  "translation": "NAA",
+  "order": 22,
+  "category": "poe",
+  "cellAbbr": "Ct"
+}

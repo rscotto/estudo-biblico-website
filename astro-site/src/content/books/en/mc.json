@@ -1,0 +1,28 @@
+{
+  "id": "mc",
+  "num": "Livro 41 · Novo Testamento",
+  "title": "Mark",
+  "abbr": "Mark · Gospels",
+  "author": "João Marcos (discípulo de Pedro)",
+  "chars": [
+    "Jesus",
+    "Peter",
+    "John the Baptist",
+    "Pilate",
+    "Mary Magdalene"
+  ],
+  "tags": [
+    "Servant",
+    "Urgency",
+    "Euthys",
+    "Messianic Secret",
+    "Cross",
+    "Action"
+  ],
+  "body": "<p><strong>Context:</strong> Mark is the shortest and most dynamic of the four Gospels — probably the first to be written (55–65 AD) and the primary source for Matthew and Luke. Tradition associates Mark with the apostle Peter, whose direct, vivid memories lie behind the account. The Greek word <em>euthys</em> (\"immediately,\" \"at once\") appears over 40 times, creating a rhythm of narrative urgency.</p>\n<p><strong>Jesus as Suffering Servant:</strong> The key verse is 10:45: \"the Son of Man came not to be served but to serve, and to give his life as a ransom for many.\" Mark presents Jesus primarily as one who acts — miracle after miracle, exorcism after exorcism — before speaking at length. The so-called \"messianic secret\" (Jesus forbidding disclosure of his identity) creates dramatic tension that culminates in Peter's confession: \"You are the Christ\" (8:29) — the midpoint and pivot of the entire book.</p>\n<p><strong>The Passion:</strong> Chapters 14–16 constitute nearly 40% of the Gospel, confirming that Mark is fundamentally \"a Passion narrative with an extended prologue.\" The abrupt ending of the oldest manuscript (16:8 — \"they said nothing to anyone, for they were afraid\") is literarily unsettling and theologically provocative: it invites the reader to be himself the continuation of Jesus' story.</p>",
+  "verse": "\"For even the Son of Man came not to be served but to serve, and to give his life as a ransom for many.\" <cite>Mark 10:45 — ESV</cite>",
+  "translation": "ESV",
+  "order": 41,
+  "category": "eva",
+  "cellAbbr": "Mc"
+}

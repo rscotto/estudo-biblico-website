@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const books = await getCollection('books', (entry) => entry.id.startsWith('pt/'));
+const db = Object.fromEntries(books.map(b => [b.data.id, b.data]));
+
+// Ordered list by book number
+const sorted = books.sort((a, b) => a.data.order - b.data.order);
+
+// Group by category for the grid
+const byOrder = (ids: string[]) => ids.map(id => db[id]).filter(Boolean);
+
+// Category groups in canonical order
+const groups = [
+  { ids: ['gn','ex','lv','nm','dt'],                          cat: 'pen', cols: 'r5',  labelPt: 'Pentateuco · Lei · 5 livros',          labelEn: 'Pentateuch · Law · 5 books',           href: '/pt/at-pentateuco' },
+  { ids: ['js','jz','rt','sm1','sm2','rs1','rs2','cr1','cr2','ed','ne','et'], cat: 'his', cols: 'r12', labelPt: 'Históricos · 12 livros', labelEn: 'Historical · 12 books', href: '/pt/at-historicos' },
+  { ids: ['jo','sl','pv','ec','ct'],                          cat: 'poe', cols: 'r5',  labelPt: 'Poéticos · Sapienciais · 5 livros',     labelEn: 'Poetic · Wisdom · 5 books',            href: '/pt/at-poeticos' },
+  { ids: ['is','jr','lm','ez','dn'],                          cat: 'mai', cols: 'r5',  labelPt: 'Profetas Maiores · 5 livros',           labelEn: 'Major Prophets · 5 books',             href: '/pt/at-profetas-maiores' },
+  { ids: ['os','jl','am','ob','jn','mq','na','hc','sf','ag','zc','ml'], cat: 'men', cols: 'r12', labelPt: 'Profetas Menores · 12 livros', labelEn: 'Minor Prophets · 12 books', href: '/pt/at-profetas-menores' },
+];
+
+const ntGroups = [
+  { ids: ['mt','mc','lc','joe'],                              cat: 'eva', cols: 'r4',  labelPt: 'Evangelhos · 4 livros',                labelEn: 'Gospels · 4 books',                    href: null },
+  { ids: ['at'],                                              cat: 'ato', cols: 'r1',  labelPt: 'Histórico · NT · 1 livro',             labelEn: 'Historical · NT · 1 book',             href: null },
+  { ids: ['rm','co1','co2','gl','ef','fp','cl','ts1','ts2','tm1','tm2','tt','fm'], cat: 'pau', cols: 'r13', labelPt: 'Epístolas Paulinas · 13 livros', labelEn: 'Pauline Epistles · 13 books', href: null },
+  { ids: ['hb','tg','pe1','pe2','jo1','jo2','jo3','jd'],     cat: 'ger', cols: 'r8',  labelPt: 'Epístolas Gerais · 8 livros',          labelEn: 'General Epistles · 8 books',           href: null },
+  { ids: ['ap'],                                             cat: 'apo', cols: 'r1',  labelPt: 'Profético · NT · 1 livro',             labelEn: 'Prophetic · NT · 1 book',              href: null },
+];
+---
+
+<BaseLayout
+  title="Estudo Bíblico — Cânon Protestante · 66 Livros"
+  description="Estudo completo dos 66 livros da Bíblia com contexto histórico, teologia e versículos-chave. Tradução NAA."
+  lang="pt"
+  canonicalUrl="https://estudobiblico.pages.dev/pt"
+  altLang={{ lang: 'en', url: 'https://estudobiblico.pages.dev/en' }}
+>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <a href="/en" class="tbtn" aria-label="Switch to English">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    EN
+  </a>
+</div>
+
+<div class="header">
+  <div class="eyebrow">Cânon Protestante · 66 Livros</div>
+  <h1>Estudo <em>Bíblico</em></h1>
+  <p class="subline"><strong>Clique em qualquer livro para ver contexto e resumo completo</strong></p>
+  <div class="rule"></div>
+</div>
+
+<div class="stats">
+  <div class="stat"><span class="stat-n">66</span><span class="stat-l">Total</span></div>
+  <div class="stat"><span class="stat-n">39</span><span class="stat-l">Antigo Testamento</span></div>
+  <div class="stat"><span class="stat-n">27</span><span class="stat-l">Novo Testamento</span></div>
+</div>
+
+<div class="ptable">
+
+  <div class="tdiv"><div class="tline r"></div><div class="tlabel">✦ ANTIGO TESTAMENTO ✦</div><div class="tline"></div></div>
+
+  {groups.map(group => (
+    <>
+      {group.href
+        ? <a href={group.href} class="slabel slabel-link">{group.labelPt}</a>
+        : <div class="slabel">{group.labelPt}</div>
+      }
+      <div class={`g ${group.cols}`}>
+        {byOrder(group.ids).map(book => (
+          book.id === 'at'
+            ? <a href={`/pt/${book.id}`} class={`cell ${book.category}`} style="aspect-ratio:4/1.18;flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 16px;">
+                <span class="cn" style="font-size:13px;">{book.order}</span>
+                <span class="ca" style="font-size:22px;">{book.cellAbbr}</span>
+                <span class="cname" style="font-size:13px;text-align:left;">{book.title}</span>
+              </a>
+            : <a href={`/pt/${book.id}`} class={`cell ${book.category}`}>
+                <span class="cn">{book.order}</span>
+                <span class="ca">{book.cellAbbr}</span>
+                <span class="cname">{book.title}</span>
+              </a>
+        ))}
+      </div>
+    </>
+  ))}
+
+  <div class="tdiv"><div class="tline r"></div><div class="tlabel">✦ NOVO TESTAMENTO ✦</div><div class="tline"></div></div>
+
+  {ntGroups.map(group => (
+    <>
+      <div class="slabel">{group.labelPt}</div>
+      <div class={`g ${group.cols}`}>
+        {byOrder(group.ids).map(book => (
+          (group.ids.length === 1 && group.cat !== 'eva')
+            ? <a href={`/pt/${book.id}`} class={`cell ${book.category}`} style="aspect-ratio:4/1.18;flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 16px;">
+                <span class="cn" style="font-size:13px;">{book.order}</span>
+                <span class="ca" style="font-size:22px;">{book.cellAbbr}</span>
+                <span class="cname" style="font-size:13px;text-align:left;">{book.title}</span>
+              </a>
+            : <a href={`/pt/${book.id}`} class={`cell ${book.category}`}>
+                <span class="cn">{book.order}</span>
+                <span class="ca">{book.cellAbbr}</span>
+                <span class="cname">{book.title}</span>
+              </a>
+        ))}
+      </div>
+    </>
+  ))}
+
+</div>
+
+<!-- LEGEND -->
+<div class="tdiv" style="max-width:1100px;margin:28px auto 0;"><div class="tline r"></div><div class="tlabel">✦ LEGENDA ✦</div><div class="tline"></div></div>
+<div class="legend">
+  <div class="li"><div class="lsw" style="background:rgba(255,164,0,.14);border:1px solid rgba(255,164,0,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pen)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg></div><div><span class="lcat" style="color:var(--pen)">AT · Lei</span><span class="lname" style="color:var(--pen)">Pentateuco</span></div><span class="lcount">5</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(232,130,10,.14);border:1px solid rgba(232,130,10,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--his)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><span class="lcat" style="color:var(--his)">AT · Narrativa</span><span class="lname" style="color:var(--his)">Históricos</span></div><span class="lcount">12</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(240,192,64,.14);border:1px solid rgba(240,192,64,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--poe)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div><span class="lcat" style="color:var(--poe)">AT · Sabedoria</span><span class="lname" style="color:var(--poe)">Poéticos</span></div><span class="lcount">5</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(224,106,16,.14);border:1px solid rgba(224,106,16,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--mai)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg></div><div><span class="lcat" style="color:var(--mai)">AT · Profecia</span><span class="lname" style="color:var(--mai)">Prof. Maiores</span></div><span class="lcount">5</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(212,160,32,.14);border:1px solid rgba(212,160,32,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--men)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><span class="lcat" style="color:var(--men)">AT · Profecia</span><span class="lname" style="color:var(--men)">Prof. Menores</span></div><span class="lcount">12</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(255,184,48,.14);border:1px solid rgba(255,184,48,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--eva)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><div><span class="lcat" style="color:var(--eva)">NT · Biografia</span><span class="lname" style="color:var(--eva)">Evangelhos</span></div><span class="lcount">4</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(200,120,32,.14);border:1px solid rgba(200,120,32,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ato)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div><span class="lcat" style="color:var(--ato)">NT · Narrativa</span><span class="lname" style="color:var(--ato)">Atos</span></div><span class="lcount">1</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(240,144,10,.14);border:1px solid rgba(240,144,10,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pau)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><span class="lcat" style="color:var(--pau)">NT · Epístola</span><span class="lname" style="color:var(--pau)">Paulinas</span></div><span class="lcount">13</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(232,184,64,.14);border:1px solid rgba(232,184,64,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ger)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div><span class="lcat" style="color:var(--ger)">NT · Epístola</span><span class="lname" style="color:var(--ger)">Gerais</span></div><span class="lcount">8</span></div>
+  <div class="li"><div class="lsw" style="background:rgba(204,96,16,.14);border:1px solid rgba(204,96,16,.4)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--apo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><div><span class="lcat" style="color:var(--apo)">NT · Profecia</span><span class="lname" style="color:var(--apo)">Apocalipse</span></div><span class="lcount">1</span></div>
+</div>
+
+</BaseLayout>

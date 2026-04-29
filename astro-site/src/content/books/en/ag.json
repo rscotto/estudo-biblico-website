@@ -1,0 +1,26 @@
+{
+  "id": "ag",
+  "num": "Livro 37 · Antigo Testamento",
+  "title": "Haggai",
+  "abbr": "Hag · Minor Prophets",
+  "author": "Ageu (profeta pós-exílico)",
+  "chars": [
+    "Haggai",
+    "Zerubbabel",
+    "Joshua (high priest)"
+  ],
+  "tags": [
+    "Second Temple",
+    "Post-Exile",
+    "Priorities",
+    "Economic Crisis",
+    "Restoration",
+    "Zerubbabel"
+  ],
+  "body": "<p><strong>Context:</strong> Haggai is the first post-exilic prophet, having prophesied in 520 BC — exactly 16 years after the return from exile and 4 years before the completion of the Second Temple (516 BC). The people had begun the Temple's reconstruction but stopped in the face of opposition and difficulties. Haggai has a unique and clear mission: to motivate the people to complete the Temple.</p>\n<p><strong>The economic-spiritual argument:</strong> Haggai connects spirituality to daily life with disconcerting logic: \"Is it a time for you yourselves to dwell in your paneled houses, while this house lies in ruins?\" (1:4). The drought and economic scarcity are presented as a direct consequence of neglecting divine priorities.</p>\n<p><strong>The eschatological promise:</strong> Chapter 2 contains a surprising promise: though the Second Temple was physically inferior to Solomon's, \"the latter glory of this house shall be greater than the former\" (2:9) — interpreted messianically as a reference to Christ's presence in the Temple. The book closes with a word of encouragement to Zerubbabel, the governor — a typological figure of the Messiah.</p>",
+  "verse": "\"Thus says the <span style=\"font-variant:small-caps\">Lord</span> of hosts: Consider your ways.\" <cite>Haggai 1:7 — ESV</cite>",
+  "translation": "ESV",
+  "order": 37,
+  "category": "men",
+  "cellAbbr": "Ag"
+}

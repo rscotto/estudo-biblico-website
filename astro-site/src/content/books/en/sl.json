@@ -1,0 +1,28 @@
+{
+  "id": "sl",
+  "num": "Livro 19 · Antigo Testamento",
+  "title": "Psalms",
+  "abbr": "Ps · Poetic · Wisdom",
+  "author": "Davi (principal), Asafe, filhos de Coré, Salomão, Moisés e outros",
+  "chars": [
+    "David",
+    "Solomon",
+    "Moses",
+    "Asaph",
+    "Sons of Korah"
+  ],
+  "tags": [
+    "Worship",
+    "Lament",
+    "Messiah",
+    "Prayer",
+    "Hebrew Poetry",
+    "David"
+  ],
+  "body": "<p><strong>Context:</strong> The 150 Psalms are the hymnbook and prayerbook of God's people through the centuries — the most quoted book in the NT and the most read throughout the history of Christian and Jewish spirituality. They cover the entire range of human experience before God: ecstatic worship, profound lament, confession of sin, gratitude, cry for help, meditation on the Law, and eschatological hope.</p>\n<p><strong>Structure:</strong> The Psalter is divided into five \"books\" (Ps 1–41; 42–72; 73–89; 90–106; 107–150), probably in parallel with the five books of Moses. Authors include David (73 psalms), the sons of Korah, Asaph, Solomon, Moses, and many anonymous writers.</p>\n<p><strong>Messianic dimension:</strong> Many psalms are extensively cited in the NT as fulfilled in Jesus. Psalm 2 — \"You are my son; today I have begotten you\" — is cited at the Transfiguration and in Hebrews 1. Psalm 22 — \"My God, my God, why have you forsaken me?\" — is cited by Jesus on the Cross. Psalm 110 — \"Sit at my right hand\" — is the most quoted OT text in the NT. Psalm 118 — \"The stone that the builders rejected\" — is applied by Jesus to himself. Psalm 23 — \"The Lord is my shepherd\" — is probably the most memorized text in all of faith history.</p>",
+  "verse": "\"The <span style=\"font-variant:small-caps\">Lord</span> is my shepherd; I shall not want.\" <cite>Psalm 23:1 — ESV</cite>",
+  "translation": "ESV",
+  "order": 19,
+  "category": "poe",
+  "cellAbbr": "Sl"
+}

@@ -1,0 +1,161 @@
+/**
+ * Converts sub-page HTML files into proper Astro pages.
+ * The body HTML is embedded verbatim; only the <head> is replaced by Astro.
+ * Run once: node scripts/extract-subpages.mjs
+ */
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const rootDir   = path.resolve(__dirname, '../..');
+const pagesDir  = path.resolve(__dirname, '../src/pages/pt');
+const pagesEnDir = path.resolve(__dirname, '../src/pages/en');
+
+const subpages = [
+  {
+    slug: 'at-pentateuco',
+    srcFile: 'at-pentateuco/index.html',
+    titlePt: 'Pentateuco — Estudo Bíblico',
+    titleEn: 'Pentateuch — Bible Study',
+    descPt: 'Estudo aprofundado dos 5 livros da Lei: Gênesis, Êxodo, Levítico, Números e Deuteronômio. Tradução NAA.',
+    descEn: 'In-depth study of the 5 books of the Law: Genesis, Exodus, Leviticus, Numbers, Deuteronomy. ESV.',
+    accentColor: '#FFA400',
+  },
+  {
+    slug: 'at-historicos',
+    srcFile: 'at-historicos/index.html',
+    titlePt: 'Livros Históricos — Estudo Bíblico',
+    titleEn: 'Historical Books — Bible Study',
+    descPt: 'Estudo aprofundado dos 12 livros históricos do AT: Josué ao Ester. Contexto, geografia e teologia. Tradução NAA.',
+    descEn: 'In-depth study of the 12 OT historical books: Joshua to Esther. Context, geography, theology. ESV.',
+    accentColor: '#e8820a',
+  },
+  {
+    slug: 'at-poeticos',
+    srcFile: 'at-poeticos/index.html',
+    titlePt: 'Livros Poéticos — Estudo Bíblico',
+    titleEn: 'Poetic Books — Bible Study',
+    descPt: 'Estudo aprofundado dos 5 livros sapienciais: Jó, Salmos, Provérbios, Eclesiastes, Cantares. Tradução NAA.',
+    descEn: 'In-depth study of the 5 wisdom books: Job, Psalms, Proverbs, Ecclesiastes, Song of Songs. ESV.',
+    accentColor: '#f0c040',
+  },
+  {
+    slug: 'at-profetas-maiores',
+    srcFile: 'at-profetas-maiores/index.html',
+    titlePt: 'Profetas Maiores — Estudo Bíblico',
+    titleEn: 'Major Prophets — Bible Study',
+    descPt: 'Estudo aprofundado dos 5 profetas maiores: Isaías, Jeremias, Lamentações, Ezequiel, Daniel. Tradução NAA.',
+    descEn: 'In-depth study of the 5 Major Prophets: Isaiah, Jeremiah, Lamentations, Ezekiel, Daniel. ESV.',
+    accentColor: '#e06a10',
+  },
+  {
+    slug: 'at-profetas-menores',
+    srcFile: 'at-profetas-menores/index.html',
+    titlePt: 'Profetas Menores — Estudo Bíblico',
+    titleEn: 'Minor Prophets — Bible Study',
+    descPt: 'Estudo aprofundado dos 12 profetas menores: Oséias a Malaquias. Tradução NAA.',
+    descEn: 'In-depth study of the 12 Minor Prophets: Hosea to Malachi. ESV.',
+    accentColor: '#d4a020',
+  },
+];
+
+const siteBase = 'https://estudobiblico.pages.dev';
+
+function buildHead(opts) {
+  const { title, description, lang, canonical, altLangCode, altLangUrl, accentColor } = opts;
+  const htmlLang = lang === 'en' ? 'en' : 'pt-BR';
+  return `<!DOCTYPE html>
+<html lang="${htmlLang}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title}</title>
+<meta name="description" content="${description}">
+<link rel="canonical" href="${canonical}">
+<link rel="alternate" hreflang="${lang}" href="${canonical}">
+<link rel="alternate" hreflang="${altLangCode}" href="${altLangUrl}">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">`;
+}
+
+for (const page of subpages) {
+  const html = fs.readFileSync(path.join(rootDir, page.srcFile), 'utf-8');
+
+  // Extract the per-page <style> block (the :root vars after shared.css link)
+  const styleMatch = html.match(/<style>([\s\S]*?)<\/style>/);
+  const inlineStyle = styleMatch ? styleMatch[1].trim() : '';
+
+  // Extract <body>...</body> content
+  const bodyStart = html.indexOf('<body>') + 6;
+  const bodyEnd   = html.lastIndexOf('</body>');
+  let bodyContent = html.slice(bodyStart, bodyEnd).trim();
+
+  // PT page: fix back-link from ../index.html → /pt
+  const ptBody = bodyContent
+    .replace(/href="\.\.\/index\.html"/g, 'href="/pt"')
+    .replace(/href='\.\.\/index\.html'/g, "href='/pt'");
+
+  const ptHtml = buildHead({
+    title: page.titlePt,
+    description: page.descPt,
+    lang: 'pt',
+    canonical: `${siteBase}/pt/${page.slug}`,
+    altLangCode: 'en',
+    altLangUrl: `${siteBase}/en/${page.slug}`,
+    accentColor: page.accentColor,
+  }) + `
+<style>
+${inlineStyle}
+</style>
+</head>
+<body>
+${ptBody}
+</body>
+</html>`;
+
+  // EN page: fix back-link and lang attribute
+  const enBody = bodyContent
+    .replace(/href="\.\.\/index\.html"/g, 'href="/en"')
+    .replace(/href='\.\.\/index\.html'/g, "href='/en'");
+
+  const enHtml = buildHead({
+    title: page.titleEn,
+    description: page.descEn,
+    lang: 'en',
+    canonical: `${siteBase}/en/${page.slug}`,
+    altLangCode: 'pt',
+    altLangUrl: `${siteBase}/pt/${page.slug}`,
+    accentColor: page.accentColor,
+  }) + `
+<style>
+${inlineStyle}
+</style>
+</head>
+<body>
+${enBody}
+</body>
+</html>`;
+
+  // Write as .html files into the public directory so Astro serves them statically
+  // Actually write as .astro pages using set:html on a Fragment
+  const ptAstro = `---
+// PT sub-page: ${page.slug}
+const html = ${JSON.stringify(ptHtml)};
+---
+<Fragment set:html={html} />
+`;
+
+  const enAstro = `---
+// EN sub-page: ${page.slug}
+const html = ${JSON.stringify(enHtml)};
+---
+<Fragment set:html={html} />
+`;
+
+  fs.writeFileSync(path.join(pagesDir,    `${page.slug}.astro`), ptAstro, 'utf-8');
+  fs.writeFileSync(path.join(pagesEnDir,  `${page.slug}.astro`), enAstro, 'utf-8');
+  console.log(`✓ ${page.slug}`);
+}
+
+console.log('\nDone. Subpages written to src/pages/pt/ and src/pages/en/');

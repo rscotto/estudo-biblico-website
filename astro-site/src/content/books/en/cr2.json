@@ -1,0 +1,29 @@
+{
+  "id": "cr2",
+  "num": "Livro 14 · Antigo Testamento",
+  "title": "2 Chronicles",
+  "abbr": "2Chr · Historical",
+  "author": "Esdras (tradição rabínica)",
+  "chars": [
+    "Solomon",
+    "Hezekiah",
+    "Josiah",
+    "Jehoshaphat",
+    "Asa",
+    "Cyrus"
+  ],
+  "tags": [
+    "Solomon",
+    "Temple",
+    "Religious Reforms",
+    "Revival",
+    "Exile",
+    "Decree of Cyrus"
+  ],
+  "body": "<p><strong>Context:</strong> 2 Chronicles runs from Solomon's reign to Cyrus' decree authorizing the return from Babylonian exile. The focus is exclusively on the kingdom of Judah — the northern kings are ignored — and the evaluative criterion is always the relationship to the Temple and the worship of YHWH.</p>\n<p><strong>Solomon:</strong> Appears as the Temple builder par excellence. His dedicatory prayer (chs. 6–7) is the spiritual heart of the book, culminating in the promise of 7:14 — the most cited verse of 2 Chronicles in contexts of national prayer and revival: \"if my people who are called by my name humble themselves, and pray and seek my face and turn from their wicked ways, then I will hear from heaven.\"</p>\n<p><strong>Reform cycles:</strong> Asa, Jehoshaphat, Hezekiah, and Josiah lead spiritual renewals that partially reverse national apostasy. The final fall (ch. 36) is followed by two closing verses that reproduce the Cyrus decree — leaving the book deliberately on a note of hope and openness. The closing text flows directly into the beginning of Ezra, revealing they were a continuous work.</p>",
+  "verse": "\"If my people who are called by my name humble themselves, and pray and seek my face and turn from their wicked ways, then I will hear from heaven and will forgive their sin and heal their land.\" <cite>2 Chronicles 7:14 — ESV</cite>",
+  "translation": "ESV",
+  "order": 14,
+  "category": "his",
+  "cellAbbr": "2Cr"
+}

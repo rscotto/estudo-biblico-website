@@ -1,0 +1,29 @@
+{
+  "id": "joe",
+  "num": "Livro 43 · Novo Testamento",
+  "title": "John",
+  "abbr": "John · Gospels",
+  "author": "João Apóstolo, filho de Zebedeu",
+  "chars": [
+    "Jesus",
+    "Mary Magdalene",
+    "Nicodemus",
+    "Lazarus",
+    "Thomas",
+    "Pilate"
+  ],
+  "tags": [
+    "Logos",
+    "Incarnation",
+    "I AM",
+    "Signs",
+    "Love",
+    "Divinity of Christ"
+  ],
+  "body": "<p><strong>Context:</strong> The Fourth Gospel — attributed to the apostle John — is theologically and literarily different from the Synoptics (Matthew, Mark, Luke). Written last (~90–100 AD), it is the most contemplative and theological, structured around selected signs and long dialogues/discourses that progressively reveal Jesus' divine identity.</p>\n<p><strong>The prologue (John 1:1–18):</strong> The most theologically dense opening in the Bible. \"In the beginning was the Word (<em>Logos</em>), and the Word was with God, and the Word was God.\" The pre-existent Logos, agent of creation, became incarnate in human history — the doctrine of the Incarnation in its most explicit and philosophical formulation. The book's structure: the \"Book of Signs\" (chs. 1–12) with seven selected signs; and the \"Book of Glory\" (chs. 13–21) with the Upper Room discourses and the Passion-Resurrection.</p>\n<p><strong>The seven \"I AM\" statements:</strong> Declarations of divine identity that echo God's name in the OT (Exod 3:14): \"I am the bread of life\" (6:35), \"the light of the world\" (8:12), \"the door\" (10:9), \"the good shepherd\" (10:11), \"the resurrection and the life\" (11:25), \"the way, and the truth, and the life\" (14:6), \"the true vine\" (15:1). John 3:16 is probably the most memorized verse in the world.</p>",
+  "verse": "\"For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life.\" <cite>John 3:16 — ESV</cite>",
+  "translation": "ESV",
+  "order": 43,
+  "category": "eva",
+  "cellAbbr": "Jo"
+}

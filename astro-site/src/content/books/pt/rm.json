@@ -1,0 +1,27 @@
+{
+  "id": "rm",
+  "num": "Livro 45 · Novo Testamento",
+  "title": "Romanos",
+  "abbr": "Rm · Epístolas Paulinas",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paulo",
+    "Febe",
+    "Priscila",
+    "Áquila"
+  ],
+  "tags": [
+    "Justificação pela Fé",
+    "Graça",
+    "Eleição",
+    "Pecado Universal",
+    "Espírito",
+    "Ética"
+  ],
+  "body": "<p><strong>Contexto:</strong> Romanos é a mais sistemática e doutrinalmente densa das cartas de Paulo — frequentemente chamada de \"a catedral do NT.\" Escrita de Corinto (~57 d.C.) para uma Igreja que Paulo não fundou mas pretendia visitar no caminho à Espanha, é uma exposição deliberada e completa do evangelho que Paulo pregava — sua carta de apresentação teológica.</p>\n<p><strong>Estrutura:</strong> Os capítulos 1–3 estabelecem a condenação universal — gentios e judeus igualmente sob julgamento divino, \"pois todos pecaram e carecem da glória de Deus\" (3.23). Os capítulos 3–5 proclamam a justificação pela fé: o pecador é declarado justo por Deus com base na obra de Cristo, recebida pela fé, totalmente independente de obras da Lei. Abraão é o paradigma (cap. 4). Os capítulos 5–8 tratam da nova vida no Espírito, culminando no inesquecível capítulo 8: \"nada nos separará do amor de Deus em Cristo Jesus.\" Os capítulos 9–11 abordam o mistério da eleição e o futuro de Israel. Os capítulos 12–16 são ética prática — o \"sacrifício vivo\" da vida inteira a Deus (12.1–2).</p>\n<p><strong>Impacto histórico:</strong> A leitura de Romanos 13 converteu Agostinho. A descoberta de Romanos 1.17 desencadeou a Reforma Protestante de Lutero. A leitura do prefácio de Lutero a Romanos converteu João Wesley. É, possivelmente, o texto mais influente da história do Ocidente depois das Escrituras como um todo.</p>",
+  "verse": "\"Pois não me envergonho do evangelho, porque ele é o poder de Deus para a salvação de todo aquele que crê.\" <cite>Romanos 1.16 — NAA</cite>",
+  "translation": "NAA",
+  "order": 45,
+  "category": "pau",
+  "cellAbbr": "Rm"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "pv",
+  "num": "Livro 20 · Antigo Testamento",
+  "title": "Provérbios",
+  "abbr": "Pv · Poéticos · Sapienciais",
+  "author": "Salomão (principal), Agur e Lemuel",
+  "chars": [
+    "Salomão",
+    "Agur",
+    "Lemuel"
+  ],
+  "tags": [
+    "Sabedoria Prática",
+    "Temor do Senhor",
+    "Família",
+    "Trabalho",
+    "Linguagem",
+    "Mulher Virtuosa"
+  ],
+  "body": "<p><strong>Contexto:</strong> Provérbios é o livro de sabedoria prática por excelência da Bíblia. O princípio organizador é anunciado em 1.7 e 9.10: \"O temor do Senhor é o princípio da sabedoria.\" A sabedoria (<em>chokmah</em>) bíblica não é abstrata — é a arte de viver bem em todas as dimensões da existência: trabalho, família, amizade, dinheiro, linguagem, sexualidade e liderança. A relação com Deus é o fundamento de tudo.</p>\n<p><strong>Estrutura:</strong> Os capítulos 1–9 são longos poemas sobre a Sabedoria personificada como mulher que convida os jovens ao seu caminho — em contraste com a \"mulher estranha\" da sedução. O capítulo 8 apresenta a Sabedoria como co-criadora com Deus, texto que influenciou a reflexão sobre o Logos em João 1. Os capítulos 10–29 são a grande coleção de provérbios saloMônicos. Os capítulos 30–31 incluem \"as palavras de Agur\" e o poema acróstico da \"mulher virtuosa\" (31.10–31).</p>\n<p><strong>Hermenêutica:</strong> Os provérbios são princípios gerais de vida, não promessas absolutas. Precisam ser lidos no contexto mais amplo da sabedoria bíblica que inclui Jó (o justo que sofre) e Eclesiastes (a limitação da sabedoria humana). Juntos, os três livros formam uma teologia de sabedoria equilibrada e realista.</p>",
+  "verse": "\"Confie no <span style=\"font-variant:small-caps\">Senhor</span> de todo o coração e não se apoie em seu próprio entendimento.\" <cite>Provérbios 3.5 — NAA</cite>",
+  "translation": "NAA",
+  "order": 20,
+  "category": "poe",
+  "cellAbbr": "Pv"
+}

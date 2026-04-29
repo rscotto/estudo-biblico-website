@@ -1,0 +1,27 @@
+{
+  "id": "rm",
+  "num": "Livro 45 · Novo Testamento",
+  "title": "Romans",
+  "abbr": "Rom · Pauline Epistles",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paul",
+    "Phoebe",
+    "Priscilla",
+    "Aquila"
+  ],
+  "tags": [
+    "Justification by Faith",
+    "Grace",
+    "Election",
+    "Universal Sin",
+    "Spirit",
+    "Ethics"
+  ],
+  "body": "<p><strong>Context:</strong> Romans is the most systematic and doctrinally dense of Paul's letters — often called \"the cathedral of the NT.\" Written from Corinth (~57 AD) to a Church Paul did not found but intended to visit on his way to Spain, it is a deliberate and complete exposition of the gospel Paul preached — his theological letter of introduction.</p>\n<p><strong>Structure:</strong> Chapters 1–3 establish universal condemnation — Gentiles and Jews alike under divine judgment, \"for all have sinned and fall short of the glory of God\" (3:23). Chapters 3–5 proclaim justification by faith: the sinner is declared righteous by God on the basis of Christ's work, received through faith, entirely independent of works of the Law. Abraham is the paradigm (ch. 4). Chapters 5–8 address the new life in the Spirit, culminating in the unforgettable chapter 8: \"nothing in all creation will be able to separate us from the love of God in Christ Jesus.\" Chapters 9–11 address the mystery of election and the future of Israel. Chapters 12–16 are practical ethics — the \"living sacrifice\" of the whole life to God (12:1–2).</p>\n<p><strong>Historical impact:</strong> Reading Romans 13 converted Augustine. The discovery of Romans 1:17 unleashed Luther's Protestant Reformation. Reading Luther's preface to Romans converted John Wesley. It is, possibly, the most influential text in the history of the West after Scripture as a whole.</p>",
+  "verse": "\"For I am not ashamed of the gospel, for it is the power of God for salvation to everyone who believes.\" <cite>Romans 1:16 — ESV</cite>",
+  "translation": "ESV",
+  "order": 45,
+  "category": "pau",
+  "cellAbbr": "Rm"
+}

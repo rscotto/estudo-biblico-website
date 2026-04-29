@@ -1,0 +1,24 @@
+{
+  "id": "jo2",
+  "num": "Livro 63 · Novo Testamento",
+  "title": "2 João",
+  "abbr": "2Jo · Epístolas Gerais",
+  "author": "João Apóstolo, filho de Zebedeu",
+  "chars": [
+    "João",
+    "A Senhora Eleita"
+  ],
+  "tags": [
+    "Amor e Verdade",
+    "Hospitalidade Discernida",
+    "Falsos Mestres",
+    "Anciãos",
+    "Igreja Local"
+  ],
+  "body": "<p><strong>Contexto:</strong> 2 João é um dos mais curtos escritos do NT — apenas 13 versículos — endereçado pelo \"Presbítero\" (provavelmente João Apóstolo) à \"senhora eleita e a seus filhos,\" possivelmente metáfora para uma Igreja local específica. O tema é o equilíbrio delicado entre amor e verdade.</p>\n<p><strong>Amor e verdade:</strong> A carta começa combinando os dois grandes valores joaninos: \"A verdade\" e \"o amor\" não são opostos — o amor caminha \"segundo os seus mandamentos\" (v.6) e a verdade define os limites do amor cristão. Esta tensão é central para a teologia de João: o amor que aceita tudo não é amor cristão.</p>\n<p><strong>A hospitalidade problemática:</strong> Os falsos mestres — que \"não confessam Jesus Cristo vindo em carne\" (v.7) — não devem ser recebidos em casa nem saudados: \"quem os saúda participa de suas obras más\" (v.11). Esta instrução parece em tensão com o princípio do amor, mas João entende que acolher ativamente o erro é ser cúmplice da destruição de almas. O equilíbrio entre hospitalidade generosa e discernimento doutrinário é uma das tensões que a Igreja em toda época precisa manejar com sabedoria pastoral.</p>",
+  "verse": "\"Todo aquele que vai além e não permanece no ensino de Cristo não tem a Deus.\" <cite>2 João 9 — NAA</cite>",
+  "translation": "NAA",
+  "order": 63,
+  "category": "ger",
+  "cellAbbr": "2Jo"
+}

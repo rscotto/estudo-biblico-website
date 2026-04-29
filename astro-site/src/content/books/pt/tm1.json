@@ -1,0 +1,29 @@
+{
+  "id": "tm1",
+  "num": "Livro 54 · Novo Testamento",
+  "title": "1 Timóteo",
+  "abbr": "1Tm · Epístolas Paulinas",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paulo",
+    "Timóteo",
+    "Himeneu",
+    "Alexandre",
+    "Priscila",
+    "Áquila"
+  ],
+  "tags": [
+    "Pastoral",
+    "Ordem na Igreja",
+    "Liderança",
+    "Doutrina Sã",
+    "Oração",
+    "Mulheres"
+  ],
+  "body": "<p><strong>Contexto:</strong> 1 Timóteo é a primeira das \"Epístolas Pastorais\" (com 2 Timóteo e Tito) — cartas a líderes individuais em vez de congregações. Escrita a Timóteo em Éfeso (~62–65 d.C.), é um manual de ordem e liderança eclesiástica para um jovem pastor que Paulo chama de \"filho verdadeiro na fé.\"</p>\n<p><strong>Conteúdo:</strong> Combate a falsas doutrinas que perturbavam a Igreja em Éfeso (caps. 1; 4; 6); instrução sobre a oração pública e o papel das mulheres no culto (cap. 2 — um dos textos mais debatidos do NT exegética e culturalmente); qualificações dos bispos (<em>episkopoi</em>) e diáconos (cap. 3 — ênfase no caráter antes das habilidades); cuidado de viúvas (cap. 5); e advertências contra o amor ao dinheiro como \"raiz de todos os males\" (cap. 6).</p>\n<p><strong>Declaração cristológica central:</strong> \"Há um só mediador entre Deus e os homens: Jesus Cristo homem\" (2.5) — fundamento da doutrina cristã da unicidade da mediação, contra todo sistema de santos ou anjos intermediários. O encerramento do capítulo 6 — \"guarda o bom depósito\" — é um chamado à fidelidade doutrinária que ressoa através dos séculos como mandato ao ministério.</p>",
+  "verse": "\"Pois há um só Deus e um só mediador entre Deus e os homens, Cristo Jesus, ele mesmo homem.\" <cite>1 Timóteo 2.5 — NAA</cite>",
+  "translation": "NAA",
+  "order": 54,
+  "category": "pau",
+  "cellAbbr": "1Tm"
+}

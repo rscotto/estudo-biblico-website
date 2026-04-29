@@ -1,0 +1,27 @@
+{
+  "id": "zc",
+  "num": "Livro 38 · Antigo Testamento",
+  "title": "Zechariah",
+  "abbr": "Zech · Minor Prophets",
+  "author": "Zacarias, filho de Berequias",
+  "chars": [
+    "Zechariah",
+    "Zerubbabel",
+    "Joshua (high priest)",
+    "The Angel of the Lord"
+  ],
+  "tags": [
+    "Night Visions",
+    "Messiah",
+    "Triumphal Entry",
+    "30 Pieces of Silver",
+    "Apocalypse",
+    "Restoration"
+  ],
+  "body": "<p><strong>Context:</strong> Zechariah is the longest of the minor prophets and the most quoted in the NT after Isaiah. Contemporary with Haggai, he prophesied to the post-exilic people during the Temple's reconstruction. The book divides into two sections: Zechariah 1–8 (dated prophecies with eight night visions) and Zechariah 9–14 (apocalyptic oracles of intense eschatological character).</p>\n<p><strong>The night visions (chs. 1–6):</strong> Eight symbolic visions — riders among the myrtle trees, the four horns, the man with a measuring line, the high priest Joshua before Satan, the lampstand and olive trees, the flying scroll, the woman in the basket, the four chariots — provide a theology of divine sovereignty over history. The dense symbolism anticipates John's Revelation.</p>\n<p><strong>The messianic prophecies:</strong> \"Behold, your king is coming to you; righteous and having salvation is he, humble and mounted on a donkey\" (9:9) — Matt 21:5 cites this as fulfilled in Jesus' triumphal entry. Zechariah 11:12 prophesies the thirty pieces of silver. Chapter 12:10 — \"they look on me, on him whom they have pierced\" — is cited in John 19:37. Chapter 13:7 — \"Strike the shepherd, and the sheep will be scattered\" — is quoted by Jesus on the night of his arrest (Matt 26:31).</p>",
+  "verse": "\"Rejoice greatly, O daughter of Zion! Shout aloud, O daughter of Jerusalem! Behold, your king is coming to you; righteous and having salvation is he, humble and mounted on a donkey.\" <cite>Zechariah 9:9 — ESV</cite>",
+  "translation": "ESV",
+  "order": 38,
+  "category": "men",
+  "cellAbbr": "Zc"
+}

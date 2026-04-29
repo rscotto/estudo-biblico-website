@@ -1,0 +1,29 @@
+{
+  "id": "hb",
+  "num": "Livro 58 · Novo Testamento",
+  "title": "Hebrews",
+  "abbr": "Heb · General Epistles",
+  "author": "Anônimo (atribuído a Paulo, Apolo ou Barnabé)",
+  "chars": [
+    "Abraham",
+    "Moses",
+    "Rahab",
+    "Melchizedek",
+    "Sarah",
+    "Enoch"
+  ],
+  "tags": [
+    "High Priest",
+    "Melchizedek",
+    "New Covenant",
+    "Faith",
+    "Hall of Faith",
+    "Supremacy of Christ"
+  ],
+  "body": "<p><strong>Context:</strong> Hebrews is one of the most complex and magnificent writings in the NT — a high-level theological homily addressed to Jewish-background Christians at risk of apostatizing and returning to Judaism under persecution. Authorship is uncertain — Paul, Apollos, Barnabas, and Priscilla are candidates — leading Origen to say: \"who wrote it, only God knows.\"</p>\n<p><strong>The argument of superiority:</strong> The central theme is the absolute superiority of Christ: superior to the angels (chs. 1–2), to Moses (ch. 3), to Joshua (ch. 4), to the Levitical priesthood (chs. 5–7), to the Old Covenant and the Tabernacle (chs. 8–10). Christ is the definitive High Priest according to the order of Melchizedek — a priesthood prior and superior to the Aaronic — who entered the heavenly sanctuary itself with his own blood, obtaining eternal redemption.</p>\n<p><strong>Chapter 11 — the \"Hall of Faith\":</strong> Defines faith as \"the assurance of things hoped for, the conviction of things not seen\" and traverses biblical history from Abel through Abraham, Sarah, Moses, Rahab, and anonymous heroes who \"did not receive what was promised\" — for they waited for something better that would include NT believers. Chapter 12 uses the image of the race: \"let us run with endurance... looking to Jesus, the founder and perfecter of our faith.\"</p>",
+  "verse": "\"Now faith is the assurance of things hoped for, the conviction of things not seen.\" <cite>Hebrews 11:1 — ESV</cite>",
+  "translation": "ESV",
+  "order": 58,
+  "category": "ger",
+  "cellAbbr": "Hb"
+}

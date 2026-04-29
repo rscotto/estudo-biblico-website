@@ -1,0 +1,25 @@
+{
+  "id": "lm",
+  "num": "Livro 25 · Antigo Testamento",
+  "title": "Lamentations",
+  "abbr": "Lam · Major Prophets",
+  "author": "Jeremias (tradição judaica e cristã)",
+  "chars": [
+    "Jeremiah",
+    "Jerusalem (personified)"
+  ],
+  "tags": [
+    "Lament",
+    "Destruction of Jerusalem",
+    "Mercies",
+    "Faith in Suffering",
+    "Acrostic Poetry",
+    "Hope"
+  ],
+  "body": "<p><strong>Context:</strong> Lamentations is a collection of five poems on the destruction of Jerusalem in 586 BC by Babylon. Both Hebrew and Christian tradition associate the book with Jeremiah. The first four poems are Hebrew acrostics — each verse begins with a letter of the 22-letter Hebrew alphabet — suggesting that the expression of pain was artistically structured: lament has form, it is not chaos.</p>\n<p><strong>The weeping and the hope:</strong> The book opens with a sharp cry: \"How lonely sits the city that was full of people!\" (1:1). The personification of Jerusalem as a widowed, desolate woman creates literary pathos of rare intensity. The poems oscillate between description of the catastrophe, confession that the judgment was deserved, crying out to God, and hope.</p>\n<p><strong>The heart of the book (ch. 3):</strong> At the exact center of the book stands one of the most extraordinary declarations of biblical faith — made in the midst of the greatest catastrophe in Israel's history: \"The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness!\" (3:22–23). This affirmation of divine <em>hesed</em>, voiced in total darkness, becomes the foundation of hope that does not depend on circumstances.</p>",
+  "verse": "\"The steadfast love of the <span style=\"font-variant:small-caps\">Lord</span> never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness.\" <cite>Lamentations 3:22–23 — ESV</cite>",
+  "translation": "ESV",
+  "order": 25,
+  "category": "mai",
+  "cellAbbr": "Lm"
+}

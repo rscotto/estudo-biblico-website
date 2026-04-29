@@ -1,0 +1,25 @@
+{
+  "id": "os",
+  "num": "Livro 28 · Antigo Testamento",
+  "title": "Oséias",
+  "abbr": "Os · Profetas Menores",
+  "author": "Oséias, filho de Beeri",
+  "chars": [
+    "Oséias",
+    "Gômer"
+  ],
+  "tags": [
+    "Amor de Aliança",
+    "Hesed",
+    "Infidelidade",
+    "Metáfora Conjugal",
+    "Reino do Norte",
+    "Restauração"
+  ],
+  "body": "<p><strong>Contexto:</strong> Oséias foi o primeiro dos doze profetas menores e profetizou ao reino do Norte (Israel) no século 8 a.C., contemporâneo de Amós, Isaías e Miquéias. Sua característica única é que sua vida pessoal — o casamento com Gômer, mulher infiel — torna-se metáfora viva e visceral da relação de Deus com Israel.</p>\n<p><strong>A metáfora conjugal:</strong> Deus manda Oséias casar com uma mulher que o trairá repetidamente, para que o profeta experimente na própria carne o que Deus sente quando Israel se prostitui com os deuses cananeus de Baal. O amor persistente e redentor de Oséias por Gômer — ele a compra de volta depois de ela ter sido vendida (cap. 3) — ilustra o <em>hesed</em> de Deus: amor de aliança inabalável por um povo que não o merece.</p>\n<p><strong>Teologia:</strong> O capítulo 11 é um dos textos mais emocionalmente poderosos do AT: \"Quando Israel era menino, eu o amei; do Egito chamei meu filho... mas eles não perceberam que eu cuidava deles.\" A tensão entre julgamento merecido e amor que não abandona é o coração do livro — e da teologia bíblica. Mateus 2.15 cita Oséias 11.1 como cumprido no retorno da família de Jesus do Egito.</p>",
+  "verse": "\"Porque eu quero amor leal e não sacrifício, e o conhecimento de Deus em vez de holocaustos.\" <cite>Oséias 6.6 — NAA</cite>",
+  "translation": "NAA",
+  "order": 28,
+  "category": "men",
+  "cellAbbr": "Os"
+}

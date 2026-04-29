@@ -1,0 +1,30 @@
+{
+  "id": "lc",
+  "num": "Livro 42 · Novo Testamento",
+  "title": "Lucas",
+  "abbr": "Lc · Evangelhos",
+  "author": "Lucas (médico e companheiro de Paulo)",
+  "chars": [
+    "Jesus",
+    "Maria",
+    "Zacarias",
+    "Isabel",
+    "João Batista",
+    "Simão",
+    "Pilatos"
+  ],
+  "tags": [
+    "Pobres",
+    "Mulheres",
+    "Espírito Santo",
+    "Gentios",
+    "Alegria",
+    "Parábolas Únicas"
+  ],
+  "body": "<p><strong>Contexto:</strong> Lucas é o mais literariamente sofisticado dos quatro Evangelhos, escrito pelo médico gentio Lucas como primeiro volume de uma obra em dois tomos (o segundo sendo Atos dos Apóstolos). O prólogo (1.1–4) segue o padrão da historiografia grega clássica, e Lucas escreve explicitamente para Teófilo — possivelmente um patrono romano de alta posição que financia a pesquisa.</p>\n<p><strong>Temas distintivos:</strong> Lucas dá especial atenção a grupos marginalizados: os pobres e excluídos, as mulheres (Maria, Isabel, Ana, as discípulas de Jesus), os samaritanos e gentios, os pecadores arrependidos. O Espírito Santo aparece com frequência incomum antes mesmo de Pentecostes. A oração de Jesus é um tema recorrente em momentos decisivos. A alegria permeia o livro, do anúncio do anjo a Zacarias até os discípulos que retornam a Jerusalém com grande gozo.</p>\n<p><strong>As parábolas exclusivas de Lucas:</strong> Incluem algumas das mais amadas de Jesus — o Bom Samaritano (10.25–37), o Filho Pródigo (15.11–32), o Rico e Lázaro (16.19–31), o Fariseu e o Publicano (18.9–14). A genealogia de Jesus remonta a Adão — não apenas a Abraão —, enfatizando a universalidade da salvação. O Magnificat de Maria (1.46–55) é um dos hinos de teologia mais profunda sobre a inversão dos valores do reino.</p>",
+  "verse": "\"O Espírito do <span style=\"font-variant:small-caps\">Senhor</span> está sobre mim, porque ele me ungiu para anunciar boas-novas aos pobres.\" <cite>Lucas 4.18 — NAA</cite>",
+  "translation": "NAA",
+  "order": 42,
+  "category": "eva",
+  "cellAbbr": "Lc"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "sm2",
+  "num": "Livro 10 · Antigo Testamento",
+  "title": "2 Samuel",
+  "abbr": "2Sm · Históricos",
+  "author": "Natã e Gade (compilação profética)",
+  "chars": [
+    "Davi",
+    "Bate-Seba",
+    "Natã",
+    "Absalão",
+    "Joabe",
+    "Urias"
+  ],
+  "tags": [
+    "Reinado de Davi",
+    "Aliança Davídica",
+    "Bate-Seba",
+    "Absalão",
+    "Consequências do Pecado",
+    "Messianismo"
+  ],
+  "body": "<p><strong>Contexto:</strong> 2 Samuel cobre o reinado de Davi — \"o homem segundo o coração de Deus\" — em sua plenitude gloriosa e em sua profunda tragédia. O livro divide-se ao meio: ascensão e glória (caps. 1–10) e queda e suas ondas de choque (caps. 11–24).</p>\n<p><strong>A aliança davídica (cap. 7):</strong> É o ponto teológico mais alto do livro e um dos mais importantes de toda a Bíblia. Deus promete a Davi que sua dinastia será eterna e que um de seus descendentes terá um reino sem fim — texto fundador do messianismo bíblico, citado extensamente no NT como cumprido em Jesus (Lc 1.32–33; At 2.29–36; Hb 1.5).</p>\n<p><strong>A queda (cap. 11–12):</strong> O adultério com Bate-Seba e o assassinato premeditado de Urias — \"o hitita\", estrangeiro leal — é o nadir moral de Davi. O profeta Natã confronta o rei com a parábola da ovelha (cap. 12). A confissão de Davi (Sl 51) e o perdão concedido não eliminam as consequências: revolta do filho Absalão, morte de filhos, guerra civil e pestilência. O livro demonstra que a graça não suspende a colheita do pecado.</p>",
+  "verse": "\"A sua casa e o seu reino serão estabelecidos para sempre diante de mim; o seu trono será firme para sempre.\" <cite>2 Samuel 7.16 — NAA</cite>",
+  "translation": "NAA",
+  "order": 10,
+  "category": "his",
+  "cellAbbr": "2Sm"
+}

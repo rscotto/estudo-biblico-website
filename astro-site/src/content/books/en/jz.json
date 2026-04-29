@@ -1,0 +1,29 @@
+{
+  "id": "jz",
+  "num": "Livro 7 · Antigo Testamento",
+  "title": "Judges",
+  "abbr": "Jdg · Historical",
+  "author": "Anônimo (tradição profética; possivelmente Samuel)",
+  "chars": [
+    "Deborah",
+    "Gideon",
+    "Samson",
+    "Jephthah",
+    "Barak",
+    "Delilah"
+  ],
+  "tags": [
+    "Apostasy Cycle",
+    "Deliverers",
+    "Deborah",
+    "Gideon",
+    "Samson",
+    "Pre-Monarchy"
+  ],
+  "body": "<p><strong>Context:</strong> Judges covers the turbulent period between Joshua's death and the rise of the monarchy (~1200–1050 BC). The book is organized around a recurring four-phase cycle: <em>apostasy</em> (Israel abandons YHWH) → <em>oppression</em> (subjugation to enemy peoples) → <em>cry</em> (appeal to God) → <em>deliverance</em> (judge raised by the Spirit) → peace → new apostasy.</p>\n<p><strong>The judges:</strong> The <em>shofetim</em> are not judicial judges but charismatic military leaders. The most notable include: <strong>Deborah</strong>, the only female judge, who leads Israel to victory alongside Barak (chs. 4–5); <strong>Gideon</strong>, who with only 300 men defeats Midian by divine strategy (chs. 6–8); <strong>Jephthah</strong>, son of a prostitute, and his tragic vow (ch. 11); and <strong>Samson</strong>, the Nazirite of superhuman strength whose life is marked by profound moral weakness (chs. 13–16).</p>\n<p><strong>Message:</strong> The book ends with two horrifying episodes (chs. 17–21) revealing complete moral and religious collapse. The leitmotif — \"Everyone did what was right in his own eyes\" (21:25) — is the diagnosis of moral relativism without divine authority, preparing the ground for the demand for a king.</p>",
+  "verse": "\"In those days there was no king in Israel. Everyone did what was right in his own eyes.\" <cite>Judges 21:25 — ESV</cite>",
+  "translation": "ESV",
+  "order": 7,
+  "category": "his",
+  "cellAbbr": "Jz"
+}

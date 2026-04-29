@@ -1,0 +1,24 @@
+---
+// Root: redirect to /pt by default; client JS will correct to /en if needed
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudo Bíblico</title>
+  <meta http-equiv="refresh" content="0;url=/pt">
+</head>
+<body>
+  <script>
+    try {
+      const stored = localStorage.getItem('lang');
+      const lang = stored || ((navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'pt');
+      localStorage.setItem('lang', lang);
+      window.location.replace('/' + lang);
+    } catch(e) {
+      window.location.replace('/pt');
+    }
+  </script>
+</body>
+</html>

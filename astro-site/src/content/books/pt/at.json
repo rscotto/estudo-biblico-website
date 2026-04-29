@@ -1,0 +1,30 @@
+{
+  "id": "at",
+  "num": "Livro 44 · Novo Testamento",
+  "title": "Atos dos Apóstolos",
+  "abbr": "At · Histórico NT",
+  "author": "Lucas (médico e companheiro de Paulo)",
+  "chars": [
+    "Pedro",
+    "Paulo",
+    "Estêvão",
+    "Barnabé",
+    "Filipe",
+    "Cornélio",
+    "Tiago"
+  ],
+  "tags": [
+    "Espírito Santo",
+    "Pentecostes",
+    "Paulo",
+    "Missão",
+    "Igreja Primitiva",
+    "Pedro"
+  ],
+  "body": "<p><strong>Contexto:</strong> Atos é o segundo volume da obra de Lucas e narra o nascimento e expansão da Igreja cristã desde o Pentecostes em Jerusalém (~33 d.C.) até a chegada de Paulo a Roma (~62 d.C.). É o único livro histórico do NT. O título \"Atos dos Apóstolos\" é impreciso — seria mais exato \"Atos do Espírito Santo,\" pois o Espírito é o protagonista invisível de todo o livro.</p>\n<p><strong>Estrutura geográfica:</strong> O mandato de At 1.8 organiza o livro: \"Recebereis poder... e sereis minhas testemunhas em Jerusalém, em toda a Judeia e Samaria, e até os confins da terra.\" A primeira metade (1–12) centra-se em Jerusalém e Pedro; a segunda (13–28), nas três viagens missionárias de Paulo pelo Mediterrâneo. Pentecostes (cap. 2) é o evento fundador: a efusão do Espírito Santo constitui a Igreja como comunidade profética e missionária, cumprindo Joel 2.</p>\n<p><strong>Episódios decisivos:</strong> A conversão de Paulo (cap. 9 — talvez o evento mais consequente da história cristã depois da Ressurreição); a visão de Pedro e a conversão de Cornélio (cap. 10 — abertura formal da missão aos gentios); o Concílio de Jerusalém (cap. 15 — primeira crise e resolução teológica da Igreja). O livro termina com Paulo em Roma pregando o reino \"sem impedimento\" — final aberto que anuncia a continuação da missão.</p>",
+  "verse": "\"Mas vocês receberão poder quando o Espírito Santo vier sobre vocês, e serão minhas testemunhas... até os confins da terra.\" <cite>Atos 1.8 — NAA</cite>",
+  "translation": "NAA",
+  "order": 44,
+  "category": "pen",
+  "cellAbbr": "At"
+}

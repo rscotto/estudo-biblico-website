@@ -1,0 +1,24 @@
+{
+  "id": "ec",
+  "num": "Livro 21 · Antigo Testamento",
+  "title": "Eclesiastes",
+  "abbr": "Ec · Poéticos · Sapienciais",
+  "author": "Qohelet (atribuído a Salomão)",
+  "chars": [
+    "Qohelet (Salomão)"
+  ],
+  "tags": [
+    "Vaidade",
+    "Hebel",
+    "Morte",
+    "Tempo",
+    "Existencialismo",
+    "Limitação Humana"
+  ],
+  "body": "<p><strong>Contexto:</strong> Eclesiastes é o livro mais filosófico — e aparentemente mais cético — da Bíblia. O Pregador (<em>Qohelet</em> em hebraico, \"aquele que reúne a assembleia\") observa a vida \"debaixo do sol\" e anuncia: <em>hebel hebalim</em> — \"vaidade das vaidades, tudo é vaidade\" (<em>hebel</em> = vapor, sopro, algo efêmero e impalpável).</p>\n<p><strong>Os grandes temas:</strong> O livro percorre a futilidade do trabalho humano que não sobrevive à morte (cap. 2); a irreversibilidade e enigma do tempo (cap. 3 — \"há um tempo para tudo\"); a injustiça persistente na sociedade (cap. 4); a relatividade da sabedoria diante da morte que nivela sábio e tolo (caps. 6–7); e a imprevisibilidade do futuro (cap. 9 — \"nem sempre os ágeis vencem a corrida\").</p>\n<p><strong>Teologia:</strong> Eclesiastes não é niilismo — é a cura do otimismo ingênuo. A tentativa de encontrar significado definitivo \"debaixo do sol\" sem Deus resulta em absurdo. O antídoto é \"temer a Deus e guardar seus mandamentos\" (12.13–14) e aceitar com gratidão os prazeres simples como dons divinos no meio da brevidade da vida. É uma teologia radical da limitação humana que abre espaço para a revelação transcendente.</p>",
+  "verse": "\"Tema a Deus e guarde os seus mandamentos, pois isto é o dever de todo ser humano.\" <cite>Eclesiastes 12.13 — NAA</cite>",
+  "translation": "NAA",
+  "order": 21,
+  "category": "poe",
+  "cellAbbr": "Ec"
+}

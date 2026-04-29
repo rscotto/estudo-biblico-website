@@ -1,0 +1,29 @@
+{
+  "id": "lv",
+  "num": "Livro 3 · Antigo Testamento",
+  "title": "Leviticus",
+  "abbr": "Lv · Pentateuch · Law",
+  "author": "Moisés",
+  "chars": [
+    "Moses",
+    "Aaron",
+    "Nadab",
+    "Abihu",
+    "Eleazar",
+    "Ithamar"
+  ],
+  "tags": [
+    "Holiness",
+    "Sacrifices",
+    "Priesthood",
+    "Yom Kippur",
+    "Purity",
+    "Holiness Code"
+  ],
+  "body": "<p><strong>Context:</strong> Leviticus is Israel's manual of worship and holiness, centered on the priestly tribe of Levi. The imperative that organizes it — \"Be holy, for I am holy\" (19:2) — defines the vocation of the covenant people: to reflect the divine character in every sphere of life.</p>\n<p><strong>Content:</strong> Chapters 1–7 describe the five types of offerings: burnt offering (total worship), grain offering (gratitude), peace offering (fellowship), sin offering (involuntary atonement), and guilt offering (restitution). Chapters 8–10 narrate the priestly consecration and the tragic episode of Nadab and Abihu, struck dead for offering \"unauthorized fire\" — divine sovereignty over worship. Chapters 11–15 establish ritual purity laws.</p>\n<p>The climax is chapter 16: the Day of Atonement (<em>Yom Kippur</em>), in which the high priest sprinkled blood in the Holy of Holies and the scapegoat was sent into the wilderness. The book of Hebrews (chs. 9–10) interprets this ritual as a shadow of Christ's eternal high priesthood, who entered the heavenly sanctuary itself with his own blood.</p>",
+  "verse": "\"You shall be holy, for I the <span style=\"font-variant:small-caps\">Lord</span> your God am holy.\" <cite>Leviticus 19:2 — ESV</cite>",
+  "translation": "ESV",
+  "order": 3,
+  "category": "pen",
+  "cellAbbr": "Lv"
+}

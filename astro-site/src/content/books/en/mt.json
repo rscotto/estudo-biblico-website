@@ -1,0 +1,30 @@
+{
+  "id": "mt",
+  "num": "Livro 40 · Novo Testamento",
+  "title": "Matthew",
+  "abbr": "Matt · Gospels",
+  "author": "Mateus (apóstolo, cobrador de impostos)",
+  "chars": [
+    "Jesus",
+    "Peter",
+    "John the Baptist",
+    "Mary",
+    "Joseph",
+    "Herod",
+    "Pilate"
+  ],
+  "tags": [
+    "Messiah of Israel",
+    "Sermon on the Mount",
+    "Kingdom of Heaven",
+    "Five Discourses",
+    "Law Fulfilled",
+    "Great Commission"
+  ],
+  "body": "<p><strong>Context:</strong> The Gospel of Matthew was written for a predominantly Jewish audience and presents Jesus as the fulfillment of all Israel's history and hope — the Messiah, the new Moses, the son of David, Emmanuel. The opening with the genealogy from Abraham to Jesus and the explicit fulfillment citations (\"this was to fulfill what was spoken by the prophet...\") frame Jesus within the OT narrative.</p>\n<p><strong>The five discourses:</strong> The most characteristic literary structure of Matthew is the five great discourses of Jesus, paralleling the five books of Moses: the Sermon on the Mount (chs. 5–7), the Missionary Discourse (ch. 10), the Parables of the Kingdom (ch. 13), the Discourse on the Church (ch. 18), and the Eschatological Discourse (chs. 24–25).</p>\n<p><strong>The Sermon on the Mount:</strong> Chapters 5–7 are Jesus' most extensive and systematic ethical teaching. The Beatitudes (5:3–12) subvert the values of the world. The antitheses — \"You have heard that it was said... but I say to you...\" — reveal the messianic authority that deepens the Law, not abolishes it. The Great Commission (28:18–20), with the universal mandate to make disciples of all nations, closes the book with the mission that defines the Church to the end of time.</p>",
+  "verse": "\"Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit.\" <cite>Matthew 28:19 — ESV</cite>",
+  "translation": "ESV",
+  "order": 40,
+  "category": "eva",
+  "cellAbbr": "Mt"
+}

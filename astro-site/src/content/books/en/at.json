@@ -1,0 +1,30 @@
+{
+  "id": "at",
+  "num": "Livro 44 · Novo Testamento",
+  "title": "Acts",
+  "abbr": "Acts · NT Historical",
+  "author": "Lucas (médico e companheiro de Paulo)",
+  "chars": [
+    "Peter",
+    "Paul",
+    "Stephen",
+    "Barnabas",
+    "Philip",
+    "Cornelius",
+    "James"
+  ],
+  "tags": [
+    "Holy Spirit",
+    "Pentecost",
+    "Paul",
+    "Mission",
+    "Early Church",
+    "Peter"
+  ],
+  "body": "<p><strong>Context:</strong> Acts is the second volume of Luke's work and narrates the birth and expansion of the Christian Church from Pentecost in Jerusalem (~33 AD) to Paul's arrival in Rome (~62 AD). It is the only historical book of the NT. The title \"Acts of the Apostles\" is imprecise — \"Acts of the Holy Spirit\" would be more accurate, as the Spirit is the invisible protagonist of the entire book.</p>\n<p><strong>Geographic structure:</strong> The mandate of Acts 1:8 organizes the book: \"you will receive power when the Holy Spirit has come upon you, and you will be my witnesses in Jerusalem and in all Judea and Samaria, and to the end of the earth.\" The first half (1–12) centers on Jerusalem and Peter; the second (13–28), on Paul's three missionary journeys across the Mediterranean. Pentecost (ch. 2) is the founding event: the outpouring of the Holy Spirit constitutes the Church as a prophetic and missionary community, fulfilling Joel 2.</p>\n<p><strong>Decisive episodes:</strong> Paul's conversion (ch. 9 — perhaps the most consequential event in Christian history after the Resurrection); Peter's vision and the conversion of Cornelius (ch. 10 — formal opening of the mission to the Gentiles); the Jerusalem Council (ch. 15 — the Church's first theological crisis and resolution). The book ends with Paul in Rome preaching the kingdom \"without hindrance\" — an open ending that announces the continuation of the mission.</p>",
+  "verse": "\"But you will receive power when the Holy Spirit has come upon you, and you will be my witnesses... to the end of the earth.\" <cite>Acts 1:8 — ESV</cite>",
+  "translation": "ESV",
+  "order": 44,
+  "category": "pen",
+  "cellAbbr": "At"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "gl",
+  "num": "Livro 48 · Novo Testamento",
+  "title": "Gálatas",
+  "abbr": "Gl · Epístolas Paulinas",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paulo",
+    "Pedro",
+    "Barnabé",
+    "Tito",
+    "Abraão",
+    "Agar"
+  ],
+  "tags": [
+    "Liberdade Cristã",
+    "Justificação",
+    "Obra da Lei",
+    "Graça",
+    "Fruto do Espírito",
+    "Reforma"
+  ],
+  "body": "<p><strong>Contexto:</strong> Gálatas é a \"Magna Carta da liberdade cristã\" — um dos escritos mais apaixonados e urgentes de Paulo. Escrita às igrejas da Galácia (~48–55 d.C.), responde a uma crise aguda: \"judaizantes\" haviam chegado após Paulo ensinando que os gentios convertidos deviam ser circuncidados e guardar a Lei de Moisés para ser plenamente salvos.</p>\n<p><strong>A confrontação:</strong> Paulo começa sem cumprimentos — vai direto ao ponto: \"estou maravilhado que tão depressa vos estejais desviando\" (1.6). A carta inclui a narrativa da confrontação direta com Pedro em Antioquia (cap. 2) — uma cena de franqueza apostólica extraordinária que Paulo narra publicamente. A justificação somente pela fé é afirmada com toda a força: \"o homem não é justificado por obras da lei, mas pela fé em Jesus Cristo\" (2.16).</p>\n<p><strong>Teologia da liberdade:</strong> O capítulo 3 usa Abraão para demonstrar que a fé sempre foi o princípio da justificação — a Lei foi adicionada posteriormente como \"tutor\" até Cristo (3.24). O capítulo 4 usa a alegoria de Agar e Sara — escravidão vs. liberdade. O capítulo 5 celebra: \"Para a liberdade foi que Cristo nos libertou\" — liberdade que não é licença mas serviço pelo amor. O fruto do Espírito (5.22–23) é o contraponto às obras da carne.</p>",
+  "verse": "\"Foi para a liberdade que Cristo nos libertou. Portanto, fiquem firmes e não se submetam novamente ao jugo da escravidão.\" <cite>Gálatas 5.1 — NAA</cite>",
+  "translation": "NAA",
+  "order": 48,
+  "category": "pau",
+  "cellAbbr": "Gl"
+}

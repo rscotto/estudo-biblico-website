@@ -1,0 +1,26 @@
+{
+  "id": "ts2",
+  "num": "Livro 53 · Novo Testamento",
+  "title": "2 Tessalonicenses",
+  "abbr": "2Ts · Epístolas Paulinas",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paulo",
+    "Silvano",
+    "Timóteo"
+  ],
+  "tags": [
+    "Homem da Iniquidade",
+    "Dia do Senhor",
+    "Desordem",
+    "Trabalho",
+    "Apostasia",
+    "Escatologia"
+  ],
+  "body": "<p><strong>Contexto:</strong> 2 Tessalonicenses foi escrita logo após a primeira carta (~51 d.C.) para corrigir um mal-entendido grave: alguns membros acreditavam que o \"dia do Senhor\" já havia chegado — possivelmente com base em uma carta falsa atribuída a Paulo. Isso gerava desordem prática: por que trabalhar se o fim já chegou?</p>\n<p><strong>O homem da iniquidade (cap. 2):</strong> Paulo ensina que antes do \"dia do Senhor\" deve ocorrer a apostasia e a revelação do \"homem da iniquidade\" — o \"filho da perdição\" (2.3–4) que se proclamará Deus no templo. Quem ou o que \"retém\" esse homem (2.6–7) é um dos maiores enigmas da escatologia bíblica — interpretado ao longo da história como o Espírito Santo, o Império Romano, o arcanjo Miguel, entre outros.</p>\n<p><strong>A resposta prática:</strong> A correção escatológica gera responsabilidade prática: \"Se alguém não quer trabalhar, também não coma\" (3.10) — uma das declarações mais diretas da Bíblia sobre responsabilidade e ética do trabalho. Paulo usa seu próprio exemplo de trabalhar com as próprias mãos para não ser ônus a ninguém. A carta encerra com bênção de paz \"em todo tempo e de todo modo.\"</p>",
+  "verse": "\"Se alguém não quer trabalhar, também não coma.\" <cite>2 Tessalonicenses 3.10 — NAA</cite>",
+  "translation": "NAA",
+  "order": 53,
+  "category": "pau",
+  "cellAbbr": "2Ts"
+}

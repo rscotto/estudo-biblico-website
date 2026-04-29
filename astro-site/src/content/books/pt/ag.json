@@ -1,0 +1,26 @@
+{
+  "id": "ag",
+  "num": "Livro 37 · Antigo Testamento",
+  "title": "Ageu",
+  "abbr": "Ag · Profetas Menores",
+  "author": "Ageu (profeta pós-exílico)",
+  "chars": [
+    "Ageu",
+    "Zorobabel",
+    "Josué (sumo sacerdote)"
+  ],
+  "tags": [
+    "Segundo Templo",
+    "Pós-exílio",
+    "Prioridades",
+    "Crise Econômica",
+    "Restauração",
+    "Zorobabel"
+  ],
+  "body": "<p><strong>Contexto:</strong> Ageu é o primeiro profeta pós-exílico, tendo profetizado em 520 a.C. — exatamente 16 anos após o retorno do exílio e 16 anos antes da conclusão do Segundo Templo (516 a.C.). O povo havia iniciado a reconstrução do Templo, mas parado diante da oposição e das dificuldades. Ageu tem uma missão única e clara: motivar o povo a completar o Templo.</p>\n<p><strong>O argumento econômico-espiritual:</strong> Ageu conecta a espiritualidade ao cotidiano com lógica desconcertante: \"Este povo diz: Ainda não é tempo de vir, o tempo de se reedificar a casa do Senhor. Será que é tempo de vós habitardes em vossas casas apaineladas, enquanto esta casa está em ruínas?\" (1.2–4). A seca e a escassez econômica são apresentadas como consequência direta do descuido com as prioridades divinas.</p>\n<p><strong>A promessa escatológica:</strong> O capítulo 2 contém uma promessa surpreendente: embora o Segundo Templo fosse fisicamente inferior ao de Salomão, \"a glória desta última casa será maior do que a da primeira\" (2.9) — interpretado messianicamente como referência à presença de Cristo no Templo. O livro fecha com uma palavra de encorajamento a Zorobabel, governador — figura tipológica do Messias.</p>",
+  "verse": "\"Assim diz o <span style=\"font-variant:small-caps\">Senhor</span> dos Exércitos: Considerem os seus caminhos!\" <cite>Ageu 1.7 — NAA</cite>",
+  "translation": "NAA",
+  "order": 37,
+  "category": "men",
+  "cellAbbr": "Ag"
+}

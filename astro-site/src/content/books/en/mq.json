@@ -1,0 +1,24 @@
+{
+  "id": "mq",
+  "num": "Livro 33 · Antigo Testamento",
+  "title": "Micah",
+  "abbr": "Mic · Minor Prophets",
+  "author": "Miquéias de Moreste",
+  "chars": [
+    "Micah"
+  ],
+  "tags": [
+    "Social Justice",
+    "Bethlehem",
+    "Messiah",
+    "Corrupt Leaders",
+    "What God Requires",
+    "Restoration"
+  ],
+  "body": "<p><strong>Context:</strong> Micah prophesied in Judah in the 8th century BC, contemporary with Isaiah and Hosea. Like Amos, he is a prophet of social justice and the poor; like Isaiah, he has remarkable messianic visions. The book alternates cycles of judgment and restoration.</p>\n<p><strong>Specific accusations:</strong> Leaders who \"tear the skin\" of their people (3:2–3), prophets who prophesy only for what they receive (3:11), priests who teach for pay. The corruption of leaders brings judgment upon the entire nation. Chapter 3:12 — \"Zion shall be plowed as a field, Jerusalem shall become a heap of ruins\" — was so shocking it was quoted decades later to save Jeremiah from execution (Jer 26:18).</p>\n<p><strong>The greater prophecies:</strong> Micah 5:2 is one of the most precise messianic prophecies in the OT: \"But you, O Bethlehem Ephrathah, who are too little to be among the clans of Judah, from you shall come forth for me one who is to be ruler in Israel\" — quoted by the scribes when the magi asked where the Messiah would be born (Matt 2:6). And Micah's most famous verse — 6:8 — defines the ethics God wants in three requirements: \"to do justice, and to love kindness, and to walk humbly with your God.\"</p>",
+  "verse": "\"He has told you, O man, what is good; and what does the <span style=\"font-variant:small-caps\">Lord</span> require of you but to do justice, and to love kindness, and to walk humbly with your God.\" <cite>Micah 6:8 — ESV</cite>",
+  "translation": "ESV",
+  "order": 33,
+  "category": "men",
+  "cellAbbr": "Mq"
+}

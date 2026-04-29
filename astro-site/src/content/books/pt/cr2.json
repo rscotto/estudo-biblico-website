@@ -1,0 +1,29 @@
+{
+  "id": "cr2",
+  "num": "Livro 14 · Antigo Testamento",
+  "title": "2 Crônicas",
+  "abbr": "2Cr · Históricos",
+  "author": "Esdras (tradição rabínica)",
+  "chars": [
+    "Salomão",
+    "Ezequias",
+    "Josias",
+    "Josafá",
+    "Asa",
+    "Ciro"
+  ],
+  "tags": [
+    "Salomão",
+    "Templo",
+    "Reformas Religiosas",
+    "Avivamento",
+    "Exílio",
+    "Decreto de Ciro"
+  ],
+  "body": "<p><strong>Contexto:</strong> 2 Crônicas vai do reinado de Salomão ao decreto de Ciro que autoriza o retorno do exílio babilônico. O foco é exclusivo no reino de Judá — os reis do Norte são ignorados — e o critério de avaliação é sempre a relação com o Templo e o culto a YHWH.</p>\n<p><strong>Salomão:</strong> Aparece como o construtor do Templo par excellence. Sua oração de dedicação (caps. 6–7) é o coração espiritual do livro, culminando na promessa de 7.14 — texto mais citado de 2 Crônicas em contextos de oração nacional e avivamento: \"se o meu povo... se humilhar, orar, buscar a minha face e se converter dos seus maus caminhos, então eu ouvirei dos céus.\"</p>\n<p><strong>Ciclos de reforma:</strong> Asa, Josafá, Ezequias e Josias lideram renovações espirituais que parcialmente revertem a apostasia nacional. A queda final (cap. 36) é seguida pelos dois versículos finais que reproduzem o decreto de Ciro — deixando o livro deliberadamente em nota de esperança e abertura. O texto de encerramento flui diretamente para o início de Esdras, revelando que era uma obra contínua.</p>",
+  "verse": "\"Se o meu povo, que se chama pelo meu nome, se humilhar, orar, buscar a minha face e se converter dos seus maus caminhos, então eu ouvirei do céu, perdoarei os seus pecados e restaurarei a sua terra.\" <cite>2 Crônicas 7.14 — NAA</cite>",
+  "translation": "NAA",
+  "order": 14,
+  "category": "his",
+  "cellAbbr": "2Cr"
+}

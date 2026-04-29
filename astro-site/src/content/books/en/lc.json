@@ -1,0 +1,30 @@
+{
+  "id": "lc",
+  "num": "Livro 42 · Novo Testamento",
+  "title": "Luke",
+  "abbr": "Luke · Gospels",
+  "author": "Lucas (médico e companheiro de Paulo)",
+  "chars": [
+    "Jesus",
+    "Mary",
+    "Zechariah",
+    "Elizabeth",
+    "John the Baptist",
+    "Simeon",
+    "Pilate"
+  ],
+  "tags": [
+    "Poor",
+    "Women",
+    "Holy Spirit",
+    "Gentiles",
+    "Joy",
+    "Unique Parables"
+  ],
+  "body": "<p><strong>Context:</strong> Luke is the most literarily sophisticated of the four Gospels, written by the Gentile physician Luke as the first volume of a two-part work (the second being Acts of the Apostles). The prologue (1:1–4) follows the pattern of classical Greek historiography, and Luke writes explicitly for Theophilus — possibly a high-ranking Roman patron who finances the research.</p>\n<p><strong>Distinctive themes:</strong> Luke gives special attention to marginalized groups: the poor and excluded, women (Mary, Elizabeth, Anna, Jesus' female disciples), Samaritans and Gentiles, repentant sinners. The Holy Spirit appears with unusual frequency even before Pentecost. Jesus' prayer is a recurring theme at decisive moments. Joy permeates the book, from the angel's announcement to Zechariah to the disciples returning to Jerusalem with great joy.</p>\n<p><strong>Luke's exclusive parables:</strong> Include some of Jesus' most beloved — the Good Samaritan (10:25–37), the Prodigal Son (15:11–32), the Rich Man and Lazarus (16:19–31), the Pharisee and the Tax Collector (18:9–14). Jesus' genealogy traces back to Adam — not just Abraham — emphasizing the universality of salvation. Mary's Magnificat (1:46–55) is one of the most theologically profound hymns on the reversal of kingdom values.</p>",
+  "verse": "\"The Spirit of the <span style=\"font-variant:small-caps\">Lord</span> is upon me, because he has anointed me to proclaim good news to the poor.\" <cite>Luke 4:18 — ESV</cite>",
+  "translation": "ESV",
+  "order": 42,
+  "category": "eva",
+  "cellAbbr": "Lc"
+}

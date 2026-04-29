@@ -1,0 +1,29 @@
+{
+  "id": "jd",
+  "num": "Livro 65 · Novo Testamento",
+  "title": "Jude",
+  "abbr": "Jude · General Epistles",
+  "author": "Judas, irmão do Senhor",
+  "chars": [
+    "Jude",
+    "Michael",
+    "Enoch",
+    "Moses",
+    "Cain",
+    "Balaam"
+  ],
+  "tags": [
+    "Contend for the Faith",
+    "False Teachers",
+    "Apocryphal Literature",
+    "Mercy",
+    "Apostasy",
+    "Doxology"
+  ],
+  "body": "<p><strong>Context:</strong> Jude — written by Jude, brother of James and therefore brother of the Lord (~60–80 AD) — is one of the most vigorous and militant writings in the NT. In just 25 verses, Jude exhorts believers to \"contend for the faith that was once for all delivered to the saints\" (v.3) against \"certain people\" who crept into the community promoting licentiousness and denying the lordship of Christ.</p>\n<p><strong>OT and apocryphal examples:</strong> Jude uses OT examples in an unusual way — angels who did not keep their position, Sodom and Gomorrah, Cain, Balaam, Korah — and two references to apocryphal texts: the dispute of Michael with Satan over Moses' body (from the \"Assumption of Moses\") and the explicit citation of the Book of Enoch (vv.14–15). Jude does not hesitate to use extra-biblical sources when they confirm revealed truth — an example of hermeneutical pragmatism.</p>\n<p><strong>The fight-mercy balance (vv.20–23):</strong> After the call to fight, Jude balances with an appeal to pastoral care: \"have mercy on those who doubt; save others by snatching them out of the fire; to others show mercy with fear.\" The closing doxology (vv.24–25) is one of the most beautiful in the NT: \"Now to him who is able to keep you from stumbling and to present you blameless before the presence of his glory with great joy...\"</p>",
+  "verse": "\"Contend for the faith that was once for all delivered to the saints.\" <cite>Jude 3 — ESV</cite>",
+  "translation": "ESV",
+  "order": 65,
+  "category": "ger",
+  "cellAbbr": "Jd"
+}

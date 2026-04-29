@@ -1,0 +1,29 @@
+{
+  "id": "fp",
+  "num": "Livro 50 · Novo Testamento",
+  "title": "Philippians",
+  "abbr": "Phil · Pauline Epistles",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paul",
+    "Timothy",
+    "Epaphroditus",
+    "Clement",
+    "Euodia",
+    "Syntyche"
+  ],
+  "tags": [
+    "Joy",
+    "Humility",
+    "Kenosis",
+    "Contentment",
+    "Christ Supreme",
+    "Prison"
+  ],
+  "body": "<p><strong>Context:</strong> Philippians is the most personal and affectionate of Paul's letters — \"the epistle of joy.\" Written from prison (~60–62 AD) for the Church at Philippi — his first in Europe, founded through a nighttime vision (Acts 16) and an earthquake that freed Paul and converted the jailer. The word \"joy\" or \"rejoice\" appears 16 times in just 4 chapters. That Paul writes about joy while imprisoned is itself a theological proclamation.</p>\n<p><strong>The Kenosis hymn (ch. 2):</strong> The Carmen Christi (2:6–11) is the most famous Christological hymn in the NT: Christ, being in the \"form of God\" (<em>morphe theou</em>), emptied himself (<em>kenosis</em>) — not of his divinity, but of his divine prerogatives — took the form of a servant, humbled himself to death on the cross, and therefore God exalted him and gave him the name above every name. It is one of the most profound declarations of the Incarnation and Exaltation in the Bible.</p>\n<p><strong>The learned contentment (ch. 4):</strong> Paul does not say contentment is a gift — he says it is a learned skill: \"I have learned in whatever situation I am to be content\" (4:11). The secret is verse 13: \"I can do all things through him who strengthens me\" — not a promise of magical power, but a declaration of sufficiency in Christ in any circumstance.</p>",
+  "verse": "\"I can do all things through him who strengthens me.\" <cite>Philippians 4:13 — ESV</cite>",
+  "translation": "ESV",
+  "order": 50,
+  "category": "pau",
+  "cellAbbr": "Fp"
+}

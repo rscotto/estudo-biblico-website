@@ -1,0 +1,29 @@
+{
+  "id": "cl",
+  "num": "Livro 51 · Novo Testamento",
+  "title": "Colossenses",
+  "abbr": "Cl · Epístolas Paulinas",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paulo",
+    "Tíquico",
+    "Onésimo",
+    "Epafras",
+    "Marcos",
+    "Lucas"
+  ],
+  "tags": [
+    "Supremacia de Cristo",
+    "Falsa Filosofia",
+    "Cosmos",
+    "Cabeça da Igreja",
+    "Vida Prática",
+    "Colossenses"
+  ],
+  "body": "<p><strong>Contexto:</strong> Colossenses foi escrita da prisão de Paulo (~60–62 d.C.) para a Igreja em Colossos — cidade da Frígia que Paulo provavelmente não visitou pessoalmente. A carta responde a uma \"filosofia\" sincretista que mesclava judaísmo, elementos proto-gnósticos, culto a anjos e práticas ascéticas, ameaçando reduzir Cristo a um mediador entre outros.</p>\n<p><strong>O hino cristológico (1.15–20):</strong> Talvez o texto mais elevado sobre a supremacia cósmica de Cristo no NT: \"Ele é a imagem do Deus invisível, o primogênito de toda a criação; pois nele foram criadas todas as coisas... todas as coisas foram criadas por ele e para ele; ele é antes de tudo, e nele tudo subsiste.\" Cristo não é um mediador entre Deus e o cosmos — ele é o criador e sustentador do cosmos. A \"plenitude\" (<em>pleroma</em>) divina habita nele corporalmente (2.9).</p>\n<p><strong>A polêmica filosófica (cap. 2) e a ética (caps. 3–4):</strong> \"Vejam que ninguém os escravize por meio de filosofia e de vãs sutilezas\" (2.8) — não anti-intelectualismo, mas desmascaramento de especulação que não é \"segundo Cristo.\" Em Cristo estão todos os tesouros da sabedoria e do conhecimento (2.3). A aplicação prática inclui a visão transformadora de toda a vida: \"tudo o que fizerdes... fazei-o de todo o coração como para o Senhor\" (3.23).</p>",
+  "verse": "\"Nele estão escondidos todos os tesouros da sabedoria e do conhecimento.\" <cite>Colossenses 2.3 — NAA</cite>",
+  "translation": "NAA",
+  "order": 51,
+  "category": "pau",
+  "cellAbbr": "Cl"
+}

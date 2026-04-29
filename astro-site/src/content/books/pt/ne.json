@@ -1,0 +1,28 @@
+{
+  "id": "ne",
+  "num": "Livro 16 · Antigo Testamento",
+  "title": "Neemias",
+  "abbr": "Ne · Históricos",
+  "author": "Neemias (com edição de Esdras)",
+  "chars": [
+    "Neemias",
+    "Esdras",
+    "Sambalate",
+    "Tobias",
+    "Artaxerxes"
+  ],
+  "tags": [
+    "Muro de Jerusalém",
+    "Liderança Servidora",
+    "Avivamento",
+    "Esdras",
+    "Reforma",
+    "Oração"
+  ],
+  "body": "<p><strong>Contexto:</strong> Neemias era copeiro do rei persa Artaxerxes I — uma posição de confiança e influência na corte. Ao receber notícias de Jerusalém destruída, chora, jejua e ora por dias (cap. 1) antes de pedir ao rei permissão para reconstruir os muros. Sua missão (444 a.C.) é a terceira fase do retorno pós-exílico.</p>\n<p><strong>Reconstrução e liderança:</strong> Os muros de Jerusalém são reconstruídos em apenas 52 dias (cap. 6), apesar da oposição intensa de Sambalate, Tobias e Gesém. Neemias demonstra liderança exemplar: trabalha junto com o povo, arma os construtores para a defesa, e recusa os encontros armadilha dos inimigos. Sua resposta clássica à ameaça: \"Estamos fazendo uma grande obra e não podemos descer\" (6.3).</p>\n<p><strong>O avivamento:</strong> Os capítulos 8–10 descrevem uma das maiores cenas de renovação espiritual do AT: Esdras lê a Torá por horas diante do povo reunido, os levitas explicam o texto em vernáculo, e o povo chora de contrição antes de ser encorajado: \"A alegria do Senhor é a vossa força\" (8.10). A alegria, aqui, não nega o lamento — ela é a resposta ao perdão divino celebrado no contexto de arrependimento genuíno.</p>",
+  "verse": "\"A alegria do <span style=\"font-variant:small-caps\">Senhor</span> é a força de vocês.\" <cite>Neemias 8.10 — NAA</cite>",
+  "translation": "NAA",
+  "order": 16,
+  "category": "his",
+  "cellAbbr": "Ne"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "nm",
+  "num": "Livro 4 · Antigo Testamento",
+  "title": "Numbers",
+  "abbr": "Nm · Pentateuch · Law",
+  "author": "Moisés",
+  "chars": [
+    "Moses",
+    "Aaron",
+    "Miriam",
+    "Caleb",
+    "Joshua",
+    "Balaam",
+    "Phinehas"
+  ],
+  "tags": [
+    "Wilderness",
+    "Rebellion",
+    "Wandering",
+    "Census",
+    "Balaam",
+    "Testing"
+  ],
+  "body": "<p><strong>Context:</strong> Numbers (Hebrew <em>Bamidbar</em> — \"in the wilderness\") narrates Israel's forty years between Sinai and the plains of Moab. The title refers to the two military censuses (chs. 1–2 and 26) that frame the book, but the central content is the journey of faith and failure in the desert.</p>\n<p><strong>Narrative:</strong> The central section (chs. 10–25) is dominated by rebellion: complaints about food, against Moses and Aaron's leadership, and the decisive moment — the refusal to enter Canaan after the spies' negative report (ch. 14). This sin condemns the entire exodus generation to die in the desert. The episode of the bronze serpent (21:4–9), in which a bitten Israelite looked at the bronze and was healed, is interpreted by Jesus as a foreshadowing of the Cross (John 3:14).</p>\n<p>Chapters 22–24 contain the Balaam narrative — a gentile prophet hired to curse Israel who, against his will, pronounces only blessings and announces a \"star out of Jacob.\" Paul uses Israel's desert failures as typological warnings for the Church (1 Cor 10:1–13).</p>",
+  "verse": "\"The <span style=\"font-variant:small-caps\">Lord</span> bless you and keep you; the <span style=\"font-variant:small-caps\">Lord</span> make his face shine on you.\" <cite>Numbers 6:24–25 — ESV</cite>",
+  "translation": "ESV",
+  "order": 4,
+  "category": "pen",
+  "cellAbbr": "Nm"
+}

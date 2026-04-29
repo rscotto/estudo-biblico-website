@@ -1,0 +1,28 @@
+{
+  "id": "mc",
+  "num": "Livro 41 · Novo Testamento",
+  "title": "Marcos",
+  "abbr": "Mc · Evangelhos",
+  "author": "João Marcos (discípulo de Pedro)",
+  "chars": [
+    "Jesus",
+    "Pedro",
+    "João Batista",
+    "Pilatos",
+    "Maria Madalena"
+  ],
+  "tags": [
+    "Servo",
+    "Urgência",
+    "Euthys",
+    "Segredo Messiânico",
+    "Cruz",
+    "Ação"
+  ],
+  "body": "<p><strong>Contexto:</strong> Marcos é o mais curto e dinâmico dos quatro Evangelhos — provavelmente o primeiro a ser escrito (55–65 d.C.) e a fonte primária de Mateus e Lucas. A tradição associa Marcos ao apóstolo Pedro, cujas memórias diretas e vívidas estão por trás do relato. A palavra grega <em>euthys</em> (\"imediatamente\", \"logo\") aparece mais de 40 vezes, criando ritmo de urgência narrativa.</p>\n<p><strong>Jesus como Servo Sofredor:</strong> O versículo-chave é 10.45: \"o Filho do Homem veio para servir e dar a sua vida em resgate de muitos.\" Marcos apresenta Jesus primariamente como aquele que age — milagre após milagre, exorcismo após exorcismo — antes de falar extensivamente. O chamado \"segredo messiânico\" (Jesus que proíbe que se divulgue sua identidade) cria tensão dramática que culmina na confissão de Pedro: \"Tu és o Cristo\" (8.29) — ponto médio e pivô de todo o livro.</p>\n<p><strong>A Paixão:</strong> Os capítulos 14–16 constituem quase 40% do Evangelho, confirmando que Marcos é fundamentalmente uma \"narrativa da Paixão com um prólogo extenso.\" O final abrupto do manuscrito mais antigo (16.8 — \"nada disseram a ninguém, pois tinham medo\") é literariamente desconcertante e teologicamente provocador: convida o leitor a ser ele mesmo a continuação da história de Jesus.</p>",
+  "verse": "\"Pois o Filho do Homem também não veio para ser servido, mas para servir e dar a sua vida em resgate de muitos.\" <cite>Marcos 10.45 — NAA</cite>",
+  "translation": "NAA",
+  "order": 41,
+  "category": "eva",
+  "cellAbbr": "Mc"
+}

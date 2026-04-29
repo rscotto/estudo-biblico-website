@@ -1,0 +1,2 @@
+# Root redirect handled by index.astro JS, but fallback for no-JS:
+/  /pt  302

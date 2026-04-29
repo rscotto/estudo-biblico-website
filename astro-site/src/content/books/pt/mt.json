@@ -1,0 +1,30 @@
+{
+  "id": "mt",
+  "num": "Livro 40 · Novo Testamento",
+  "title": "Mateus",
+  "abbr": "Mt · Evangelhos",
+  "author": "Mateus (apóstolo, cobrador de impostos)",
+  "chars": [
+    "Jesus",
+    "Pedro",
+    "João Batista",
+    "Maria",
+    "José",
+    "Herodes",
+    "Pilatos"
+  ],
+  "tags": [
+    "Messias de Israel",
+    "Sermão do Monte",
+    "Reino dos Céus",
+    "Cinco Discursos",
+    "Lei Cumprida",
+    "Grande Comissão"
+  ],
+  "body": "<p><strong>Contexto:</strong> O Evangelho de Mateus foi escrito para uma audiência predominantemente judaica e apresenta Jesus como o cumprimento de toda a história e esperança de Israel — o Messias, o novo Moisés, o filho de Davi, o Emanuel. A abertura com a genealogia de Abraão a Jesus e as citações explícitas de cumprimento (\"para que se cumprisse o que foi dito pelo profeta...\") estruturam Jesus dentro da narrativa do AT.</p>\n<p><strong>Os cinco discursos:</strong> A estrutura literária mais característica de Mateus são os cinco grandes discursos de Jesus, paralelos aos cinco livros de Moisés: o Sermão do Monte (caps. 5–7), o Discurso Missionário (cap. 10), as Parábolas do Reino (cap. 13), o Discurso sobre a Igreja (cap. 18) e o Discurso Escatológico (caps. 24–25).</p>\n<p><strong>O Sermão do Monte:</strong> Os capítulos 5–7 são o ensinamento ético mais extenso e sistemático de Jesus. As Bem-aventuranças (5.3–12) subvertem os valores do mundo. As antíteses — \"Ouvistes que foi dito... mas eu vos digo...\" — revelam a autoridade messiânica que aprofunda a Lei, não a abole. A Grande Comissão (28.18–20), com o mandato universal de fazer discípulos de todas as nações, encerra o livro com a missão que define a Igreja até o fim dos tempos.</p>",
+  "verse": "\"Portanto, vão e façam discípulos de todas as nações, batizando-os em nome do Pai e do Filho e do Espírito Santo.\" <cite>Mateus 28.19 — NAA</cite>",
+  "translation": "NAA",
+  "order": 40,
+  "category": "eva",
+  "cellAbbr": "Mt"
+}

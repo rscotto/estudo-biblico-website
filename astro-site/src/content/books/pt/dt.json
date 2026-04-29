@@ -1,0 +1,26 @@
+{
+  "id": "dt",
+  "num": "Livro 5 · Antigo Testamento",
+  "title": "Deuteronômio",
+  "abbr": "Dt · Pentateuco · Lei",
+  "author": "Moisés",
+  "chars": [
+    "Moisés",
+    "Josué",
+    "Calebe"
+  ],
+  "tags": [
+    "Segunda Lei",
+    "Shemá",
+    "Aliança",
+    "Moisés",
+    "Bênçãos e Maldições",
+    "Grande Mandamento"
+  ],
+  "body": "<p><strong>Contexto:</strong> Deuteronômio (grego: \"segunda lei\") registra os discursos de despedida de Moisés nas planícies de Moabe, pouco antes de sua morte e da entrada em Canaã. Estruturado como um tratado de suserania hitita do segundo milênio a.C. — prólogo histórico, estipulações, bênçãos e maldições, disposição do documento —, o livro é a renovação solene da aliança sinaítica para a nova geração.</p>\n<p><strong>Teologia:</strong> O coração do livro é o <em>Shemá Yisrael</em> (6.4–9): \"Ouça, ó Israel, o Senhor nosso Deus é o único Senhor. Amarás o Senhor teu Deus de todo o coração, de toda a tua alma e de toda a tua força\" — que Jesus citou como o maior mandamento (Mc 12.29–30). O amor (<em>ahavah</em>) a Deus não é mero sentimento mas lealdade de aliança que permeia toda a existência.</p>\n<p>Os capítulos 27–30 apresentam as bênçãos e maldições condicionais à obediência ou apostasia. Os capítulos 31–34 narram a transferência da liderança para Josué e a morte de Moisés no Monte Nebo — que avistou a terra prometida mas não entrou. Jesus citou Deuteronômio nas três tentações no deserto (Mt 4), revelando sua centralidade na espiritualidade bíblica.</p>",
+  "verse": "\"Você amará o <span style=\"font-variant:small-caps\">Senhor</span>, o seu Deus, de todo o coração, com toda a sua alma e com toda a sua força.\" <cite>Deuteronômio 6.5 — NAA</cite>",
+  "translation": "NAA",
+  "order": 5,
+  "category": "pen",
+  "cellAbbr": "Dt"
+}

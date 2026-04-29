@@ -1,0 +1,29 @@
+{
+  "id": "joe",
+  "num": "Livro 43 · Novo Testamento",
+  "title": "João",
+  "abbr": "Jo · Evangelhos",
+  "author": "João Apóstolo, filho de Zebedeu",
+  "chars": [
+    "Jesus",
+    "Maria Madalena",
+    "Nicodemos",
+    "Lázaro",
+    "Tomé",
+    "Pilatos"
+  ],
+  "tags": [
+    "Logos",
+    "Encarnação",
+    "EU SOU",
+    "Sinais",
+    "Amor",
+    "Divindade de Cristo"
+  ],
+  "body": "<p><strong>Contexto:</strong> O Quarto Evangelho — atribuído ao apóstolo João — é teologica e literariamente diferente dos sinóticos (Mateus, Marcos, Lucas). Escrito por último (~90–100 d.C.), é o mais contemplativo e teológico, estruturado em torno de sinais selecionados e longos diálogos/discursos que revelam progressivamente a identidade divina de Jesus.</p>\n<p><strong>O prólogo (Jo 1.1–18):</strong> A abertura mais teologicamente densa da Bíblia. \"No princípio era o Verbo (<em>Logos</em>), e o Verbo estava com Deus, e o Verbo era Deus.\" O Logos pré-existente, agente da criação, encarnou-se na história humana — a doutrina da Encarnação em sua formulação mais explícita e mais filosófica. A estrutura do livro: o \"Livro dos Sinais\" (caps. 1–12) com sete sinais selecionados; e o \"Livro da Glória\" (caps. 13–21) com os discursos do Cenáculo e a Paixão-Ressurreição.</p>\n<p><strong>Os sete \"EU SOU\":</strong> Declarações de identidade divina que ecoam o nome de Deus no AT (Êx 3.14): \"Eu sou o pão da vida\" (6.35), \"a luz do mundo\" (8.12), \"a porta\" (10.9), \"o bom pastor\" (10.11), \"a ressurreição e a vida\" (11.25), \"o caminho, a verdade e a vida\" (14.6), \"a videira verdadeira\" (15.1). João 3.16 é provavelmente o versículo mais memorizado do mundo.</p>",
+  "verse": "\"Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.\" <cite>João 3.16 — NAA</cite>",
+  "translation": "NAA",
+  "order": 43,
+  "category": "eva",
+  "cellAbbr": "Jo"
+}

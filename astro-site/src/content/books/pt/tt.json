@@ -1,0 +1,29 @@
+{
+  "id": "tt",
+  "num": "Livro 56 · Novo Testamento",
+  "title": "Tito",
+  "abbr": "Tt · Epístolas Paulinas",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paulo",
+    "Tito",
+    "Zenas",
+    "Apolo",
+    "Artemas",
+    "Tíquico"
+  ],
+  "tags": [
+    "Creta",
+    "Liderança",
+    "Graça",
+    "Boas Obras",
+    "Sã Doutrina",
+    "Contexto Cultural"
+  ],
+  "body": "<p><strong>Contexto:</strong> Tito é a segunda Epístola Pastoral, dirigida a Tito — colaborador grego de Paulo deixado em Creta para organizar as igrejas da ilha (~62–65 d.C.). É a mais breve das três pastorais (apenas 3 capítulos) mas densa em conteúdo prático e teológico.</p>\n<p><strong>O desafio cretense:</strong> Paulo cita um poeta cretense — \"os cretenses sempre mentirosos, bestas ruins, ventres preguiçosos\" (1.12) — não como insulto racista, mas para ilustrar o desafio da inculturação do evangelho em ambientes moralmente difíceis. A carta trata de qualificações de presbíteros (cap. 1), instrução para diferentes grupos na comunidade (idosos, jovens, mulheres, escravos — cap. 2), e a relação entre graça e boas obras (caps. 2–3).</p>\n<p><strong>A passagem teológica central (2.11–14):</strong> \"A graça de Deus se manifestou trazendo salvação a todos os homens, ensinando-nos a renunciar à impiedade e às paixões mundanas... aguardando a bem-aventurada esperança e a manifestação da glória do nosso grande Deus e Salvador Jesus Cristo.\" Esta é uma das declarações mais explícitas da divindade de Jesus no corpus paulino. A tensão bíblica entre salvação pela graça e vida em boas obras é perfeitamente equilibrada em Tito.</p>",
+  "verse": "\"Pois a graça de Deus foi manifestada para a salvação de todos os homens, ensinando-nos a renunciar à impiedade e às paixões mundanas.\" <cite>Tito 2.11–12 — NAA</cite>",
+  "translation": "NAA",
+  "order": 56,
+  "category": "pau",
+  "cellAbbr": "Tt"
+}

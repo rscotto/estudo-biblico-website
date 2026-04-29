@@ -1,0 +1,29 @@
+{
+  "id": "gl",
+  "num": "Livro 48 · Novo Testamento",
+  "title": "Galatians",
+  "abbr": "Gal · Pauline Epistles",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paul",
+    "Peter",
+    "Barnabas",
+    "Titus",
+    "Abraham",
+    "Hagar"
+  ],
+  "tags": [
+    "Christian Freedom",
+    "Justification",
+    "Works of the Law",
+    "Grace",
+    "Fruit of the Spirit",
+    "Reformation"
+  ],
+  "body": "<p><strong>Context:</strong> Galatians is the \"Magna Carta of Christian freedom\" — one of Paul's most passionate and urgent writings. Written to the churches of Galatia (~48–55 AD), it responds to an acute crisis: \"Judaizers\" had arrived after Paul teaching that converted Gentiles must be circumcised and keep the Law of Moses to be fully saved.</p>\n<p><strong>The confrontation:</strong> Paul begins without greetings — he goes straight to the point: \"I am astonished that you are so quickly deserting\" (1:6). The letter includes the narrative of the direct confrontation with Peter in Antioch (ch. 2) — a scene of extraordinary apostolic frankness that Paul narrates publicly. Justification by faith alone is affirmed with full force: \"a person is not justified by works of the law but through faith in Jesus Christ\" (2:16).</p>\n<p><strong>Theology of freedom:</strong> Chapter 3 uses Abraham to demonstrate that faith was always the principle of justification — the Law was added later as a \"guardian\" until Christ (3:24). Chapter 4 uses the allegory of Hagar and Sarah — slavery vs. freedom. Chapter 5 celebrates: \"For freedom Christ has set us free\" — freedom that is not license but service through love. The fruit of the Spirit (5:22–23) is the counterpoint to the works of the flesh.</p>",
+  "verse": "\"For freedom Christ has set us free; stand firm therefore, and do not submit again to a yoke of slavery.\" <cite>Galatians 5:1 — ESV</cite>",
+  "translation": "ESV",
+  "order": 48,
+  "category": "pau",
+  "cellAbbr": "Gl"
+}

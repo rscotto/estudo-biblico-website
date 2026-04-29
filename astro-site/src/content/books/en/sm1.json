@@ -1,0 +1,30 @@
+{
+  "id": "sm1",
+  "num": "Livro 9 · Antigo Testamento",
+  "title": "1 Samuel",
+  "abbr": "1Sam · Historical",
+  "author": "Samuel, Natã e Gade (compilação profética)",
+  "chars": [
+    "Samuel",
+    "Saul",
+    "David",
+    "Hannah",
+    "Eli",
+    "Goliath",
+    "Jonathan"
+  ],
+  "tags": [
+    "Monarchy",
+    "Samuel",
+    "Saul",
+    "David",
+    "Spirit of the Lord",
+    "Anointed"
+  ],
+  "body": "<p><strong>Context:</strong> 1 Samuel narrates Israel's transition from the charismatic period of the judges to institutionalized monarchy. Three characters dominate the book: <strong>Samuel</strong> (last judge, first writing prophet, who bridges the two eras), <strong>Saul</strong> (the first king, tragically rejected), and <strong>David</strong> (the young anointed man who waits for God's timing).</p>\n<p><strong>Samuel:</strong> Son of Hannah — a barren woman whose fervent prayer is answered miraculously (chs. 1–2; echoed in Elizabeth and Mary in the NT). Samuel's nighttime call (ch. 3) establishes the prophetic pattern: God speaks to the young man \"before the word of the Lord had been revealed to him.\" The Ark of the Covenant returns from Philistine captivity (chs. 4–7).</p>\n<p><strong>Saul and David:</strong> Saul is chosen at the people's request to be \"like all the nations\" — itself a sign of distrust in God. His rejection comes through partial disobedience to the divine command (chs. 13; 15). The contrast with David is theological: \"man looks on the outward appearance, but the Lord looks on the heart\" (16:7). The David and Goliath narrative (ch. 17) is a paradigm of faith facing the impossible by trusting in the Lord's name, not the weapons of the world.</p>",
+  "verse": "\"For the <span style=\"font-variant:small-caps\">Lord</span> sees not as man sees: man looks on the outward appearance, but the <span style=\"font-variant:small-caps\">Lord</span> looks on the heart.\" <cite>1 Samuel 16:7 — ESV</cite>",
+  "translation": "ESV",
+  "order": 9,
+  "category": "his",
+  "cellAbbr": "1Sm"
+}

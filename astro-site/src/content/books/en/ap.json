@@ -1,0 +1,29 @@
+{
+  "id": "ap",
+  "num": "Livro 66 · Novo Testamento",
+  "title": "Revelation",
+  "abbr": "Rev · NT Prophetic",
+  "author": "João Apóstolo (exilado em Patmos)",
+  "chars": [
+    "John",
+    "Jesus",
+    "Michael",
+    "The Beast",
+    "The Dragon",
+    "Bride of the Lamb"
+  ],
+  "tags": [
+    "Visions",
+    "Lamb",
+    "New Creation",
+    "Beast",
+    "Seven Churches",
+    "Final Victory"
+  ],
+  "body": "<p><strong>Context:</strong> Revelation (<em>apokalypsis</em> — \"unveiling, disclosure\") is the most debated and most fascinating book in the Bible. Written by John (~95 AD) when exiled on the island of Patmos during the persecution of Emperor Domitian, it is a prophetic letter of comfort and encouragement for churches under intense imperial pressure. It is not primarily a calendar of future events to decode — it is a revelation of the heavenly reality governing the earthly one.</p>\n<p><strong>Genre and interpretation:</strong> Apocalypse is a specific literary genre of Antiquity — symbolic vision literature that reveals spiritual realities behind historical ones. The beasts, dragons, numbers, and colors must be interpreted symbolically, not literally. The \"Beast\" is the Roman imperial power (and its imitations in every era) that demands absolute worship. The \"Lamb\" — an image appearing 28 times — is the crucified and risen Christ, the true Lord of the cosmos.</p>\n<p><strong>Structure and climax:</strong> The book traverses the letters to the seven churches (chs. 2–3), the vision of the heavenly throne and the Lamb opening the seals (chs. 4–7), the trumpets (chs. 8–11), the cosmic conflict (chs. 12–14), the bowls (chs. 15–16), the fall of \"Babylon\"/Rome (chs. 17–18), the Lamb's victory, the millennium, the final judgment (chs. 19–20), and the New Jerusalem (chs. 21–22). The climax of the entire Bible: \"Behold, I am making all things new\" (21:5) — God dwelling with his renewed creation, without death, mourning, or pain. The lost Eden becomes a City.</p>",
+  "verse": "\"Behold, I am making all things new... I am the Alpha and the Omega, the beginning and the end.\" <cite>Revelation 21:5–6 — ESV</cite>",
+  "translation": "ESV",
+  "order": 66,
+  "category": "apo",
+  "cellAbbr": "Ap"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "gn",
+  "num": "Livro 1 · Antigo Testamento",
+  "title": "Gênesis",
+  "abbr": "Gn · Pentateuco · Lei",
+  "author": "Moisés (tradição mosaica)",
+  "chars": [
+    "Adão",
+    "Eva",
+    "Noé",
+    "Abraão",
+    "Sara",
+    "Isaque",
+    "Jacó",
+    "José"
+  ],
+  "tags": [
+    "Criação",
+    "Queda",
+    "Aliança",
+    "Patriarcas",
+    "Providência",
+    "Tipologia"
+  ],
+  "body": "<p><strong>Contexto:</strong> Gênesis (hebraico <em>Bereshit</em> — \"no princípio\") é o livro das origens: da criação, da humanidade, do pecado e do povo de Israel. Atribuído a Moisés, provavelmente composto a partir de tradições orais e escritas anteriores, serve de fundamento a toda a teologia bíblica subsequente.</p>\n<p><strong>Estrutura e conteúdo:</strong> Os capítulos 1–11 formam a \"história primeva\": criação em seis dias, queda de Adão e Eva no Éden, assassinato de Abel por Caim, o dilúvio e Noé, a Torre de Babel. São narrativas de caráter universal — cosmogônico e etiológico — que explicam a condição humana fraturada e a distância entre o Criador e a criatura. Contrastam deliberadamente com o politeísmo dos mitos mesopotâmicos (<em>Enuma Elish</em>, Épico de Gilgamesh).</p>\n<p>A partir do capítulo 12, a narrativa estreita para a história patriarcal: a chamada de Abrão e as três promessas divinas — terra, descendência numerosa e bênção a todas as nações (12.1–3). Segue-se Isaque, Jacó (renomeado Israel), e os doze filhos que originarão as tribos. O livro encerra com a saga de José — traído, vendido como escravo e elevado a vice-rei do Egito — paradigma da providência divina que transforma o mal em bem.</p>\n<p><strong>Teologia central:</strong> Gênesis estabelece a aliança (<em>berith</em>), o monoteísmo criador e o ser humano como <em>imago Dei</em> (1.26–27). A promessa de 3.15 — a \"semente da mulher\" que esmagará a cabeça da serpente — é considerada pela tradição cristã a primeira profecia messiânica (<em>protoevangelium</em>).</p>",
+  "verse": "\"No princípio, Deus criou os céus e a terra.\" <cite>Gênesis 1.1 — NAA</cite>",
+  "translation": "NAA",
+  "order": 1,
+  "category": "pen",
+  "cellAbbr": "Gn"
+}

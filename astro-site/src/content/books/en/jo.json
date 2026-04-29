@@ -1,0 +1,29 @@
+{
+  "id": "jo",
+  "num": "Livro 18 · Antigo Testamento",
+  "title": "Job",
+  "abbr": "Job · Poetic · Wisdom",
+  "author": "Anônimo (possivelmente Jó, Moisés ou Salomão)",
+  "chars": [
+    "Job",
+    "Eliphaz",
+    "Bildad",
+    "Zophar",
+    "Elihu",
+    "Satan"
+  ],
+  "tags": [
+    "Suffering",
+    "Theodicy",
+    "Wisdom",
+    "Lament",
+    "Theophany",
+    "Restoration"
+  ],
+  "body": "<p><strong>Context:</strong> Job is one of the most literarily sophisticated and philosophically profound books in the Bible. Its central theme is theodicy — the question of the suffering of the righteous. The book opens with a prose prologue (chs. 1–2) that reveals to the reader what Job will never know: a heavenly debate in which Satan questions whether Job's piety is self-interested.</p>\n<p><strong>The dialogues:</strong> The body of the book (chs. 3–37) is poetry of extraordinary quality. Job laments his condition in language of great intensity. His three friends — Eliphaz, Bildad, and Zophar — represent the orthodox theology of retribution: you suffer because you sinned. Job refuses this simplistic framework and demands an audience with God. Elihu (chs. 32–37) adds the dimension of educative suffering.</p>\n<p><strong>The theophany and the answer:</strong> God answers from the whirlwind (chs. 38–41) not with explanations but with questions about creation: \"Where were you when I laid the foundation of the earth?\" The divine response does not resolve the question — it transcends it through the experience of presence. Job submits and is restored. But the climax is not the restoration — it is the encounter. The friends are rebuked for speaking wrongly about God; Job, who cried out with honesty, is vindicated.</p>",
+  "verse": "\"For I know that my Redeemer lives, and at the last he will stand upon the earth.\" <cite>Job 19:25 — ESV</cite>",
+  "translation": "ESV",
+  "order": 18,
+  "category": "poe",
+  "cellAbbr": "Jó"
+}

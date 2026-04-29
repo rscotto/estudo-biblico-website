@@ -1,0 +1,29 @@
+{
+  "id": "ef",
+  "num": "Livro 49 · Novo Testamento",
+  "title": "Efésios",
+  "abbr": "Ef · Epístolas Paulinas",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paulo",
+    "Tíquico",
+    "Priscila",
+    "Áquila",
+    "Trifena",
+    "Trifosa"
+  ],
+  "tags": [
+    "Igreja",
+    "Eleição",
+    "Novo Homem",
+    "Armadura de Deus",
+    "Unidade",
+    "Plano Eterno"
+  ],
+  "body": "<p><strong>Contexto:</strong> Efésios — provavelmente uma circular enviada a várias igrejas da Ásia Menor (~60–62 d.C., durante a prisão de Paulo em Roma) — é uma das mais grandiosas reflexões teológicas sobre a Igreja e o plano eterno de Deus no NT. O livro divide-se claramente em duas metades: teologia (caps. 1–3) e ética (caps. 4–6).</p>\n<p><strong>O plano eterno (caps. 1–3):</strong> Um hino prolongado à glória do propósito divino desde a eternidade: eleição em Cristo antes da fundação do mundo (1.4), adoção como filhos, redenção pelo sangue, selagem pelo Espírito. O capítulo 2 contém a formulação mais clara da graça soberana: \"Pela graça sois salvos, mediante a fé; e isto não vem de vós; é dom de Deus; não de obras, para que ninguém se glorie\" (2.8–9). A criação de \"um só novo homem\" — judeu e gentio reconciliados em Cristo — é o mistério que era oculto e agora é revelado.</p>\n<p><strong>Ética e guerra espiritual (caps. 4–6):</strong> A unidade da Igreja baseada nos \"sete uns\" (4.4–6), os relacionamentos transformados (5–6: marido-esposa, pais-filhos, amos-servos), e a \"Armadura de Deus\" (6.10–18) — imagem militar da guerra espiritual que usa peças da armadura romana como metáforas das virtudes cristãs.</p>",
+  "verse": "\"Pois vocês são salvos pela graça, mediante a fé, e isso não vem de vocês; é dom de Deus.\" <cite>Efésios 2.8 — NAA</cite>",
+  "translation": "NAA",
+  "order": 49,
+  "category": "pau",
+  "cellAbbr": "Ef"
+}

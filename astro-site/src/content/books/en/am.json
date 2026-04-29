@@ -1,0 +1,26 @@
+{
+  "id": "am",
+  "num": "Livro 30 · Antigo Testamento",
+  "title": "Amos",
+  "abbr": "Amos · Minor Prophets",
+  "author": "Amós de Tecoa (pastor e agricultor)",
+  "chars": [
+    "Amos",
+    "Jeroboam II",
+    "Amaziah"
+  ],
+  "tags": [
+    "Social Justice",
+    "The Poor",
+    "Judgment",
+    "Empty Worship",
+    "Jerusalem Council",
+    "David"
+  ],
+  "body": "<p><strong>Context:</strong> Amos was a shepherd and sycamore-fig farmer from Tekoa, in Judah — a layman called by God to prophesy to the prosperous northern kingdom (Israel) during the reign of Jeroboam II (8th century BC). He is the Bible's prophet of social justice par excellence.</p>\n<p><strong>Rhetorical strategy:</strong> The book opens with oracles of judgment against Israel's neighboring nations — creating a sense of complicity in the listener applauding the judgment of others — before suddenly turning against Israel and Judah. The accusation is specific and current: material prosperity accompanied by oppression of the poor, corruption of the courts, and pompous religious worship that does not translate into social ethics.</p>\n<p><strong>The most incisive texts:</strong> \"I hate, I despise your feasts... But let justice roll down like waters, and righteousness like an ever-flowing stream\" (5:21–24) — quoted by Martin Luther King in Washington, 1963. \"You who turn justice to wormwood\" (6:12). Chapter 9 closes with the promise of restoration of \"the fallen booth of David\" — a text cited by James at the Jerusalem Council (Acts 15:16–17) as the foundation for opening the mission to the Gentiles.</p>",
+  "verse": "\"But let justice roll down like waters, and righteousness like an ever-flowing stream.\" <cite>Amos 5:24 — ESV</cite>",
+  "translation": "ESV",
+  "order": 30,
+  "category": "men",
+  "cellAbbr": "Am"
+}

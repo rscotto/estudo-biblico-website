@@ -1,0 +1,26 @@
+{
+  "id": "dt",
+  "num": "Livro 5 · Antigo Testamento",
+  "title": "Deuteronomy",
+  "abbr": "Dt · Pentateuch · Law",
+  "author": "Moisés",
+  "chars": [
+    "Moses",
+    "Joshua",
+    "Caleb"
+  ],
+  "tags": [
+    "Second Law",
+    "Shema",
+    "Covenant",
+    "Moses",
+    "Blessings and Curses",
+    "Great Commandment"
+  ],
+  "body": "<p><strong>Context:</strong> Deuteronomy (Greek: \"second law\") records Moses' farewell speeches on the plains of Moab, shortly before his death and Israel's entry into Canaan. Structured as a second-millennium Hittite suzerainty treaty — historical prologue, stipulations, blessings and curses, document disposition — the book is the solemn renewal of the Sinai covenant for the new generation.</p>\n<p><strong>Theology:</strong> The heart of the book is the <em>Shema Yisrael</em> (6:4–9): \"Hear, O Israel: The Lord our God, the Lord is one. You shall love the Lord your God with all your heart and with all your soul and with all your might\" — which Jesus quoted as the greatest commandment (Mark 12:29–30). Love (<em>ahavah</em>) for God is not mere feeling but covenant loyalty that permeates all of existence.</p>\n<p>Chapters 27–30 present the conditional blessings and curses tied to obedience or apostasy. Chapters 31–34 narrate the transfer of leadership to Joshua and Moses' death on Mount Nebo — he saw the promised land but did not enter. Jesus quoted Deuteronomy in all three wilderness temptations (Matt 4), revealing its centrality to biblical spirituality.</p>",
+  "verse": "\"You shall love the <span style=\"font-variant:small-caps\">Lord</span> your God with all your heart and with all your soul and with all your might.\" <cite>Deuteronomy 6:5 — ESV</cite>",
+  "translation": "ESV",
+  "order": 5,
+  "category": "pen",
+  "cellAbbr": "Dt"
+}

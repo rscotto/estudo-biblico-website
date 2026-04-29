@@ -1,0 +1,28 @@
+{
+  "id": "et",
+  "num": "Livro 17 · Antigo Testamento",
+  "title": "Ester",
+  "abbr": "Et · Históricos",
+  "author": "Anônimo (possivelmente Mardoqueu ou Esdras)",
+  "chars": [
+    "Ester",
+    "Mardoqueu",
+    "Hamã",
+    "Assuero",
+    "Vasti"
+  ],
+  "tags": [
+    "Providência Oculta",
+    "Diáspora",
+    "Hamã",
+    "Mardoqueu",
+    "Purim",
+    "Coragem"
+  ],
+  "body": "<p><strong>Contexto:</strong> Ester é um dos dois livros canônicos que não mencionam o nome de Deus — o outro é Cantares. Esta ausência é teologicamente deliberada: a narrativa demonstra a providência divina operando nas \"coincidências\" da vida ordinária, sem intervenção miraculosa explícita. Ambientada na corte persa de Susa (século 5 a.C.), conta como Ester, judia na diáspora, torna-se rainha e salva seu povo.</p>\n<p><strong>Estrutura de inversão:</strong> O livro é construído em torno de festins e reviravoltas irônicas. Hamã, o ministro arrogante que planeja exterminar todos os judeus, acaba enforcado na própria forca erguida para Mardoqueu. O decreto de morte torna-se decreto de vitória. A estrutura é quiasmática — o ponto mais baixo reverte para o mais alto com simetria literária perfeita.</p>\n<p><strong>Teologia da providência:</strong> A frase programática de Mardoqueu a Ester — \"Quem sabe se não foi precisamente para uma ocasião como esta que chegaste à posição de rainha?\" (4.14) — é um dos textos mais citados sobre vocação estratégica e providência divina. O livro fundamenta a festa judaica de Purim, celebrada até hoje com alegria e fantasia como memória da libertação improvável.</p>",
+  "verse": "\"Quem sabe se você não chegou à posição de rainha precisamente para um momento como este?\" <cite>Ester 4.14 — NAA</cite>",
+  "translation": "NAA",
+  "order": 17,
+  "category": "his",
+  "cellAbbr": "Et"
+}

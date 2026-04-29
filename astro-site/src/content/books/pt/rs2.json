@@ -1,0 +1,30 @@
+{
+  "id": "rs2",
+  "num": "Livro 12 · Antigo Testamento",
+  "title": "2 Reis",
+  "abbr": "2Rs · Históricos",
+  "author": "Anônimo (escola deuteronomista)",
+  "chars": [
+    "Eliseu",
+    "Elias",
+    "Ezequias",
+    "Josias",
+    "Naamã",
+    "Acabe",
+    "Jeú"
+  ],
+  "tags": [
+    "Queda de Israel",
+    "Queda de Judá",
+    "Exílio Assírio",
+    "Exílio Babilônico",
+    "Eliseu",
+    "Josias"
+  ],
+  "body": "<p><strong>Contexto:</strong> 2 Reis completa a narrativa dos dois reinos e descreve suas quedas definitivas: o reino do Norte (Israel) é destruído pela Assíria em 722 a.C. (cap. 17), e o reino do Sul (Judá) é conquistado pela Babilônia em 586 a.C., com a destruição do Templo de Salomão (cap. 25). São os pontos mais baixos da história de Israel.</p>\n<p><strong>Eliseu:</strong> O livro abre com a ascensão de Eliseu, que herda o manto de Elias. Seus milagres antecipam o ministério de Jesus: multiplicação de alimentos, ressurreição de um menino (cap. 4), cura de Naamã o leproso arameu (cap. 5 — citado por Jesus em Lc 4.27 como exemplo da graça que ultrapassa Israel). A visão dos cavalos de fogo ao redor de Dotã (6.17) revela a realidade espiritual invisível por trás do mundo visível.</p>\n<p><strong>O critério deuteronômico:</strong> Cada rei é avaliado segundo sua fidelidade ao modelo de Davi. Apenas Ezequias e Josias recebem avaliação plenamente positiva. A reforma de Josias (caps. 22–23), desencadeada pela descoberta do Livro da Lei no Templo, representa o último esforço de renovação antes do colapso final. O exílio é apresentado como cumprimento das advertências de Moisés (Dt 28).</p>",
+  "verse": "\"O <span style=\"font-variant:small-caps\">Senhor</span> removeu Israel da sua presença, como havia anunciado por intermédio de todos os seus servos, os profetas.\" <cite>2 Reis 17.23 — NAA</cite>",
+  "translation": "NAA",
+  "order": 12,
+  "category": "his",
+  "cellAbbr": "2Rs"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "rt",
+  "num": "Livro 8 · Antigo Testamento",
+  "title": "Ruth",
+  "abbr": "Ru · Historical",
+  "author": "Anônimo (tradição atribui a Samuel)",
+  "chars": [
+    "Ruth",
+    "Naomi",
+    "Boaz",
+    "Orpah"
+  ],
+  "tags": [
+    "Loyalty",
+    "Hesed",
+    "Redemption",
+    "Kinsman-Redeemer",
+    "Messianic Genealogy",
+    "Boaz"
+  ],
+  "body": "<p><strong>Context:</strong> Ruth is one of the most literarily sophisticated and theologically rich books of the OT — a historical novella of just four chapters set in the days of the judges. It tells the story of Naomi, an Israelite widow who returns from Moab with her daughter-in-law Ruth, a Moabite who chose the God of Israel with her famous declaration of loyalty (1:16–17).</p>\n<p><strong>The central concept — the <em>go'el</em>:</strong> The \"kinsman-redeemer\" bears the obligation to rescue a family member in need — by purchasing property or by marrying the widow to perpetuate the deceased's name (levirate). Boaz, a wealthy relative of Naomi, acts as <em>go'el</em> by marrying Ruth and redeeming the property, restoring both women to dignity and family continuity. Every detail is theologically crafted: providence is visible in the impossibility of the \"coincidences.\"</p>\n<p><strong>Messianic relevance:</strong> The closing genealogy reveals that Ruth and Boaz are great-grandparents of King David — and thus direct ancestors of Jesus (Matt 1:5). Boaz as willing redeemer who pays the price to rescue a foreigner is one of the richest typological images of Christ in the OT. The book also demonstrates that divine grace always transcended Israel's ethnic boundaries.</p>",
+  "verse": "\"Where you die I will die, and there will I be buried. May the <span style=\"font-variant:small-caps\">Lord</span> do so to me and more also if anything but death parts me from you.\" <cite>Ruth 1:17 — ESV</cite>",
+  "translation": "ESV",
+  "order": 8,
+  "category": "his",
+  "cellAbbr": "Rt"
+}

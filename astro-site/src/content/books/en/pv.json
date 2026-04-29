@@ -1,0 +1,26 @@
+{
+  "id": "pv",
+  "num": "Livro 20 · Antigo Testamento",
+  "title": "Proverbs",
+  "abbr": "Prov · Poetic · Wisdom",
+  "author": "Salomão (principal), Agur e Lemuel",
+  "chars": [
+    "Solomon",
+    "Agur",
+    "Lemuel"
+  ],
+  "tags": [
+    "Practical Wisdom",
+    "Fear of the Lord",
+    "Family",
+    "Work",
+    "Language",
+    "Virtuous Woman"
+  ],
+  "body": "<p><strong>Context:</strong> Proverbs is the Bible's par excellence book of practical wisdom. The organizing principle is announced in 1:7 and 9:10: \"The fear of the Lord is the beginning of wisdom.\" Biblical wisdom (<em>chokmah</em>) is not abstract — it is the art of living well in every dimension of existence: work, family, friendship, money, speech, sexuality, and leadership. The relationship with God is the foundation of everything.</p>\n<p><strong>Structure:</strong> Chapters 1–9 are long poems about Wisdom personified as a woman who invites the young to her path — in contrast with the \"forbidden woman\" of seduction. Chapter 8 presents Wisdom as co-creator with God, a text that influenced the reflection on the Logos in John 1. Chapters 10–29 are the large collection of Solomonic proverbs. Chapters 30–31 include \"the words of Agur\" and the acrostic poem of the \"excellent wife\" (31:10–31).</p>\n<p><strong>Hermeneutics:</strong> Proverbs are general principles of life, not absolute promises. They need to be read in the broader context of biblical wisdom that includes Job (the righteous who suffers) and Ecclesiastes (the limitation of human wisdom). Together, the three books form a balanced and realistic theology of wisdom.</p>",
+  "verse": "\"Trust in the <span style=\"font-variant:small-caps\">Lord</span> with all your heart, and do not lean on your own understanding.\" <cite>Proverbs 3:5 — ESV</cite>",
+  "translation": "ESV",
+  "order": 20,
+  "category": "poe",
+  "cellAbbr": "Pv"
+}

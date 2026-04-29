@@ -1,0 +1,30 @@
+{
+  "id": "nm",
+  "num": "Livro 4 · Antigo Testamento",
+  "title": "Números",
+  "abbr": "Nm · Pentateuco · Lei",
+  "author": "Moisés",
+  "chars": [
+    "Moisés",
+    "Arão",
+    "Miriam",
+    "Calebe",
+    "Josué",
+    "Balaão",
+    "Finéias"
+  ],
+  "tags": [
+    "Deserto",
+    "Rebeldia",
+    "Peregrinação",
+    "Censo",
+    "Balaão",
+    "Provação"
+  ],
+  "body": "<p><strong>Contexto:</strong> Números (hebraico <em>Bamidbar</em> — \"no deserto\") narra os quarenta anos de Israel entre o Sinai e as planícies de Moabe. O título refere-se aos dois censos militares (caps. 1–2 e 26) que enquadram o livro, mas o conteúdo central é a jornada de fé e falha no deserto.</p>\n<p><strong>Narrativa:</strong> A parte central (caps. 10–25) é dominada pela rebeldia: queixas contra a comida, a liderança de Moisés e Arão, e o momento decisivo — a recusa de entrar em Canaã após o relatório negativo dos espias (cap. 14). Esse pecado condena toda a geração do êxodo a morrer no deserto, sem entrar na terra prometida. O episódio das serpentes de bronze (21.4–9), em que o israelita picado olhava para o bronze e era curado, é interpretado por Jesus como prefiguração da Cruz (Jo 3.14).</p>\n<p>Os capítulos 22–24 contêm a narrativa de Balaão — profeta gentio contratado para amaldiçoar Israel que, contra sua vontade, profere apenas bênçãos e anuncia uma \"estrela de Jacó.\" Paulo usa os fracassos de Israel no deserto como advertências tipológicas para a Igreja (1 Co 10.1–13).</p>",
+  "verse": "\"O <span style=\"font-variant:small-caps\">Senhor</span> abençoe você e o proteja; o <span style=\"font-variant:small-caps\">Senhor</span> faça resplandecer o seu rosto sobre você.\" <cite>Números 6.24–25 — NAA</cite>",
+  "translation": "NAA",
+  "order": 4,
+  "category": "pen",
+  "cellAbbr": "Nm"
+}

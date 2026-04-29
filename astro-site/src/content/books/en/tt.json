@@ -1,0 +1,29 @@
+{
+  "id": "tt",
+  "num": "Livro 56 · Novo Testamento",
+  "title": "Titus",
+  "abbr": "Tit · Pauline Epistles",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paul",
+    "Titus",
+    "Zenas",
+    "Apollos",
+    "Artemas",
+    "Tychicus"
+  ],
+  "tags": [
+    "Crete",
+    "Leadership",
+    "Grace",
+    "Good Works",
+    "Sound Doctrine",
+    "Cultural Context"
+  ],
+  "body": "<p><strong>Context:</strong> Titus is the second Pastoral Epistle, addressed to Titus — Paul's Greek co-worker left in Crete to organize the island's churches (~62–65 AD). It is the shortest of the three pastorals (only 3 chapters) but dense in practical and theological content.</p>\n<p><strong>The Cretan challenge:</strong> Paul quotes a Cretan poet — \"Cretans are always liars, evil beasts, lazy gluttons\" (1:12) — not as a racist slur, but to illustrate the challenge of contextualizing the gospel in morally difficult environments. The letter addresses the qualifications of elders (ch. 1), instruction for different groups in the community (older men, young men, women, slaves — ch. 2), and the relationship between grace and good works (chs. 2–3).</p>\n<p><strong>The central theological passage (2:11–14):</strong> \"For the grace of God has appeared, bringing salvation for all people, training us to renounce ungodliness and worldly passions... waiting for our blessed hope, the appearing of the glory of our great God and Savior Jesus Christ.\" This is one of the most explicit declarations of Jesus' divinity in the Pauline corpus. The biblical tension between salvation by grace and living in good works is perfectly balanced in Titus.</p>",
+  "verse": "\"For the grace of God has appeared, bringing salvation for all people, training us to renounce ungodliness and worldly passions.\" <cite>Titus 2:11–12 — ESV</cite>",
+  "translation": "ESV",
+  "order": 56,
+  "category": "pau",
+  "cellAbbr": "Tt"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "ed",
+  "num": "Livro 15 · Antigo Testamento",
+  "title": "Esdras",
+  "abbr": "Ed · Históricos",
+  "author": "Esdras",
+  "chars": [
+    "Esdras",
+    "Zorobabel",
+    "Ciro",
+    "Dario",
+    "Sesbasar"
+  ],
+  "tags": [
+    "Retorno do Exílio",
+    "Segundo Templo",
+    "Decreto de Ciro",
+    "Lei",
+    "Reforma",
+    "Identidade Pós-exílica"
+  ],
+  "body": "<p><strong>Contexto:</strong> Esdras narra dois momentos do retorno do exílio babilônico: o primeiro retorno sob Zorobabel (538 a.C.) para reconstruir o Templo (caps. 1–6), e o segundo retorno sob Esdras, escriba e sacerdote (458 a.C.), para restaurar a observância da Torá (caps. 7–10).</p>\n<p><strong>Providência e política:</strong> O livro começa com o decreto do rei persa Ciro em 538 a.C. — um rei pagão como instrumento da providência divina para cumprir a profecia de Isaías 44.28. A reconstrução do Templo enfrenta oposição dos samaritanos e outros vizinhos, é suspensa por 16 anos, e finalmente concluída em 516 a.C. — 70 anos após a destruição, como Jeremias havia anunciado.</p>\n<p><strong>Esdras como modelo:</strong> A frase que define Esdras é programática: \"Esdras tinha preparado o seu coração para buscar a lei do Senhor, cumpri-la e ensiná-la em Israel\" (7.10) — a ordem é crucial: primeiro buscar, depois fazer, depois ensinar. A crise dos casamentos mistos (caps. 9–10) reflete a preocupação da comunidade pós-exílica com a identidade covenantal e a pureza do testemunho monoteísta.</p>",
+  "verse": "\"Pois Esdras havia dedicado o seu coração a estudar a lei do <span style=\"font-variant:small-caps\">Senhor</span>, a praticá-la e a ensinar os seus preceitos e ordenanças em Israel.\" <cite>Esdras 7.10 — NAA</cite>",
+  "translation": "NAA",
+  "order": 15,
+  "category": "his",
+  "cellAbbr": "Ed"
+}

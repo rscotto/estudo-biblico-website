@@ -1,0 +1,25 @@
+{
+  "id": "ct",
+  "num": "Livro 22 · Antigo Testamento",
+  "title": "Song of Solomon",
+  "abbr": "Song · Poetic · Wisdom",
+  "author": "Salomão",
+  "chars": [
+    "Solomon",
+    "The Shulamite"
+  ],
+  "tags": [
+    "Conjugal Love",
+    "Eros",
+    "Allegory",
+    "Covenant",
+    "Beauty",
+    "Solomon"
+  ],
+  "body": "<p><strong>Context:</strong> Song of Solomon (<em>Shir Hashirim</em> — \"the most excellent of songs\") is a passionate love poem between a man and a woman. It is one of the most hermeneutically debated books: should it be read literally (celebration of conjugal love), allegorically (love between God and Israel / Christ and the Church), or both?</p>\n<p><strong>Interpretations:</strong> The Jewish tradition allegorizes the book as an expression of YHWH's love for Israel — Rabbi Akiva called it the \"Holy of Holies of the writings.\" The Christian tradition, from Origen and Bernard of Clairvaux onward, read it as Christ's love for the Church. Both readings have grounding in biblical covenant theology, which frequently uses the conjugal metaphor to describe the relationship between God and his people (Hos 1–3; Eph 5:25–32).</p>\n<p><strong>Theology of sexuality:</strong> The text itself is explicitly sensual and celebrates human sexuality within committed love as something good and sacred — created by God, a blessing from Eden. The book corrects both the asceticism that rejects the body and the eroticism detached from faithful love. The productive tension between literal and allegorical readings suggests that human sexuality is itself a metaphor of the divine covenant.</p>",
+  "verse": "\"Set me as a seal upon your heart, for love is strong as death.\" <cite>Song of Solomon 8:6 — ESV</cite>",
+  "translation": "ESV",
+  "order": 22,
+  "category": "poe",
+  "cellAbbr": "Ct"
+}

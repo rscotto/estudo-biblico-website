@@ -1,0 +1,29 @@
+{
+  "id": "dn",
+  "num": "Livro 27 · Antigo Testamento",
+  "title": "Daniel",
+  "abbr": "Dan · Major Prophets",
+  "author": "Daniel",
+  "chars": [
+    "Daniel",
+    "Shadrach",
+    "Meshach",
+    "Abednego",
+    "Nebuchadnezzar",
+    "Belshazzar"
+  ],
+  "tags": [
+    "Faithfulness at Court",
+    "Son of Man",
+    "Apocalypse",
+    "Empires",
+    "Visions",
+    "Messiah"
+  ],
+  "body": "<p><strong>Context:</strong> Daniel uniquely combines narratives of faithfulness in a pagan court (chs. 1–6) with apocalyptic visions about the destiny of history's kingdoms (chs. 7–12). Written partly in Aramaic (2:4–7:28), it is the most apocalyptic book of the OT and the most quoted in John's Revelation.</p>\n<p><strong>The narratives (chs. 1–6):</strong> Daniel and his friends' refusal to eat the king's food (ch. 1 — faithfulness even in small things); the interpretation of Nebuchadnezzar's dream (ch. 2 — metal statue = successive world empires, destroyed by a stone cut without hands); the three young men in the fiery furnace (ch. 3 — \"even if not, we will not serve your gods\"); Nebuchadnezzar's madness (ch. 4); the writing on the wall at Belshazzar's feast (ch. 5); Daniel in the lions' den (ch. 6).</p>\n<p><strong>The visions (chs. 7–12):</strong> The central vision is chapter 7 — four beasts representing empires, the Ancient of Days in judgment, and the \"Son of Man\" who receives an eternal kingdom from all humanity. This title, which Jesus applied to himself more frequently than any other, is the most explicitly defined messianic identity in the OT.</p>",
+  "verse": "\"I saw in the night visions, and behold, with the clouds of heaven there came one like a son of man.\" <cite>Daniel 7:13 — ESV</cite>",
+  "translation": "ESV",
+  "order": 27,
+  "category": "mai",
+  "cellAbbr": "Dn"
+}

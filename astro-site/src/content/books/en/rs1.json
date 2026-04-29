@@ -1,0 +1,29 @@
+{
+  "id": "rs1",
+  "num": "Livro 11 · Antigo Testamento",
+  "title": "1 Kings",
+  "abbr": "1Ki · Historical",
+  "author": "Anônimo (escola deuteronomista; tradição atribui a Jeremias)",
+  "chars": [
+    "Solomon",
+    "Elijah",
+    "Ahab",
+    "Jezebel",
+    "Rehoboam",
+    "Jeroboam"
+  ],
+  "tags": [
+    "Solomon",
+    "Temple",
+    "Wisdom",
+    "Division of Kingdom",
+    "Elijah",
+    "Apostasy"
+  ],
+  "body": "<p><strong>Context:</strong> 1 Kings covers Solomon's glorious reign and the tragedy of the kingdom's division after his death: Israel (North, 10 tribes) and Judah (South, 2 tribes). The division is presented as a direct consequence of Solomon's apostasy in old age — his marriages to foreign women led him to other gods (ch. 11), violating Deuteronomy 17.</p>\n<p><strong>Solomon:</strong> Receives divine wisdom in a dream (ch. 3) and builds the splendid Temple in Jerusalem (chs. 5–8). His dedicatory prayer (ch. 8) is extraordinary in its breadth and theological depth. But the material splendor and the multiplication of wives, horses, and gold violate the Deuteronomic model of the ideal king.</p>\n<p><strong>Elijah:</strong> The second half introduces the great prophet. His confrontation with the 450 prophets of Baal on Mount Carmel (ch. 18) and the gentle theophany on Mount Horeb (ch. 19 — \"a still small voice\") are narratives of spiritual power and human vulnerability. Elijah represents the reforming prophetic tradition that challenges the apostasy of power. He reappears at the Transfiguration of Jesus (Mark 9) and is identified with John the Baptist (Mal 4:5; Mark 9:13).</p>",
+  "verse": "\"The <span style=\"font-variant:small-caps\">Lord</span>, he is God; the <span style=\"font-variant:small-caps\">Lord</span>, he is God.\" <cite>1 Kings 18:39 — ESV</cite>",
+  "translation": "ESV",
+  "order": 11,
+  "category": "his",
+  "cellAbbr": "1Rs"
+}

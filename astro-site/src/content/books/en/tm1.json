@@ -1,0 +1,29 @@
+{
+  "id": "tm1",
+  "num": "Livro 54 · Novo Testamento",
+  "title": "1 Timothy",
+  "abbr": "1Tim · Pauline Epistles",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paul",
+    "Timothy",
+    "Hymenaeus",
+    "Alexander",
+    "Priscilla",
+    "Aquila"
+  ],
+  "tags": [
+    "Pastoral",
+    "Church Order",
+    "Leadership",
+    "Sound Doctrine",
+    "Prayer",
+    "Women"
+  ],
+  "body": "<p><strong>Context:</strong> 1 Timothy is the first of the \"Pastoral Epistles\" (with 2 Timothy and Titus) — letters to individual leaders rather than congregations. Written to Timothy in Ephesus (~62–65 AD), it is a manual of ecclesial order and leadership for a young pastor whom Paul calls \"my true child in the faith.\"</p>\n<p><strong>Content:</strong> Combats false teachings disturbing the Church at Ephesus (chs. 1; 4; 6); instruction on public prayer and the role of women in worship (ch. 2 — one of the most debated NT texts exegetically and culturally); qualifications for bishops (<em>episkopoi</em>) and deacons (ch. 3 — emphasis on character before abilities); care of widows (ch. 5); and warnings against the love of money as \"a root of all kinds of evils\" (ch. 6).</p>\n<p><strong>Central Christological declaration:</strong> \"There is one God, and there is one mediator between God and men, the man Christ Jesus\" (2:5) — the foundation of the Christian doctrine of the uniqueness of mediation, against any system of saintly or angelic intermediaries. The closing of chapter 6 — \"guard the deposit entrusted to you\" — is a call to doctrinal faithfulness that resonates through the centuries as a mandate for ministry.</p>",
+  "verse": "\"For there is one God, and there is one mediator between God and men, the man Christ Jesus.\" <cite>1 Timothy 2:5 — ESV</cite>",
+  "translation": "ESV",
+  "order": 54,
+  "category": "pau",
+  "cellAbbr": "1Tm"
+}

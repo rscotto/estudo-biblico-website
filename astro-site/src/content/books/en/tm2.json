@@ -1,0 +1,29 @@
+{
+  "id": "tm2",
+  "num": "Livro 55 · Novo Testamento",
+  "title": "2 Timothy",
+  "abbr": "2Tim · Pauline Epistles",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paul",
+    "Timothy",
+    "Luke",
+    "Mark",
+    "Demas",
+    "Crescens"
+  ],
+  "tags": [
+    "Paul's Testament",
+    "Inspiration of Scripture",
+    "Perseverance",
+    "Martyrdom",
+    "Good Fight",
+    "Loneliness"
+  ],
+  "body": "<p><strong>Context:</strong> 2 Timothy is probably Paul's last letter — his spiritual testament, written from his second imprisonment in Rome (~66–67 AD) shortly before his execution under Nero. The tone is deeply personal, urgent, and moving. Paul is alone (\"everyone has deserted me\"), senses he is \"being poured out as a drink offering\" (4:6), but without resentment — with serenity and confidence.</p>\n<p><strong>\"I have fought the good fight\" (4:7–8):</strong> One of the most memorable phrases in the NT — not arrogance, but a sober assessment of faithfulness to the end. Paul uses three metaphors: the athlete who finishes the race, the soldier who keeps his post, and the completed run. The crown of righteousness awaits — not only Paul, \"but also to all who have loved his appearing.\"</p>\n<p><strong>The inspiration of Scripture (3:16–17):</strong> \"All Scripture is breathed out by God (<em>theopneustos</em> — literally 'exhaled by God') and profitable for teaching, for reproof, for correction, and for training in righteousness, that the man of God may be complete.\" This text became the foundation of the evangelical doctrine of the verbal inspiration of Scripture. The letter ends with touching personal requests: bring the cloak, and the books, especially the parchments.</p>",
+  "verse": "\"I have fought the good fight, I have finished the race, I have kept the faith.\" <cite>2 Timothy 4:7 — ESV</cite>",
+  "translation": "ESV",
+  "order": 55,
+  "category": "pau",
+  "cellAbbr": "2Tm"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "rs1",
+  "num": "Livro 11 · Antigo Testamento",
+  "title": "1 Reis",
+  "abbr": "1Rs · Históricos",
+  "author": "Anônimo (escola deuteronomista; tradição atribui a Jeremias)",
+  "chars": [
+    "Salomão",
+    "Elias",
+    "Acabe",
+    "Jezebel",
+    "Roboão",
+    "Jeroboão"
+  ],
+  "tags": [
+    "Salomão",
+    "Templo",
+    "Sabedoria",
+    "Divisão do Reino",
+    "Elias",
+    "Apostasia"
+  ],
+  "body": "<p><strong>Contexto:</strong> 1 Reis cobre o reinado glorioso de Salomão e a tragédia da divisão do reino em dois após sua morte: Israel (Norte, 10 tribos) e Judá (Sul, 2 tribos). A divisão é apresentada como consequência direta da apostasia de Salomão na velhice — seus casamentos com mulheres estrangeiras o desviaram para outros deuses (cap. 11), violando Deuteronômio 17.</p>\n<p><strong>Salomão:</strong> Recebe sabedoria divina em sonho (cap. 3) e constrói o esplêndido Templo de Jerusalém (caps. 5–8). Sua oração de dedicação (cap. 8) é extraordinária em amplitude e profundidade teológica. Mas o esplendor material e a multiplicação de mulheres, cavalos e ouro violam o modelo deuteronômico do rei ideal.</p>\n<p><strong>Elias:</strong> A segunda metade introduz o grande profeta. Seu confronto com os 450 profetas de Baal no Monte Carmelo (cap. 18) e a teofania suave no Monte Horebe (cap. 19 — \"uma voz quieta e delicada\") são narrativas de poder espiritual e vulnerabilidade humana. Elias representa o profetismo reformador que desafia a apostasia do poder. Ele reaparece na Transfiguração de Jesus (Mc 9) e é identificado com João Batista (Ml 4.5; Mc 9.13).</p>",
+  "verse": "\"O <span style=\"font-variant:small-caps\">Senhor</span> é Deus! O <span style=\"font-variant:small-caps\">Senhor</span> é Deus!\" <cite>1 Reis 18.39 — NAA</cite>",
+  "translation": "NAA",
+  "order": 11,
+  "category": "his",
+  "cellAbbr": "1Rs"
+}

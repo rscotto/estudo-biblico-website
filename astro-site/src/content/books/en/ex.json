@@ -1,0 +1,30 @@
+{
+  "id": "ex",
+  "num": "Livro 2 · Antigo Testamento",
+  "title": "Exodus",
+  "abbr": "Ex · Pentateuch · Law",
+  "author": "Moisés",
+  "chars": [
+    "Moses",
+    "Aaron",
+    "Miriam",
+    "Pharaoh",
+    "Jethro",
+    "Joshua",
+    "Zipporah"
+  ],
+  "tags": [
+    "Liberation",
+    "Moses",
+    "Passover",
+    "Sinai",
+    "Decalogue",
+    "Tabernacle"
+  ],
+  "body": "<p><strong>Context:</strong> Exodus narrates the founding event of Israel's faith: the liberation from Egyptian slavery under Moses and the establishment of the covenant at Mount Sinai. The divine name YHWH is solemnly revealed in 3:14 — \"I AM WHO I AM\" — an affirmation of self-sufficient existence that becomes the foundation of biblical monotheism.</p>\n<p><strong>Structure:</strong> The first half (chs. 1–18) describes the oppression, birth and call of Moses at the burning bush, the ten plagues on Egypt (each challenging an Egyptian deity), the Passover (<em>Pesach</em>), and the miraculous crossing of the Red Sea. The second half (chs. 19–40) addresses Sinai: the Ten Commandments (Decalogue), the Book of the Covenant, detailed instructions for the Tabernacle — the divine dwelling in the midst of the people — and the golden calf episode that anticipates the problem of unfaithfulness.</p>\n<p><strong>Theology and hermeneutics:</strong> The exodus becomes the central paradigm of salvation throughout the Bible. The NT presents Christ as the new Moses, the Passover as a foreshadowing of Christ's death (1 Cor 5:7), and baptism as a new crossing of the sea (1 Cor 10:1–4). The Sinai law is not a path of merit, but a grateful response to the prior grace of the exodus.</p>",
+  "verse": "\"I AM WHO I AM.\" <cite>Exodus 3:14 — ESV</cite>",
+  "translation": "ESV",
+  "order": 2,
+  "category": "pen",
+  "cellAbbr": "Êx"
+}

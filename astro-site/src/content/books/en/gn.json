@@ -1,0 +1,31 @@
+{
+  "id": "gn",
+  "num": "Livro 1 · Antigo Testamento",
+  "title": "Genesis",
+  "abbr": "Gn · Pentateuch · Law",
+  "author": "Moisés (tradição mosaica)",
+  "chars": [
+    "Adam",
+    "Eve",
+    "Noah",
+    "Abraham",
+    "Sarah",
+    "Isaac",
+    "Jacob",
+    "Joseph"
+  ],
+  "tags": [
+    "Creation",
+    "Fall",
+    "Covenant",
+    "Patriarchs",
+    "Providence",
+    "Typology"
+  ],
+  "body": "<p><strong>Context:</strong> Genesis (Hebrew <em>Bereshit</em> — \"in the beginning\") is the book of origins: of creation, humanity, sin, and the people of Israel. Attributed to Moses, likely composed from earlier oral and written traditions, it serves as the foundation of all subsequent biblical theology.</p>\n<p><strong>Structure and content:</strong> Chapters 1–11 form the \"primeval history\": creation in six days, the fall of Adam and Eve in Eden, Cain's murder of Abel, the flood and Noah, the Tower of Babel. These narratives are universal in character — cosmogonic and etiological — explaining humanity's fractured condition and the distance between Creator and creature. They deliberately contrast with the polytheism of Mesopotamian myths (<em>Enuma Elish</em>, Epic of Gilgamesh).</p>\n<p>From chapter 12, the narrative narrows to the patriarchal history: the call of Abram and the three divine promises — land, numerous descendants, and blessing to all nations (12:1–3). This is followed by Isaac, Jacob (renamed Israel), and the twelve sons who will found the tribes. The book closes with the saga of Joseph — betrayed, sold into slavery, and raised to viceroy of Egypt — a paradigm of divine providence that transforms evil into good.</p>\n<p><strong>Central theology:</strong> Genesis establishes the covenant (<em>berith</em>), creational monotheism, and humanity as <em>imago Dei</em> (1:26–27). The promise of 3:15 — the \"seed of the woman\" who will crush the serpent's head — is regarded by the Christian tradition as the first messianic prophecy (<em>protoevangelium</em>).</p>",
+  "verse": "\"In the beginning, God created the heavens and the earth.\" <cite>Genesis 1:1 — ESV</cite>",
+  "translation": "ESV",
+  "order": 1,
+  "category": "pen",
+  "cellAbbr": "Gn"
+}

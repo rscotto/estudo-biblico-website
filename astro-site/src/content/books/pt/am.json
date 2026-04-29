@@ -1,0 +1,26 @@
+{
+  "id": "am",
+  "num": "Livro 30 · Antigo Testamento",
+  "title": "Amós",
+  "abbr": "Am · Profetas Menores",
+  "author": "Amós de Tecoa (pastor e agricultor)",
+  "chars": [
+    "Amós",
+    "Jeroboão II",
+    "Amazias"
+  ],
+  "tags": [
+    "Justiça Social",
+    "Pobres",
+    "Julgamento",
+    "Culto Vazio",
+    "Concílio de Jerusalém",
+    "Davi"
+  ],
+  "body": "<p><strong>Contexto:</strong> Amós era pastor e cultivador de sicômoros de Tecoa, em Judá — um laico chamado por Deus para profetizar ao próspero reino do Norte (Israel) durante o reinado de Jeroboão II (século 8 a.C.). É o profeta da justiça social por excelência na Bíblia.</p>\n<p><strong>Estratégia retórica:</strong> O livro abre com oráculos de julgamento contra as nações vizinhas de Israel — criando um efeito de cumplicidade no ouvinte que aplaudia o julgamento dos outros — antes de virar repentinamente contra Israel e Judá. A acusação é específica e atual: prosperidade material acompanhada de opressão dos pobres, corrupção dos tribunais, e culto religioso pomposo que não se traduz em ética social.</p>\n<p><strong>Os textos mais incisivos:</strong> \"Odeio, desprezo as vossas festas solenes... Que flua como as águas o direito, e a justiça como ribeiro perene\" (5.21–24) — citado por Martin Luther King em Washington, 1963. \"Os que transformais o direito em veneno\" (6.12). O capítulo 9 encerra com a promessa de restauração da \"cabana caída de Davi\" — texto citado por Tiago no Concílio de Jerusalém (At 15.16–17) como fundamento para a abertura da missão aos gentios.</p>",
+  "verse": "\"Mas que o direito corra como água e a justiça como um rio perene!\" <cite>Amós 5.24 — NAA</cite>",
+  "translation": "NAA",
+  "order": 30,
+  "category": "men",
+  "cellAbbr": "Am"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "ec",
+  "num": "Livro 21 · Antigo Testamento",
+  "title": "Ecclesiastes",
+  "abbr": "Eccl · Poetic · Wisdom",
+  "author": "Qohelet (atribuído a Salomão)",
+  "chars": [
+    "Qohelet (Solomon)"
+  ],
+  "tags": [
+    "Vanity",
+    "Hebel",
+    "Death",
+    "Time",
+    "Existentialism",
+    "Human Limitation"
+  ],
+  "body": "<p><strong>Context:</strong> Ecclesiastes is the most philosophical — and apparently most skeptical — book of the Bible. The Preacher (<em>Qohelet</em> in Hebrew, \"one who gathers the assembly\") observes life \"under the sun\" and announces: <em>hebel hebalim</em> — \"vanity of vanities, all is vanity\" (<em>hebel</em> = vapor, breath, something fleeting and intangible).</p>\n<p><strong>The great themes:</strong> The book traverses the futility of human labor that does not outlast death (ch. 2); the irreversibility and enigma of time (ch. 3 — \"there is a time for everything\"); persistent injustice in society (ch. 4); the relativity of wisdom before death that equalizes wise and fool (chs. 6–7); and the unpredictability of the future (ch. 9 — \"the race is not to the swift\").</p>\n<p><strong>Theology:</strong> Ecclesiastes is not nihilism — it is the cure for naive optimism. The attempt to find ultimate meaning \"under the sun\" without God results in absurdity. The antidote is to \"fear God and keep his commandments\" (12:13–14) and to accept simple pleasures with gratitude as divine gifts amid life's brevity. It is a radical theology of human limitation that opens space for transcendent revelation.</p>",
+  "verse": "\"Fear God and keep his commandments, for this is the whole duty of man.\" <cite>Ecclesiastes 12:13 — ESV</cite>",
+  "translation": "ESV",
+  "order": 21,
+  "category": "poe",
+  "cellAbbr": "Ec"
+}

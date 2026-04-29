@@ -1,0 +1,29 @@
+{
+  "id": "lv",
+  "num": "Livro 3 · Antigo Testamento",
+  "title": "Levítico",
+  "abbr": "Lv · Pentateuco · Lei",
+  "author": "Moisés",
+  "chars": [
+    "Moisés",
+    "Arão",
+    "Nadabe",
+    "Abiú",
+    "Eleazar",
+    "Itamar"
+  ],
+  "tags": [
+    "Santidade",
+    "Sacrifícios",
+    "Sacerdócio",
+    "Yom Kippur",
+    "Pureza",
+    "Código de Santidade"
+  ],
+  "body": "<p><strong>Contexto:</strong> Levítico é o manual de adoração e santidade de Israel, centrado na tribo sacerdotal de Levi. O imperativo que o organiza — \"Sede santos, porque eu sou santo\" (19.2) — define a vocação do povo do pacto: refletir o caráter divino em todas as esferas da vida.</p>\n<p><strong>Conteúdo:</strong> Os capítulos 1–7 descrevem os cinco tipos de ofertas: holocausto (adoração total), oferta de manjares (gratidão), oferta de paz (comunhão), oferta pelo pecado (expiação involuntária) e oferta pela culpa (restituição). Os capítulos 8–10 narram a consagração sacerdotal e o episódio trágico de Nadabe e Abiú, mortos por oferecerem \"fogo estranho\" — a soberania divina sobre o culto. Os capítulos 11–15 estabelecem leis de pureza ritual.</p>\n<p>O ponto culminante é o capítulo 16: o Dia da Expiação (<em>Yom Kippur</em>), em que o sumo sacerdote aspergía sangue no Santo dos Santos e o bode expiatório era lançado ao deserto. O livro de Hebreus (caps. 9–10) interpreta esse ritual como sombra do sumo sacerdócio eterno de Cristo, que entrou no próprio santuário celestial com seu próprio sangue.</p>",
+  "verse": "\"Sede santos, porque eu, o <span style=\"font-variant:small-caps\">Senhor</span>, o Deus de vocês, sou santo.\" <cite>Levítico 19.2 — NAA</cite>",
+  "translation": "NAA",
+  "order": 3,
+  "category": "pen",
+  "cellAbbr": "Lv"
+}

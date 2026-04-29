@@ -1,0 +1,29 @@
+{
+  "id": "jz",
+  "num": "Livro 7 · Antigo Testamento",
+  "title": "Juízes",
+  "abbr": "Jz · Históricos",
+  "author": "Anônimo (tradição profética; possivelmente Samuel)",
+  "chars": [
+    "Débora",
+    "Gideão",
+    "Sansão",
+    "Jefté",
+    "Baraque",
+    "Dalila"
+  ],
+  "tags": [
+    "Ciclo da Apostasia",
+    "Libertadores",
+    "Débora",
+    "Gideão",
+    "Sansão",
+    "Pré-monarquia"
+  ],
+  "body": "<p><strong>Contexto:</strong> Juízes cobre o período turbulento entre a morte de Josué e o surgimento da monarquia (~1200–1050 a.C.). O livro é organizado em torno de um ciclo recorrente de quatro fases: <em>apostasia</em> (Israel abandona YHWH) → <em>opressão</em> (submissão a povos inimigos) → <em>clamor</em> (apelo a Deus) → <em>libertação</em> (juiz levantado pelo Espírito) → paz → nova apostasia.</p>\n<p><strong>Os juízes:</strong> Os <em>shofetim</em> não são juízes jurídicos, mas líderes militares carismáticos. Entre os mais notáveis: <strong>Débora</strong>, a única mulher juíza, que conduz Israel à vitória junto com Baraque (cap. 4–5); <strong>Gideão</strong>, que com apenas 300 homens derrota Midiã pela estratégia divina (caps. 6–8); <strong>Jefté</strong>, filho de prostituta, e seu voto trágico (cap. 11); e <strong>Sansão</strong>, o nazireno de força sobre-humana cuja vida é marcada por fraqueza moral profunda (caps. 13–16).</p>\n<p><strong>Mensagem:</strong> O livro termina com dois episódios de horror (caps. 17–21) que revelam completa decomposição moral e religiosa. O leitmotiv — \"Cada um fazia o que parecia reto aos seus próprios olhos\" (21.25) — é o diagnóstico do relativismo moral sem autoridade divina, preparando o terreno para a demanda por um rei.</p>",
+  "verse": "\"Naqueles dias não havia rei em Israel; cada um fazia o que parecia certo aos seus próprios olhos.\" <cite>Juízes 21.25 — NAA</cite>",
+  "translation": "NAA",
+  "order": 7,
+  "category": "his",
+  "cellAbbr": "Jz"
+}

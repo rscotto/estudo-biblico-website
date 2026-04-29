@@ -1,0 +1,25 @@
+{
+  "id": "ml",
+  "num": "Livro 39 · Antigo Testamento",
+  "title": "Malachi",
+  "abbr": "Mal · Minor Prophets",
+  "author": "Malaquias (ou anônimo — \"meu mensageiro\")",
+  "chars": [
+    "Malachi",
+    "Elijah (promised)"
+  ],
+  "tags": [
+    "Degraded Worship",
+    "Priesthood",
+    "Tithes",
+    "Elijah",
+    "John the Baptist",
+    "End of OT"
+  ],
+  "body": "<p><strong>Context:</strong> Malachi (\"my messenger\") is the last book of the Protestant OT canon, written probably in the 5th century BC, after the return from exile. The book is structured as six disputes or dialogues: God makes a statement, the people question, and God responds with evidence and warnings.</p>\n<p><strong>Accusations against worship and the priesthood:</strong> Priests who offer blind and lame animals on the altar — would they give that to a governor? (1:8). Who teach wrongly and show partiality (2:8–9). Who divorced their Jewish wives to marry foreign women — \"the Lord was witness between you and the wife of your youth\" (2:14). The deterioration of worship reflects the moral and spiritual deterioration of the community.</p>\n<p><strong>The closing of the OT:</strong> Malachi 4:5–6 promises the return of \"Elijah the prophet\" before the \"great and awesome day of the Lord\" to reconcile generations. Jesus identified John the Baptist as that Elijah (Matt 11:14; 17:12). This ending creates dramatic expectation — after centuries of prophetic silence, the promise hangs open. The NT begins exactly with John the Baptist in the desert fulfilling what Malachi announced.</p>",
+  "verse": "\"Bring the full tithe into the storehouse... and thereby put me to the test, says the <span style=\"font-variant:small-caps\">Lord</span> of hosts.\" <cite>Malachi 3:10 — ESV</cite>",
+  "translation": "ESV",
+  "order": 39,
+  "category": "men",
+  "cellAbbr": "Ml"
+}

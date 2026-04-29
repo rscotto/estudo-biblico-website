@@ -1,0 +1,28 @@
+{
+  "id": "js",
+  "num": "Livro 6 · Antigo Testamento",
+  "title": "Josué",
+  "abbr": "Js · Históricos",
+  "author": "Josué (com adições posteriores)",
+  "chars": [
+    "Josué",
+    "Raabe",
+    "Calebe",
+    "Acã",
+    "Eleazar"
+  ],
+  "tags": [
+    "Conquista de Canaã",
+    "Terra Prometida",
+    "Aliança",
+    "Raabe",
+    "Distribuição das Tribos",
+    "Tipologia"
+  ],
+  "body": "<p><strong>Contexto:</strong> Josué narra o cumprimento parcial da promessa abraâmica: a entrada e conquista da terra de Canaã sob a liderança de Josué, o sucessor de Moisés. O livro divide-se em três blocos: entrada (caps. 1–5) com a travessia milagrosa do Jordão e a queda de Jericó ao som de trombetas; campanhas militares (caps. 6–12); e distribuição das terras (caps. 13–24).</p>\n<p><strong>Teologia complexa:</strong> A destruição dos povos cananeus (<em>cherem</em>) é apresentada como julgamento divino sobre civilizações cuja iniquidade estava \"completa\" (cf. Gn 15.16 — 400 anos de espera) e como medida de proteção da identidade religiosa de Israel. A narrativa de Raabe (cap. 2) — prostituta que escondeu os espias e foi preservada — demonstra que até uma cananeia pode ser incorporada ao povo de Deus pela fé. Ela aparece na genealogia de Jesus (Mt 1.5).</p>\n<p><strong>Tipologia:</strong> Josué é figura tipológica de Jesus (ambos chamados <em>Yeshua</em> em hebraico), conduzindo o povo à herança celestial como Cristo conduz a Igreja. O livro encerra com a grande assembleia de Siquém e a renovação da aliança: \"Quanto a mim e à minha casa, serviremos ao Senhor\" (24.15).</p>",
+  "verse": "\"Quanto a mim e à minha família, serviremos ao <span style=\"font-variant:small-caps\">Senhor</span>.\" <cite>Josué 24.15 — NAA</cite>",
+  "translation": "NAA",
+  "order": 6,
+  "category": "his",
+  "cellAbbr": "Js"
+}

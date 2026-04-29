@@ -1,0 +1,28 @@
+{
+  "id": "js",
+  "num": "Livro 6 · Antigo Testamento",
+  "title": "Joshua",
+  "abbr": "Jos · Historical",
+  "author": "Josué (com adições posteriores)",
+  "chars": [
+    "Joshua",
+    "Rahab",
+    "Caleb",
+    "Achan",
+    "Eleazar"
+  ],
+  "tags": [
+    "Conquest of Canaan",
+    "Promised Land",
+    "Covenant",
+    "Rahab",
+    "Tribal Allotments",
+    "Typology"
+  ],
+  "body": "<p><strong>Context:</strong> Joshua narrates the partial fulfillment of the Abrahamic promise: the entry into and conquest of Canaan under Joshua, Moses' successor. The book divides into three sections: entry (chs. 1–5) with the miraculous Jordan crossing and the fall of Jericho at the sound of trumpets; military campaigns (chs. 6–12); and land distribution (chs. 13–24).</p>\n<p><strong>Complex theology:</strong> The destruction of the Canaanite peoples (<em>cherem</em>) is presented as divine judgment on civilizations whose iniquity was \"complete\" (cf. Gen 15:16 — 400 years of waiting) and as protection of Israel's religious identity. The story of Rahab (ch. 2) — a prostitute who hid the spies and was preserved — demonstrates that even a Canaanite can be incorporated into God's people through faith. She appears in Jesus' genealogy (Matt 1:5).</p>\n<p><strong>Typology:</strong> Joshua is a typological figure of Jesus (both called <em>Yeshua</em> in Hebrew), leading the people to their inheritance as Christ leads the Church. The book ends with the great Shechem assembly and covenant renewal: \"As for me and my house, we will serve the Lord\" (24:15).</p>",
+  "verse": "\"As for me and my house, we will serve the <span style=\"font-variant:small-caps\">Lord</span>.\" <cite>Joshua 24:15 — ESV</cite>",
+  "translation": "ESV",
+  "order": 6,
+  "category": "his",
+  "cellAbbr": "Js"
+}

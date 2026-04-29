@@ -1,0 +1,24 @@
+{
+  "id": "jo2",
+  "num": "Livro 63 · Novo Testamento",
+  "title": "2 John",
+  "abbr": "2John · General Epistles",
+  "author": "João Apóstolo, filho de Zebedeu",
+  "chars": [
+    "John",
+    "The Elect Lady"
+  ],
+  "tags": [
+    "Love and Truth",
+    "Discerning Hospitality",
+    "False Teachers",
+    "Elders",
+    "Local Church"
+  ],
+  "body": "<p><strong>Context:</strong> 2 John is one of the shortest writings in the NT — just 13 verses — addressed by \"the Elder\" (probably the apostle John) to \"the elect lady and her children,\" possibly a metaphor for a specific local Church. The theme is the delicate balance between love and truth.</p>\n<p><strong>Love and truth:</strong> The letter begins by combining the two great Johannine values: \"truth\" and \"love\" are not opposites — love walks \"according to his commandments\" (v.6) and truth defines the boundaries of Christian love. This tension is central to John's theology: love that accepts everything is not Christian love.</p>\n<p><strong>The problematic hospitality:</strong> False teachers — who \"do not confess the coming of Jesus Christ in the flesh\" (v.7) — must not be received into one's home or even greeted: \"whoever greets him takes part in his wicked works\" (v.11). This instruction seems in tension with the principle of love, but John understands that actively welcoming error makes one complicit in the destruction of souls. The balance between generous hospitality and doctrinal discernment is one of the tensions the Church in every age must manage with pastoral wisdom.</p>",
+  "verse": "\"Everyone who goes on ahead and does not abide in the teaching of Christ, does not have God.\" <cite>2 John 9 — ESV</cite>",
+  "translation": "ESV",
+  "order": 63,
+  "category": "ger",
+  "cellAbbr": "2Jo"
+}

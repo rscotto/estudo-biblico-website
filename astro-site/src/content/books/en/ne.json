@@ -1,0 +1,28 @@
+{
+  "id": "ne",
+  "num": "Livro 16 · Antigo Testamento",
+  "title": "Nehemiah",
+  "abbr": "Neh · Historical",
+  "author": "Neemias (com edição de Esdras)",
+  "chars": [
+    "Nehemiah",
+    "Ezra",
+    "Sanballat",
+    "Tobiah",
+    "Artaxerxes"
+  ],
+  "tags": [
+    "Wall of Jerusalem",
+    "Servant Leadership",
+    "Revival",
+    "Ezra",
+    "Reform",
+    "Prayer"
+  ],
+  "body": "<p><strong>Context:</strong> Nehemiah was cupbearer to Persian King Artaxerxes I — a position of trust and influence at court. Upon receiving news of Jerusalem's devastation, he wept, fasted, and prayed for days (ch. 1) before asking the king for permission to rebuild the walls. His mission (444 BC) is the third phase of the post-exilic return.</p>\n<p><strong>Reconstruction and leadership:</strong> Jerusalem's walls are rebuilt in just 52 days (ch. 6), despite intense opposition from Sanballat, Tobiah, and Geshem. Nehemiah demonstrates exemplary leadership: working alongside the people, arming the builders for defense, and refusing the enemy's ambush meetings. His classic response to the threat: \"I am doing a great work and I cannot come down\" (6:3).</p>\n<p><strong>The revival:</strong> Chapters 8–10 describe one of the greatest scenes of spiritual renewal in the OT: Ezra reads the Torah for hours before the assembled people, the Levites explain the text in the vernacular, and the people weep in contrition before being encouraged: \"The joy of the Lord is your strength\" (8:10). Joy here does not deny lamentation — it is the response to divine forgiveness celebrated in the context of genuine repentance.</p>",
+  "verse": "\"The joy of the <span style=\"font-variant:small-caps\">Lord</span> is your strength.\" <cite>Nehemiah 8:10 — ESV</cite>",
+  "translation": "ESV",
+  "order": 16,
+  "category": "his",
+  "cellAbbr": "Ne"
+}

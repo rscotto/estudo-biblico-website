@@ -1,0 +1,21 @@
+{
+  "name": "astro-site",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "extract-db": "node scripts/extract-db.mjs",
+    "extract-subpages": "node scripts/extract-subpages.mjs",
+    "extract-all": "node scripts/extract-db.mjs && node scripts/extract-subpages.mjs"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^13.2.2",
+    "astro": "^6.1.10"
+  }
+}

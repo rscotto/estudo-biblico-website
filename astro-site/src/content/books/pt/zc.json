@@ -1,0 +1,27 @@
+{
+  "id": "zc",
+  "num": "Livro 38 · Antigo Testamento",
+  "title": "Zacarias",
+  "abbr": "Zc · Profetas Menores",
+  "author": "Zacarias, filho de Berequias",
+  "chars": [
+    "Zacarias",
+    "Zorobabel",
+    "Josué (sumo sacerdote)",
+    "O Anjo do Senhor"
+  ],
+  "tags": [
+    "Visões Noturnas",
+    "Messias",
+    "Entrada Triunfal",
+    "30 Moedas de Prata",
+    "Apocalipse",
+    "Restauração"
+  ],
+  "body": "<p><strong>Contexto:</strong> Zacarias é o mais longo dos profetas menores e o mais citado no NT depois de Isaías. Contemporâneo de Ageu, profetizou ao povo pós-exílico durante a reconstrução do Templo. O livro divide-se em dois blocos: Zacarias 1–8 (profecias datadas com oito visões noturnas) e Zacarias 9–14 (oráculos apocalípticos de caráter escatológico intenso).</p>\n<p><strong>As visões noturnas (caps. 1–6):</strong> Oito visões simbólicas — cavaleiros entre as mirtas, os quatro chifres, o homem com linha de medir, o sumo sacerdote Josué diante de Satanás, o candelabro e as oliveiras, o rolo voador, a mulher no efa, os quatro carros — fornecem uma teologia da soberania divina sobre a história. O simbolismo denso antecipa o Apocalipse de João.</p>\n<p><strong>As profecias messiânicas:</strong> \"Eis que o teu rei virá a ti, justo e salvador, humilde e montado em jumento\" (9.9) — Mt 21.5 cita como cumprido na entrada triunfal de Jesus. Zacarias 11.12 profetiza as 30 moedas de prata. O capítulo 12.10 — \"olharão para mim, a quem traspassaram\" — é citado em Jo 19.37. O capítulo 13.7 — \"fere o pastor e as ovelhas se dispersarão\" — é citado por Jesus na noite da prisão (Mt 26.31).</p>",
+  "verse": "\"Alegra-te muito, ó filha de Sião! Dá um grito de júbilo, ó filha de Jerusalém! Eis que o seu rei vem a você; ele é justo e salvador, humilde e montado num jumento.\" <cite>Zacarias 9.9 — NAA</cite>",
+  "translation": "NAA",
+  "order": 38,
+  "category": "men",
+  "cellAbbr": "Zc"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "jo1",
+  "num": "Livro 62 · Novo Testamento",
+  "title": "1 John",
+  "abbr": "1John · General Epistles",
+  "author": "João Apóstolo, filho de Zebedeu",
+  "chars": [
+    "John",
+    "Jesus"
+  ],
+  "tags": [
+    "Love",
+    "Light",
+    "Incarnation",
+    "Antichrists",
+    "Eternal Life",
+    "Tests of Faith"
+  ],
+  "body": "<p><strong>Context:</strong> 1 John is a letter-sermon by the apostle John (~90–100 AD) addressed to communities facing division caused by proto-Gnostics: teachers who denied the full incarnation of Christ (\"Jesus did not come in real flesh\") and claimed to have superior spiritual knowledge that placed them above common ethical norms.</p>\n<p><strong>The three tests:</strong> The book is structured around three pairs of tests to verify the authenticity of Christian faith: <em>doctrinal</em> (confession of incarnate Christ), <em>ethical</em> (keeping the commandments), and <em>relational</em> (brotherly love). These tests interweave throughout the book, applied progressively.</p>\n<p><strong>The great affirmations:</strong> \"God is light, and in him is no darkness at all\" (1:5); \"If we confess our sins, he is faithful and just to forgive us our sins and to cleanse us from all unrighteousness\" (1:9 — the pastoral text par excellence); \"God is love\" (4:8, 16 — a unique ontological declaration in the Bible); \"Whoever does not love abides in death\" (3:14). Chapter 5 directly affirms eternal life as the believer's present possession: \"I write these things to you who believe in the name of the Son of God, that you may know that you have eternal life\" (5:13).</p>",
+  "verse": "\"God is love, and whoever abides in love abides in God, and God abides in him.\" <cite>1 John 4:16 — ESV</cite>",
+  "translation": "ESV",
+  "order": 62,
+  "category": "ger",
+  "cellAbbr": "1Jo"
+}

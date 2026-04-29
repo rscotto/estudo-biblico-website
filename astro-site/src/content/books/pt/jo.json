@@ -1,0 +1,29 @@
+{
+  "id": "jo",
+  "num": "Livro 18 · Antigo Testamento",
+  "title": "Jó",
+  "abbr": "Jó · Poéticos · Sapienciais",
+  "author": "Anônimo (possivelmente Jó, Moisés ou Salomão)",
+  "chars": [
+    "Jó",
+    "Elifaz",
+    "Bildade",
+    "Zofar",
+    "Eliú",
+    "Satanás"
+  ],
+  "tags": [
+    "Sofrimento",
+    "Teodiceia",
+    "Sabedoria",
+    "Lamento",
+    "Teofania",
+    "Restauração"
+  ],
+  "body": "<p><strong>Contexto:</strong> Jó é um dos livros mais literariamente sofisticados e filosoficamente profundos da Bíblia. Seu tema central é a teodiceia — a questão do sofrimento do justo. O livro abre com um prólogo em prosa (caps. 1–2) que revela ao leitor o que Jó nunca saberá: um debate celestial em que Satanás questiona se a piedade de Jó é interesseira.</p>\n<p><strong>Os diálogos:</strong> O corpo do livro (caps. 3–37) é poesia de extraordinária qualidade. Jó lamenta sua condição em linguagem de grande intensidade. Seus três amigos — Elifaz, Bildade e Zofar — representam a teologia ortodoxa da retribuição: você sofre porque pecou. Jó recusa esse esquema simplista e exige uma audiência com Deus. Eliú (caps. 32–37) acrescenta a dimensão do sofrimento educativo.</p>\n<p><strong>A teofania e a resposta:</strong> Deus responde do meio do redemoinho (caps. 38–41) não com explicações, mas com perguntas sobre a criação: \"Onde estavas quando lancei os fundamentos da terra?\" A resposta divina não resolve a pergunta — ela a transcende pela experiência da presença. Jó se rende e é restaurado. Mas o clímax não é a restauração — é o encontro. Os amigos são repreendidos por falarem erroneamente sobre Deus; Jó, que clamou com honestidade, é vindicado.</p>",
+  "verse": "\"Eu sei que o meu Redentor vive e que, por fim, ele se levantará sobre o pó.\" <cite>Jó 19.25 — NAA</cite>",
+  "translation": "NAA",
+  "order": 18,
+  "category": "poe",
+  "cellAbbr": "Jó"
+}

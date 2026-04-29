@@ -1,0 +1,26 @@
+{
+  "id": "pe1",
+  "num": "Livro 60 · Novo Testamento",
+  "title": "1 Peter",
+  "abbr": "1Pet · General Epistles",
+  "author": "Pedro (apóstolo)",
+  "chars": [
+    "Peter",
+    "Silvanus",
+    "Mark"
+  ],
+  "tags": [
+    "Suffering",
+    "Living Hope",
+    "Exiles and Pilgrims",
+    "Holiness",
+    "Submission",
+    "Royal Priesthood"
+  ],
+  "body": "<p><strong>Context:</strong> 1 Peter was written by the apostle Peter (~62–64 AD) from Rome — called \"Babylon\" (5:13), a code for Rome in the context of persecution — to Christians scattered throughout Asia Minor who faced growing social hostility and possibly State persecution under Nero. It is a manual of hope and Christian conduct in a context of suffering.</p>\n<p><strong>Identity and mission:</strong> \"You are a chosen race, a royal priesthood, a holy nation, a people for his own possession, that you may proclaim the excellencies of him who called you out of darkness into his marvelous light\" (2:9) — applying to the messianic people the categories the OT reserved for Israel. The identity as \"sojourners and exiles\" (2:11) is a call to live with the lightness of those who have no permanent citizenship here.</p>\n<p><strong>Suffering and hope:</strong> The theology of suffering in 1 Peter is remarkable: the Christian's suffering is participation in Christ's suffering (4:13), the purification of faith like gold in fire (1:7), and testimony before the watching world. The \"living hope\" of the resurrection (1:3) transforms the meaning of everything. \"Cast all your anxieties on him, because he cares for you\" (5:7) is one of the most consoling verses in the NT.</p>",
+  "verse": "\"Cast all your anxieties on him, because he cares for you.\" <cite>1 Peter 5:7 — ESV</cite>",
+  "translation": "ESV",
+  "order": 60,
+  "category": "ger",
+  "cellAbbr": "1Pe"
+}

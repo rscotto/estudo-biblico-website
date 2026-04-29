@@ -1,0 +1,29 @@
+{
+  "id": "ap",
+  "num": "Livro 66 · Novo Testamento",
+  "title": "Apocalipse",
+  "abbr": "Ap · Profético NT",
+  "author": "João Apóstolo (exilado em Patmos)",
+  "chars": [
+    "João",
+    "Jesus",
+    "Miguel",
+    "Besta",
+    "Dragão",
+    "Noiva do Cordeiro"
+  ],
+  "tags": [
+    "Visões",
+    "Cordeiro",
+    "Nova Criação",
+    "Besta",
+    "Sete Igrejas",
+    "Vitória Final"
+  ],
+  "body": "<p><strong>Contexto:</strong> Apocalipse (<em>apokalypsis</em> — \"revelação, desvelamento\") é o livro mais debatido e mais fascinante da Bíblia. Escrito por João (~95 d.C.) quando exilado na ilha de Patmos durante a perseguição do imperador Domiciano, é uma carta profética de conforto e encorajamento para igrejas sob intensa pressão imperial. Não é primariamente um calendário de eventos futuros para decodificar — é uma revelação da realidade celestial que governa a terrena.</p>\n<p><strong>Gênero e interpretação:</strong> O apocalipse é um gênero literário específico da Antiguidade — literatura simbólica de visões que revela realidades espirituais por trás das históricas. As bestas, dragões, números e cores devem ser interpretados simbolicamente, não literalmente. A \"Besta\" é o poder imperial romano (e suas imitações em cada era) que exige adoração absoluta. O \"Cordeiro\" — imagem que aparece 28 vezes — é Cristo crucificado e ressurreto, o verdadeiro Senhor do cosmos.</p>\n<p><strong>A estrutura e o clímax:</strong> O livro percorre as cartas às sete igrejas (caps. 2–3), a visão do trono celestial e o Cordeiro abrindo os selos (caps. 4–7), as trombetas (caps. 8–11), o conflito cósmico (caps. 12–14), as taças (caps. 15–16), a queda da \"Babilônia\"/Roma (caps. 17–18), a vitória do Cordeiro, o milênio, o julgamento final (caps. 19–20), e a Nova Jerusalém (caps. 21–22). O clímax da Bíblia inteira: \"Eis que faço novas todas as coisas\" (21.5) — Deus habitando com sua criação renovada, sem morte, pranto ou dor. O Éden perdido torna-se uma Cidade.</p>",
+  "verse": "\"Eis que faço novas todas as coisas... Eu sou o Alfa e o Ômega, o princípio e o fim.\" <cite>Apocalipse 21.5–6 — NAA</cite>",
+  "translation": "NAA",
+  "order": 66,
+  "category": "apo",
+  "cellAbbr": "Ap"
+}

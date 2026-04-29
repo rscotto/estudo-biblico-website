@@ -1,0 +1,27 @@
+{
+  "id": "rt",
+  "num": "Livro 8 · Antigo Testamento",
+  "title": "Rute",
+  "abbr": "Rt · Históricos",
+  "author": "Anônimo (tradição atribui a Samuel)",
+  "chars": [
+    "Rute",
+    "Noemi",
+    "Boaz",
+    "Oarpá"
+  ],
+  "tags": [
+    "Lealdade",
+    "Hesed",
+    "Redenção",
+    "Go'el",
+    "Genealogia Messiânica",
+    "Boaz"
+  ],
+  "body": "<p><strong>Contexto:</strong> Rute é um dos livros mais literariamente sofisticados e teologicamente ricos do AT — uma novela histórica de apenas quatro capítulos ambientada nos dias dos juízes. Conta a história de Noemi, israelita viúva que retorna de Moabe com sua nora Rute, moabita que escolheu o Deus de Israel com a famosa declaração de lealdade (1.16–17).</p>\n<p><strong>Conceito central — o <em>go'el</em>:</strong> O \"parente-redentor\" tem obrigação de resgatar um familiar em necessidade — seja comprando propriedade, seja casando com a viúva para perpetuar o nome do morto (levirato). Boaz, parente rico de Noemi, age como <em>go'el</em> ao se casar com Rute e resgatar a propriedade, restaurando ambas à dignidade e continuidade familiar. Cada detalhe da história é teologicamente trabalhado: a providência é visível na impossibilidade das \"coincidências.\"</p>\n<p><strong>Relevância messiânica:</strong> A genealogia final revela que Rute e Boaz são bisavós do rei Davi — e portanto ancestrais diretos de Jesus (Mt 1.5). Boaz como redentor voluntário que paga o preço para resgatar uma estrangeira é uma das mais ricas imagens tipológicas de Cristo no AT. O livro também demonstra que a graça divina sempre transcendeu as fronteiras étnicas de Israel.</p>",
+  "verse": "\"Onde você morrer, também morrerei eu, e ali serei sepultada. Assim me faça o <span style=\"font-variant:small-caps\">Senhor</span> e assim me acrescente, se outra coisa que não a morte nos separar.\" <cite>Rute 1.17 — NAA</cite>",
+  "translation": "NAA",
+  "order": 8,
+  "category": "his",
+  "cellAbbr": "Rt"
+}

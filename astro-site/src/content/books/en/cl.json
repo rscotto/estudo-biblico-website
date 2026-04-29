@@ -1,0 +1,29 @@
+{
+  "id": "cl",
+  "num": "Livro 51 · Novo Testamento",
+  "title": "Colossians",
+  "abbr": "Col · Pauline Epistles",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paul",
+    "Tychicus",
+    "Onesimus",
+    "Epaphras",
+    "Mark",
+    "Luke"
+  ],
+  "tags": [
+    "Supremacy of Christ",
+    "False Philosophy",
+    "Cosmos",
+    "Head of the Church",
+    "Practical Life",
+    "Colossae"
+  ],
+  "body": "<p><strong>Context:</strong> Colossians was written from Paul's prison (~60–62 AD) to the Church at Colossae — a Phrygian city Paul probably never visited personally. The letter responds to a syncretistic \"philosophy\" mixing Judaism, proto-Gnostic elements, angel worship, and ascetic practices, threatening to reduce Christ to merely one mediator among others.</p>\n<p><strong>The Christological hymn (1:15–20):</strong> Perhaps the highest text on the cosmic supremacy of Christ in the NT: \"He is the image of the invisible God, the firstborn of all creation. For by him all things were created... all things were created through him and for him. And he is before all things, and in him all things hold together.\" Christ is not a mediator between God and the cosmos — he is the creator and sustainer of the cosmos. The divine \"fullness\" (<em>pleroma</em>) dwells in him bodily (2:9).</p>\n<p><strong>The philosophical polemic (ch. 2) and ethics (chs. 3–4):</strong> \"See to it that no one takes you captive by philosophy and empty deceit\" (2:8) — not anti-intellectualism, but the unmasking of speculation that is not \"according to Christ.\" In Christ are hidden all the treasures of wisdom and knowledge (2:3). The practical application includes the transforming vision of all of life: \"whatever you do, work heartily, as for the Lord\" (3:23).</p>",
+  "verse": "\"In whom are hidden all the treasures of wisdom and knowledge.\" <cite>Colossians 2:3 — ESV</cite>",
+  "translation": "ESV",
+  "order": 51,
+  "category": "pau",
+  "cellAbbr": "Cl"
+}

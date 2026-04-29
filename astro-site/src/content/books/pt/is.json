@@ -1,0 +1,28 @@
+{
+  "id": "is",
+  "num": "Livro 23 · Antigo Testamento",
+  "title": "Isaías",
+  "abbr": "Is · Profetas Maiores",
+  "author": "Isaías, filho de Amoz",
+  "chars": [
+    "Isaías",
+    "Ezequias",
+    "Acaz",
+    "Senaqueribe",
+    "O Servo Sofredor"
+  ],
+  "tags": [
+    "Messias",
+    "Servo Sofredor",
+    "Santo de Israel",
+    "Consolação",
+    "Novo Êxodo",
+    "Escatologia"
+  ],
+  "body": "<p><strong>Contexto:</strong> Isaías é o maior dos profetas e o livro mais citado no Novo Testamento — mais de 400 citações ou alusões. Chamado de \"o Evangelho do AT\" ou \"o quinto Evangelho,\" Isaías profetizou em Jerusalém durante o reinado de quatro reis: Uzias, Jotão, Acaz e Ezequias (740–700 a.C.), um ministério de cerca de 40 anos.</p>\n<p><strong>Estrutura:</strong> O livro divide-se em dois grandes blocos: Isaías 1–39 (\"proto-Isaías\"), com foco no julgamento de Israel, Judá e as nações, culminando no episódio histórico da invasão assíria e a libertação miraculosa de Jerusalém sob Ezequias; e Isaías 40–66 (\"deutero/trito-Isaías\"), com foco na consolação, restauração e salvação escatológica, endereçado à comunidade do exílio babilônico e além.</p>\n<p><strong>Profecia messiânica:</strong> Os quatro \"Cânticos do Servo\" (42; 49; 50; 52–53) são o ápice do messianismo pré-cristão. Isaías 53 — o servo ferido \"por causa das nossas transgressões, moído por causa das nossas iniquidades, o castigo que nos traz paz estava sobre ele\" — é o texto messiânico mais explícito do AT e foi amplamente citado pelos apóstolos. Isaías também profetizou o nascimento virginal (7.14), o Príncipe da Paz (9.6–7), e a nova criação (65–66).</p>",
+  "verse": "\"Mas ele foi traspassado por causa das nossas transgressões e esmagado por causa das nossas iniquidades.\" <cite>Isaías 53.5 — NAA</cite>",
+  "translation": "NAA",
+  "order": 23,
+  "category": "mai",
+  "cellAbbr": "Is"
+}

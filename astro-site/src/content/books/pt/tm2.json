@@ -1,0 +1,29 @@
+{
+  "id": "tm2",
+  "num": "Livro 55 · Novo Testamento",
+  "title": "2 Timóteo",
+  "abbr": "2Tm · Epístolas Paulinas",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paulo",
+    "Timóteo",
+    "Lucas",
+    "Marcos",
+    "Demás",
+    "Crescente"
+  ],
+  "tags": [
+    "Testamento de Paulo",
+    "Inspiração das Escrituras",
+    "Perseverança",
+    "Martírio",
+    "Bom Combate",
+    "Solidão"
+  ],
+  "body": "<p><strong>Contexto:</strong> 2 Timóteo é provavelmente a última carta de Paulo — seu testamento espiritual, escrito da segunda prisão em Roma (~66–67 d.C.) pouco antes de sua execução sob Nero. O tom é profundamente pessoal, urgente e emocionante. Paulo está sozinho (\"todos me abandonaram\"), sente-se como \"libação derramada\" (4.6) sobre o altar, mas sem ressentimento — com serenidade e confiança.</p>\n<p><strong>\"Já combati o bom combate\" (4.7–8):</strong> Uma das frases mais memoráveis do NT — não arrogância, mas constatação sóbria de fidelidade até o fim. Paulo usa três metáforas: o atleta que termina a prova, o soldado que guarda o posto, e a corrida completada. A coroa da justiça aguarda — não apenas Paulo, \"mas também a todos os que amam a sua vinda.\"</p>\n<p><strong>A inspiração das Escrituras (3.16–17):</strong> \"Toda a Escritura é inspirada por Deus (<em>theopneustos</em> — literalmente 'exalada por Deus') e útil para ensinar, repreender, corrigir, instruir na justiça, para que o homem de Deus seja perfeito.\" Este texto tornou-se o fundamento da doutrina evangélica da inspiração verbal das Escrituras. A carta termina com pedidos pessoais tocantes: tragam o manto, e os livros, especialmente os pergaminhos.</p>",
+  "verse": "\"Combati o bom combate, completei a corrida, guardei a fé.\" <cite>2 Timóteo 4.7 — NAA</cite>",
+  "translation": "NAA",
+  "order": 55,
+  "category": "pau",
+  "cellAbbr": "2Tm"
+}

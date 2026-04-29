@@ -1,0 +1,29 @@
+{
+  "id": "fm",
+  "num": "Livro 57 · Novo Testamento",
+  "title": "Philemon",
+  "abbr": "Phlm · Pauline Epistles",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paul",
+    "Philemon",
+    "Onesimus",
+    "Apphia",
+    "Archippus",
+    "Timothy"
+  ],
+  "tags": [
+    "Slavery",
+    "Reconciliation",
+    "Forgiveness",
+    "Brotherhood in Christ",
+    "Onesimus",
+    "Social Grace"
+  ],
+  "body": "<p><strong>Context:</strong> Philemon is Paul's most personal and private letter — a note of just 25 verses addressed to Philemon, a Christian at Colossae and owner of the slave Onesimus. Onesimus had fled from his master — possibly stealing from him — and found Paul in prison in Rome, where he converted to Christianity. Paul sends him back with this letter that transforms the return into an invitation to reconciliation.</p>\n<p><strong>The art of appeal:</strong> The letter is a model of diplomatic and pastoral tact. Paul uses all his rhetorical skill to persuade without ordering: \"I preferred to do nothing without your consent in order that your goodness might not be by compulsion but of your own accord\" (v.14). He plays with the meaning of Onesimus' name (\"useful\") and offers himself as guarantor: \"if he has wronged you at all, or owes you anything, charge that to my account\" (v.18) — a vivid image of substitutionary imputation.</p>\n<p><strong>Social subversion through the gospel:</strong> The letter does not condemn slavery explicitly, but plants the principles that made it incompatible with the gospel: Onesimus must be received \"no longer as a bondservant but better than a bondservant, as a dear brother\" (v.16). It is the most subtly subversive document in the NT on social structures — not by legal revolution, but by the transformation of relationships through the logic of Christ's love.</p>",
+  "verse": "\"No longer as a bondservant but better than a bondservant, as a dear brother.\" <cite>Philemon 16 — ESV</cite>",
+  "translation": "ESV",
+  "order": 57,
+  "category": "pau",
+  "cellAbbr": "Fm"
+}

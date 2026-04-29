@@ -1,0 +1,25 @@
+{
+  "id": "jo1",
+  "num": "Livro 62 · Novo Testamento",
+  "title": "1 João",
+  "abbr": "1Jo · Epístolas Gerais",
+  "author": "João Apóstolo, filho de Zebedeu",
+  "chars": [
+    "João",
+    "Jesus"
+  ],
+  "tags": [
+    "Amor",
+    "Luz",
+    "Encarnação",
+    "Anticristos",
+    "Vida Eterna",
+    "Testes da Fé"
+  ],
+  "body": "<p><strong>Contexto:</strong> 1 João é uma carta-sermão de João Apóstolo (~90–100 d.C.) dirigida a comunidades que enfrentavam divisão causada por proto-gnósticos: professores que negavam a plena encarnação de Cristo (\"Jesus não veio em carne real\") e afirmavam ter um conhecimento espiritual superior que os colocava acima das normas éticas comuns.</p>\n<p><strong>Os três testes:</strong> O livro é estruturado em torno de três pares de testes para verificar a autenticidade da fé cristã: <em>doutrinário</em> (confissão de Cristo encarnado), <em>ético</em> (guardar os mandamentos) e <em>relacional</em> (amor fraternal). Esses testes se entrelaçam ao longo do livro, aplicados progressivamente.</p>\n<p><strong>As grandes afirmações:</strong> \"Deus é luz, e nele não há treva alguma\" (1.5); \"Se confessarmos os nossos pecados, ele é fiel e justo para nos perdoar e nos purificar de toda injustiça\" (1.9 — texto pastoral por excelência); \"Deus é amor\" (4.8.16 — declaração ontológica única na Bíblia); \"Aquele que não ama permanece na morte\" (3.14). O capítulo 5 afirma diretamente a vida eterna como posse presente do crente: \"Estas coisas vos escrevi para que saibais que tendes a vida eterna\" (5.13).</p>",
+  "verse": "\"Deus é amor. Aquele que permanece no amor permanece em Deus, e Deus permanece nele.\" <cite>1 João 4.16 — NAA</cite>",
+  "translation": "NAA",
+  "order": 62,
+  "category": "ger",
+  "cellAbbr": "1Jo"
+}

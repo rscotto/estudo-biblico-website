@@ -1,0 +1,29 @@
+{
+  "id": "ts1",
+  "num": "Livro 52 · Novo Testamento",
+  "title": "1 Thessalonians",
+  "abbr": "1Thess · Pauline Epistles",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paul",
+    "Silvanus",
+    "Timothy",
+    "Jason",
+    "Aristarchus",
+    "Secundus"
+  ],
+  "tags": [
+    "Eschatology",
+    "Parousia",
+    "Resurrection of the Dead",
+    "Holiness",
+    "Prayer",
+    "Consolation"
+  ],
+  "body": "<p><strong>Context:</strong> 1 Thessalonians is probably the earliest of Paul's letters and possibly the oldest writing in the NT (~50 AD), written just months after the founding of the Church at Thessalonica during the second missionary journey. The letter overflows with paternal affection for the young community that persevered despite persecution.</p>\n<p><strong>The eschatological concern:</strong> Some members had died before Christ's return, and the Thessalonians feared they would \"miss\" the resurrection. Paul responds with the most explicit NT passage on the <em>parousia</em> (4:13–18): \"the dead in Christ will rise first. Then we who are alive, who are left, will be caught up together with them in the clouds to meet the Lord in the air.\" This passage is the central text in the evangelical debate about the \"rapture\" in eschatology.</p>\n<p><strong>Practical holiness (chs. 4–5):</strong> \"This is the will of God, your sanctification\" (4:3). \"The day of the Lord will come like a thief in the night\" (5:2) — but children of light are not in darkness to be surprised. The closing includes a series of concise exhortations that summarize the Christian life: \"Pray without ceasing, give thanks in all circumstances; for this is the will of God in Christ Jesus for you\" (5:17–18).</p>",
+  "verse": "\"Pray without ceasing, give thanks in all circumstances; for this is the will of God in Christ Jesus for you.\" <cite>1 Thessalonians 5:17–18 — ESV</cite>",
+  "translation": "ESV",
+  "order": 52,
+  "category": "pau",
+  "cellAbbr": "1Ts"
+}

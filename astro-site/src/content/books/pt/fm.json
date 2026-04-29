@@ -1,0 +1,29 @@
+{
+  "id": "fm",
+  "num": "Livro 57 · Novo Testamento",
+  "title": "Filemom",
+  "abbr": "Fm · Epístolas Paulinas",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paulo",
+    "Filemom",
+    "Onésimo",
+    "Áfia",
+    "Arquipo",
+    "Timóteo"
+  ],
+  "tags": [
+    "Escravidão",
+    "Reconciliação",
+    "Perdão",
+    "Irmandade em Cristo",
+    "Onésimo",
+    "Graça Social"
+  ],
+  "body": "<p><strong>Contexto:</strong> Filemom é a carta mais pessoal e privada de Paulo — um bilhete de apenas 25 versículos endereçado a Filemom, cristão de Colossos e dono do escravo Onésimo. Onésimo havia fugido de seu senhor — possivelmente roubando-o — e encontrado Paulo na prisão em Roma, onde se converteu ao cristianismo. Paulo o envia de volta com esta carta que transforma o retorno em convite à reconciliação.</p>\n<p><strong>A arte do apelo:</strong> A carta é modelo de tato diplomático e pastoral. Paulo usa toda sua habilidade retórica para persuadir sem ordenar: \"preferi não fazer nada sem o teu consentimento, para que a tua bondade não fosse como que por compulsão, mas voluntária\" (v.14). Ele joga com o significado do nome Onésimo (\"útil\") e se oferece como garantidor: \"se te deve alguma coisa, lança isso em minha conta\" (v.18) — imagem vívida da imputação substitutiva.</p>\n<p><strong>Subversão social pelo evangelho:</strong> A carta não condena a escravidão explicitamente, mas semeia os princípios que a tornaram incompatível com o evangelho: Onésimo deve ser recebido \"não mais como escravo, mas como muito mais do que escravo: como irmão amado\" (v.16). É o documento mais sutilmente subversivo do NT sobre as estruturas sociais — não por revolução legal, mas pela transformação dos relacionamentos pela lógica do amor de Cristo.</p>",
+  "verse": "\"Não mais como escravo, mas bem melhor do que escravo: como irmão amado.\" <cite>Filemom 16 — NAA</cite>",
+  "translation": "NAA",
+  "order": 57,
+  "category": "pau",
+  "cellAbbr": "Fm"
+}

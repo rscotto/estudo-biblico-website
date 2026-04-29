@@ -1,0 +1,30 @@
+{
+  "id": "rs2",
+  "num": "Livro 12 · Antigo Testamento",
+  "title": "2 Kings",
+  "abbr": "2Ki · Historical",
+  "author": "Anônimo (escola deuteronomista)",
+  "chars": [
+    "Elisha",
+    "Elijah",
+    "Hezekiah",
+    "Josiah",
+    "Naaman",
+    "Ahab",
+    "Jehu"
+  ],
+  "tags": [
+    "Fall of Israel",
+    "Fall of Judah",
+    "Assyrian Exile",
+    "Babylonian Exile",
+    "Elisha",
+    "Josiah"
+  ],
+  "body": "<p><strong>Context:</strong> 2 Kings completes the narrative of the two kingdoms and describes their definitive falls: the northern kingdom (Israel) is destroyed by Assyria in 722 BC (ch. 17), and the southern kingdom (Judah) is conquered by Babylon in 586 BC, with the destruction of Solomon's Temple (ch. 25). These are the lowest points in Israel's history.</p>\n<p><strong>Elisha:</strong> The book opens with Elisha's succession, who inherits Elijah's mantle. His miracles anticipate Jesus' ministry: multiplication of food, resurrection of a boy (ch. 4), healing of Naaman the Aramean leper (ch. 5 — cited by Jesus in Luke 4:27 as an example of grace that surpasses Israel). The vision of the horses of fire around Dothan (6:17) reveals the invisible spiritual reality behind the visible world.</p>\n<p><strong>The Deuteronomic criterion:</strong> Each king is evaluated according to his faithfulness to the Davidic model. Only Hezekiah and Josiah receive fully positive evaluations. Josiah's reform (chs. 22–23), triggered by the discovery of the Book of the Law in the Temple, represents the last effort at renewal before the final collapse. The exile is presented as fulfillment of Moses' warnings (Deut 28).</p>",
+  "verse": "\"The <span style=\"font-variant:small-caps\">Lord</span> removed Israel out of his sight, as he had spoken by all his servants the prophets.\" <cite>2 Kings 17:23 — ESV</cite>",
+  "translation": "ESV",
+  "order": 12,
+  "category": "his",
+  "cellAbbr": "2Rs"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "lm",
+  "num": "Livro 25 · Antigo Testamento",
+  "title": "Lamentações",
+  "abbr": "Lm · Profetas Maiores",
+  "author": "Jeremias (tradição judaica e cristã)",
+  "chars": [
+    "Jeremias",
+    "Jerusalém (personificada)"
+  ],
+  "tags": [
+    "Lamento",
+    "Destruição de Jerusalém",
+    "Misericórdias",
+    "Fé no Sofrimento",
+    "Poesia Acróstica",
+    "Esperança"
+  ],
+  "body": "<p><strong>Contexto:</strong> Lamentações é uma coleção de cinco poemas sobre a destruição de Jerusalém em 586 a.C. pela Babilônia. A tradição hebraica e cristã associa o livro a Jeremias. Os quatro primeiros poemas são acrósticos hebraicos — cada verso começa com uma letra do alfabeto hebraico de 22 letras — sugerindo que a expressão da dor foi artisticamente estruturada: o lamento tem forma, não é caos.</p>\n<p><strong>O choro e a esperança:</strong> O livro abre com um choro agudo: \"Como está solitária a cidade que era tão populosa!\" (1.1). A personificação de Jerusalém como mulher viúva e desolada cria pathos literário de rara intensidade. Os poemas oscilam entre descrição da catástrofe, confissão de que o julgamento era merecido, clamor a Deus e esperança.</p>\n<p><strong>O coração do livro (cap. 3):</strong> No centro exato do livro está uma das declarações mais extraordinárias da fé bíblica — feita no meio da maior catástrofe da história de Israel: \"As misericórdias do Senhor certamente não têm fim, as suas misericórdias não se esgotam; renovam-se cada manhã. Grande é a tua fidelidade!\" (3.22–23). Esta afirmação de <em>hesed</em> divino, proferida na escuridão total, torna-se o fundamento da esperança que não depende das circunstâncias.</p>",
+  "verse": "\"As misericórdias do <span style=\"font-variant:small-caps\">Senhor</span> jamais cessam; as suas compaixões nunca se esgotam; renovam-se cada manhã. Grande é a tua fidelidade!\" <cite>Lamentações 3.22–23 — NAA</cite>",
+  "translation": "NAA",
+  "order": 25,
+  "category": "mai",
+  "cellAbbr": "Lm"
+}

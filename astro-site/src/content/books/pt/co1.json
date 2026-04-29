@@ -1,0 +1,28 @@
+{
+  "id": "co1",
+  "num": "Livro 46 · Novo Testamento",
+  "title": "1 Coríntios",
+  "abbr": "1Co · Epístolas Paulinas",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paulo",
+    "Apolo",
+    "Pedro",
+    "Cefas",
+    "Estêvão"
+  ],
+  "tags": [
+    "Cruz",
+    "Dons Espirituais",
+    "Amor",
+    "Ressurreição",
+    "Unidade",
+    "Culto"
+  ],
+  "body": "<p><strong>Contexto:</strong> 1 Coríntios foi escrita por Paulo de Éfeso (~54 d.C.) para a jovem Igreja em Corinto — metrópole cosmopolita, portuária e moralmente libertária, famosa pelo templo de Afrodite. A carta responde a relatórios de divisões e a uma lista de perguntas enviadas pelos próprios coríntios. É extraordinariamente rica, prática e variada.</p>\n<p><strong>Conteúdo:</strong> Os capítulos 1–4 tratam das divisões partidárias com a teologia da cruz que inverte a sabedoria do mundo: \"a palavra da cruz é loucura para os que se perdem.\" Os capítulos 5–6 tratam de imoralidade sexual e processos judiciais entre irmãos. O capítulo 7 trata do casamento e celibato. Os capítulos 8–10 abordam a liberdade cristã limitada pelo amor ao irmão mais fraco.</p>\n<p><strong>Os capítulos centrais:</strong> O capítulo 11 trata do culto e da Ceia do Senhor. Os capítulos 12–14 são o tratamento mais completo dos dons espirituais no NT — enquadrado pelo capítulo 13, o hino ao amor (<em>agapê</em>), que Paulo apresenta como \"o caminho mais excelente\" acima de qualquer dom. O capítulo 15 é a mais extensa defesa da ressurreição corporal no NT: \"se Cristo não ressuscitou, vã é a nossa pregação\" — a ressurreição não é periférica ao evangelho, é o seu coração.</p>",
+  "verse": "\"Ainda que eu fale as línguas dos homens e dos anjos, se não tiver amor, serei como o bronze que ressoa ou o címbalo que retine.\" <cite>1 Coríntios 13.1 — NAA</cite>",
+  "translation": "NAA",
+  "order": 46,
+  "category": "pau",
+  "cellAbbr": "1Co"
+}

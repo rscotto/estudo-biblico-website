@@ -1,0 +1,29 @@
+{
+  "id": "fp",
+  "num": "Livro 50 · Novo Testamento",
+  "title": "Filipenses",
+  "abbr": "Fp · Epístolas Paulinas",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paulo",
+    "Timóteo",
+    "Epafrodito",
+    "Clemente",
+    "Evódia",
+    "Síntique"
+  ],
+  "tags": [
+    "Alegria",
+    "Humildade",
+    "Kenosis",
+    "Contentamento",
+    "Cristo Supremo",
+    "Prisão"
+  ],
+  "body": "<p><strong>Contexto:</strong> Filipenses é a mais pessoal e afetuosa das cartas de Paulo — \"a epístola da alegria.\" Escrita da prisão (~60–62 d.C.) para a Igreja de Filipos — sua primeira na Europa, fundada através de uma visão noturna (At 16) e de um terremoto que libertou Paulo e converteu o carcereiro. A palavra \"alegria\" ou \"regozijar-se\" aparece 16 vezes em apenas 4 capítulos. Que Paulo escreva sobre alegria estando preso é em si uma proclamação teológica.</p>\n<p><strong>O hino da Kenosis (cap. 2):</strong> O Carmen Christi (2.6–11) é o mais famoso hino cristológico do NT: Cristo, sendo na \"forma de Deus\" (<em>morphe theou</em>), esvaziou-se (<em>kenosis</em>) — não de sua divindade, mas de suas prerrogativas divinas — tomou forma de servo, humilhou-se até a morte da cruz, e por isso Deus o exaltou e lhe deu o nome acima de todo nome. É uma das mais profundas declarações da Encarnação e Exaltação na Bíblia.</p>\n<p><strong>O contentamento aprendido (cap. 4):</strong> Paulo não diz que contentamento é um dom — diz que é uma habilidade aprendida: \"aprendi a contentar-me em qualquer estado\" (4.11). O segredo é o versículo 13: \"Tudo posso naquele que me fortalece\" — não promessa de poder mágico, mas declaração de suficiência em Cristo em qualquer circunstância.</p>",
+  "verse": "\"Tudo posso naquele que me fortalece.\" <cite>Filipenses 4.13 — NAA</cite>",
+  "translation": "NAA",
+  "order": 50,
+  "category": "pau",
+  "cellAbbr": "Fp"
+}

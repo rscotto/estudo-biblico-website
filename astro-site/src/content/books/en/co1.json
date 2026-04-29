@@ -1,0 +1,28 @@
+{
+  "id": "co1",
+  "num": "Livro 46 · Novo Testamento",
+  "title": "1 Corinthians",
+  "abbr": "1Cor · Pauline Epistles",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paul",
+    "Apollos",
+    "Peter",
+    "Cephas",
+    "Stephanas"
+  ],
+  "tags": [
+    "Cross",
+    "Spiritual Gifts",
+    "Love",
+    "Resurrection",
+    "Unity",
+    "Worship"
+  ],
+  "body": "<p><strong>Context:</strong> 1 Corinthians was written by Paul from Ephesus (~54 AD) to the young Church in Corinth — a cosmopolitan, port city of moral libertinism, famous for the temple of Aphrodite. The letter responds to reports of divisions and a list of questions sent by the Corinthians themselves. It is extraordinarily rich, practical, and varied.</p>\n<p><strong>Content:</strong> Chapters 1–4 address partisan divisions with the theology of the cross that inverts the wisdom of the world: \"the word of the cross is folly to those who are perishing.\" Chapters 5–6 address sexual immorality and lawsuits between brothers. Chapter 7 addresses marriage and celibacy. Chapters 8–10 address Christian freedom limited by love for the weaker brother.</p>\n<p><strong>The central chapters:</strong> Chapter 11 addresses worship and the Lord's Supper. Chapters 12–14 are the most complete treatment of spiritual gifts in the NT — framed by chapter 13, the hymn to love (<em>agapê</em>), which Paul presents as \"the more excellent way\" above any gift. Chapter 15 is the most extensive defense of bodily resurrection in the NT: \"if Christ has not been raised, your faith is futile\" — the resurrection is not peripheral to the gospel, it is its heart.</p>",
+  "verse": "\"If I speak in the tongues of men and of angels, but have not love, I am a noisy gong or a clanging cymbal.\" <cite>1 Corinthians 13:1 — ESV</cite>",
+  "translation": "ESV",
+  "order": 46,
+  "category": "pau",
+  "cellAbbr": "1Co"
+}

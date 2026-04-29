@@ -1,0 +1,28 @@
+{
+  "id": "sl",
+  "num": "Livro 19 · Antigo Testamento",
+  "title": "Salmos",
+  "abbr": "Sl · Poéticos · Sapienciais",
+  "author": "Davi (principal), Asafe, filhos de Coré, Salomão, Moisés e outros",
+  "chars": [
+    "Davi",
+    "Salomão",
+    "Moisés",
+    "Asafe",
+    "Coré"
+  ],
+  "tags": [
+    "Adoração",
+    "Lamento",
+    "Messias",
+    "Oração",
+    "Poesia Hebraica",
+    "Davi"
+  ],
+  "body": "<p><strong>Contexto:</strong> Os 150 Salmos são o hinário e livro de oração do povo de Deus através dos séculos — o livro mais citado no NT e o mais lido em toda a história da espiritualidade cristã e judaica. Cobre toda a gama da experiência humana diante de Deus: adoração extática, lamento profundo, confissão de pecado, gratidão, clamor de socorro, meditação na Lei e esperança escatológica.</p>\n<p><strong>Estrutura:</strong> O Saltério é dividido em cinco \"livros\" (Sl 1–41; 42–72; 73–89; 90–106; 107–150), provavelmente em paralelo com os cinco livros de Moisés. Os autores incluem Davi (73 salmos), os filhos de Coré, Asafe, Salomão, Moisés e muitos anônimos.</p>\n<p><strong>Dimensão messiânica:</strong> Muitos salmos são amplamente citados no NT como cumpridos em Jesus. O Salmo 2 — \"Tu és meu filho; eu hoje te gerei\" — é citado na Transfiguração e em Hebreus 1. O Salmo 22 — \"Deus meu, por que me abandonaste?\" — é citado por Jesus na Cruz. O Salmo 110 — \"Senta-te à minha direita\" — é o texto do AT mais citado no NT. O Salmo 118 — \"A pedra que os construtores rejeitaram\" — é aplicado por Jesus a si mesmo. O Salmo 23 — \"O Senhor é o meu pastor\" — é provavelmente o texto mais memorizado em toda a história da fé.</p>",
+  "verse": "\"O <span style=\"font-variant:small-caps\">Senhor</span> é o meu pastor; nada me faltará.\" <cite>Salmo 23.1 — NAA</cite>",
+  "translation": "NAA",
+  "order": 19,
+  "category": "poe",
+  "cellAbbr": "Sl"
+}

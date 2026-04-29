@@ -1,0 +1,29 @@
+{
+  "id": "jr",
+  "num": "Livro 24 · Antigo Testamento",
+  "title": "Jeremiah",
+  "abbr": "Jer · Major Prophets",
+  "author": "Jeremias (com Baruc como escriba)",
+  "chars": [
+    "Jeremiah",
+    "Baruch",
+    "Jehoiakim",
+    "Zedekiah",
+    "Pashhur",
+    "Nebuzaradan"
+  ],
+  "tags": [
+    "New Covenant",
+    "Judgment",
+    "Lament",
+    "Babylonian Exile",
+    "Mission to Nations",
+    "Persecution"
+  ],
+  "body": "<p><strong>Context:</strong> Jeremiah prophesied in the final years of the kingdom of Judah — from Josiah to the destruction of Jerusalem in 586 BC and the beginning of exile. He is the prophet who most revealed his inner world and is called \"the weeping prophet.\" Called while still young, he resisted the divine call (\"I do not know how to speak, for I am only a youth\" — 1:6) and lived a ministry of constant rejection, imprisonment, and isolation.</p>\n<p><strong>Jeremiah's \"Confessions\":</strong> Chapters 11–20 contain prayers of anguish unique in biblical literature — Jeremiah questions God about his own suffering and even curses the day of his birth (ch. 20). This raw honesty anticipates the language of abandonment of Jesus on the Cross and makes Jeremiah the most \"human\" prophet of the Bible.</p>\n<p><strong>The New Covenant (ch. 31):</strong> The theological high point of the book and one of the most important texts of the OT. God promises a new covenant — not like the Sinai covenant that Israel broke — in which his law will be written on the people's hearts, not on stone tablets. This text is quoted in Hebrews 8–10 as fulfilled in Christ's mediation. Jeremiah's letter to the exiles (ch. 29) with the exhortation to \"seek the shalom of the city\" has become foundational for the theology of cultural mission.</p>",
+  "verse": "\"For I know the plans I have for you, declares the <span style=\"font-variant:small-caps\">Lord</span>, plans for welfare and not for evil, to give you a future and a hope.\" <cite>Jeremiah 29:11 — ESV</cite>",
+  "translation": "ESV",
+  "order": 24,
+  "category": "mai",
+  "cellAbbr": "Jr"
+}

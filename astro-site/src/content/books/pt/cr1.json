@@ -1,0 +1,28 @@
+{
+  "id": "cr1",
+  "num": "Livro 13 · Antigo Testamento",
+  "title": "1 Crônicas",
+  "abbr": "1Cr · Históricos",
+  "author": "Esdras (tradição rabínica)",
+  "chars": [
+    "Davi",
+    "Salomão",
+    "Joabe",
+    "Natã",
+    "Asafe"
+  ],
+  "tags": [
+    "Genealogias",
+    "Davi",
+    "Templo",
+    "Pós-exílio",
+    "Adoração",
+    "Identidade"
+  ],
+  "body": "<p><strong>Contexto:</strong> 1 e 2 Crônicas foram escritos após o retorno do exílio babilônico (provavelmente por Esdras, no século 5 a.C.) e oferecem uma releitura teológica seletiva da história de Israel, com foco em Davi, Salomão e o Templo. A perspectiva é sacerdotal e litúrgica — não política como em Samuel-Reis.</p>\n<p><strong>Genealogias (caps. 1–9):</strong> Nove capítulos de listas genealógicas de Adão a Israel podem parecer áridas, mas têm função teológica precisa: estabelecer a continuidade ininterrupta do povo de Deus do começo da história até o retorno do exílio. O povo que retorna não é um povo novo — é o mesmo povo da aliança.</p>\n<p><strong>Davi (caps. 10–29):</strong> O Cronista ignora os pecados de Davi (Bate-Seba não é mencionada) e concentra-se em sua organização do culto e sua preparação para o Templo — que ele deseja mas não pode construir por ser \"homem de guerras.\" A teologia da presença divina e da adoração correta é central para a comunidade pós-exílica que precisa reconstruir sua identidade em torno do culto restaurado.</p>",
+  "verse": "\"Teus, <span style=\"font-variant:small-caps\">Senhor</span>, são a grandeza, o poder, a glória, a vitória e a majestade; pois teus são todos os seres que estão nos céus e na terra.\" <cite>1 Crônicas 29.11 — NAA</cite>",
+  "translation": "NAA",
+  "order": 13,
+  "category": "his",
+  "cellAbbr": "1Cr"
+}

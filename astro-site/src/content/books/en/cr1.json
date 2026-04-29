@@ -1,0 +1,28 @@
+{
+  "id": "cr1",
+  "num": "Livro 13 · Antigo Testamento",
+  "title": "1 Chronicles",
+  "abbr": "1Chr · Historical",
+  "author": "Esdras (tradição rabínica)",
+  "chars": [
+    "David",
+    "Solomon",
+    "Joab",
+    "Nathan",
+    "Asaph"
+  ],
+  "tags": [
+    "Genealogies",
+    "David",
+    "Temple",
+    "Post-Exile",
+    "Worship",
+    "Identity"
+  ],
+  "body": "<p><strong>Context:</strong> 1 and 2 Chronicles were written after the return from Babylonian exile (probably by Ezra, in the 5th century BC) and offer a selective theological re-reading of Israel's history, focused on David, Solomon, and the Temple. The perspective is priestly and liturgical — not political as in Samuel-Kings.</p>\n<p><strong>Genealogies (chs. 1–9):</strong> Nine chapters of genealogical lists from Adam to Israel may seem dry, but they serve a precise theological function: to establish the unbroken continuity of God's people from the beginning of history to the return from exile. The returning community is not a new people — it is the same covenant people.</p>\n<p><strong>David (chs. 10–29):</strong> The Chronicler ignores David's sins (Bathsheba is not mentioned) and focuses on his organization of worship and his preparation for the Temple — which he desires but cannot build because he is \"a man of war.\" The theology of divine presence and correct worship is central to the post-exilic community needing to rebuild its identity around restored worship.</p>",
+  "verse": "\"Yours, O <span style=\"font-variant:small-caps\">Lord</span>, is the greatness and the power and the glory and the victory and the majesty, for all that is in the heavens and in the earth is yours.\" <cite>1 Chronicles 29:11 — ESV</cite>",
+  "translation": "ESV",
+  "order": 13,
+  "category": "his",
+  "cellAbbr": "1Cr"
+}

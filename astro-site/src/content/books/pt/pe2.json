@@ -1,0 +1,28 @@
+{
+  "id": "pe2",
+  "num": "Livro 61 · Novo Testamento",
+  "title": "2 Pedro",
+  "abbr": "2Pe · Epístolas Gerais",
+  "author": "Pedro (apóstolo)",
+  "chars": [
+    "Pedro",
+    "Paulo",
+    "Noé",
+    "Ló",
+    "Balaão"
+  ],
+  "tags": [
+    "Falsos Mestres",
+    "Inspiração das Escrituras",
+    "Escatologia",
+    "Crescimento",
+    "Apostasia",
+    "Paciência Divina"
+  ],
+  "body": "<p><strong>Contexto:</strong> 2 Pedro é o último escrito do apóstolo Pedro — seu testamento, composto com consciência da morte iminente (~64–68 d.C.). A carta tem tom urgente e combativo, tratando principalmente de dois temas: o crescimento na graça (cap. 1) e o perigo dos falsos mestres que negariam o senhorio de Cristo e promoveriam libertinagem moral (caps. 2–3).</p>\n<p><strong>Inspiração das Escrituras (1.16–21):</strong> Pedro afirma ter sido testemunha ocular da Transfiguração de Jesus — \"ouvimos esta voz vinda dos céus\" — e em seguida declara: \"a profecia não teve origem na vontade dos homens; mas os santos homens de Deus falaram movidos pelo Espírito Santo\" (1.21). A memória apostólica e a inspiração profética convergem como fundamentos do NT.</p>\n<p><strong>A paciência escatológica (cap. 3):</strong> Escarnecedores que zombam da promessa do retorno de Cristo recebem resposta: \"para o Senhor um dia é como mil anos, e mil anos como um dia\" (3.8) — a relatividade do tempo divino. O \"atraso\" é na verdade paciência: \"o Senhor não retarda a sua promessa... mas é longânimo para convosco, não querendo que nenhum pereça.\" O mundo será renovado por fogo, e o horizonte é \"novos céus e nova terra nos quais habita a justiça\" (3.13).</p>",
+  "verse": "\"Antes, cresçam na graça e no conhecimento de nosso Senhor e Salvador Jesus Cristo.\" <cite>2 Pedro 3.18 — NAA</cite>",
+  "translation": "NAA",
+  "order": 61,
+  "category": "ger",
+  "cellAbbr": "2Pe"
+}

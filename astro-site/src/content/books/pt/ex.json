@@ -1,0 +1,30 @@
+{
+  "id": "ex",
+  "num": "Livro 2 · Antigo Testamento",
+  "title": "Êxodo",
+  "abbr": "Êx · Pentateuco · Lei",
+  "author": "Moisés",
+  "chars": [
+    "Moisés",
+    "Arão",
+    "Miriam",
+    "Faraó",
+    "Jetro",
+    "Josué",
+    "Séfora"
+  ],
+  "tags": [
+    "Libertação",
+    "Moisés",
+    "Páscoa",
+    "Sinai",
+    "Decálogo",
+    "Tabernáculo"
+  ],
+  "body": "<p><strong>Contexto:</strong> Êxodo narra o evento fundador da fé de Israel: a libertação da escravidão egípcia sob Moisés e o estabelecimento da aliança no Monte Sinai. O nome divino YHWH é revelado solenemente em 3.14 — \"EU SOU O QUE SOU\" — afirmação de existência autossuficiente que se tornará o fundamento do monoteísmo bíblico.</p>\n<p><strong>Estrutura:</strong> A primeira metade (caps. 1–18) descreve a opressão, o nascimento e chamado de Moisés na sarça ardente, as dez pragas sobre o Egito (cada uma desafiando uma divindade egípcia), a Páscoa (<em>Pesach</em>) e a travessia milagrosa do Mar Vermelho. A segunda metade (caps. 19–40) trata do Sinai: os Dez Mandamentos (Decálogo), o Código da Aliança, as instruções detalhadas para o Tabernáculo — a habitação divina no meio do povo —, e o episódio do bezerro de ouro que antecipa o problema da infidelidade.</p>\n<p><strong>Teologia e hermenêutica:</strong> O êxodo torna-se o paradigma central da salvação em toda a Bíblia. O NT apresenta Cristo como o novo Moisés, a Páscoa como prefiguração da morte de Cristo (1 Co 5.7), e o batismo como nova travessia do mar (1 Co 10.1–4). A lei do Sinai não é caminho de mérito, mas resposta grata à graça prévia do êxodo.</p>",
+  "verse": "\"EU SOU O QUE SOU.\" <cite>Êxodo 3.14 — NAA</cite>",
+  "translation": "NAA",
+  "order": 2,
+  "category": "pen",
+  "cellAbbr": "Êx"
+}

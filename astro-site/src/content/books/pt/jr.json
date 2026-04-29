@@ -1,0 +1,29 @@
+{
+  "id": "jr",
+  "num": "Livro 24 · Antigo Testamento",
+  "title": "Jeremias",
+  "abbr": "Jr · Profetas Maiores",
+  "author": "Jeremias (com Baruc como escriba)",
+  "chars": [
+    "Jeremias",
+    "Baruc",
+    "Joiaquim",
+    "Zedequias",
+    "Paxur",
+    "Nebuzaradã"
+  ],
+  "tags": [
+    "Nova Aliança",
+    "Julgamento",
+    "Lamento",
+    "Exílio Babilônico",
+    "Missão às Nações",
+    "Perseguição"
+  ],
+  "body": "<p><strong>Contexto:</strong> Jeremias profetizou nos últimos anos do reino de Judá — de Josias até a destruição de Jerusalém em 586 a.C. e o início do exílio. É o profeta que mais revelou seu mundo interior, sendo chamado de \"o profeta lacrimoso.\" Chamado ainda jovem, resistiu ao chamado divino (\"não sei falar, sou ainda jovem\" — 1.6) e viveu um ministério de constante rejeição, prisão e isolamento.</p>\n<p><strong>As \"Confissões\" de Jeremias:</strong> Os capítulos 11–20 contêm orações de angústia únicas na literatura bíblica — Jeremias questiona Deus sobre seu próprio sofrimento, chega a amaldiçoar o dia de seu nascimento (cap. 20). Essa honestidade brutal antecipa a linguagem de abandono de Jesus na Cruz e torna Jeremias o profeta mais \"humano\" da Bíblia.</p>\n<p><strong>A Nova Aliança (cap. 31):</strong> O ponto alto teológico do livro e um dos textos mais importantes do AT. Deus promete uma aliança nova — não como a do Sinai que Israel rompeu — em que sua lei será escrita no coração do povo, não em tábuas de pedra. Este texto é citado em Hebreus 8–10 como cumprido na mediação de Cristo. A carta de Jeremias aos exilados (cap. 29) com a exortação a \"buscar o shalom da cidade\" tornou-se texto fundacional para a teologia da missão cultural.</p>",
+  "verse": "\"Pois eu sei os planos que tenho para vocês, diz o <span style=\"font-variant:small-caps\">Senhor</span>, planos de fazê-los prosperar e não de causar dano, planos de dar a vocês esperança e um futuro.\" <cite>Jeremias 29.11 — NAA</cite>",
+  "translation": "NAA",
+  "order": 24,
+  "category": "mai",
+  "cellAbbr": "Jr"
+}

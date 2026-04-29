@@ -1,0 +1,28 @@
+{
+  "id": "is",
+  "num": "Livro 23 · Antigo Testamento",
+  "title": "Isaiah",
+  "abbr": "Isa · Major Prophets",
+  "author": "Isaías, filho de Amoz",
+  "chars": [
+    "Isaiah",
+    "Hezekiah",
+    "Ahaz",
+    "Sennacherib",
+    "The Suffering Servant"
+  ],
+  "tags": [
+    "Messiah",
+    "Suffering Servant",
+    "Holy One of Israel",
+    "Consolation",
+    "New Exodus",
+    "Eschatology"
+  ],
+  "body": "<p><strong>Context:</strong> Isaiah is the greatest of the prophets and the most quoted book in the New Testament — over 400 citations or allusions. Called the \"Gospel of the OT\" or the \"fifth Gospel,\" Isaiah prophesied in Jerusalem during the reigns of four kings: Uzziah, Jotham, Ahaz, and Hezekiah (740–700 BC), a ministry of about 40 years.</p>\n<p><strong>Structure:</strong> The book divides into two major sections: Isaiah 1–39 (\"proto-Isaiah\"), focused on the judgment of Israel, Judah, and the nations, culminating in the historical episode of the Assyrian invasion and Jerusalem's miraculous deliverance under Hezekiah; and Isaiah 40–66 (\"deutero/trito-Isaiah\"), focused on consolation, restoration, and eschatological salvation, addressed to the Babylonian exile community and beyond.</p>\n<p><strong>Messianic prophecy:</strong> The four \"Servant Songs\" (42; 49; 50; 52–53) are the apex of pre-Christian messianism. Isaiah 53 — the servant pierced \"for our transgressions, crushed for our iniquities; upon him was the chastisement that brought us peace\" — is the most explicit messianic text of the OT and was widely cited by the apostles. Isaiah also prophesied the virgin birth (7:14), the Prince of Peace (9:6–7), and the new creation (65–66).</p>",
+  "verse": "\"But he was pierced for our transgressions; he was crushed for our iniquities.\" <cite>Isaiah 53:5 — ESV</cite>",
+  "translation": "ESV",
+  "order": 23,
+  "category": "mai",
+  "cellAbbr": "Is"
+}

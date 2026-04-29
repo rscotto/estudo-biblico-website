@@ -1,0 +1,27 @@
+{
+  "id": "ef",
+  "num": "Livro 49 · Novo Testamento",
+  "title": "Ephesians",
+  "abbr": "Eph · Pauline Epistles",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paul",
+    "Tychicus",
+    "Priscilla",
+    "Aquila"
+  ],
+  "tags": [
+    "Church",
+    "Election",
+    "New Man",
+    "Armor of God",
+    "Unity",
+    "Eternal Plan"
+  ],
+  "body": "<p><strong>Context:</strong> Ephesians — probably a circular letter sent to several churches in Asia Minor (~60–62 AD, during Paul's imprisonment in Rome) — is one of the grandest theological reflections on the Church and God's eternal plan in the NT. The book divides clearly into two halves: theology (chs. 1–3) and ethics (chs. 4–6).</p>\n<p><strong>The eternal plan (chs. 1–3):</strong> A prolonged hymn to the glory of divine purpose from eternity: election in Christ before the foundation of the world (1:4), adoption as sons, redemption through blood, sealing by the Spirit. Chapter 2 contains the clearest formulation of sovereign grace: \"For by grace you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works, so that no one may boast\" (2:8–9). The creation of \"one new man\" — Jew and Gentile reconciled in Christ — is the mystery that was hidden and is now revealed.</p>\n<p><strong>Ethics and spiritual warfare (chs. 4–6):</strong> The unity of the Church based on the \"seven ones\" (4:4–6), the transformed relationships (5–6: husband-wife, parents-children, masters-servants), and the \"Armor of God\" (6:10–18) — a military image of spiritual warfare using Roman armor as metaphors for Christian virtues.</p>",
+  "verse": "\"For by grace you have been saved through faith. And this is not your own doing; it is the gift of God.\" <cite>Ephesians 2:8 — ESV</cite>",
+  "translation": "ESV",
+  "order": 49,
+  "category": "pau",
+  "cellAbbr": "Ef"
+}

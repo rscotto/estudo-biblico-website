@@ -1,0 +1,29 @@
+{
+  "id": "ts1",
+  "num": "Livro 52 · Novo Testamento",
+  "title": "1 Tessalonicenses",
+  "abbr": "1Ts · Epístolas Paulinas",
+  "author": "Paulo (apóstolo)",
+  "chars": [
+    "Paulo",
+    "Silvano",
+    "Timóteo",
+    "Jasão",
+    "Aristarco",
+    "Segundo"
+  ],
+  "tags": [
+    "Escatologia",
+    "Parousia",
+    "Ressurreição dos Mortos",
+    "Santidade",
+    "Oração",
+    "Consolação"
+  ],
+  "body": "<p><strong>Contexto:</strong> 1 Tessalonicenses é provavelmente a mais antiga das cartas de Paulo e possivelmente o escrito mais antigo do NT (~50 d.C.), escrita poucos meses após a fundação da Igreja em Tessalônica durante a segunda viagem missionária. A carta transborda afeto paternal pela jovem comunidade que perseverou apesar da perseguição.</p>\n<p><strong>A preocupação escatológica:</strong> Alguns membros haviam morrido antes do retorno de Cristo, e os tessalonicenses temiam que eles \"perdessem\" a ressurreição. Paulo responde com a passagem mais explícita do NT sobre a <em>parousia</em> (4.13–18): \"os que morreram em Cristo ressuscitarão primeiro; depois nós, os que estivermos vivos... seremos arrebatados com eles nas nuvens para encontrar o Senhor no ar.\" Esta passagem é o texto central do debate sobre o \"arrebatamento\" na escatologia evangélica.</p>\n<p><strong>A santidade prática (caps. 4–5):</strong> \"A vontade de Deus é a vossa santificação\" (4.3). O \"dia do Senhor vem como ladrão de noite\" (5.2) — mas os filhos da luz não estão nas trevas para serem surpreendidos. O encerramento inclui uma série de exortações concisas que sintetizam a vida cristã: \"Orai sem cessar. Em tudo dai graças, pois esta é a vontade de Deus em Cristo Jesus para convosco\" (5.17–18).</p>",
+  "verse": "\"Orem continuamente. Deem graças em todas as circunstâncias, pois esta é a vontade de Deus em Cristo Jesus para com vocês.\" <cite>1 Tessalonicenses 5.17–18 — NAA</cite>",
+  "translation": "NAA",
+  "order": 52,
+  "category": "pau",
+  "cellAbbr": "1Ts"
+}

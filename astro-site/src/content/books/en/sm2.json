@@ -1,0 +1,29 @@
+{
+  "id": "sm2",
+  "num": "Livro 10 · Antigo Testamento",
+  "title": "2 Samuel",
+  "abbr": "2Sam · Historical",
+  "author": "Natã e Gade (compilação profética)",
+  "chars": [
+    "David",
+    "Bathsheba",
+    "Nathan",
+    "Absalom",
+    "Joab",
+    "Uriah"
+  ],
+  "tags": [
+    "Reign of David",
+    "Davidic Covenant",
+    "Bathsheba",
+    "Absalom",
+    "Consequences of Sin",
+    "Messianism"
+  ],
+  "body": "<p><strong>Context:</strong> 2 Samuel covers the reign of David — \"a man after God's own heart\" — in its glorious fullness and profound tragedy. The book splits in two: ascent and glory (chs. 1–10) and the fall and its shock waves (chs. 11–24).</p>\n<p><strong>The Davidic covenant (ch. 7):</strong> This is the theological high point of the book and one of the most important passages in all of Scripture. God promises David that his dynasty will be eternal and that one of his descendants will have a kingdom without end — the founding text of biblical messianism, quoted extensively in the NT as fulfilled in Jesus (Luke 1:32–33; Acts 2:29–36; Heb 1:5).</p>\n<p><strong>The fall (chs. 11–12):</strong> The adultery with Bathsheba and the premeditated murder of Uriah — \"the Hittite,\" a loyal foreigner — is David's moral nadir. The prophet Nathan confronts the king with the sheep parable (ch. 12). David's confession (Ps 51) and the forgiveness granted do not eliminate the consequences: Absalom's revolt, the death of sons, civil war, and plague. The book demonstrates that grace does not suspend the harvest of sin.</p>",
+  "verse": "\"Your house and your kingdom shall be made sure forever before me. Your throne shall be established forever.\" <cite>2 Samuel 7:16 — ESV</cite>",
+  "translation": "ESV",
+  "order": 10,
+  "category": "his",
+  "cellAbbr": "2Sm"
+}

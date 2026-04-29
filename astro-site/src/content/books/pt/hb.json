@@ -1,0 +1,29 @@
+{
+  "id": "hb",
+  "num": "Livro 58 · Novo Testamento",
+  "title": "Hebreus",
+  "abbr": "Hb · Epístolas Gerais",
+  "author": "Anônimo (atribuído a Paulo, Apolo ou Barnabé)",
+  "chars": [
+    "Abraão",
+    "Moisés",
+    "Raabe",
+    "Melquisedeque",
+    "Sara",
+    "Enoque"
+  ],
+  "tags": [
+    "Sumo Sacerdote",
+    "Melquisedeque",
+    "Nova Aliança",
+    "Fé",
+    "Hall da Fé",
+    "Superioridade de Cristo"
+  ],
+  "body": "<p><strong>Contexto:</strong> Hebreus é um dos mais complexos e magníficos escritos do NT — uma homilia teológica de altíssimo nível dirigida a cristãos de origem judaica em risco de apostatar e retornar ao judaísmo diante da perseguição. A autoria é incerta — Paulo, Apolo, Barnabé e Priscila são candidatos — levando Orígenes a dizer: \"quem a escreveu, somente Deus sabe.\"</p>\n<p><strong>O argumento da superioridade:</strong> O tema central é a superioridade absoluta de Cristo: superior aos anjos (caps. 1–2), a Moisés (cap. 3), a Josué (cap. 4), ao sacerdócio levítico (caps. 5–7), à Antiga Aliança e ao Tabernáculo (caps. 8–10). Cristo é o Sumo Sacerdote definitivo segundo a ordem de Melquisedeque — sacerdócio anterior e superior ao aaronico — que entrou no próprio santuário celestial com seu próprio sangue, obtendo redenção eterna.</p>\n<p><strong>O capítulo 11 — \"Hall da Fé\":</strong> Define fé como \"certeza das coisas que se esperam, convicção das que não se veem\" e percorre a história bíblica de Abel a Abraão, Sara, Moisés, Raabe, e heróis anônimos que \"não receberam o que lhes foi prometido\" — pois esperavam algo melhor que incluiria os crentes do NT. O capítulo 12 usa a imagem da corrida: \"corramos com perseverança... olhando para Jesus, o Autor e Consumador da nossa fé.\"</p>",
+  "verse": "\"A fé é a certeza daquilo que esperamos e a prova das coisas que não vemos.\" <cite>Hebreus 11.1 — NAA</cite>",
+  "translation": "NAA",
+  "order": 58,
+  "category": "ger",
+  "cellAbbr": "Hb"
+}

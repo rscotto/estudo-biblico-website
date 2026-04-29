@@ -1,0 +1,28 @@
+{
+  "id": "ed",
+  "num": "Livro 15 · Antigo Testamento",
+  "title": "Ezra",
+  "abbr": "Ezr · Historical",
+  "author": "Esdras",
+  "chars": [
+    "Ezra",
+    "Zerubbabel",
+    "Cyrus",
+    "Darius",
+    "Sheshbazzar"
+  ],
+  "tags": [
+    "Return from Exile",
+    "Second Temple",
+    "Decree of Cyrus",
+    "Law",
+    "Reform",
+    "Post-Exilic Identity"
+  ],
+  "body": "<p><strong>Context:</strong> Ezra narrates two moments of the return from Babylonian exile: the first return under Zerubbabel (538 BC) to rebuild the Temple (chs. 1–6), and the second return under Ezra, scribe and priest (458 BC), to restore Torah observance (chs. 7–10).</p>\n<p><strong>Providence and politics:</strong> The book opens with the decree of Persian King Cyrus in 538 BC — a pagan king as an instrument of divine providence to fulfill the prophecy of Isaiah 44:28. The Temple reconstruction faces opposition from the Samaritans and other neighbors, is suspended for 16 years, and finally completed in 516 BC — 70 years after the destruction, as Jeremiah had announced.</p>\n<p><strong>Ezra as a model:</strong> The defining phrase is programmatic: \"Ezra had set his heart to study the Law of the Lord, and to do it and to teach his statutes and rules in Israel\" (7:10) — the order is crucial: first study, then do, then teach. The mixed-marriage crisis (chs. 9–10) reflects the post-exilic community's concern for covenantal identity and the purity of its monotheistic witness.</p>",
+  "verse": "\"For Ezra had set his heart to study the Law of the <span style=\"font-variant:small-caps\">Lord</span>, and to do it and to teach his statutes and rules in Israel.\" <cite>Ezra 7:10 — ESV</cite>",
+  "translation": "ESV",
+  "order": 15,
+  "category": "his",
+  "cellAbbr": "Ed"
+}
