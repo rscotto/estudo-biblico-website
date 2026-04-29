@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Major Prophets — Bible Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+:root {
+  --navy:       #2c2416;
+  --navy-mid:   #3a3020;
+  --navy-light: #4a3e28;
+  --gold:       #FFA400;
+  --gold-dim:   #cc8500;
+  --sand:       #f0e6d0;
+  --sand-dim:   #c8b898;
+  --mai:        #c87820;
+  --accent:     #c87820;
+  --shadow-sm:  0 2px 8px rgba(20,16,8,0.22);
+  --shadow-md:  0 8px 32px rgba(20,16,8,0.32);
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --transition: 250ms ease;
+  --nav-w:      272px;
+}
+.lang-btn{position:fixed;top:16px;right:16px;z-index:300;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--navy-mid);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);border-radius:var(--radius-sm);color:var(--sand);font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;cursor:pointer;transition:background var(--transition),border-color var(--transition);}
+.lang-btn:hover{background:var(--navy-light);border-color:var(--accent);}
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--mai)" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="sidebar-back">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      <span>Back to Bible</span>
+    </a>
+    <div class="sidebar-title">Major Prophets</div>
+    <div class="sidebar-subtitle">Old Testament · 5 Books</div>
+  </div>
+  <nav class="sidebar-nav" aria-label="Major Prophets navigation">
+    <button class="nav-item active" onclick="showBook('isaiah')" data-book="isaiah"><span class="nav-num">23</span><span class="nav-abbr">Is</span><span class="nav-name">Isaiah</span></button>
+    <button class="nav-item" onclick="showBook('jeremiah')" data-book="jeremiah"><span class="nav-num">24</span><span class="nav-abbr">Jr</span><span class="nav-name">Jeremiah</span></button>
+    <button class="nav-item" onclick="showBook('lamentations')" data-book="lamentations"><span class="nav-num">25</span><span class="nav-abbr">Lm</span><span class="nav-name">Lamentations</span></button>
+    <button class="nav-item" onclick="showBook('ezekiel')" data-book="ezekiel"><span class="nav-num">26</span><span class="nav-abbr">Ez</span><span class="nav-name">Ezekiel</span></button>
+    <button class="nav-item" onclick="showBook('daniel')" data-book="daniel"><span class="nav-num">27</span><span class="nav-abbr">Dn</span><span class="nav-name">Daniel</span></button>
+  </nav>
+</aside>
+
+<main class="main">
+  <header class="hero">
+    <div class="hero-eyebrow">✦ In-Depth Bible Study ✦</div>
+    <h1 class="hero-title">Major <span>Prophets</span></h1>
+    <p class="hero-desc">Five voices that confronted kings and nations with the word of God — in judgment, in exile, and in hope. The longest and theologically densest books of biblical prophecy.</p>
+  </header>
+
+  <div class="content">
+
+    <!-- ══════════════════════════════ ISAIAH ══════════════════════════════ -->
+    <article class="book-panel active" id="panel-isaiah">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 23 · Major Prophets · Old Testament</div>
+        <h2 class="book-title"><span>Isaiah</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~740–700 BC</span>
+          <span class="book-tag">Judgment and Consolation</span>
+          <span class="book-tag">66 chapters</span>
+          <span class="book-tag">Author: Isaiah son of Amoz</span>
+        </div>
+        <div class="book-verse">"But they who wait for the <span style="font-variant:small-caps">Lord</span> shall renew their strength; they shall mount up with wings like eagles; they shall run and not be weary; they shall walk and not faint."<cite>Isaiah 40:31 — ESV</cite></div>
+        <div class="book-verse" style="margin-top:18px;">"For my thoughts are not your thoughts, neither are your ways my ways, declares the <span style="font-variant:small-caps">Lord</span>. For as the heavens are higher than the earth, so are my ways higher than your ways and my thoughts than your thoughts."<cite>Isaiah 55:8–9 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'isaiah','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'isaiah','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'isaiah','study')">In-Depth Study</button>
+      </div>
+
+      <div class="tab-panel active" id="isaiah-ctx">
+        <div class="study-block">
+          <div class="block-title">The Prophet of the Royal Court</div>
+          <div class="block-body">
+            <p>Isaiah son of Amoz ministered in Jerusalem during a period of extraordinary geopolitical turbulence — the reigns of four kings of Judah: <strong>Uzziah, Jotham, Ahaz, and Hezekiah</strong> (~740–700 BC). His call came in the year of Uzziah's death (6:1), the most prosperous and powerful king Judah had seen in generations. His death was a national identity crisis: in whom could the nation now trust?</p>
+            <p>The geopolitical context was dominated by the irresistible advance of <strong>Assyria</strong> under Tiglath-Pileser III, Sargon II, and Sennacherib. The Northern Kingdom (Israel) was destroyed by Sargon II in <strong>722 BC</strong>, its ten tribes deported and dissolved forever. Judah survived as an Assyrian vassal state, paying tribute under constant threat. In 701 BC, Sennacherib besieged Jerusalem with an army of 185,000 men — and was repelled miraculously (37:36).</p>
+            <p>Isaiah had direct access to the royal family — he confronted Ahaz personally when that king planned to ally with Assyria against the Syro-Ephraimite coalition (chs. 7–8). His central message was always the same: <em>trust in God, not in human alliances</em>. Judah was perpetually tempted to seek protection from Egypt or Assyria — and Isaiah denounced this as political idolatry.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Ministry Timeline</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-date">~740 BC</div><div class="tl-text">Isaiah's call — vision of the divine throne in the Temple. Year of King Uzziah's death (Is 6).</div></div>
+            <div class="tl-item"><div class="tl-date">~734 BC</div><div class="tl-text">Syro-Ephraimite crisis. Isaiah confronts King Ahaz and announces the sign of Immanuel (Is 7–8).</div></div>
+            <div class="tl-item"><div class="tl-date">~722 BC</div><div class="tl-text">Fall of Samaria. The Northern Kingdom is destroyed by Assyria. Isaiah interprets the event as divine judgment.</div></div>
+            <div class="tl-item"><div class="tl-date">~715 BC</div><div class="tl-text">Accession of Hezekiah. Period of religious reform and cooperation with the prophet.</div></div>
+            <div class="tl-item"><div class="tl-date">~701 BC</div><div class="tl-text">Sennacherib's siege. Isaiah prophesies Jerusalem's deliverance — 185,000 Assyrians die in the night (Is 36–37).</div></div>
+            <div class="tl-item"><div class="tl-date">~700 BC</div><div class="tl-text">Hezekiah's illness and healing; Babylonian ambassadors visit (Is 38–39). Isaiah announces the Babylonian exile.</div></div>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Book Data</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Length</div><div class="info-card-value">66 chapters — the longest among the prophets</div></div>
+            <div class="info-card"><div class="info-card-label">Structure</div><div class="info-card-value">Two major sections: chs. 1–39 (judgment) and 40–66 (consolation)</div></div>
+            <div class="info-card"><div class="info-card-label">Hebrew name</div><div class="info-card-value">Yeshayahu — "The Lord saves"</div></div>
+            <div class="info-card"><div class="info-card-label">Most cited in NT</div><div class="info-card-value">~65 direct quotations — more than any other prophetic book</div></div>
+            <div class="info-card"><div class="info-card-label">Qumran scrolls</div><div class="info-card-value">Complete Isaiah Scroll (1QIsa) — the oldest complete biblical manuscript</div></div>
+            <div class="info-card"><div class="info-card-label">Authorship debate</div><div class="info-card-value">Historical criticism proposes Deutero-Isaiah (40–55) and Trito-Isaiah (56–66)</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="isaiah-teo">
+        <div class="study-block">
+          <div class="block-title">The Holy One of Israel</div>
+          <div class="block-body">
+            <p>The divine title most characteristic of Isaiah is <em>Qedosh Yisra'el</em> — the <strong>Holy One of Israel</strong> — which appears 25 times in the book (and only 6 times in the rest of the OT). This title is born from the inaugural vision (ch. 6): the seraphim cry <em>"Holy, holy, holy is the <span style="font-variant:small-caps">Lord</span> of hosts"</em> — the only trisagion in the OT. Divine holiness is not merely moral purity but absolute otherness: God is <em>other</em> in a way that human beings cannot even articulate.</p>
+            <p>Isaiah's response to the vision is the biblical model of how God's holiness affects the human being: <em>"Woe is me! For I am lost; for I am a man of unclean lips"</em> (6:5). The encounter with the Holy One does not produce spiritual pride — it produces the disintegration of all self-confidence. Purification comes from outside (the burning coal from the altar — 6:6–7), not from within. Only then comes the call and the availability: <em>"Here I am! Send me"</em> (6:8).</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Servant of the Lord — The Four Songs</div>
+          <div class="block-body">
+            <p>The four <strong>Servant Songs</strong> (42:1–9; 49:1–13; 50:4–11; 52:13–53:12) constitute the theological apex of Isaiah and some of the most debated and profound texts in all of Scripture. The Servant is a figure that Israel identifies collectively (49:3: <em>"Israel, you are my servant"</em>) but who also acts <em>on behalf of</em> Israel in ways no nation can fulfill.</p>
+            <p>The fourth song (Is 53) is the text most cited by NT authors in relation to the Passion of Christ — and the connection is explicit in Acts 8:30–35, where Philip explains to the Ethiopian eunuch that the text speaks of Jesus. The Servant is described as: without appealing form (53:2), despised and rejected (53:3), bearing others' sorrows (53:4), wounded for the transgressions of others (53:5), like a silent sheep before its shearer (53:7), killed and buried with the wicked (53:9), yet seeing offspring and prolonging his days (53:10). It is the most precise description of the Passion and Resurrection written six centuries before they occurred.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">New Creation — Isaiah's Eschatology</div>
+          <div class="block-body">
+            <p>Isaiah is the prophet of the <strong>new creation</strong>. Chapters 65–66 describe a recreated world where <em>"the new heavens and the new earth"</em> make the past irrelevant (65:17). The wolf shall graze with the lamb, the lion shall eat straw, no creature shall hurt on the holy mountain (65:25). Children will not die young; builders will inhabit their own houses; planters will eat their own fruit (65:20–22).</p>
+            <p>The NT explicitly takes up this vision: Revelation 21:1 cites <em>"new heavens and a new earth"</em> from Is 65:17; Rev 21:4 (<em>"death shall be no more"</em>) echoes Is 25:8. Paul in Romans 8:19–22 describes creation groaning as it awaits final redemption — language directly dependent on Isaiah. Isaiah's eschatology is not escape from the present world: it is its radical transformation by the same God who created it.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"But he was pierced for our transgressions; he was crushed for our iniquities; upon him was the chastisement that brought us peace, and with his wounds we are healed."</p>
+          <cite>Isaiah 53:5 — ESV</cite>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="isaiah-study">
+        <div class="study-block">
+          <div class="block-title">The Question of Authorship — Deutero-Isaiah</div>
+          <div class="block-body">
+            <p>Since the 18th century, historical criticism has proposed that the book of Isaiah was composed by at least two authors: <strong>Isaiah son of Amoz</strong> (chs. 1–39, 8th century BC) and an anonymous author of the Babylonian exile (~550 BC), called <em>Deutero-Isaiah</em> (chs. 40–55), with some proposing a further <em>Trito-Isaiah</em> (chs. 56–66) from the post-exilic period. The arguments are: an abrupt shift in tone (from judgment to consolation), the presupposition of the exile as already occurring (40:1–2), and the naming of Cyrus king of Persia (44:28; 45:1) — who lived ~150 years after Isaiah.</p>
+            <p>The conservative tradition responds that the mention of Cyrus is precisely <em>genuine prophecy</em> — a sovereign God can name a future king, just as he named Josiah in 1 Kings 13:2 with 300 years' advance notice. The NT treats the book as a unity: John 12:38–41 quotes Is 53:1 and Is 6:10 together, attributing both to "Isaiah." Jesus cites Is 61:1–2 as being fulfilled in himself (Luke 4:18–21). The Isaiah Scroll from Qumran (2nd century BC) shows no division between chapters 39 and 40 — the scribes treated it as a single work.</p>
+            <p>The question remains open among scholars. For Christian faith, what matters is that the voice of the book, whether from one or multiple authors, is <em>a voice inspired by the Spirit of God</em> — and its witness to Christ remains the sharpest in all the OT.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Isaiah 7 — The Sign of Immanuel</div>
+          <div class="block-body">
+            <p>In ~734 BC, King Ahaz faced the coalition of Syria and Israel (the Northern Kingdom) threatening Jerusalem and planning to depose him. Isaiah goes to meet him with his son Shear-jashub (whose name means "a remnant shall return" — a walking prophecy) and offers a divine sign. Ahaz piously declines: <em>"I will not ask, and I will not put the Lord to the test"</em> (7:12) — in reality because he had already decided to appeal to Assyria, and accepting a divine sign would have obligated him to trust God.</p>
+            <p>Isaiah then declares the uninvited sign: <em>"Therefore the Lord himself will give you a sign. Behold, the virgin shall conceive and bear a son, and shall call his name Immanuel"</em> (7:14). In the immediate context, the text points to a child born in Ahaz's own time as a sign of victory over the two threatening kings (7:16). But Matthew 1:23 quotes this text explicitly for Jesus — the dual fulfillment characteristic of biblical prophecy: an immediate historical sense and a deeper eschatological sense.</p>
+            <p>The Hebrew word <em>'almah</em> (young woman of marriageable age) was translated in the LXX by <em>parthenos</em> (virgin) — and that is the translation Matthew uses. The debate between "virgin" and "young woman" carries enormous christological implications. The Christian reading holds that the Holy Spirit guided the LXX translators to capture the deeper meaning — the full fulfillment that Ahaz could not have imagined.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Isaiah 40 — Consolation after the Silence</div>
+          <div class="block-body">
+            <p>The opening of chapter 40 is one of the most dramatic in the Bible: <em>"Comfort, comfort my people, says your God. Speak tenderly to Jerusalem, and cry to her that her warfare is ended, that her iniquity is pardoned."</em> (40:1–2). After 39 chapters of severe judgment, the word that opens the second half of the book is <em>comfort</em>. The imperative is doubled in Hebrew — <em>nakhamu, nakhamu</em> — intensity of tenderness.</p>
+            <p>What follows is one of the most sublime theological poems in all of Scripture: God is compared to the shepherd who carries the lambs in his bosom (40:11), to the craftsman who weighed the mountains in scales (40:12), to the sovereign before whom the nations are as "a drop from a bucket" (40:15). The stars are counted and named by him (40:26). And then the promise for the exhausted: <em>"They who wait for the Lord shall renew their strength"</em> (40:31). The greatness of God does not distance him from the weak — it is precisely what makes the renewal of the prostrate human possible.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Isaiah 53 — Verse-by-Verse Exegesis</div>
+          <div class="block-body">
+            <p>The fourth Servant Song (52:13–53:12) deserves careful reading. <strong>52:13–15</strong>: the Servant will be exalted — but first disfigured beyond human appearance. Kings will shut their mouths before him. The scandal of suffering precedes exaltation.</p>
+            <p><strong>53:1–3</strong>: the Servant is rejected — without appealing form, despised, familiar with grief. <em>"We hid our faces from him"</em> — active rejection, not mere indifference. <strong>53:4–6</strong>: the central inversion of the text. The sorrows that appeared to be divine punishment on him were actually our sorrows. He was wounded <em>for our transgressions</em>. <em>"All we like sheep have gone astray"</em> (53:6) — the guilt is universal; the punishment was concentrated on one.</p>
+            <p><strong>53:7–9</strong>: death of an innocent man. Silent as a sheep, buried with the wicked, yet with a rich man in his death (fulfilled in John 19:38–42 — buried in Joseph of Arimathea's tomb). <strong>53:10–12</strong>: the final paradox. God <em>willed</em> to crush him — but the result is that he sees offspring, prolongs his days, justifies many. Suffering is not a terminal tragedy — it is an instrument of redemption. The entire NT is commentary on these three verses.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Isaiah and the Critique of Idolatry</div>
+          <div class="block-body">
+            <p>Chapters 40–48 contain the most devastating critiques of idolatry in ancient literature. Isaiah describes a craftsman who cuts down a tree: he uses half to warm himself and cook his food, and from the other half he makes an idol and prostrates himself before it, praying: <em>"Save me, for you are my god!"</em> (44:17). The sarcasm is precise: whoever worships what he made with his own hands deceives himself — <em>"He feeds on ashes; a deluded heart has led him astray, and he cannot deliver himself or say, 'Is there not a lie in my right hand?'"</em> (44:20).</p>
+            <p>The critique is not merely religious — it is epistemological. The idolater <em>cannot see</em> what he is doing. His heart has been deceived (44:20). Idolatry is, for Isaiah, a cognitive disturbance — the inability to distinguish Creator from creature, subject from object, true from false. Hence the cure for idolatry is not merely religious obedience but illumination — seeing clearly what is real. The <span style="font-variant:small-caps">Lord</span> presents himself as the only one who declares the end from the beginning (44:7–8) — proof of sovereignty that no idol can offer.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Fear not, for I am with you; be not dismayed, for I am your God; I will strengthen you, I will help you, I will uphold you with my righteous right hand."</p>
+          <cite>Isaiah 41:10 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══════════════════════════════ JEREMIAH ══════════════════════════════ -->
+    <article class="book-panel" id="panel-jeremiah">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 24 · Major Prophets · Old Testament</div>
+        <h2 class="book-title"><span>Jeremiah</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~627–586 BC</span>
+          <span class="book-tag">The Reluctant Prophet</span>
+          <span class="book-tag">52 chapters</span>
+          <span class="book-tag">Author: Jeremiah / Baruch</span>
+        </div>
+        <div class="book-verse">"For I know the plans I have for you, declares the <span style="font-variant:small-caps">Lord</span>, plans for welfare and not for evil, to give you a future and a hope."<cite>Jeremiah 29:11 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'jeremiah','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'jeremiah','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'jeremiah','study')">In-Depth Study</button>
+      </div>
+
+      <div class="tab-panel active" id="jeremiah-ctx">
+        <div class="study-block">
+          <div class="block-title">Book Data</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Length</div><div class="info-card-value">52 chapters — the longest of all the prophets in word count</div></div>
+            <div class="info-card"><div class="info-card-label">Period</div><div class="info-card-value">~627–582 BC · spans the last five kings of Judah</div></div>
+            <div class="info-card"><div class="info-card-label">Hebrew name</div><div class="info-card-value">Yirmeyahu — "the Lord exalts" or "the Lord throws"</div></div>
+            <div class="info-card"><div class="info-card-label">New Covenant</div><div class="info-card-value">Jer 31:31–34 — the only OT text with the expression "new covenant" (berit chadashah)</div></div>
+            <div class="info-card"><div class="info-card-label">Scribe</div><div class="info-card-value">Baruch son of Neriah — identified archaeologically by a seal (bulla) found in 2001</div></div>
+            <div class="info-card"><div class="info-card-label">Canonical order</div><div class="info-card-value">MT: chapters not in chronological order · LXX: shorter version with different ordering</div></div>
+          </div>
+        </div>
+
+        <div class="study-block">
+          <div class="block-title">The Prophet of National Agony</div>
+          <div class="block-body">
+            <p>Jeremiah ministered during the most catastrophic period in Judah's history — from the thirteenth year of King Josiah (~627 BC) until after the fall of Jerusalem in 586 BC. His life spanned the last five kings of Judah: Josiah, Jehoahaz, Jehoiakim, Jehoiachin, and Zedekiah — each one further from God than the last. He witnessed with his own eyes the destruction of Solomon's Temple, the burning of the city, and the deportation of the people.</p>
+            <p>The geopolitical backdrop was the clash of empires: the decline of Assyria, the meteoric rise of <strong>Babylon</strong> under Nebuchadnezzar, and Egypt's role as an aspiring power. Judah was caught trying to navigate between these giants — sometimes submitting to Babylon, sometimes rebelling by seeking Egyptian aid. Jeremiah, in a deeply unpopular position, insisted: <em>submit to Babylon — this is God's judgment, and resistance will only prolong the suffering.</em></p>
+            <p>For this he was called a traitor, thrown into a muddy cistern (38:6), imprisoned, tortured, and his prophecies burned by King Jehoiakim (36:23). No biblical prophet experienced rejection so prolonged, systematic, and personal. Jeremiah is the prophet who most reveals his inner life — and what that life reveals is real anguish, honest doubt, and costly perseverance.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Timeline of Events</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-date">~627 BC</div><div class="tl-text">Jeremiah's call in Josiah's thirteenth year. He objects: "I am only a youth" (1:6). God touches his mouth and commissions him.</div></div>
+            <div class="tl-item"><div class="tl-date">~621 BC</div><div class="tl-text">Josiah's reform — the Book of the Law is discovered in the Temple. Jeremiah initially supports the reform (11:1–8).</div></div>
+            <div class="tl-item"><div class="tl-date">~609 BC</div><div class="tl-text">Josiah's death at Megiddo. Accelerated decline begins. Jehoiakim ascends as Egypt's vassal.</div></div>
+            <div class="tl-item"><div class="tl-date">~605 BC</div><div class="tl-text">Battle of Carchemish — Babylon defeats Egypt. First deportation of Judah, including Daniel.</div></div>
+            <div class="tl-item"><div class="tl-date">~604 BC</div><div class="tl-text">Jehoiakim burns Jeremiah's scroll (Jer 36). Baruch writes a second scroll with additions.</div></div>
+            <div class="tl-item"><div class="tl-date">~597 BC</div><div class="tl-text">Second deportation — Ezekiel is taken to Babylon. Zedekiah ascends to the throne.</div></div>
+            <div class="tl-item"><div class="tl-date">586 BC</div><div class="tl-text">Fall of Jerusalem. Temple destroyed. Third deportation. Jeremiah remains in the devastated land.</div></div>
+            <div class="tl-item"><div class="tl-date">~582 BC</div><div class="tl-text">Assassination of Gedaliah. Jeremiah is forcibly taken to Egypt (Jer 43–44). He dies there, according to tradition.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="jeremiah-teo">
+        <div class="study-block">
+          <div class="block-title">The New Covenant — Jer 31:31–34</div>
+          <div class="block-body">
+            <p>Jeremiah's deepest theological contribution is the prophecy of the <strong>new covenant</strong> (31:31–34) — the only OT text that explicitly uses the expression <em>berit chadashah</em> ("new covenant"). It is the most-cited OT text in Hebrews (8:8–12; 10:16–17) and the foundation of the NT concept of "New Testament" (<em>diatheke kaine</em>).</p>
+            <p>The newness of the new covenant is not a different Law — it is a different <em>mode of transmission</em>: <em>"I will put my law within them, and I will write it on their hearts"</em> (31:33). The old covenant was written on external tablets of stone; the new covenant would be internal, transforming desire itself. Moreover: <em>"They shall all know me, from the least of them to the greatest"</em> (31:34) — direct and personal knowledge of God, without depending on human mediators. And: <em>"I will forgive their iniquity, and I will remember their sin no more"</em> — definitive forgiveness, not the provisional forgiveness of annual sacrifices.</p>
+            <p>Jesus cites this text at the institution of the Supper: <em>"This cup is the new covenant in my blood"</em> (Luke 22:20; 1 Cor 11:25). Paul applies it to the ministry of the Spirit (2 Cor 3:3–6). Hebrews argues that the new covenant has made the old "obsolete" (Heb 8:13) — not because of the Law itself, but because of the mode of implementation that depended on untransformed hearts.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Confessions of Jeremiah</div>
+          <div class="block-body">
+            <p>The so-called <strong>Confessions of Jeremiah</strong> (11:18–23; 12:1–6; 15:10–21; 17:14–18; 18:18–23; 20:7–18) are unique sections in prophetic literature — not oracles to Israel, but brutally honest prayers of Jeremiah to God about his own suffering. He complains that God deceived him (20:7 — the Hebrew word is the same used for seduction), that he desires the death of his persecutors (18:21–23), that he curses the day of his birth (20:14–18) — an echo of Job's suffering.</p>
+            <p>The most disturbing is 20:7: <em>"O <span style="font-variant:small-caps">Lord</span>, you have deceived me, and I was deceived; you are stronger than I, and you have prevailed."</em> Jeremiah accuses God of having seduced him into a calling that brought only suffering — and now he cannot stop because God's word is <em>"a fire shut up in my bones"</em> (20:9). Jeremiah's faith survives not because the suffering ceased, but because the Word is irresistible. He cannot not prophesy.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"For I know the plans I have for you, declares the <span style="font-variant:small-caps">Lord</span>, plans for welfare and not for evil, to give you a future and a hope."</p>
+          <cite>Jeremiah 29:11 — ESV</cite>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="jeremiah-study">
+        <div class="study-block">
+          <div class="block-title">The Temple Sermon — Jer 7 and 26</div>
+          <div class="block-body">
+            <p>The sermon Jeremiah preached at the Temple gate (~609 BC) is one of the boldest and most dangerous moments of his ministry. The message challenged the popular theology of "the inviolability of Zion" — the belief, based on Isaiah, that Jerusalem would never be destroyed because God's Temple dwelt there. Jeremiah inverts this: <em>"Do not trust in these deceptive words: 'This is the temple of the Lord, the temple of the Lord, the temple of the Lord.'"</em> (7:4). The physical presence of the building did not guarantee divine protection if the people lived in injustice.</p>
+            <p>The evidence Jeremiah invokes is historical: <em>"Go now to my place that was in Shiloh"</em> (7:12) — Shiloh had been destroyed by the Philistines centuries earlier, even though it housed the Ark of the Covenant. God destroyed his own sanctuary when the people dishonored him. The same would happen to Solomon's Temple. For this sermon, Jeremiah was arrested and nearly executed (ch. 26) — only the intercession of leaders who remembered Micah saved him.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Letter to the Exiles — Jer 29</div>
+          <div class="block-body">
+            <p>In ~597 BC, after the second deportation, Jeremiah sent a letter to the exiles in Babylon — a theologically and practically revolutionary text. The advice goes against every natural instinct of the exiles: <em>"Build houses and live in them; plant gardens and eat their produce. Take wives... multiply there, and do not decrease. But seek the welfare of the city where I have sent you into exile, and pray to the Lord on its behalf, for in its welfare you will find your welfare."</em> (29:5–7).</p>
+            <p>This is theologically radical: God asks his exiles to work for the good of the pagan city that subjugated them. Not armed resistance, not ritual isolation, not paralyzing nostalgia — but productive rootedness in the place of exile. The false prophets were promising quick return (two years — 29:10 says 70 years). Jeremiah offers no illusion, but responsible faithfulness for the long term. It is the biblical foundation for the Christian idea of <em>cultural engagement</em> without assimilation: living in the world without being of the world, seeking its good without adopting its idols.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Jeremiah and the Human Heart</div>
+          <div class="block-body">
+            <p>Jeremiah has the darkest and most honest anthropology in the OT: <em>"The heart is deceitful above all things, and desperately sick; who can understand it?"</em> (17:9). Judah's problem is not merely situational disobedience — it is structural corruption at the center of the person. Sin is engraved on the heart with an <em>"iron pen"</em> and a <em>"diamond point"</em> (17:1) — it cannot be erased by an act of will.</p>
+            <p>This dark diagnosis is what makes the prophecy of the new covenant (31:31–34) so necessary and so revolutionary: if the heart is incurable from within, the solution must come from outside — from God who <em>writes his Law on the inside</em>. Jeremiah does not offer a self-help program; he announces divine transformation. This articulation of the human problem and the divine solution runs a direct path to Paul (Rom 7:14–25 — the incapacity of the flesh) and to the Christian doctrine of regeneration by the Holy Spirit.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Baruch son of Neriah — The Faithful Scribe</div>
+          <div class="block-body">
+            <p>Jeremiah's scribe, <strong>Baruch son of Neriah</strong>, is a figure of unique historical and literary importance. It was he who wrote the original scroll dictated by Jeremiah (ch. 36), read it publicly, and rewrote it after King Jehoiakim burned it. Chapter 45 contains a personal message from God to Baruch — the only section of the book addressed to the scribe — which reveals his suffering and his temptation to seek "great things" for himself. God responds with a minimal but real promise: his life shall be spared.</p>
+            <p>In 2001, archaeologists identified a <strong>seal (<em>bulla</em>) bearing Baruch's name</strong> — <em>Berekhyahu son of Neriyahu the scribe</em> — in a collection of period artifacts. It is one of the rare cases where a minor biblical character is confirmed by archaeology. Baruch demonstrates that faithfulness to a divine calling sometimes means being the prophet's assistant — preserving his word for generations who never knew them.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Behold, the days are coming, declares the <span style="font-variant:small-caps">Lord</span>, when I will make a new covenant with the house of Israel and the house of Judah."</p>
+          <cite>Jeremiah 31:31 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══════════════════════════════ LAMENTATIONS ══════════════════════════════ -->
+    <article class="book-panel" id="panel-lamentations">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 25 · Major Prophets · Old Testament</div>
+        <h2 class="book-title"><span>Lamentations</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">586 BC</span>
+          <span class="book-tag">Mourning over Zion</span>
+          <span class="book-tag">5 poems</span>
+          <span class="book-tag">Author: Jeremiah (tradition)</span>
+        </div>
+        <div class="book-verse">"The steadfast love of the <span style="font-variant:small-caps">Lord</span> never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness."<cite>Lamentations 3:22–23 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'lamentations','ctx')">Context &amp; Structure</button>
+        <button class="tab-btn" onclick="showTab(this,'lamentations','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'lamentations','study')">In-Depth Study</button>
+      </div>
+
+      <div class="tab-panel active" id="lamentations-ctx">
+        <div class="study-block">
+          <div class="block-title">Poetry over the Ashes</div>
+          <div class="block-body">
+            <p>Lamentations is a collection of five poems written immediately after the destruction of Jerusalem by Babylon in 586 BC — one of the greatest catastrophes in Israel's history. Solomon's Temple, symbol of God's presence and national identity, was reduced to ashes. The city was sacked. The people were deported or died of famine during the siege. Lamentations is the grief journal of those who remained among the ruins.</p>
+            <p>Jewish and Christian tradition attributes the book to Jeremiah — the prophet who lived through the destruction and remained in the devastated land. The LXX adds an introduction: <em>"And it came to pass, after Israel was led into captivity… Jeremiah sat weeping and composed this lament over Jerusalem."</em> Jeremianic authorship explains why the book follows Jeremiah in the Christian canon (the Jewish order places it in the Writings).</p>
+            <p>Structurally, the first four poems are <strong>alphabetic acrostics</strong> — each verse begins with a successive letter of the Hebrew alphabet (22 letters). Chapter 3, the longest, is a triple acrostic: three verses per letter, totaling 66. Chapter 5 has 22 verses but is not an acrostic. The acrostic form is not empty literary ornament — it is order imposed on chaos, the complete alphabet of human pain, the linguistic attempt to exhaust the depth of suffering.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Book Data</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Hebrew name</div><div class="info-card-value">Eikhah — "How!" (opening word, expression of horror)</div></div>
+            <div class="info-card"><div class="info-card-label">Structure</div><div class="info-card-value">5 poems; chs. 1–4 are acrostics; ch. 3 is triple (66 verses)</div></div>
+            <div class="info-card"><div class="info-card-label">Liturgical use</div><div class="info-card-value">Read in Judaism on Tisha B'Av — fast in memory of the Temple's destruction</div></div>
+            <div class="info-card"><div class="info-card-label">Voices</div><div class="info-card-value">External narrator (1, 2, 4), the suffering Man (3), the personified city (1:12–22, 2:20–22)</div></div>
+            <div class="info-card"><div class="info-card-label">Dominant tone</div><div class="info-card-value">Lament that acknowledges guilt — rare in the OT where lament often protests innocence</div></div>
+            <div class="info-card"><div class="info-card-label">Center of the book</div><div class="info-card-value">Lam 3:22–23 — the only expression of hope in the entire book</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="lamentations-teo">
+        <div class="study-block">
+          <div class="block-title">The Theology of Deserved Suffering</div>
+          <div class="block-body">
+            <p>What distinguishes Lamentations from other laments of the ancient world is that the sufferer acknowledges his guilt. The city-states of the ancient Near East had a tradition of "laments over destroyed cities" (such as the Sumerian Lament over the Destruction of Ur), but in those texts the deities are capricious and the city is an innocent victim. In Lamentations, the narrator explicitly declares: <em>"The <span style="font-variant:small-caps">Lord</span> is in the right, for I have rebelled against his word"</em> (1:18).</p>
+            <p>This is theologically rare and pastorally powerful. The lament that acknowledges guilt is more honest than the lament that only protests innocence — and therefore creates space for genuine hope. If the suffering were unjust and arbitrary, there would be no basis for expecting change. But if it is a consequence of unfaithfulness, then there is possibility of repentance and restoration. The confession of guilt is not despair — it is the prerequisite of hope.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Lam 3 — The Thread of Hope in the Dark</div>
+          <div class="block-body">
+            <p>Chapter 3 is the heart of the book — literally (it is the central chapter) and theologically. The man who speaks (perhaps Jeremiah, perhaps a collective voice of Israel) describes extreme suffering: God has driven him into darkness (3:2), walled him in so he cannot escape (3:7), broken his teeth with gravel (3:16), made peace flee from him (3:17). It is one of the rawest descriptions of suffering in all of Scripture.</p>
+            <p>Then, in verse 21, a turn: <em>"But this I call to mind, and therefore I have hope."</em> What does he call to mind? The steadfast love of the Lord. <em>"The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness."</em> (3:22–23). Hope is not born from improved circumstances — it is born from the memory of God's character. <em>Khesed</em> (loyal love, covenant love) is more permanent than any destruction.</p>
+            <p>But the book does not end in praise. Chapter 5 ends with an unanswered question: <em>"Why do you forget us forever, why do you forsake us for so many days?"</em> (5:20). The book is honest enough to leave the tension open — hope has been declared, but suffering still endures. This is biblical realism: faith does not eliminate pain; it coexists with it.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"The steadfast love of the <span style="font-variant:small-caps">Lord</span> never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness."</p>
+          <cite>Lamentations 3:22–23 — ESV</cite>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="lamentations-study">
+        <div class="study-block">
+          <div class="block-title">The Art of the Acrostic — Form as Theology</div>
+          <div class="block-body">
+            <p>The use of the alphabetic acrostic in Lamentations is not merely literary virtuosity — it is <strong>theological statement through form</strong>. In Hebrew, completing the alphabet from Aleph to Tav is to express totality — from beginning to end, everything, without omission. The acrostic of Lamentations declares: we have expressed all our pain, from the first letter to the last. Nothing was silenced. Nothing was softened for liturgical consumption.</p>
+            <p>Chapter 3, with its triple acrostic, intensifies the technique: not just one verse, but three verses per letter — 66 verses total. The number of verses in a lament poem is proportional to the weight of the suffering. And it is precisely in this longest, most structured, most artificially ordered chapter that the verse of hope appears (3:22–23). The formal structure contains the emotional chaos without denying it — giving it form without lying about its weight.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Lamentations on Tisha B'Av — Liturgical Use</div>
+          <div class="block-body">
+            <p><em>Tisha B'Av</em> (the ninth day of the month of Av in the Jewish calendar) is the most solemn day of mourning in Judaism — a 25-hour fast in memory of both destructions of the Temple (586 BC and 70 AD) and other historical catastrophes of the Jewish people. Lamentations is read aloud in the synagogue, often with special lament melodies, with participants sitting on the floor.</p>
+            <p>The liturgical use reveals a deep wisdom: historical suffering is neither forgotten nor artificially overcome — it is <em>ritualized</em>, integrated into the calendar as a permanent part of collective identity. Each Jewish generation re-remembers and re-experiences the destruction of Jerusalem as if it were present. This creates historical continuity and prevents the forgetting that would make new catastrophes more likely. The ritual memory of suffering is a way to honor the dead and educate the living.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Lamentations and the Cross</div>
+          <div class="block-body">
+            <p>The Christian reading of Lamentations is inevitably christological. Lam 1:12 — <em>"Is it nothing to you, all you who pass by? Look and see if there is any sorrow like my sorrow"</em> — is traditionally sung in Holy Week liturgy as the voice of Christ in the Passion. The personified city lamenting abandonment (1:16), the man driven into darkness (3:2), the figure who offers his cheek to the one who strikes and endures humiliation (3:30) — all find their antitype in the figure of Jesus on the cross.</p>
+            <p>This does not deny the original historical meaning (the destruction of Jerusalem) — it intensifies it. If the suffering of Zion in 586 BC already prefigured the Passion of Christ, then the Cross is the convergence point of all human pain — the place where God himself descends to the bottom of suffering and transforms it from within. Lamentations declares that this God knows the ruins from the inside — and is therefore able to reconstitute them.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Is it nothing to you, all you who pass by? Look and see if there is any sorrow like my sorrow, which was brought upon me."</p>
+          <cite>Lamentations 1:12 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══════════════════════════════ EZEKIEL ══════════════════════════════ -->
+    <article class="book-panel" id="panel-ezekiel">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 26 · Major Prophets · Old Testament</div>
+        <h2 class="book-title"><span>Ezekiel</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~593–571 BC</span>
+          <span class="book-tag">The Prophet of Visions</span>
+          <span class="book-tag">48 chapters</span>
+          <span class="book-tag">Author: Ezekiel son of Buzi</span>
+        </div>
+        <div class="book-verse">"And I will give you a new heart, and a new spirit I will put within you. And I will remove the heart of stone from your flesh and give you a heart of flesh."<cite>Ezekiel 36:26 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'ezekiel','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'ezekiel','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'ezekiel','study')">In-Depth Study</button>
+      </div>
+
+      <div class="tab-panel active" id="ezekiel-ctx">
+        <div class="study-block">
+          <div class="block-title">Book Data</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Length</div><div class="info-card-value">48 chapters · ministry documented over 22 years (593–571 BC)</div></div>
+            <div class="info-card"><div class="info-card-label">Author</div><div class="info-card-value">Ezekiel son of Buzi — priest exiled in 597 BC, prophet in Tel-abib (Babylon)</div></div>
+            <div class="info-card"><div class="info-card-label">Structure</div><div class="info-card-value">Chs. 1–24: judgment of Judah · 25–32: oracles against nations · 33–48: restoration</div></div>
+            <div class="info-card"><div class="info-card-label">Name of God</div><div class="info-card-value">"Lord God" (Adonai YHWH) — appears over 200 times, more than in any other book</div></div>
+            <div class="info-card"><div class="info-card-label">Ben Adam</div><div class="info-card-value">"Son of man" — title by which God addresses Ezekiel 93 times · emphasis on human humility before the divine</div></div>
+            <div class="info-card"><div class="info-card-label">Key vision</div><div class="info-card-value">Ez 1 (Merkabah) — foundation of Jewish mysticism; Ez 36–37 (new heart and dry bones) — foundation of NT pneumatology</div></div>
+          </div>
+        </div>
+
+        <div class="study-block">
+          <div class="block-title">The Priest-Prophet in Exile</div>
+          <div class="block-body">
+            <p>Ezekiel is unique among the prophets: he was a <strong>priest</strong> (1:3) carried into exile in 597 BC before the Temple's destruction — meaning he was exiled before he could exercise his priesthood fully. He lived on the banks of the Chebar canal, in Babylon, in an exilic community called Tel-abib (3:15). His ministry begins in 593 BC (the fifth year of King Jehoiachin's exile) and extends to at least 571 BC — 22 years of prophecy.</p>
+            <p>Ezekiel's perspective is radically different from Jeremiah's: while Jeremiah prophesied in Jerusalem urging submission to Babylon, Ezekiel prophesied <em>from Babylon</em> to the exiles there. His primary audience were those who thought: <em>"We are far away, the abandoned exiles — those who remained in Jerusalem are the true heirs of the promise."</em> Ezekiel reverses this: the exiles are the faithful remnant; those who remained in Jerusalem will continue in idolatry until the final destruction.</p>
+            <p>His prophetic personality is marked by dramatic symbolic acts and visions of unusual intensity. He is repeatedly called <em>ben adam</em> (son of man — 93 times) — a title of humility before the divine Lord. He lost his wife — "the delight of his eyes" — on the same day Nebuchadnezzar besieged Jerusalem, and God forbade him to mourn publicly: it would be a sign of what Israel should do over the Temple about to be destroyed (24:15–24).</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Structure of the Book</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-date">Chs. 1–3</div><div class="tl-text">Inaugural vision of the divine chariot (merkabah) and Ezekiel's call. The bitter scroll he must eat — the Word he must digest before proclaiming.</div></div>
+            <div class="tl-item"><div class="tl-date">Chs. 4–24</div><div class="tl-text">Oracles of judgment against Jerusalem and Judah (593–586 BC). Symbolic acts, vision of abomination in the Temple (8–11), departure of the divine glory.</div></div>
+            <div class="tl-item"><div class="tl-date">Chs. 25–32</div><div class="tl-text">Oracles against foreign nations: Ammon, Moab, Edom, Philistia, Tyre, Sidon, Egypt.</div></div>
+            <div class="tl-item"><div class="tl-date">Chs. 33–39</div><div class="tl-text">Oracles of restoration after the fall of Jerusalem (586 BC): the shepherd, the valley of dry bones (37), the battle of Gog and Magog (38–39).</div></div>
+            <div class="tl-item"><div class="tl-date">Chs. 40–48</div><div class="tl-text">The eschatological temple — detailed vision of a future temple with precise measurements, new land distribution, and a river flowing from the sanctuary.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="ezekiel-teo">
+        <div class="study-block">
+          <div class="block-title">The Departure and Return of the Divine Glory</div>
+          <div class="block-body">
+            <p>The structuring theme of Ezekiel is the movement of the <em>kavod</em> — the Glory (or Presence) of the <span style="font-variant:small-caps">Lord</span>. In chapter 1, the Glory appears to the prophet in exile in Babylon — a shocking revelation: God is not confined to the Temple in Jerusalem. He can appear on the banks of the Chebar canal. This was theologically revolutionary for those who believed divine presence was geographically bound to the Temple.</p>
+            <p>In chapters 8–11, Ezekiel has a vision of the abominations practiced inside the Temple (idolatry within the sanctuary — 8:10–12) — and he sees the Glory of God departing in stages: from the Holy of Holies to the entrance (9:3), to the threshold (10:4), to the eastern gate of the Temple (10:18–19), and finally to the Mount of Olives (11:23). The Glory abandons the Temple before Babylon destroys it — it is God who leaves, not who is expelled. The judgment that follows is the <em>consequence</em> of that departure, not its cause.</p>
+            <p>The return of the Glory is the great promise of chapters 43–44: the prophet sees the Glory returning through the eastern gate (43:2–4) and filling the eschatological Temple. The future Temple is the place of restored Presence. In the Christian reading, John 1:14 — <em>"the Word became flesh and dwelt among us, and we have seen his glory"</em> — is the fulfillment of that promise: the Glory that departed has returned, in person.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The New Heart and the New Spirit — Ez 36</div>
+          <div class="block-body">
+            <p>Ezekiel 36:24–27 contains one of the OT's most comprehensive promises of inner transformation: <em>"I will take you from the nations and gather you from all the countries and bring you into your own land. I will sprinkle clean water on you, and you shall be clean from all your uncleannesses, and from all your idols I will cleanse you. And I will give you a new heart, and a new spirit I will put within you. And I will remove the heart of stone from your flesh and give you a heart of flesh. And I will put my Spirit within you, and cause you to walk in my statutes."</em></p>
+            <p>This passage is the OT foundation of what the NT calls <strong>regeneration</strong> and <strong>new birth</strong>. Jesus cites this theology directly to Nicodemus (John 3:5–8): <em>"unless one is born of water and the Spirit"</em> — the cleansing water of Ez 36:25 and the Spirit of Ez 36:27. Paul takes up in Rom 8:9–11 the theme of the Spirit dwelling in the believer. Ezekiel's promise is the OT's most explicit on the Spirit's role in moral transformation — not external commandments, but an internal presence that produces obedience.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"And I will give you a new heart, and a new spirit I will put within you. And I will remove the heart of stone from your flesh and give you a heart of flesh."</p>
+          <cite>Ezekiel 36:26 — ESV</cite>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="ezekiel-study">
+        <div class="study-block">
+          <div class="block-title">The Merkabah Vision — Ez 1</div>
+          <div class="block-body">
+            <p>Ezekiel's inaugural vision (ch. 1) is one of the most extraordinary and baffling passages in the Bible. The prophet sees a storm coming from the north with cloud, fire, and brilliant light — from within emerge four living creatures, each with four faces (man, lion, ox, eagle), four wings, and legs like calves' legs with bronze-gleaming hooves. Beside each creature, a wheel full of eyes all around — and the wheels move in any direction without needing to turn. Above them, a crystal expanse; above it, a sapphire throne; above the throne, a figure of human appearance surrounded by glory like a rainbow.</p>
+            <p>This vision became the foundation of the <em>merkabah</em> (chariot mysticism) in late Judaism — an esoteric tradition of meditating on the divine throne that required the student to be at least 30 years old before reading Ezekiel chapter 1. The four living creatures (cherubim — identified in 10:20) appear again in Revelation (Rev 4:6–8) and represent the four faces of creation in service to the Creator. In medieval Christian iconography, the four creatures became the symbols of the four evangelists: the man (Matthew), the lion (Mark), the ox (Luke), the eagle (John).</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Valley of Dry Bones — Ez 37</div>
+          <div class="block-body">
+            <p>The vision of the valley of dry bones (37:1–14) is one of the most powerful and hopeful narratives in all of biblical prophecy. Ezekiel is transported by God to a valley full of very dry bones — a metaphor for Israel's state: dead, disintegrated, without hope of resurrection. God asks: <em>"Son of man, can these bones live?"</em> (37:3). Ezekiel's diplomatic answer — <em>"O Lord God, you know"</em> — is a confession of human powerlessness and an opening for the divine impossible.</p>
+            <p>God commands the prophet to prophesy <em>to the bones</em>. Ezekiel obeys the absurd — and the bones come together, receive tendons and flesh and skin. But still no life: they are well-assembled corpses. The second command is to prophesy <em>to the wind</em> (or Spirit — <em>ruach</em> in Hebrew is both). The wind breathes over the dead and they live — an exceedingly great army (37:10). The interpretation is given by God himself: <em>"These bones are the whole house of Israel. Behold, they say, 'Our bones are dried up, and our hope is lost'"</em> (37:11). Israel's restoration is as humanly impossible as the resurrection of dry bones — and is therefore unmistakably the work of God.</p>
+            <p>The NT reads this text eschatologically: Paul in Rom 11:15 speaks of Israel's restoration as <em>"life from the dead."</em> And John 20:22 — where Jesus breathes on the disciples saying <em>"Receive the Holy Spirit"</em> — deliberately echoes the breath of Ez 37:9: the new creation begins with the same Spirit that animated the dry bones.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Individual Responsibility — Ez 18</div>
+          <div class="block-body">
+            <p>One of Ezekiel's most revolutionary themes is <strong>individual moral responsibility</strong>, developed in chapter 18 in response to a popular proverb: <em>"The fathers have eaten sour grapes, and the children's teeth are set on edge"</em> (18:2). The people used this proverb to exempt themselves from responsibility for the exile — the guilt was the fathers' (Manasseh, etc.), not theirs.</p>
+            <p>God responds with a series of legal cases that demonstrate: each person answers for their own acts. The son of a wicked father who acts justly shall live (18:14–17). The son of a just father who acts violently shall die (18:10–13). Responsibility is not hereditary and collective — it is individual and present. What is most surprising is 18:23: <em>"Have I any pleasure in the death of the wicked, declares the Lord God, and not rather that he should turn from his way and live?"</em> God takes no pleasure in the death of the sinner — he takes pleasure in his conversion. This inverts every religious logic that feared a God eager to punish.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Gog and Magog — Ez 38–39</div>
+          <div class="block-body">
+            <p>Chapters 38–39 describe the invasion of Israel by <strong>Gog, of the land of Magog</strong> — a coalition of northern nations that attacks restored Israel, is destroyed by God with earthquake, fire, sulfur, and internal confusion, and leaves so much weaponry that Israel burns it for seven years and so many dead that the burial takes seven months. The battle is won exclusively by God; Israel does not raise a sword.</p>
+            <p>The historical identification of Gog remains debated: some propose Lydia (~640 BC), others Scythia, others read it as a symbol of the forces of chaos at the end of times. Revelation 20:8 uses "Gog and Magog" as the name of the forces of evil in the final judgment — an explicit eschatological reading. For Ezekiel, the purpose of the battle is clear: <em>"So I will make my holy name known in the midst of my people Israel"</em> (39:7). The divine victory is not military — it is theological. The goal is that the nations acknowledge who the God of Israel is.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"I have no pleasure in the death of the wicked, but that the wicked turn from his way and live."</p>
+          <cite>Ezekiel 33:11 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══════════════════════════════ DANIEL ══════════════════════════════ -->
+    <article class="book-panel" id="panel-daniel">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 27 · Major Prophets · Old Testament</div>
+        <h2 class="book-title"><span>Daniel</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~605–535 BC</span>
+          <span class="book-tag">Faithfulness and Apocalypse</span>
+          <span class="book-tag">12 chapters</span>
+          <span class="book-tag">Author: Daniel</span>
+        </div>
+        <div class="book-verse">"And those who are wise shall shine like the brightness of the sky above; and those who turn many to righteousness, like the stars forever and ever."<cite>Daniel 12:3 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'daniel','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'daniel','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'daniel','study')">In-Depth Study</button>
+      </div>
+
+      <div class="tab-panel active" id="daniel-ctx">
+        <div class="study-block">
+          <div class="block-title">The Jew in the Pagan Court</div>
+          <div class="block-body">
+            <p>Daniel was taken to Babylon in the first deportation of 605 BC — a young nobleman of Judah selected for training in Nebuchadnezzar's court. The acculturation program was intense: a new Babylonian name (Belteshazzar — 1:7), education in the Chaldean language and literature, food from the royal table. The goal was to transform young Jewish men into loyal Babylonian officials.</p>
+            <p>Daniel and his three friends (Hananiah/Shadrach, Mishael/Meshach, Azariah/Abednego) navigated this environment with extraordinary wisdom: they refused the king's food (1:8–16) — probably for reasons of ritual purity and loyalty to God — but did not refuse the education or the offices. They distinguished the negotiable from the non-negotiable. This discernment made them the best-adapted characters in the exile without loss of identity.</p>
+            <p>Daniel served under <strong>four reigns</strong>: Nebuchadnezzar (605–562), Belshazzar (co-regent — ch. 5), Darius the Mede (debated identity — ch. 6), and Cyrus the Persian (535 BC — Dan 1:21; 10:1). His career spanned the end of the Babylonian Empire and the beginning of the Persian Empire — the most dramatic historical arc of the ancient world. He survived plots, the lions' den, and decades of court politics, without ever abandoning his prayers or his God.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Structure of the Book</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Languages</div><div class="info-card-value">Hebrew (1:1–2:4a; 8–12) and Aramaic (2:4b–7:28) — the only bilingual book in the OT</div></div>
+            <div class="info-card"><div class="info-card-label">Two parts</div><div class="info-card-value">Chs. 1–6: court narratives; chs. 7–12: apocalyptic visions</div></div>
+            <div class="info-card"><div class="info-card-label">Authorship debate</div><div class="info-card-value">Conservatives: Daniel 6th century; historical criticism: composition ~165 BC in the Maccabean period</div></div>
+            <div class="info-card"><div class="info-card-label">Genre</div><div class="info-card-value">First complete example of biblical apocalyptic literature</div></div>
+            <div class="info-card"><div class="info-card-label">Son of Man</div><div class="info-card-value">Dan 7:13 — the title Jesus most used to refer to himself in the Gospels</div></div>
+            <div class="info-card"><div class="info-card-label">Resurrection</div><div class="info-card-value">Dan 12:2 — one of the only clear references to the resurrection of the dead in the OT</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="daniel-teo">
+        <div class="study-block">
+          <div class="block-title">God's Sovereignty over Empires</div>
+          <div class="block-body">
+            <p>The central theological theme of Daniel is <strong>God's absolute sovereignty over human history</strong> — specifically over the great empires that succeed one another with apparent inevitability. The declaration that runs through the book is Dan 4:17: <em>"The Most High rules the kingdom of men and gives it to whom he will."</em> Even Nebuchadnezzar, the most powerful man in the world, is humbled until he acknowledges this truth (4:34–37).</p>
+            <p>Nebuchadnezzar's statue (ch. 2) is the most comprehensive image: a figure with a head of gold (Babylon), chest of silver (Medo-Persia), belly of bronze (Greece), legs of iron (Rome), and feet of iron mixed with clay (fragile empires). A stone cut without human hands destroys the statue and becomes a mountain that fills the earth — the kingdom of God that shall never be destroyed or left to another people (2:44). The historical interpretation is that all human empires, however grand, are temporary; the only eternal kingdom is God's.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Son of Man — Dan 7:13–14</div>
+          <div class="block-body">
+            <p>The vision most decisive for NT Christology is in Daniel 7:13–14: <em>"I saw in the night visions, and behold, with the clouds of heaven there came one like a son of man, and he came to the Ancient of Days and was presented before him. And to him was given dominion and glory and a kingdom, that all peoples, nations, and languages should serve him; his dominion is an everlasting dominion, which shall not pass away, and his kingdom one that shall not be destroyed."</em></p>
+            <p>Jesus uses the expression <em>bar 'enash</em> / <em>ho huios tou anthropou</em> ("Son of Man") in reference to himself on 69 occasions in the Gospels — the title he used most to identify himself. At the hearing before the High Priest, when asked if he was the Christ, he quoted Dan 7:13 explicitly: <em>"You will see the Son of Man seated at the right hand of Power and coming on the clouds of heaven"</em> (Matt 26:64) — and it was for this text that they condemned him for blasphemy. Jesus was not merely claiming divinity; he was claiming to be the receiver of the eternal kingdom of Daniel 7.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Resurrection and Final Judgment — Dan 12</div>
+          <div class="block-body">
+            <p>Daniel 12:1–3 is one of the most explicit statements of the resurrection of the dead in the OT: <em>"And many of those who sleep in the dust of the earth shall awake, some to everlasting life, and some to shame and everlasting contempt."</em> The distinction between resurrection to life and resurrection to condemnation directly prefigures John 5:28–29 and Jesus' teaching on the final judgment. The Angel Michael shall arise on behalf of Daniel's people in the time of unparalleled distress.</p>
+            <p>The promise for the faithful is extraordinary: <em>"And those who are wise shall shine like the brightness of the sky above; and those who turn many to righteousness, like the stars forever and ever"</em> (12:3). Paul echoes this text in 1 Cor 15:41–42 in describing the glory of the resurrection body. Daniel is thus the explicit biblical starting point for the eschatology of individual resurrection — not just national resurrection (as in Ez 37), but personal and eternal.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"And behold, with the clouds of heaven there came one like a son of man… And to him was given dominion and glory and a kingdom… His dominion is an everlasting dominion, which shall not pass away."</p>
+          <cite>Daniel 7:13–14 — ESV</cite>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="daniel-study">
+        <div class="study-block">
+          <div class="block-title">The Question of Dating — 6th or 2nd Century BC?</div>
+          <div class="block-body">
+            <p>Daniel is the biblical book most debated with regard to date of composition. The conservative position holds that Daniel son of Jehoiakim lived and wrote in the 6th century BC, exactly as the book claims. The position of historical criticism — dominant in academia since the 19th century — proposes that the book was composed ~165 BC during the persecution of Antiochus IV Epiphanes (the Seleucid king who desecrated the Temple) and serves as resistance literature for the Maccabees.</p>
+            <p>The arguments of historical criticism include: the precision of the prophecies of chapters 10–11 (which describe events of the 3rd–2nd century BC in historiographic detail) would be better explained as <em>vaticinium ex eventu</em> (prophecy written after the fact); the Hebrew and Aramaic of the book have late linguistic characteristics; "Darius the Mede" is not historically confirmed as a figure independent of Darius the Great.</p>
+            <p>The conservative position responds that prophetic precision is exactly what is expected of genuine divine revelation (cf. the naming of Cyrus in Isaiah 44–45), that the linguistic arguments have been contested by Qumran discoveries (2nd-century BC Daniel manuscripts showing the book already established), and that "Darius the Mede" may be identified with Gubaru, the Babylonian governor appointed by Cyrus. For Christian faith, Jesus' testimony to the book of Daniel (Matt 24:15 — <em>"Daniel the prophet"</em>) carries decisive weight.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Furnace and the Den — Narratives of Faithfulness</div>
+          <div class="block-body">
+            <p>Chapters 3 and 6 contain the book's most memorable narratives — simultaneously history and parable about faithfulness under pressure. <strong>The fiery furnace (ch. 3)</strong>: Shadrach, Meshach, and Abednego refuse to bow before Nebuchadnezzar's golden statue. Their response is one of the noblest texts on faithfulness to God regardless of outcome: <em>"Our God whom we serve is able to deliver us from the burning fiery furnace… But if not, be it known to you, O king, that we will not serve your gods"</em> (3:17–18). They are thrown into the furnace and a fourth figure — <em>"like a son of the gods"</em> — walks with them. In the Christian reading, it is a Christophany: Christ in the furnace with his own.</p>
+            <p><strong>The lions' den (ch. 6)</strong>: under Darius, Daniel continues praying three times a day toward Jerusalem (6:10) even knowing of the decree that banned any prayer except to the king. His prayer routine was so well known that his enemies used it against him. Thrown into the den, the lions do not touch him — God sent his angel to shut their mouths (6:22). Those who accused him are then thrown into the same den and immediately devoured.</p>
+            <p>Both narratives share the same theological pattern: <em>faithfulness that does not calculate consequences → delivery to the power of the oppressor → divine intervention → public vindication</em>. This pattern is the same as the Passion and Resurrection of Christ — and it is why the Church Fathers read Daniel as a prefiguration of Christian hope in the face of persecution.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Seventy Weeks — Dan 9:24–27</div>
+          <div class="block-body">
+            <p>The prophecy of the seventy weeks (9:24–27) is perhaps the most debated in all the OT, with at least four schools of interpretation. After Daniel's prayer of confession (9:3–19), the angel Gabriel appears and reveals that 70 "weeks" (periods of seven years = 490 years) are decreed over Israel from the decree to restore Jerusalem until the end of sin and the establishment of everlasting righteousness.</p>
+            <p>The classical historicist-Christian interpretation (Harold Hoehner, among others) calculates: the decree of Artaxerxes to Ezra/Nehemiah (~445 BC) + 69 weeks (483 years on the 360-day calendar) = Jesus' triumphal entry into Jerusalem (32 AD). After the 69 weeks, the prince who is to come (Titus, 70 AD) destroys the city and the sanctuary. The 70th week is the final period before judgment. The dispensationalist interpretation separates the 70th week and places it in the distant future (Great Tribulation). The preterist interpretation applies everything to the period 605–70 AD. The amillennial interpretation reads the weeks symbolically as the complete period between the first and second coming of Christ.</p>
+            <p>Regardless of the chronological position adopted, the theological core is clear: God has a precise historical plan for redemption — sin will be atoned for, the sanctuary anointed, and everlasting righteousness established. History is not chaos — it is administered by the One who declared the end from the beginning.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Daniel and the Revelation of John</div>
+          <div class="block-body">
+            <p>The book of Daniel is the most direct source for the images and structures of the Revelation of John. The connections are numerous and precise: the <strong>Ancient of Days</strong> of Dan 7:9 (throne of fire, hair white as wool) reappears as the vision of the risen Christ in Rev 1:12–16 — John deliberately transfers Daniel's divine attributes to Jesus. The <strong>four living creatures</strong> of Dan 7 (representing the empires) are taken up in Rev 4. The <strong>beast from the sea</strong> of Dan 7 is the basis for the beasts of Rev 13. The <strong>woman who flees into the wilderness</strong> of Rev 12 echoes the themes of faithfulness in exile from Daniel.</p>
+            <p>The deepest relationship is theological, not merely imagistic: both books were written for communities under imperial persecution — Daniel under Babylon/Persia, Revelation under Domitian's Rome (~95 AD). Both affirm the same truth: empires pass, God reigns, the faithful who persevere to the end will be vindicated. Biblical apocalyptic is not speculation about the future out of curiosity — it is pastoral theology for people facing death for faithfulness.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"And those who are wise shall shine like the brightness of the sky above; and those who turn many to righteousness, like the stars forever and ever."</p>
+          <cite>Daniel 12:3 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- .content -->
+</main>
+</div><!-- .layout -->
+
+<a class="lang-btn" href="../at-profetas-maiores/index.html" aria-label="Switch to Portuguese">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>PT</span>
+</a>
+
+<script>
+function showBook(id){
+  document.querySelectorAll('.book-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  const panel=document.getElementById('panel-'+id);
+  if(panel){
+    panel.classList.add('active');
+    panel.querySelectorAll('.tab-panel').forEach((tp,i)=>tp.classList.toggle('active',i===0));
+    panel.querySelectorAll('.tab-btn').forEach((tb,i)=>tb.classList.toggle('active',i===0));
+  }
+  const btn=document.querySelector('[data-book="'+id+'"]');
+  if(btn)btn.classList.add('active');
+  if(window.innerWidth<=900)closeSidebar();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showTab(btn,bookId,tabId){
+  const panel=document.getElementById('panel-'+bookId);
+  if(!panel)return;
+  panel.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  panel.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  const tp=document.getElementById(bookId+'-'+tabId);
+  if(tp)tp.classList.add('active');
+}
+
+const sidebar=document.getElementById('sidebar');
+const overlay=document.getElementById('sidebarOverlay');
+const toggle=document.getElementById('menuToggle');
+
+function openSidebar(){
+  sidebar.classList.add('open');
+  overlay.classList.add('open');
+  toggle.setAttribute('aria-expanded','true');
+  document.body.style.overflow='hidden';
+}
+function closeSidebar(){
+  sidebar.classList.remove('open');
+  overlay.classList.remove('open');
+  toggle.setAttribute('aria-expanded','false');
+  document.body.style.overflow='';
+}
+toggle.addEventListener('click',()=>sidebar.classList.contains('open')?closeSidebar():openSidebar());
+overlay.addEventListener('click',closeSidebar);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSidebar();});
+</script>
+</body>
+</html>

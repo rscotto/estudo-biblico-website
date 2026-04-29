@@ -114,20 +114,57 @@ ${ptBody}
 </body>
 </html>`;
 
-  // EN page: fix back-link and lang attribute
-  const enBody = bodyContent
-    .replace(/href="\.\.\/index\.html"/g, 'href="/en"')
-    .replace(/href='\.\.\/index\.html'/g, "href='/en'");
+  // EN page: use native index.en.html if available, otherwise fall back to PT source
+  const enSrcFile = page.srcFile.replace('/index.html', '/index.en.html');
+  const enSrcPath = path.join(rootDir, enSrcFile);
+  let enHtml;
 
-  const enHtml = buildHead({
-    title: page.titleEn,
-    description: page.descEn,
-    lang: 'en',
-    canonical: `${siteBase}/en/${page.slug}`,
-    altLangCode: 'pt',
-    altLangUrl: `${siteBase}/pt/${page.slug}`,
-    accentColor: page.accentColor,
-  }) + `
+  if (fs.existsSync(enSrcPath)) {
+    const enSrc = fs.readFileSync(enSrcPath, 'utf-8');
+    const enStyleMatch = enSrc.match(/<style>([\s\S]*?)<\/style>/);
+    const enInlineStyle = enStyleMatch ? enStyleMatch[1].trim() : inlineStyle;
+    const enBodyStart = enSrc.indexOf('<body>') + 6;
+    const enBodyEnd   = enSrc.lastIndexOf('</body>');
+    const enBodyRaw   = enSrc.slice(enBodyStart, enBodyEnd).trim();
+    const enBody = enBodyRaw
+      .replace(/href="\.\.\/[^/]+\/index\.html"/g, 'href="/en"')
+      .replace(/href='\.\.\/[^/]+\/index\.html'/g, "href='/en'")
+      .replace(/href="\.\.\/index\.html"/g, 'href="/en"')
+      .replace(/href='\.\.\/index\.html'/g, "href='/en'");
+
+    enHtml = buildHead({
+      title: page.titleEn,
+      description: page.descEn,
+      lang: 'en',
+      canonical: `${siteBase}/en/${page.slug}`,
+      altLangCode: 'pt',
+      altLangUrl: `${siteBase}/pt/${page.slug}`,
+      accentColor: page.accentColor,
+    }) + `
+<style>
+${enInlineStyle}
+</style>
+</head>
+<body>
+${enBody}
+</body>
+</html>`;
+    console.log(`  → using native EN source for ${page.slug}`);
+  } else {
+    // Fall back: copy PT body (bilingual via data-pt/data-en attributes)
+    const enBody = bodyContent
+      .replace(/href="\.\.\/index\.html"/g, 'href="/en"')
+      .replace(/href='\.\.\/index\.html'/g, "href='/en'");
+
+    enHtml = buildHead({
+      title: page.titleEn,
+      description: page.descEn,
+      lang: 'en',
+      canonical: `${siteBase}/en/${page.slug}`,
+      altLangCode: 'pt',
+      altLangUrl: `${siteBase}/pt/${page.slug}`,
+      accentColor: page.accentColor,
+    }) + `
 <style>
 ${inlineStyle}
 </style>
@@ -136,6 +173,7 @@ ${inlineStyle}
 ${enBody}
 </body>
 </html>`;
+  }
 
   // Write as .html files into the public directory so Astro serves them statically
   // Actually write as .astro pages using set:html on a Fragment
