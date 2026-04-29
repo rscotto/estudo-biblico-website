@@ -690,6 +690,8 @@
       animation: none !important;
     }
   }
+  .lang-btn{position:fixed;top:16px;right:16px;z-index:300;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--navy-mid);border:1px solid rgba(255,164,0,0.25);border-radius:var(--radius-sm);color:var(--sand);font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;cursor:pointer;transition:background var(--transition-base),border-color var(--transition-base);}
+  .lang-btn:hover{background:var(--navy-light);border-color:var(--gold);}
 </style>
 </head>
 <body>
@@ -707,30 +709,30 @@
   <div class="sidebar-header">
     <a href="../index.html" class="sidebar-back">
       <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-      Voltar à Bíblia
+      <span data-pt="Voltar à Bíblia" data-en="Back to Bible">Voltar à Bíblia</span>
     </a>
-    <div class="sidebar-title">Moisés / Pentateuco</div>
-    <div class="sidebar-subtitle">Antigo Testamento · 5 Livros</div>
+    <div class="sidebar-title" data-pt="Moisés / Pentateuco" data-en="Moses / Pentateuch">Moisés / Pentateuco</div>
+    <div class="sidebar-subtitle" data-pt="Antigo Testamento · 5 Livros" data-en="Old Testament · 5 Books">Antigo Testamento · 5 Livros</div>
   </div>
   <nav class="sidebar-nav" aria-label="Navegação do Pentateuco">
     <div class="nav-section-label">Os Cinco Livros</div>
-    <button class="nav-item" onclick="showSection('genesis')" data-section="genesis"><span class="nav-num">1</span><span class="nav-abbr">Gn</span><span class="nav-name">Gênesis</span></button>
-    <button class="nav-item" onclick="showSection('exodo-livro')" data-section="exodo-livro"><span class="nav-num">2</span><span class="nav-abbr">Êx</span><span class="nav-name">Êxodo</span></button>
-    <button class="nav-item" onclick="showSection('levitico')" data-section="levitico"><span class="nav-num">3</span><span class="nav-abbr">Lv</span><span class="nav-name">Levítico</span></button>
-    <button class="nav-item" onclick="showSection('numeros')" data-section="numeros"><span class="nav-num">4</span><span class="nav-abbr">Nm</span><span class="nav-name">Números</span></button>
-    <button class="nav-item" onclick="showSection('deuteronomio')" data-section="deuteronomio"><span class="nav-num">5</span><span class="nav-abbr">Dt</span><span class="nav-name">Deuteronômio</span></button>
+    <button class="nav-item" onclick="showSection('genesis')" data-section="genesis"><span class="nav-num">1</span><span class="nav-abbr">Gn</span><span class="nav-name" data-pt="Gênesis" data-en="Genesis">Gênesis</span></button>
+    <button class="nav-item" onclick="showSection('exodo-livro')" data-section="exodo-livro"><span class="nav-num">2</span><span class="nav-abbr">Êx</span><span class="nav-name" data-pt="Êxodo" data-en="Exodus">Êxodo</span></button>
+    <button class="nav-item" onclick="showSection('levitico')" data-section="levitico"><span class="nav-num">3</span><span class="nav-abbr">Lv</span><span class="nav-name" data-pt="Levítico" data-en="Leviticus">Levítico</span></button>
+    <button class="nav-item" onclick="showSection('numeros')" data-section="numeros"><span class="nav-num">4</span><span class="nav-abbr">Nm</span><span class="nav-name" data-pt="Números" data-en="Numbers">Números</span></button>
+    <button class="nav-item" onclick="showSection('deuteronomio')" data-section="deuteronomio"><span class="nav-num">5</span><span class="nav-abbr">Dt</span><span class="nav-name" data-pt="Deuteronômio" data-en="Deuteronomy">Deuteronômio</span></button>
     <div class="nav-divider"></div>
     <div class="nav-section-label">Moisés</div>
-    <button class="nav-item active" onclick="showSection('visao-geral')" data-section="visao-geral"><span class="nav-name">Visão Geral</span></button>
-    <button class="nav-item" onclick="showSection('contexto-geo')" data-section="contexto-geo"><span class="nav-name">Contexto Geográfico</span></button>
-    <button class="nav-item" onclick="showSection('contexto-politico')" data-section="contexto-politico"><span class="nav-name">Contexto Político</span></button>
-    <button class="nav-item" onclick="showSection('vida')" data-section="vida"><span class="nav-name">Sarça Ardente</span></button>
-    <button class="nav-item" onclick="showSection('pragas')" data-section="pragas"><span class="nav-name">Pragas e Êxodo</span></button>
-    <button class="nav-item" onclick="showSection('sinai')" data-section="sinai"><span class="nav-name">Bezerro de Ouro</span></button>
-    <button class="nav-item" onclick="showSection('deserto')" data-section="deserto"><span class="nav-name">Deserto e Crise</span></button>
-    <button class="nav-item" onclick="showSection('teologia')" data-section="teologia"><span class="nav-name">Teologia</span></button>
-    <button class="nav-item" onclick="showSection('nt')" data-section="nt"><span class="nav-name">NT e Cristo</span></button>
-    <button class="nav-item" onclick="showSection('pentateuco')" data-section="pentateuco"><span class="nav-name">O Pentateuco</span></button>
+    <button class="nav-item active" onclick="showSection('visao-geral')" data-section="visao-geral"><span class="nav-name" data-pt="Visão Geral" data-en="Overview">Visão Geral</span></button>
+    <button class="nav-item" onclick="showSection('contexto-geo')" data-section="contexto-geo"><span class="nav-name" data-pt="Contexto Geográfico" data-en="Geographic Context">Contexto Geográfico</span></button>
+    <button class="nav-item" onclick="showSection('contexto-politico')" data-section="contexto-politico"><span class="nav-name" data-pt="Contexto Político" data-en="Political Context">Contexto Político</span></button>
+    <button class="nav-item" onclick="showSection('vida')" data-section="vida"><span class="nav-name" data-pt="Sarça Ardente" data-en="Burning Bush">Sarça Ardente</span></button>
+    <button class="nav-item" onclick="showSection('pragas')" data-section="pragas"><span class="nav-name" data-pt="Pragas e Êxodo" data-en="Plagues &amp; Exodus">Pragas e Êxodo</span></button>
+    <button class="nav-item" onclick="showSection('sinai')" data-section="sinai"><span class="nav-name" data-pt="Bezerro de Ouro" data-en="Golden Calf">Bezerro de Ouro</span></button>
+    <button class="nav-item" onclick="showSection('deserto')" data-section="deserto"><span class="nav-name" data-pt="Deserto e Crise" data-en="Desert &amp; Crisis">Deserto e Crise</span></button>
+    <button class="nav-item" onclick="showSection('teologia')" data-section="teologia"><span class="nav-name" data-pt="Teologia" data-en="Theology">Teologia</span></button>
+    <button class="nav-item" onclick="showSection('nt')" data-section="nt"><span class="nav-name" data-pt="NT e Cristo" data-en="NT &amp; Christ">NT e Cristo</span></button>
+    <button class="nav-item" onclick="showSection('pentateuco')" data-section="pentateuco"><span class="nav-name" data-pt="O Pentateuco" data-en="The Pentateuch">O Pentateuco</span></button>
   </nav>
 </aside>
 
@@ -738,9 +740,9 @@
 
   <header class="hero">
     <div class="hero-main">
-      <p class="hero-eyebrow">Estudo Bíblico Panorâmico</p>
-      <h1>Moisés</h1>
-      <p class="hero-subtitle">O Libertador · O Legislador · O Profeta</p>
+      <p class="hero-eyebrow" data-pt="Estudo Bíblico Panorâmico" data-en="Panoramic Bible Study">Estudo Bíblico Panorâmico</p>
+      <h1 data-pt="Moisés" data-en="Moses">Moisés</h1>
+      <p class="hero-subtitle" data-pt="O Libertador · O Legislador · O Profeta" data-en="The Deliverer · The Lawgiver · The Prophet">O Libertador · O Legislador · O Profeta</p>
     </div>
     <div class="hero-verse">
       "Nunca mais houve em Israel profeta como Moisés, a quem o <span style="font-variant:small-caps">Senhor</span> conheceu face a face."
@@ -2174,7 +2176,27 @@
   </svg>
 </button>
 
+<button class="lang-btn" id="langBtn" onclick="toggleLang()" aria-label="Switch language">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span id="langLabel">EN</span>
+</button>
+
 <script>
+  const _lang = localStorage.getItem('lang') || 'pt';
+
+  function applyLang(l) {
+    document.querySelectorAll('[data-pt]').forEach(el => {
+      el.innerHTML = l === 'en' ? el.dataset.en : el.dataset.pt;
+    });
+    document.getElementById('langLabel').textContent = l === 'en' ? 'PT' : 'EN';
+    document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
+  }
+  function toggleLang() {
+    const next = localStorage.getItem('lang') === 'en' ? 'pt' : 'en';
+    localStorage.setItem('lang', next);
+    applyLang(next);
+  }
+
   function showSection(id) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
@@ -2235,6 +2257,9 @@
   document.querySelectorAll('.section.active .reveal').forEach(el => {
     el.classList.add('visible');
   });
+
+  if (_lang === 'en') applyLang('en');
+  else document.getElementById('langLabel').textContent = 'EN';
 </script>
 </body>
 </html>

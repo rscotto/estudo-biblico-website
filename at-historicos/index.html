@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Livros Históricos — Estudo Bíblico</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
 <style>
 :root {
   --navy:       #2c2416;
@@ -14,6 +15,7 @@
   --gold-dim:   #cc8500;
   --sand:       #f0e6d0;
   --sand-dim:   #c8b898;
+  --accent:     #FFA400;
   --shadow-sm:  0 2px 8px rgba(20,16,8,0.22);
   --shadow-md:  0 8px 32px rgba(20,16,8,0.32);
   --radius-sm:  6px;
@@ -21,271 +23,8 @@
   --transition: 250ms ease;
   --nav-w:      272px;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-*:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--navy);
-  background-image:
-    radial-gradient(ellipse at 15% 0%,rgba(255,164,0,0.06) 0%,transparent 55%),
-    radial-gradient(ellipse at 85% 100%,rgba(255,164,0,0.03) 0%,transparent 50%);
-  color:var(--sand);
-  font-family:'EB Garamond',serif;
-  font-size:18px;line-height:1.8;
-  min-height:100dvh;
-}
-p{text-align:justify;hyphens:auto;}
-
-/* ── LAYOUT ── */
-.layout{display:flex;min-height:100dvh;}
-
-/* ── SIDEBAR ── */
-.sidebar{
-  width:var(--nav-w);flex-shrink:0;
-  background:linear-gradient(180deg,rgba(44,36,22,0.98) 0%,rgba(20,16,8,0.98) 100%);
-  border-right:1px solid rgba(255,164,0,0.12);
-  position:fixed;top:0;left:0;bottom:0;
-  overflow-y:auto;overflow-x:hidden;
-  z-index:50;display:flex;flex-direction:column;
-}
-.sidebar::-webkit-scrollbar{width:4px;}
-.sidebar::-webkit-scrollbar-thumb{background:rgba(255,164,0,0.2);border-radius:4px;}
-
-.sidebar-header{
-  padding:28px 20px 20px;
-  border-bottom:1px solid rgba(255,164,0,0.10);
-  flex-shrink:0;
-}
-.sidebar-back{
-  display:inline-flex;align-items:center;gap:6px;
-  color:var(--sand-dim);font-family:'Cinzel',serif;
-  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  text-decoration:none;margin-bottom:16px;
-  transition:color var(--transition);
-}
-.sidebar-back:hover{color:var(--gold);}
-.sidebar-title{
-  font-family:'Cinzel Decorative',serif;font-size:13px;
-  color:var(--gold);line-height:1.4;letter-spacing:0.5px;
-}
-.sidebar-subtitle{
-  font-family:'Cinzel',serif;font-size:10px;
-  color:var(--sand-dim);letter-spacing:3px;
-  text-transform:uppercase;margin-top:4px;
-}
-
-.sidebar-nav{padding:12px 0 24px;flex:1;}
-.nav-item{
-  display:flex;align-items:center;gap:12px;
-  width:100%;padding:11px 20px;
-  background:none;border:none;cursor:pointer;
-  text-align:left;transition:background var(--transition),border-left-color var(--transition);
-  border-left:3px solid transparent;
-  touch-action:manipulation;
-  -webkit-tap-highlight-color:transparent;
-  min-height:44px;
-}
-.nav-item:hover{background:rgba(255,164,0,0.06);border-left-color:rgba(255,164,0,0.3);}
-.nav-item.active{background:rgba(255,164,0,0.10);border-left-color:var(--gold);}
-.nav-num{font-family:'Cinzel',serif;font-size:10px;color:var(--gold-dim);letter-spacing:1px;min-width:22px;opacity:0.7;}
-.nav-item.active .nav-num{opacity:1;color:var(--gold);}
-.nav-abbr{font-family:'Cinzel',serif;font-size:11px;font-weight:600;color:var(--gold);min-width:32px;opacity:0.7;}
-.nav-item.active .nav-abbr{opacity:1;}
-.nav-name{font-family:'EB Garamond',serif;font-size:15px;color:var(--sand);opacity:0.75;line-height:1.2;}
-.nav-item.active .nav-name,.nav-item:hover .nav-name{opacity:1;}
-
-/* ── MAIN ── */
-.main{margin-left:var(--nav-w);flex:1;min-width:0;}
-
-/* ── HERO ── */
-.hero{
-  padding:48px 52px 36px;
-  background:linear-gradient(160deg,rgba(44,36,22,0.9) 0%,transparent 100%);
-  border-bottom:1px solid rgba(255,164,0,0.12);
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(255,164,0,0.015) 80px,rgba(255,164,0,0.015) 81px);
-  pointer-events:none;
-}
-.hero-eyebrow{font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;opacity:.75;margin-bottom:12px;}
-.hero-title{font-family:'Cinzel Decorative',serif;font-size:clamp(22px,3vw,36px);color:var(--sand);line-height:1.25;margin-bottom:10px;}
-.hero-title span{color:var(--gold);}
-.hero-desc{font-family:'EB Garamond',serif;font-size:17px;color:var(--sand-dim);max-width:600px;line-height:1.65;}
-
-/* ── CONTENT ── */
-.content{padding:0 52px 80px;}
-
-/* ── BOOK PANELS ── */
-.book-panel{display:none;animation:fadeIn 300ms ease;}
-.book-panel.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
-
-.book-header{padding:44px 0 32px;border-bottom:1px solid rgba(255,164,0,0.12);margin-bottom:36px;}
-.book-eyebrow{font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;opacity:.7;margin-bottom:10px;}
-.book-title{font-family:'Cinzel Decorative',serif;font-size:clamp(24px,3.5vw,42px);color:var(--sand);line-height:1.15;margin-bottom:14px;}
-.book-title span{color:var(--gold);}
-.book-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
-.book-tag{
-  display:inline-flex;align-items:center;padding:4px 12px;
-  background:rgba(255,164,0,0.09);border:1px solid rgba(255,164,0,0.18);
-  border-radius:20px;font-family:'Cinzel',serif;font-size:10px;
-  letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;
-}
-.book-verse{
-  font-family:'EB Garamond',serif;font-size:20px;font-style:italic;
-  color:var(--sand-dim);border-left:3px solid var(--gold);
-  padding-left:20px;line-height:1.55;max-width:620px;
-}
-.book-verse cite{display:block;font-style:normal;font-size:13px;font-family:'Cinzel',serif;letter-spacing:1.5px;color:var(--gold);opacity:.75;margin-top:6px;}
-
-/* ── TABS ── */
-.tabs{display:flex;border-bottom:1px solid rgba(255,164,0,0.15);margin-bottom:40px;overflow-x:auto;}
-.tabs::-webkit-scrollbar{height:0;}
-.tab-btn{
-  padding:12px 24px;background:none;border:none;
-  border-bottom:2px solid transparent;cursor:pointer;
-  font-family:'Cinzel',serif;font-size:11px;letter-spacing:2.5px;
-  color:var(--sand-dim);text-transform:uppercase;white-space:nowrap;
-  transition:color var(--transition),border-color var(--transition);
-  margin-bottom:-1px;
-  touch-action:manipulation;
-  -webkit-tap-highlight-color:transparent;
-}
-.tab-btn:hover{color:var(--sand);}
-.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
-.tab-panel{display:none;}
-.tab-panel.active{display:block;animation:fadeIn 250ms ease;}
-
-/* ── STUDY BLOCKS ── */
-.study-block{margin-bottom:48px;}
-.study-block+.study-block{padding-top:40px;border-top:1px solid rgba(255,164,0,0.08);}
-.block-title{
-  font-family:'Cinzel',serif;font-size:13px;letter-spacing:3px;
-  color:var(--gold);text-transform:uppercase;
-  margin-bottom:20px;display:flex;align-items:center;gap:12px;
-}
-.block-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,164,0,0.25),transparent);}
-.block-body p{color:var(--sand);font-size:18px;line-height:1.85;margin-bottom:16px;max-width:72ch;text-align:justify;hyphens:auto;}
-.block-body p:last-child{margin-bottom:0;}
-.block-body strong{color:var(--gold);font-weight:600;}
-
-/* ── INFO GRID ── */
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-bottom:32px;}
-.info-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,164,0,0.12);border-radius:var(--radius-md);padding:18px 20px;}
-.info-card-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;opacity:.75;margin-bottom:6px;}
-.info-card-value{font-family:'EB Garamond',serif;font-size:16px;color:var(--sand);line-height:1.4;}
-
-/* ── TIMELINE ── */
-.timeline{border-left:2px solid rgba(255,164,0,0.18);padding-left:28px;margin-left:8px;}
-.tl-item{position:relative;margin-bottom:28px;}
-.tl-item::before{content:'';position:absolute;left:-37px;top:5px;width:12px;height:12px;background:var(--gold);border-radius:50%;border:2px solid var(--navy);box-shadow:0 0 0 2px rgba(255,164,0,0.3);}
-.tl-date{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;opacity:.8;margin-bottom:4px;}
-.tl-text{font-family:'EB Garamond',serif;font-size:16px;color:var(--sand);line-height:1.6;text-align:justify;hyphens:auto;}
-
-/* ── GEO BOX ── */
-.geo-box{background:rgba(255,164,0,0.06);border:1px solid rgba(255,164,0,0.14);border-radius:var(--radius-md);padding:28px 32px;margin-bottom:28px;}
-.geo-box p{font-size:17px;color:var(--sand);line-height:1.8;margin-bottom:12px;text-align:justify;hyphens:auto;}
-.geo-box p:last-child{margin-bottom:0;}
-.geo-box strong{color:var(--gold);}
-
-/* ── KEY VERSE ── */
-.key-verse{background:rgba(255,164,0,0.06);border-left:4px solid var(--gold);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:20px 24px;margin:28px 0;}
-.key-verse p{font-family:'EB Garamond',serif;font-size:19px;font-style:italic;color:var(--sand);line-height:1.6;margin-bottom:6px;}
-.key-verse cite{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--gold);opacity:.8;font-style:normal;}
-
-/* ── MOBILE ── */
-.menu-toggle{
-  display:none;position:fixed;top:16px;left:16px;z-index:200;
-  width:44px;height:44px;background:var(--navy-mid);
-  border:1px solid rgba(255,164,0,0.2);border-radius:var(--radius-sm);
-  cursor:pointer;align-items:center;justify-content:center;
-  touch-action:manipulation;
-  -webkit-tap-highlight-color:transparent;
-}
-.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(20,16,8,0.7);backdrop-filter:blur(2px);z-index:40;}
-
-/* ── TABLET / HAMBURGER (≤ 900px) ── */
-@media(max-width:900px){
-  .menu-toggle{display:flex;}
-  .sidebar{
-    left:calc(-1 * var(--nav-w));
-    transition:left var(--transition);
-    z-index:100;
-    box-shadow:var(--shadow-md);
-  }
-  .sidebar.open{left:0;}
-  .sidebar-overlay.open{display:block;}
-  .main{margin-left:0;}
-  .sidebar-header{padding-top:76px;}
-  .hero{padding:68px 28px 28px;}
-  .hero-desc{font-size:16px;}
-  .content{padding:0 28px 64px;}
-  .book-header{padding:28px 0 22px;}
-  .book-verse{font-size:17px;}
-  .tabs{gap:0;}
-  .tab-btn{padding:11px 18px;font-size:10px;letter-spacing:2px;}
-  .block-body p{font-size:17px;max-width:none;}
-  .geo-box p{font-size:16px;}
-  .key-verse p{font-size:17px;}
-  .info-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
-}
-
-/* ── MOBILE (≤ 600px) ── */
-@media(max-width:600px){
-  :root{--nav-w:85vw;}
-  body{font-size:16px;}
-
-  .hero{padding:64px 18px 24px;}
-  .hero-eyebrow{font-size:9px;letter-spacing:3px;}
-  .hero-title{font-size:20px;line-height:1.3;}
-  .hero-desc{font-size:15px;line-height:1.6;}
-
-  .content{padding:0 18px 56px;}
-
-  .book-header{padding:24px 0 18px;}
-  .book-eyebrow{font-size:9px;letter-spacing:2.5px;}
-  .book-title{font-size:24px;line-height:1.2;}
-  .book-meta{gap:6px;}
-  .book-tag{font-size:9px;padding:3px 10px;}
-  .book-verse{font-size:16px;padding-left:14px;}
-  .book-verse cite{font-size:11px;}
-
-  .tabs{margin-bottom:28px;}
-  .tab-btn{padding:10px 12px;font-size:9px;letter-spacing:1.5px;}
-
-  .study-block{margin-bottom:32px;}
-  .study-block+.study-block{padding-top:28px;}
-  .block-title{font-size:11px;letter-spacing:2px;margin-bottom:14px;}
-  .block-body p{font-size:16px;line-height:1.75;max-width:none;}
-
-  .info-grid{grid-template-columns:1fr 1fr;gap:10px;}
-  .info-card{padding:14px 14px;}
-  .info-card-label{font-size:8px;}
-  .info-card-value{font-size:14px;}
-
-  .timeline{padding-left:20px;margin-left:4px;}
-  .tl-item{margin-bottom:20px;}
-  .tl-item::before{left:-28px;width:10px;height:10px;}
-  .tl-date{font-size:9px;}
-  .tl-text{font-size:15px;}
-
-  .geo-box{padding:18px 18px;margin-bottom:20px;}
-  .geo-box p{font-size:15px;line-height:1.7;}
-
-  .key-verse{padding:16px 18px;margin:20px 0;}
-  .key-verse p{font-size:16px;line-height:1.55;}
-  .key-verse cite{font-size:9px;}
-
-  .sidebar-header{padding:76px 16px 16px;}
-  .sidebar-title{font-size:12px;}
-  .sidebar-subtitle{font-size:9px;}
-  .nav-item{padding:10px 16px;gap:10px;}
-  .nav-num{font-size:9px;min-width:18px;}
-  .nav-abbr{font-size:10px;min-width:28px;}
-  .nav-name{font-size:14px;}
-}
+.lang-btn{position:fixed;top:16px;right:16px;z-index:300;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--navy-mid);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);border-radius:var(--radius-sm);color:var(--sand);font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;cursor:pointer;transition:background var(--transition),border-color var(--transition);}
+.lang-btn:hover{background:var(--navy-light);border-color:var(--accent);}
 </style>
 </head>
 <body>
@@ -301,34 +40,34 @@ p{text-align:justify;hyphens:auto;}
 
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a href="../index.html" class="sidebar-back">
+    <a href="../index.html" class="sidebar-back" data-pt="Voltar à Bíblia" data-en="Back to Bible">
       <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-      Voltar à Bíblia
+      <span data-pt="Voltar à Bíblia" data-en="Back to Bible">Voltar à Bíblia</span>
     </a>
-    <div class="sidebar-title">Livros Históricos</div>
-    <div class="sidebar-subtitle">Antigo Testamento · 12 Livros</div>
+    <div class="sidebar-title" data-pt="Livros Históricos" data-en="Historical Books">Livros Históricos</div>
+    <div class="sidebar-subtitle" data-pt="Antigo Testamento · 12 Livros" data-en="Old Testament · 12 Books">Antigo Testamento · 12 Livros</div>
   </div>
   <nav class="sidebar-nav" aria-label="Navegação dos livros históricos">
-    <button class="nav-item active" onclick="showBook('josue')" data-book="josue"><span class="nav-num">6</span><span class="nav-abbr">Js</span><span class="nav-name">Josué</span></button>
-    <button class="nav-item" onclick="showBook('juizes')" data-book="juizes"><span class="nav-num">7</span><span class="nav-abbr">Jz</span><span class="nav-name">Juízes</span></button>
-    <button class="nav-item" onclick="showBook('rute')" data-book="rute"><span class="nav-num">8</span><span class="nav-abbr">Rt</span><span class="nav-name">Rute</span></button>
-    <button class="nav-item" onclick="showBook('samuel1')" data-book="samuel1"><span class="nav-num">9</span><span class="nav-abbr">1Sm</span><span class="nav-name">1 Samuel</span></button>
-    <button class="nav-item" onclick="showBook('samuel2')" data-book="samuel2"><span class="nav-num">10</span><span class="nav-abbr">2Sm</span><span class="nav-name">2 Samuel</span></button>
-    <button class="nav-item" onclick="showBook('reis1')" data-book="reis1"><span class="nav-num">11</span><span class="nav-abbr">1Rs</span><span class="nav-name">1 Reis</span></button>
-    <button class="nav-item" onclick="showBook('reis2')" data-book="reis2"><span class="nav-num">12</span><span class="nav-abbr">2Rs</span><span class="nav-name">2 Reis</span></button>
-    <button class="nav-item" onclick="showBook('cronicas1')" data-book="cronicas1"><span class="nav-num">13</span><span class="nav-abbr">1Cr</span><span class="nav-name">1 Crônicas</span></button>
-    <button class="nav-item" onclick="showBook('cronicas2')" data-book="cronicas2"><span class="nav-num">14</span><span class="nav-abbr">2Cr</span><span class="nav-name">2 Crônicas</span></button>
-    <button class="nav-item" onclick="showBook('esdras')" data-book="esdras"><span class="nav-num">15</span><span class="nav-abbr">Ed</span><span class="nav-name">Esdras</span></button>
-    <button class="nav-item" onclick="showBook('neemias')" data-book="neemias"><span class="nav-num">16</span><span class="nav-abbr">Ne</span><span class="nav-name">Neemias</span></button>
-    <button class="nav-item" onclick="showBook('ester')" data-book="ester"><span class="nav-num">17</span><span class="nav-abbr">Et</span><span class="nav-name">Ester</span></button>
+    <button class="nav-item active" onclick="showBook('josue')" data-book="josue"><span class="nav-num">6</span><span class="nav-abbr">Js</span><span class="nav-name" data-pt="Josué" data-en="Joshua">Josué</span></button>
+    <button class="nav-item" onclick="showBook('juizes')" data-book="juizes"><span class="nav-num">7</span><span class="nav-abbr">Jz</span><span class="nav-name" data-pt="Juízes" data-en="Judges">Juízes</span></button>
+    <button class="nav-item" onclick="showBook('rute')" data-book="rute"><span class="nav-num">8</span><span class="nav-abbr">Rt</span><span class="nav-name" data-pt="Rute" data-en="Ruth">Rute</span></button>
+    <button class="nav-item" onclick="showBook('samuel1')" data-book="samuel1"><span class="nav-num">9</span><span class="nav-abbr">1Sm</span><span class="nav-name" data-pt="1 Samuel" data-en="1 Samuel">1 Samuel</span></button>
+    <button class="nav-item" onclick="showBook('samuel2')" data-book="samuel2"><span class="nav-num">10</span><span class="nav-abbr">2Sm</span><span class="nav-name" data-pt="2 Samuel" data-en="2 Samuel">2 Samuel</span></button>
+    <button class="nav-item" onclick="showBook('reis1')" data-book="reis1"><span class="nav-num">11</span><span class="nav-abbr">1Rs</span><span class="nav-name" data-pt="1 Reis" data-en="1 Kings">1 Reis</span></button>
+    <button class="nav-item" onclick="showBook('reis2')" data-book="reis2"><span class="nav-num">12</span><span class="nav-abbr">2Rs</span><span class="nav-name" data-pt="2 Reis" data-en="2 Kings">2 Reis</span></button>
+    <button class="nav-item" onclick="showBook('cronicas1')" data-book="cronicas1"><span class="nav-num">13</span><span class="nav-abbr">1Cr</span><span class="nav-name" data-pt="1 Crônicas" data-en="1 Chronicles">1 Crônicas</span></button>
+    <button class="nav-item" onclick="showBook('cronicas2')" data-book="cronicas2"><span class="nav-num">14</span><span class="nav-abbr">2Cr</span><span class="nav-name" data-pt="2 Crônicas" data-en="2 Chronicles">2 Crônicas</span></button>
+    <button class="nav-item" onclick="showBook('esdras')" data-book="esdras"><span class="nav-num">15</span><span class="nav-abbr">Ed</span><span class="nav-name" data-pt="Esdras" data-en="Ezra">Esdras</span></button>
+    <button class="nav-item" onclick="showBook('neemias')" data-book="neemias"><span class="nav-num">16</span><span class="nav-abbr">Ne</span><span class="nav-name" data-pt="Neemias" data-en="Nehemiah">Neemias</span></button>
+    <button class="nav-item" onclick="showBook('ester')" data-book="ester"><span class="nav-num">17</span><span class="nav-abbr">Et</span><span class="nav-name" data-pt="Ester" data-en="Esther">Ester</span></button>
   </nav>
 </aside>
 
 <main class="main">
   <header class="hero">
-    <div class="hero-eyebrow">✦ Estudo Bíblico Aprofundado ✦</div>
-    <h1 class="hero-title">Livros <span>Históricos</span></h1>
-    <p class="hero-desc">Doze livros que narram a jornada de Israel — da conquista de Canaã ao exílio e restauração. Contexto histórico, geografia e análise teológica de cada obra.</p>
+    <div class="hero-eyebrow" data-pt="✦ Estudo Bíblico Aprofundado ✦" data-en="✦ In-Depth Bible Study ✦">✦ Estudo Bíblico Aprofundado ✦</div>
+    <h1 class="hero-title" data-pt="Livros <span>Históricos</span>" data-en="<span>Historical</span> Books">Livros <span>Históricos</span></h1>
+    <p class="hero-desc" data-pt="Doze livros que narram a jornada de Israel — da conquista de Canaã ao exílio e restauração. Contexto histórico, geografia e análise teológica de cada obra." data-en="Twelve books narrating Israel's journey — from the conquest of Canaan to exile and restoration. Historical context, geography, and theological analysis of each work.">Doze livros que narram a jornada de Israel — da conquista de Canaã ao exílio e restauração. Contexto histórico, geografia e análise teológica de cada obra.</p>
   </header>
 
   <div class="content">
@@ -336,22 +75,36 @@ p{text-align:justify;hyphens:auto;}
     <!-- ════════════════════════════════ JOSUÉ ════════════════════════════════ -->
     <article class="book-panel active" id="panel-josue">
       <div class="book-header">
-        <div class="book-eyebrow">Livro 6 · Históricos · Antigo Testamento</div>
-        <h2 class="book-title"><span>Josué</span></h2>
+        <div class="lang-content" data-lang="pt"><div class="book-eyebrow">Livro 6 · Históricos · Antigo Testamento</div></div>
+        <div class="lang-content" data-lang="en" style="display:none"><div class="book-eyebrow">Book 6 · Historical · Old Testament</div></div>
+        <div class="lang-content" data-lang="pt"><h2 class="book-title"><span>Josué</span></h2></div>
+        <div class="lang-content" data-lang="en" style="display:none"><h2 class="book-title"><span>Joshua</span></h2></div>
+        <div class="lang-content" data-lang="pt">
         <div class="book-meta">
           <span class="book-tag">~1406–1375 a.C.</span>
           <span class="book-tag">Conquista de Canaã</span>
           <span class="book-tag">24 capítulos</span>
           <span class="book-tag">Autor: Josué / Escribas</span>
         </div>
-        <div class="book-verse">"Seja forte e corajoso! Não se apavore, nem se desanime, pois o <span style="font-variant:small-caps">Senhor</span>, o seu Deus, estará com você por onde quer que você andar."<cite>Josué 1.9 — NAA</cite></div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="book-meta">
+          <span class="book-tag">~1406–1375 BC</span>
+          <span class="book-tag">Conquest of Canaan</span>
+          <span class="book-tag">24 chapters</span>
+          <span class="book-tag">Author: Joshua / Scribes</span>
+        </div>
+        </div>
+        <div class="lang-content" data-lang="pt"><div class="book-verse">"Seja forte e corajoso! Não se apavore, nem se desanime, pois o <span style="font-variant:small-caps">Senhor</span>, o seu Deus, estará com você por onde quer que você andar."<cite>Josué 1.9 — NAA</cite></div></div>
+        <div class="lang-content" data-lang="en" style="display:none"><div class="book-verse">"Be strong and courageous. Do not be frightened, and do not be dismayed, for the <span style="font-variant:small-caps">Lord</span> your God is with you wherever you go."<cite>Joshua 1:9 — ESV</cite></div></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'josue','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'josue','geo')">Geografia</button>
-        <button class="tab-btn" onclick="showTab(this,'josue','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'josue','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'josue','geo')" data-pt="Geografia" data-en="Geography">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'josue','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
       <div class="tab-panel active" id="josue-ctx">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">O Mundo do Bronze Tardio</div>
           <div class="block-body">
@@ -372,8 +125,32 @@ p{text-align:justify;hyphens:auto;}
             <div class="tl-item"><div class="tl-date">~1375 a.C.</div><div class="tl-text">Morte de Josué aos 110 anos. Renovação da aliança em Siquém.</div></div>
           </div>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">The Late Bronze Age World</div>
+          <div class="block-body">
+            <p>Joshua takes place approximately between <strong>1406 and 1375 BC</strong>, in the Late Bronze Age — one of the most transformative eras in the ancient Near East. Egypt dominated Canaan as a sphere of influence, but its presence weakened under Amenhotep IV (Akhenaten), who channeled all his energy into the religious revolution of Aten-monotheism and left the Canaanite city-states without effective military protection.</p>
+            <p>The <strong>Amarna Letters</strong> (c. 1350 BC) — correspondence between Egyptian pharaohs and Canaanite kings — record city-states appealing to Egypt for aid against invaders called <em>Hapiru</em>, whom many scholars associate, at least in part, with the Hebrews. The political landscape of Canaan was one of fragmentation: dozens of independent city-states (Jericho, Ai, Hazor, Jerusalem, Lachish) with no political unity, highly vulnerable to a cohesive force.</p>
+            <p>Israel arrives after <strong>40 years in the wilderness</strong>, forged as a nation under Moses. The generation of Egyptian captives had died; the new generation — born free — is the one that crosses the Jordan. Joshua, from the tribe of Ephraim, had already served as a spy (Num 13) and as Moses' general (Exod 17).</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Chronology of Events</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-date">~1406 BC</div><div class="tl-text">Death of Moses on Mount Nebo. Joshua takes command at Shittim.</div></div>
+            <div class="tl-item"><div class="tl-date">~1406 BC</div><div class="tl-text">Miraculous crossing of the Jordan River during the spring flood. Camp established at Gilgal.</div></div>
+            <div class="tl-item"><div class="tl-date">~1406 BC</div><div class="tl-text">Fall of Jericho. Central campaign: defeat of Ai, alliance with the Gibeonites.</div></div>
+            <div class="tl-item"><div class="tl-date">~1400 BC</div><div class="tl-text">Southern campaign: defeat of the coalition of five Amorite kings. Conquest of Lachish, Hebron, and Debir.</div></div>
+            <div class="tl-item"><div class="tl-date">~1399 BC</div><div class="tl-text">Northern campaign: defeat of the coalition of Hazor. Destruction of Hazor by fire.</div></div>
+            <div class="tl-item"><div class="tl-date">~1390 BC</div><div class="tl-text">Distribution of the land among the twelve tribes. Joshua's farewell address.</div></div>
+            <div class="tl-item"><div class="tl-date">~1375 BC</div><div class="tl-text">Death of Joshua at age 110. Covenant renewal at Shechem.</div></div>
+          </div>
+        </div>
+        </div>
       </div>
       <div class="tab-panel" id="josue-geo">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">O Teatro da Conquista</div>
           <div class="geo-box">
@@ -387,8 +164,25 @@ p{text-align:justify;hyphens:auto;}
             <div class="info-card"><div class="info-card-label">Local da Aliança</div><div class="info-card-value">Siquém — renovação da aliança no cap. 24</div></div>
           </div>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">The Theater of the Conquest</div>
+          <div class="geo-box">
+            <p>Canaan — the territory promised to Abraham — corresponds to modern-day <strong>Israel, Palestine, southern Lebanon, and southwestern Syria</strong>. About 400 km long and 100 km wide on average, it concentrates an extraordinary geographic variety.</p>
+            <p>The Mediterranean <strong>coastal plain</strong> was the most fertile, but Israel never fully controlled it. The <strong>Shephelah</strong> (low transitional foothills) was the strategic frontier with the Philistines. The <strong>central highland zone</strong> (Ephraim and Judah) was the heart of the conquest — terrain that favored guerrilla tactics over Canaanite war chariots. The <strong>Jordan River</strong>, deeply incised 400 m below sea level, formed the natural eastern boundary.</p>
+          </div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Entry point</div><div class="info-card-value">Gilgal, the Jordan plain, near Jericho</div></div>
+            <div class="info-card"><div class="info-card-label">First city</div><div class="info-card-value">Jericho — conquered with trumpets and shouts</div></div>
+            <div class="info-card"><div class="info-card-label">Largest city-state</div><div class="info-card-value">Hazor, northern Canaanite capital, destroyed by fire</div></div>
+            <div class="info-card"><div class="info-card-label">Covenant site</div><div class="info-card-value">Shechem — covenant renewal in ch. 24</div></div>
+          </div>
+        </div>
+        </div>
       </div>
       <div class="tab-panel" id="josue-study">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">Estrutura e Mensagem Central</div>
           <div class="block-body">
@@ -433,28 +227,89 @@ p{text-align:justify;hyphens:auto;}
           <p>"Seja forte e corajoso! Não se apavore, nem se desanime, pois o <span style="font-variant:small-caps">Senhor</span>, o seu Deus, estará com você por onde quer que você andar."</p>
           <cite>Josué 1.9 — NAA</cite>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">Structure and Central Message</div>
+          <div class="block-body">
+            <p>Joshua divides into two symmetrical halves: <strong>conquest (chs. 1–12)</strong> and <strong>allotment of the land (chs. 13–24)</strong>. The first is vivid military narrative; the second, cadastral and legal — but both proclaim the same truth: <em>God is faithful to his promise to Abraham.</em></p>
+            <p>The book opens with the Lord commissioning Joshua in language that echoes the commission of Moses: "Be strong and courageous" appears four times in one chapter. The message is clear: Joshua's leadership is legitimized not by his own strength but by the divine presence. The condition is meditation on and obedience to the Torah (1:8) — Joshua is the first public keeper of the Law of Moses.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Jericho — The Theology of Holy War</div>
+          <div class="block-body">
+            <p>The conquest of Jericho (chs. 2–6) is deliberately <em>non-military</em>: seven days of silent marching, seven circuits on the seventh day, blasts of trumpets — the walls fall by themselves. The text declares that the conquest is God's work, not Israel's.</p>
+            <p>The concept of <em>herem</em> — "devoted destruction" — appears in disturbing form: every living thing in Jericho is devoted to the Lord through destruction. The case of <strong>Rahab</strong> (chs. 2 and 6) — a Canaanite prostitute who shelters the spies and is saved with her family — demonstrates that the herem is not a matter of race but of faith and covenant. Rahab is listed in the genealogy of Jesus in Matthew 1.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Covenant at Shechem — Choosing Whom to Serve</div>
+          <div class="block-body">
+            <p>Chapter 24 enacts a covenant ceremony at Shechem structured like the Hittite suzerainty treaties of the second millennium BC: historical prologue, stipulations, ratification. The climactic passage is Joshua's challenge: <em>"Choose this day whom you will serve... But as for me and my house, we will serve the <span style="font-variant:small-caps">Lord</span>"</em> (24:15) — one of the Old Testament's most memorable declarations of moral sovereignty and family faith.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Achan's Sin — Corporate Solidarity</div>
+          <div class="block-body">
+            <p>After the glory of Jericho, the humiliating defeat at Ai (ch. 7) shocks Israel. Thirty-six men die — and Joshua prostrates himself before God in despair. The cause: <strong>Achan, from the tribe of Judah</strong>, had hidden a beautiful Babylonian cloak, silver, and gold from the <em>herem</em> of Jericho. The text states that "Israel sinned" (7:1) — though only one man had transgressed.</p>
+            <p>This is the principle of <strong>corporate solidarity</strong>: in the OT's biblical vision, Israel is a single organism. The hidden sin of one member contaminates the whole and leaves the entire community vulnerable before God. Achan is identified by lot — a procedure similar to that which exposes Jonah on the ship. The execution of Achan and his household is disturbing to modern sensibilities, but it falls within the logic of the <em>herem</em>: what is devoted to destruction is destroyed entirely. The place is named the Valley of Achor — "Valley of Trouble" — which Hosea (2:15) and Isaiah (65:10) transform into an image of future hope.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Incomplete Conquest and Its Consequences</div>
+          <div class="block-body">
+            <p>The book of Joshua ends ambiguously: "Joshua took the whole land" (11:23) — yet chapter 13 opens with "Joshua was old... and there remains yet very much land to possess." The two statements do not contradict each other: Israel had conquered enough to inhabit the land, but had not driven out the Canaanites as God had commanded. The reasons were pragmatic — lack of strength in certain regions, lack of faith, and forbidden agreements (such as with the Gibeonites).</p>
+            <p>The consequences are narrated in Judges: the remaining Canaanites become "thorns in your sides" (Num 33:55) — constant religious temptations. The incomplete conquest is simultaneously human failure and divine mercy (Exod 23:29-30): God had said he would drive out the Canaanites "little by little, lest the land become desolate and the wild beasts multiply against you." The theology of the text resists simplistic readings.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Joshua as Type of Jesus</div>
+          <div class="block-body">
+            <p>The connection between Joshua and Jesus is not accidental: both bear the <strong>same name</strong> — <em>Yehoshua</em> in Hebrew, <em>Iēsous</em> in Greek (Heb 4:8 uses the name Joshua in reference to Jesus, making the typology explicit). Just as Joshua leads the people of Israel into the promised land through the waters of the Jordan, Jesus leads the new Israel into eternal rest through the waters of baptism. The <strong>circumcision at Gilgal</strong> (ch. 5) prefigures baptism; the <strong>Passover celebrated in the land</strong> (5:10-12) prefigures the Lord's Supper. The book of Hebrews (chs. 3–4) explicitly develops this typology, arguing that the true "rest of God" still lies ahead — Joshua gave the land, but Jesus gives the ultimate rest.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Be strong and courageous. Do not be frightened, and do not be dismayed, for the <span style="font-variant:small-caps">Lord</span> your God is with you wherever you go."</p>
+          <cite>Joshua 1:9 — ESV</cite>
+        </div>
+        </div>
       </div>
     </article>
 
     <!-- ════════════════════════════════ JUÍZES ════════════════════════════════ -->
     <article class="book-panel" id="panel-juizes">
       <div class="book-header">
-        <div class="book-eyebrow">Livro 7 · Históricos · Antigo Testamento</div>
-        <h2 class="book-title"><span>Juízes</span></h2>
+        <div class="lang-content" data-lang="pt"><div class="book-eyebrow">Livro 7 · Históricos · Antigo Testamento</div></div>
+        <div class="lang-content" data-lang="en" style="display:none"><div class="book-eyebrow">Book 7 · Historical · Old Testament</div></div>
+        <div class="lang-content" data-lang="pt"><h2 class="book-title"><span>Juízes</span></h2></div>
+        <div class="lang-content" data-lang="en" style="display:none"><h2 class="book-title"><span>Judges</span></h2></div>
+        <div class="lang-content" data-lang="pt">
         <div class="book-meta">
           <span class="book-tag">~1375–1050 a.C.</span>
           <span class="book-tag">Era das Tribos</span>
           <span class="book-tag">21 capítulos</span>
           <span class="book-tag">Autor: Samuel (tradição)</span>
         </div>
-        <div class="book-verse">"Naqueles dias não havia rei em Israel; cada um fazia o que parecia certo aos seus próprios olhos."<cite>Juízes 21.25 — NAA</cite></div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="book-meta">
+          <span class="book-tag">~1375–1050 BC</span>
+          <span class="book-tag">Era of the Tribes</span>
+          <span class="book-tag">21 chapters</span>
+          <span class="book-tag">Author: Samuel (tradition)</span>
+        </div>
+        </div>
+        <div class="lang-content" data-lang="pt"><div class="book-verse">"Naqueles dias não havia rei em Israel; cada um fazia o que parecia certo aos seus próprios olhos."<cite>Juízes 21.25 — NAA</cite></div></div>
+        <div class="lang-content" data-lang="en" style="display:none"><div class="book-verse">"In those days there was no king in Israel. Everyone did what was right in his own eyes."<cite>Judges 21:25 — ESV</cite></div></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'juizes','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'juizes','geo')">Geografia</button>
-        <button class="tab-btn" onclick="showTab(this,'juizes','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'juizes','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'juizes','geo')" data-pt="Geografia" data-en="Geography">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'juizes','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
       <div class="tab-panel active" id="juizes-ctx">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">Dados do Livro</div>
           <div class="info-grid">
@@ -466,7 +321,6 @@ p{text-align:justify;hyphens:auto;}
             <div class="info-card"><div class="info-card-label">Argumento implícito</div><div class="info-card-value">"Não havia rei em Israel" (21.25) — repetido 4x como diagnóstico da anarquia tribal</div></div>
           </div>
         </div>
-
         <div class="study-block">
           <div class="block-title">A Era do Caos Tribal</div>
           <div class="block-body">
@@ -481,8 +335,37 @@ p{text-align:justify;hyphens:auto;}
             <p>O livro organiza a história em torno de um ciclo teológico repetido: <strong>Apostasia → Opressão → Clamor → Libertação → Paz → Nova Apostasia</strong>. Esse padrão se repete ao menos seis vezes com os juízes maiores. A repetição é deliberada — é o argumento do livro: Israel não aprende com a história porque nunca transforma o coração.</p>
           </div>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">Book Data</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Extent</div><div class="info-card-value">21 chapters · ~1375–1050 BC</div></div>
+            <div class="info-card"><div class="info-card-label">Major judges</div><div class="info-card-value">Deborah, Gideon, Jephthah, Samson — each in a different region, with no national unity</div></div>
+            <div class="info-card"><div class="info-card-label">Theological cycle</div><div class="info-card-value">Apostasy → Oppression → Cry out → Deliverance → Peace → New Apostasy (repeated 6×)</div></div>
+            <div class="info-card"><div class="info-card-label">Historical context</div><div class="info-card-value">Coincides with the Late Bronze Age collapse (~1200 BC) — fall of the Hittites, Mycenae, and arrival of the Sea Peoples</div></div>
+            <div class="info-card"><div class="info-card-label">Heroines</div><div class="info-card-value">Deborah (judge and prophetess) and Jael (kills Sisera) — the unexpected heroes in chs. 4–5 are women</div></div>
+            <div class="info-card"><div class="info-card-label">Implicit argument</div><div class="info-card-value">"There was no king in Israel" (21:25) — repeated 4× as a diagnosis of tribal anarchy</div></div>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Era of Tribal Chaos</div>
+          <div class="block-body">
+            <p>The period of the Judges (~1375–1050 BC) is one of the most turbulent eras in Israel's history. Politically, Israel is not yet a monarchy — it is a loose confederation of tribes united by the Covenant, with no capital, no standing army, no central bureaucracy.</p>
+            <p>In the broader Near East, this period coincides with the <strong>Late Bronze Age collapse</strong> (c. 1200 BC) — one of the greatest civilizational disasters of antiquity. The Hittite Empire vanishes. Mycenae collapses. Egypt retreats. The <strong>Sea Peoples</strong> — Aegean migrants including the Philistines — invade the Levantine coast and settle on the coastal plain of Canaan, becoming Israel's primary enemies in the centuries that follow.</p>
+            <p>The Judges (<em>shoftim</em> — "deliverers") are charismatic leaders raised up by the Spirit of God in moments of crisis to deliver specific tribes from regional oppressors. Most affect only one or two tribes — there is no national unity.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Deuteronomic Cycle</div>
+          <div class="block-body">
+            <p>The book organizes history around a repeated theological cycle: <strong>Apostasy → Oppression → Crying out → Deliverance → Peace → New Apostasy</strong>. This pattern repeats at least six times with the major judges. The repetition is deliberate — it is the book's argument: Israel does not learn from history because it never transforms the heart.</p>
+          </div>
+        </div>
+        </div>
       </div>
       <div class="tab-panel" id="juizes-geo">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">Um País Fragmentado</div>
           <div class="geo-box">
@@ -490,8 +373,19 @@ p{text-align:justify;hyphens:auto;}
             <p>A <strong>planície costeira</strong> permanece nas mãos dos filisteus. As <strong>terras altas centrais</strong> são o núcleo israelita. Israel é pressionado em todas as direções simultaneamente.</p>
           </div>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">A Fragmented Country</div>
+          <div class="geo-box">
+            <p>Unlike Joshua, with its broad campaigns, Judges is geographically fragmented — each episode occurs in a distinct region. <strong>Deborah and Barak</strong> confront Sisera in the Jezreel Valley to the north. <strong>Gideon</strong> operates at Ophrah and the plain of Midian (Transjordan). <strong>Jephthah</strong> leads in Gilead, east of the Jordan. <strong>Samson</strong> is entirely localized on the Philistine frontier (the Sorek valley, Timnah, Gaza) in the Shephelah to the southwest.</p>
+            <p>The <strong>coastal plain</strong> remains in Philistine hands. The <strong>central highlands</strong> form the Israelite heartland. Israel is pressed from every direction simultaneously.</p>
+          </div>
+        </div>
+        </div>
       </div>
       <div class="tab-panel" id="juizes-study">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">Os Juízes Maiores</div>
           <div class="block-body">
@@ -524,28 +418,77 @@ p{text-align:justify;hyphens:auto;}
           <p>"Naqueles dias não havia rei em Israel; cada um fazia o que parecia certo aos seus próprios olhos."</p>
           <cite>Juízes 21.25 — NAA</cite>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">The Major Judges</div>
+          <div class="block-body">
+            <p><strong>Deborah (chs. 4–5):</strong> The only female judge, also a prophetess and civil ruler. Her Song (ch. 5) is one of the oldest surviving Hebrew poems. The victory over Sisera culminates with <strong>Jael</strong> — another woman — driving a tent peg through the enemy general's temple. The unexpected heroes are women; the warriors of Meroz are cursed for failing to help.</p>
+            <p><strong>Gideon (chs. 6–8):</strong> He begins timidly — hiding grain from the Midianites — and ends as the deliverer who reduces his army from 32,000 to 300 men at God's command. The victory with torches, jars, and trumpets demonstrates that Israel does not win by human power. Tragically, Gideon refuses the title of king yet acts like one — and his son Abimelech establishes a bloody tyranny.</p>
+            <p><strong>Samson (chs. 13–16):</strong> The most complex of the judges. A Nazirite from birth, his supernatural strength was tied to his hair — an outward symbol of consecration. Yet he uses his gifts almost exclusively for personal vengeance. Delilah betrays him, he loses his strength, is blinded and imprisoned in Gaza. His death — pulling down the pillars of the temple of Dagon — kills more Philistines than all his lifetime. A tragedy: the greatest potential squandered on personal whims.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Dark Appendices (chs. 17–21)</div>
+          <div class="block-body">
+            <p>The last five chapters do not follow the judges' cycle — they are two shocking episodes presented as evidence of total degradation: the corrupt priesthood of Micah and the migration of Dan (chs. 17–18), and the gang rape of the Levite's concubine at Gibeah, sparking a near-genocidal civil war against Benjamin (chs. 19–21). The repeated phrase "there was no king in Israel" functions as a diagnosis: the absence of legitimate leadership produces barbarism. The book is an implicit argument for monarchy.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Minor Judges — A Forgotten Gallery</div>
+          <div class="block-body">
+            <p>Beyond the major judges, the book mentions <strong>minor judges</strong> in very brief notices: Othniel, Ehud, Shamgar, Tola, Jair, Ibzan, Elon, Abdon, and Jephthah (who has a longer narrative). Each represents a specific region and crisis. <strong>Jephthah</strong> (chs. 11–12) stands out: a marginalized warrior (son of a prostitute), he makes a rash vow before battle — "whatever comes out of the doors of my house" — and it is his daughter who emerges first. The text does not explicitly state she was sacrificed, generating centuries of exegetical debate. Most modern scholars understand she was consecrated to the Lord in perpetual celibacy rather than literally sacrificed — the Mosaic law prohibited human sacrifice.</p>
+            <p><strong>Ehud</strong> (ch. 3) is remarkable: left-handed (a rare and ill-omened trait), he hides a short sword on his right thigh (where no one searched left-handed men), and kills the fat Moabite king Eglon with a thrust so deep that the fat "closes over" the hilt. It is narrated with deliberate dark humor — the servants assuming the king was "attending to his needs" (a euphemism) when he was already dead.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Theology of Grace in Judges</div>
+          <div class="block-body">
+            <p>The deepest paradox of Judges is theological: God keeps saving a people who keep abandoning him. The cycle is not merely a narrative pattern — it is a theological argument. God's grace does not depend on human merit; it precedes repentance rather than following it. When the people cry out, God is already beginning to act — even before the response is sincere.</p>
+            <p>The most explicit case is in 10:10-16: the people cry out, God says "Go and cry out to the gods whom you have chosen" (10:14), the people persist, and God "became impatient over the misery of Israel" (10:16). The language is intensely anthropomorphic — a God who feels, who is moved, who acts not out of obligation but out of compassion. Judges is, surprisingly, one of the richest books on grace in the OT — precisely because grace was never deserved.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"In those days there was no king in Israel. Everyone did what was right in his own eyes."</p>
+          <cite>Judges 21:25 — ESV</cite>
+        </div>
+        </div>
       </div>
     </article>
 
     <!-- ════════════════════════════════ RUTE ════════════════════════════════ -->
     <article class="book-panel" id="panel-rute">
       <div class="book-header">
-        <div class="book-eyebrow">Livro 8 · Históricos · Antigo Testamento</div>
-        <h2 class="book-title"><span>Rute</span></h2>
+        <div class="lang-content" data-lang="pt"><div class="book-eyebrow">Livro 8 · Históricos · Antigo Testamento</div></div>
+        <div class="lang-content" data-lang="en" style="display:none"><div class="book-eyebrow">Book 8 · Historical · Old Testament</div></div>
+        <div class="lang-content" data-lang="pt"><h2 class="book-title"><span>Rute</span></h2></div>
+        <div class="lang-content" data-lang="en" style="display:none"><h2 class="book-title"><span>Ruth</span></h2></div>
+        <div class="lang-content" data-lang="pt">
         <div class="book-meta">
           <span class="book-tag">~1100 a.C.</span>
           <span class="book-tag">Período dos Juízes</span>
           <span class="book-tag">4 capítulos</span>
           <span class="book-tag">Autor: Anônimo (trad. Samuel)</span>
         </div>
-        <div class="book-verse">"Onde você morrer, também morrerei eu, e ali serei sepultada. Assim me faça o <span style="font-variant:small-caps">Senhor</span> e assim me acrescente, se outra coisa que não a morte nos separar."<cite>Rute 1.17 — NAA</cite></div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="book-meta">
+          <span class="book-tag">~1100 BC</span>
+          <span class="book-tag">Period of the Judges</span>
+          <span class="book-tag">4 chapters</span>
+          <span class="book-tag">Author: Anonymous (trad. Samuel)</span>
+        </div>
+        </div>
+        <div class="lang-content" data-lang="pt"><div class="book-verse">"Onde você morrer, também morrerei eu, e ali serei sepultada. Assim me faça o <span style="font-variant:small-caps">Senhor</span> e assim me acrescente, se outra coisa que não a morte nos separar."<cite>Rute 1.17 — NAA</cite></div></div>
+        <div class="lang-content" data-lang="en" style="display:none"><div class="book-verse">"Where you die I will die, and there will I be buried. May the <span style="font-variant:small-caps">Lord</span> do so to me and more also if anything but death parts me from you."<cite>Ruth 1:17 — ESV</cite></div></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'rute','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'rute','geo')">Geografia</button>
-        <button class="tab-btn" onclick="showTab(this,'rute','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'rute','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'rute','geo')" data-pt="Geografia" data-en="Geography">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'rute','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
       <div class="tab-panel active" id="rute-ctx">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">Uma Joia no Caos</div>
           <div class="block-body">
@@ -553,8 +496,19 @@ p{text-align:justify;hyphens:auto;}
             <p>A menção de fome (1.1) evoca Abraão e Jacó — patriarcas que também foram ao estrangeiro por causa da fome. Elimeleque leva a família para <strong>Moabe</strong>, a leste do Mar Morto — território estrangeiro mas culturalmente familiar ao Israel semítico. Lá ele morre, seus dois filhos morrem, e Noemi fica com duas noras moabitas: Orpá e Rute.</p>
           </div>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">A Gem in the Chaos</div>
+          <div class="block-body">
+            <p>Ruth is set "in the days when the judges ruled" — in the very era of chaos described in Judges. But whereas Judges shows the worst of Israel, Ruth shows the best: loyalty (<em>hesed</em>), generosity, grace. The contrast is deliberate and theological.</p>
+            <p>The mention of famine (1:1) evokes Abraham and Jacob — patriarchs who also went abroad because of famine. Elimelech takes his family to <strong>Moab</strong>, east of the Dead Sea — foreign territory but culturally familiar to Semitic Israel. There he dies, his two sons die, and Naomi is left with two Moabite daughters-in-law: Orpah and Ruth.</p>
+          </div>
+        </div>
+        </div>
       </div>
       <div class="tab-panel" id="rute-geo">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">Belém e Moabe</div>
           <div class="geo-box">
@@ -567,8 +521,24 @@ p{text-align:justify;hyphens:auto;}
             <div class="info-card"><div class="info-card-label">Campo de Boaz</div><div class="info-card-value">Planície agrícola ao redor de Belém</div></div>
           </div>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">Bethlehem and Moab</div>
+          <div class="geo-box">
+            <p><strong>Bethlehem of Judah</strong> lies 8 km south of Jerusalem on the Judean plateau at ~775 m elevation. Fertile agricultural land — the name means "House of Bread." It is the hometown of David and later of Jesus; Ruth establishes the genealogical line that connects all these figures.</p>
+            <p><strong>Moab</strong> lies east of the Dead Sea, in modern Jordan. The plains of Moab are where Moses died. The distance between Moab and Bethlehem was 80–100 km — a journey of several days through the desert or circling around the northern end of the Dead Sea. The return of Naomi and Ruth was a considerable act of faith.</p>
+          </div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Bethlehem</div><div class="info-card-value">8 km south of Jerusalem · "House of Bread"</div></div>
+            <div class="info-card"><div class="info-card-label">Moab</div><div class="info-card-value">Eastern plateau above the Dead Sea · modern Jordan</div></div>
+            <div class="info-card"><div class="info-card-label">Boaz's field</div><div class="info-card-value">Agricultural plain surrounding Bethlehem</div></div>
+          </div>
+        </div>
+        </div>
       </div>
       <div class="tab-panel" id="rute-study">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">O Go'el — Redentor Familiar</div>
           <div class="block-body">
@@ -601,28 +571,77 @@ p{text-align:justify;hyphens:auto;}
           <p>"Que o <span style="font-variant:small-caps">Senhor</span> recompense as suas obras, e que a sua recompensa seja completa da parte do <span style="font-variant:small-caps">Senhor</span>, o Deus de Israel, sob cujas asas você veio buscar refúgio."</p>
           <cite>Rute 2.12 — NAA</cite>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">The Go'el — Family Redeemer</div>
+          <div class="block-body">
+            <p>The theological key of Ruth is the institution of the <strong><em>go'el</em></strong> (גֹּאֵל) — the "redeemer" or "kinsman-redeemer." The Mosaic law (Lev 25; Deut 25) established that the nearest relative of a dead man had the responsibility to redeem his property, marry the childless widow (levirate marriage), and perpetuate the family name.</p>
+            <p>Boaz, a relative of Elimelech, acts as go'el for Naomi and Ruth — redeeming them from poverty and oblivion. The concept of the <em>go'el</em> echoes throughout the entire Bible as a type of Christ: Job cries out "I know that my Redeemer lives" (Job 19:25). In Ruth, Boaz pays a price to redeem those who could not redeem themselves — a perfect image of redemption by grace.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Ruth in the Messianic Lineage</div>
+          <div class="block-body">
+            <p>The most extraordinary fact about Ruth is her place in the genealogy of David (4:17–22) and, by extension, in the genealogy of Jesus (Matt 1:5). A <strong>Moabite woman</strong> — descendant of a people the Law barred from the assembly for ten generations (Deut 23:3) — becomes the great-grandmother of Israel's most beloved king.</p>
+            <p>The message is radically inclusive: Ruth's faithfulness (<em>hesed</em>) transcends ethnic and religious boundaries. Her commitment to Naomi uses covenant language — the same vocabulary as God's covenant with Israel. Ruth voluntarily embraces the God of Israel and becomes part of the people by choice, not by birth.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title"><em>Hesed</em> — The Central Theological Concept</div>
+          <div class="block-body">
+            <p>The Hebrew word <strong><em>hesed</em></strong> (חֶסֶד) appears three times in Ruth — and it is impossible to translate with a single English word. It is simultaneously: steadfast loyalty, faithful love, covenant kindness, committed mercy. Unlike romantic love (<em>ahavah</em>) or emotional compassion (<em>rachamim</em>), <em>hesed</em> is love that binds itself — that acts even when no one is watching, even when there is no legal obligation to act.</p>
+            <p>Ruth practices <em>hesed</em> toward Naomi by refusing to stay in Moab; Boaz practices <em>hesed</em> toward Ruth by going beyond what the gleaning law required; the Lord is described by Naomi as a practitioner of <em>hesed</em> in providing a go'el. The little book of Ruth is a lived demonstration of how human <em>hesed</em> reflects and responds to divine <em>hesed</em> — and that is why the NT uses the same vocabulary (grace, <em>charis</em>) to describe the work of Christ.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Law of Gleaning — Mosaic Social Protection</div>
+          <div class="block-body">
+            <p>The scene of Ruth gleaning in Boaz's fields (ch. 2) reveals a social safety net embedded in the Mosaic Law: the law of gleaning (Lev 19:9-10; 23:22; Deut 24:19-21) prohibited landowners from harvesting to the edges of their fields or gathering what fell during the harvest — deliberately leaving the remainder for <strong>the poor and the stranger</strong>.</p>
+            <p>This was not voluntary charity — it was law. The system recognized that the land belonged to the Lord (Lev 25:23) and that owners were merely stewards with responsibility toward the vulnerable. Boaz goes beyond the law: he instructs his servants to leave whole bundles for Ruth (2:16). The text shows that generosity can exceed the law without violating it — and that just institutions create space for personal kindness to flourish upon them.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"The <span style="font-variant:small-caps">Lord</span> repay you for what you have done, and a full reward be given you by the <span style="font-variant:small-caps">Lord</span>, the God of Israel, under whose wings you have come to take refuge!"</p>
+          <cite>Ruth 2:12 — ESV</cite>
+        </div>
+        </div>
       </div>
     </article>
 
     <!-- ════════════════════════════════ 1 SAMUEL ════════════════════════════════ -->
     <article class="book-panel" id="panel-samuel1">
       <div class="book-header">
-        <div class="book-eyebrow">Livro 9 · Históricos · Antigo Testamento</div>
-        <h2 class="book-title"><span>1 Samuel</span></h2>
+        <div class="lang-content" data-lang="pt"><div class="book-eyebrow">Livro 9 · Históricos · Antigo Testamento</div></div>
+        <div class="lang-content" data-lang="en" style="display:none"><div class="book-eyebrow">Book 9 · Historical · Old Testament</div></div>
+        <div class="lang-content" data-lang="pt"><h2 class="book-title"><span>1 Samuel</span></h2></div>
+        <div class="lang-content" data-lang="en" style="display:none"><h2 class="book-title"><span>1 Samuel</span></h2></div>
+        <div class="lang-content" data-lang="pt">
         <div class="book-meta">
           <span class="book-tag">~1105–1010 a.C.</span>
           <span class="book-tag">Surgimento da Monarquia</span>
           <span class="book-tag">31 capítulos</span>
           <span class="book-tag">Autor: Samuel / Natã / Gade</span>
         </div>
-        <div class="book-verse">"O homem vê o que está diante dos olhos, mas o <span style="font-variant:small-caps">Senhor</span> vê o coração."<cite>1 Samuel 16.7b — NAA</cite></div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="book-meta">
+          <span class="book-tag">~1105–1010 BC</span>
+          <span class="book-tag">Rise of the Monarchy</span>
+          <span class="book-tag">31 chapters</span>
+          <span class="book-tag">Author: Samuel / Nathan / Gad</span>
+        </div>
+        </div>
+        <div class="lang-content" data-lang="pt"><div class="book-verse">"O homem vê o que está diante dos olhos, mas o <span style="font-variant:small-caps">Senhor</span> vê o coração."<cite>1 Samuel 16.7b — NAA</cite></div></div>
+        <div class="lang-content" data-lang="en" style="display:none"><div class="book-verse">"Man looks on the outward appearance, but the <span style="font-variant:small-caps">Lord</span> looks on the heart."<cite>1 Samuel 16:7b — ESV</cite></div></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'samuel1','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'samuel1','geo')">Geografia</button>
-        <button class="tab-btn" onclick="showTab(this,'samuel1','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'samuel1','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'samuel1','geo')" data-pt="Geografia" data-en="Geography">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'samuel1','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
       <div class="tab-panel active" id="samuel1-ctx">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">A Crise Filisteia</div>
           <div class="block-body">
@@ -630,8 +649,19 @@ p{text-align:justify;hyphens:auto;}
             <p>No contexto mais amplo, é o início da <strong>Idade do Ferro</strong>. O Egito está em decadência. A Assíria ainda não projeta poder sobre Canaã. Há uma janela de oportunidade única para Israel estabelecer um reino — e Deus a aproveita, mesmo que o desejo por um rei seja, segundo o texto, uma rejeição de Deus como rei (1Sm 8.7).</p>
           </div>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">The Philistine Crisis</div>
+          <div class="block-body">
+            <p>The eleventh century BC is a period of existential crisis for Israel. The <strong>Philistines</strong> — settled on the southwest coast since ~1200 BC — are technologically superior: they hold a monopoly on iron in the region (1 Sam 13:19-22), possess war chariots, and maintain professional armies. Israel is still a tribal guerrilla organization with no unified command. The defeat at Aphek (ch. 4) — where the Ark of the Covenant is captured — is the national trauma that catalyzes the demand for a king.</p>
+            <p>In the broader context, this is the dawn of the <strong>Iron Age</strong>. Egypt is in decline. Assyria has not yet projected power into Canaan. There is a unique window of opportunity for Israel to establish a kingdom — and God uses it, even though the desire for a king is, according to the text, a rejection of God as king (1 Sam 8:7).</p>
+          </div>
+        </div>
+        </div>
       </div>
       <div class="tab-panel" id="samuel1-geo">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">Territórios em Conflito</div>
           <div class="geo-box">
@@ -643,8 +673,23 @@ p{text-align:justify;hyphens:auto;}
             <div class="info-card"><div class="info-card-label">Vale do Elá</div><div class="info-card-value">Davi vs. Golias · fronteira da Sefelá</div></div>
           </div>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">Contested Territories</div>
+          <div class="geo-box">
+            <p><strong>Shiloh</strong>, in the heart of the Ephraimite highlands, is Israel's early religious center — where the Tabernacle and the Ark are housed. Its destruction by the Philistines marks the end of an era. <strong>Mizpah</strong>, in Benjamin, becomes the political center under Samuel. <strong>Gibeah</strong>, also in Benjamin, is Saul's capital. The conflict with the Philistines concentrates on the <strong>Shephelah</strong> — including the Valley of Elah, where David kills Goliath — and on the coastal plain.</p>
+          </div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Religious center</div><div class="info-card-value">Shiloh — home of the Ark, destroyed by the Philistines</div></div>
+            <div class="info-card"><div class="info-card-label">Saul's capital</div><div class="info-card-value">Gibeah of Benjamin</div></div>
+            <div class="info-card"><div class="info-card-label">Valley of Elah</div><div class="info-card-value">David vs. Goliath · Shephelah frontier</div></div>
+          </div>
+        </div>
+        </div>
       </div>
       <div class="tab-panel" id="samuel1-study">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">Três Figuras, Três Destinos</div>
           <div class="block-body">
@@ -678,28 +723,78 @@ p{text-align:justify;hyphens:auto;}
           <p>"Acaso o <span style="font-variant:small-caps">Senhor</span> se agrada de holocaustos e sacrifícios como de obediência à voz do <span style="font-variant:small-caps">Senhor</span>? A obediência é melhor do que o sacrifício."</p>
           <cite>1 Samuel 15.22 — NAA</cite>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">Three Figures, Three Destinies</div>
+          <div class="block-body">
+            <p><strong>Samuel (chs. 1–8):</strong> Last judge and first prophet in the classical sense. Consecrated before birth, called in childhood by the voice of God ("Speak, Lord, for your servant hears" — 3:10). His historical role is to serve as the hinge: he anoints the first two kings of Israel.</p>
+            <p><strong>Saul (chs. 9–31):</strong> Physically impressive but tragically insecure. His downfall has two pivots: the illegal sacrifice at Gilgal (ch. 13 — "you have done foolishly") and his disobedience in the war against Amalek (ch. 15 — "to obey is better than sacrifice"). Saul is rejected not for lack of ability, but for lack of character. His paranoid persecution of David occupies half the book.</p>
+            <p><strong>David (chs. 16–31):</strong> Anointed in secret among his more impressive brothers — because God "looks on the heart." His defeat of Goliath (ch. 17) is an act of faith. His covenant friendship with Jonathan contrasts with Saul's irrational hatred. David twice refuses to kill Saul (chs. 24 and 26): "I will not put out my hand against the Lord's anointed."</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Hannah's Prayer — Prototype of the Magnificat</div>
+          <div class="block-body">
+            <p>The book opens not with a general or a king, but with a childless woman praying silently at the Tabernacle — so fervent that the priest Eli takes her for drunk (1:13). <strong>Hannah's</strong> song after Samuel's birth (ch. 2) is one of the most explosive texts in the OT: "The <span style="font-variant:small-caps">Lord</span> makes poor and makes rich; he brings low and he exalts. He raises up the poor from the dust; he lifts the needy from the ash heap" (2:7-8).</p>
+            <p>Hannah's song is the direct model for <strong>Mary's Magnificat</strong> (Luke 1:46-55) — the language, the images, and the theology are nearly identical. Both women — Hannah and Mary — carry in their wombs one who will transform Israel, and both sing hymns about the divine reversal of established orders. The book of Samuel is shaped from the start by the theology of a woman in prayer.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Jonathan and David — The Covenant of Friendship</div>
+          <div class="block-body">
+            <p>The friendship between Jonathan and David (chs. 18–23) is one of the purest relationships in the Bible — and also one of the most politically costly. Jonathan is the legitimate heir to the throne; David is the rival chosen by God. Yet Jonathan "loved him as his own soul" (18:1) and made a covenant with him, giving him his own robe, armor, and belt — symbols of his royal position.</p>
+            <p>Jonathan repeatedly risks his life to protect David from Saul's fury — to the point of receiving a spear from his own father for defending his friend (20:33). The covenant they make (23:18) is fulfilled decades later: David cares for Mephibosheth, Jonathan's crippled son (2 Sam 9), "for the sake of Jonathan." Covenant friendship transcends death — it is a model of the faithful commitment the NT calls <em>agape</em>.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Witch of Endor — Limits of the Supernatural</div>
+          <div class="block-body">
+            <p>The most enigmatic episode of 1 Samuel is Saul's consultation with the medium of Endor (ch. 28), on the eve of his last battle. Saul — who had expelled all mediums from Israel — resorts in desperation to one when the Lord no longer answers him. The woman summons Samuel, and Samuel appears — irritated at being disturbed — and confirms what he had already said: Saul will die the next day.</p>
+            <p>The text does not explain the mechanism — but presents the result as real: Samuel genuinely appears, speaks, and prophesies with precision. Most traditional interpreters understand that God permitted the real appearance as a final act of judgment upon Saul. The episode is cited in Sirach 46:20 as proof of Samuel's greatness — that even after death he prophesied. What the text prohibits is not the reality of the supernatural, but humanity's attempt to manipulate it outside the channels God has established.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Has the <span style="font-variant:small-caps">Lord</span> as great delight in burnt offerings and sacrifices, as in obeying the voice of the <span style="font-variant:small-caps">Lord</span>? Behold, to obey is better than sacrifice."</p>
+          <cite>1 Samuel 15:22 — ESV</cite>
+        </div>
+        </div>
       </div>
     </article>
 
     <!-- ════════════════════════════════ 2 SAMUEL ════════════════════════════════ -->
     <article class="book-panel" id="panel-samuel2">
       <div class="book-header">
-        <div class="book-eyebrow">Livro 10 · Históricos · Antigo Testamento</div>
-        <h2 class="book-title"><span>2 Samuel</span></h2>
+        <div class="lang-content" data-lang="pt"><div class="book-eyebrow">Livro 10 · Históricos · Antigo Testamento</div></div>
+        <div class="lang-content" data-lang="en" style="display:none"><div class="book-eyebrow">Book 10 · Historical · Old Testament</div></div>
+        <div class="lang-content" data-lang="pt"><h2 class="book-title"><span>2 Samuel</span></h2></div>
+        <div class="lang-content" data-lang="en" style="display:none"><h2 class="book-title"><span>2 Samuel</span></h2></div>
+        <div class="lang-content" data-lang="pt">
         <div class="book-meta">
           <span class="book-tag">~1010–970 a.C.</span>
           <span class="book-tag">Reino Unido de Davi</span>
           <span class="book-tag">24 capítulos</span>
           <span class="book-tag">Autor: Natã / Gade</span>
         </div>
-        <div class="book-verse">"A sua casa e o seu reino serão estabelecidos para sempre diante de mim; o seu trono será firme para sempre."<cite>2 Samuel 7.16 — NAA</cite></div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="book-meta">
+          <span class="book-tag">~1010–970 BC</span>
+          <span class="book-tag">United Kingdom of David</span>
+          <span class="book-tag">24 chapters</span>
+          <span class="book-tag">Author: Nathan / Gad</span>
+        </div>
+        </div>
+        <div class="lang-content" data-lang="pt"><div class="book-verse">"A sua casa e o seu reino serão estabelecidos para sempre diante de mim; o seu trono será firme para sempre."<cite>2 Samuel 7.16 — NAA</cite></div></div>
+        <div class="lang-content" data-lang="en" style="display:none"><div class="book-verse">"Your house and your kingdom shall be made sure forever before me. Your throne shall be established forever."<cite>2 Samuel 7:16 — ESV</cite></div></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'samuel2','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'samuel2','geo')">Geografia</button>
-        <button class="tab-btn" onclick="showTab(this,'samuel2','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'samuel2','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'samuel2','geo')" data-pt="Geografia" data-en="Geography">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'samuel2','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
       <div class="tab-panel active" id="samuel2-ctx">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">Dados do Livro</div>
           <div class="info-grid">
@@ -711,7 +806,6 @@ p{text-align:justify;hyphens:auto;}
             <div class="info-card"><div class="info-card-label">Encerramento</div><div class="info-card-value">Cap. 24: censo fatal → compra da eira de Araúna → local do futuro Templo de Salomão</div></div>
           </div>
         </div>
-
         <div class="study-block">
           <div class="block-title">O Apogeu de Israel</div>
           <div class="block-body">
@@ -719,16 +813,48 @@ p{text-align:justify;hyphens:auto;}
             <p>A escolha de <strong>Jerusalém</strong> como capital é um golpe político genial: cidade que não pertencia a nenhuma tribo, situada na fronteira de Judá e Benjamim, sem ressentimentos tribais. Davi a transforma em capital religiosa trazendo a Arca — unindo poder político e espiritual num único centro.</p>
           </div>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">Book Data</div>
+          <div class="info-grid">
+            <div class="info-card"><div class="info-card-label">Extent</div><div class="info-card-value">24 chapters · David's reign ~1010–970 BC</div></div>
+            <div class="info-card"><div class="info-card-label">High point</div><div class="info-card-value">Ch. 7 — Davidic Covenant: "your throne shall be established forever" · foundation of biblical messianism</div></div>
+            <div class="info-card"><div class="info-card-label">David's fall</div><div class="info-card-value">Chs. 11–12: adultery with Bathsheba and murder of Uriah — narrated with unparalleled psychological brutality</div></div>
+            <div class="info-card"><div class="info-card-label">Capital chosen</div><div class="info-card-value">Jerusalem — a city belonging to no tribe, on the Judah/Benjamin border · David's political masterstroke</div></div>
+            <div class="info-card"><div class="info-card-label">Absalom's rebellion</div><div class="info-card-value">Chs. 15–19: beloved son conspires; David flees weeping over the Mount of Olives</div></div>
+            <div class="info-card"><div class="info-card-label">Close</div><div class="info-card-value">Ch. 24: the fatal census → purchase of Araunah's threshing floor → site of the future Temple of Solomon</div></div>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Apex of Israel</div>
+          <div class="block-body">
+            <p>David's reign (~1010–970 BC) coincides with an unprecedented power vacuum: Egypt in dynastic collapse, Assyria not yet expanded westward, the Hittites vanished. Israel will never again have such a geopolitical window. David seizes it: he conquers Jerusalem, expands the territory from the Euphrates to Egypt (2 Sam 8), and defeats the Philistines, Moabites, Syrians, Edomites, and Ammonites.</p>
+            <p>The choice of <strong>Jerusalem</strong> as capital is a political masterstroke: a city belonging to no tribe, situated on the Judah-Benjamin border, free of tribal resentments. David transforms it into a religious capital by bringing the Ark — uniting political and spiritual power in a single center.</p>
+          </div>
+        </div>
+        </div>
       </div>
       <div class="tab-panel" id="samuel2-geo">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">Jerusalém e o Império Davídico</div>
           <div class="geo-box">
             <p><strong>Jerusalém</strong> fica num promontório rochoso entre os vales de Kidron (leste) e Hinom (oeste/sul), a ~754 m de altitude. Defensável em três lados. Davi a conquista pela tomada do túnel de água (2Sm 5.8). O <strong>império davídico</strong> se estende do norte da Síria (Damasco) ao golfo de Áqaba, incluindo os reinos vassalos de Moabe, Edom, Amom e Aram — o maior território israelita da história.</p>
           </div>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">Jerusalem and the Davidic Empire</div>
+          <div class="geo-box">
+            <p><strong>Jerusalem</strong> sits on a rocky ridge between the Kidron valley (east) and the Hinnom valley (west/south), at ~754 m elevation. Defensible on three sides. David takes it by seizing the water shaft (2 Sam 5:8). The <strong>Davidic empire</strong> extends from northern Syria (Damascus) to the Gulf of Aqaba, including the vassal kingdoms of Moab, Edom, Ammon, and Aram — the largest territorial extent in Israelite history.</p>
+          </div>
+        </div>
+        </div>
       </div>
       <div class="tab-panel" id="samuel2-study">
+        <div class="lang-content" data-lang="pt">
         <div class="study-block">
           <div class="block-title">A Aliança Davídica — O Fundamento Messiânico</div>
           <div class="block-body">
@@ -761,6 +887,41 @@ p{text-align:justify;hyphens:auto;}
           <p>"A sua casa e o seu reino serão estabelecidos para sempre diante de mim; o seu trono será firme para sempre."</p>
           <cite>2 Samuel 7.16 — NAA</cite>
         </div>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+        <div class="study-block">
+          <div class="block-title">The Davidic Covenant — The Messianic Foundation</div>
+          <div class="block-body">
+            <p>Chapter 7 is the theological pivot of the entire OT. David desires to build a Temple for God — a house of cedar instead of a tent. The divine response through Nathan inverts the concept: it will not be David who builds a house for God, but God who builds a <em>house</em> (dynasty) for David.</p>
+            <p>The <strong>Davidic Covenant</strong> promises: (1) a son of David will build the Temple; (2) David's throne will be eternal; (3) even if the king sins, mercy will not be removed from the lineage. This promise is the foundation of biblical messianism — all subsequent prophets build their hope upon it. Jesus is presented in the NT as "son of David" precisely because of this covenant.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">David's Fall — Bathsheba and Uriah</div>
+          <div class="block-body">
+            <p>Chapters 11–20 narrate the consequences of David's sin with Bathsheba and the murder of Uriah with unparalleled narrative brutality. David uses the full apparatus of royal power to cover up the adultery, sending Uriah — one of his thirty heroes — to his death. Nathan's confrontation with the parable of the ewe lamb (ch. 12) is one of the greatest moments of prophetic courage in the Bible.</p>
+            <p>The punishment is threefold: the child will die, David's family will become the stage for violence, another will lie with his wives in the sight of the sun. All comes to pass: Amnon rapes Tamar, Absalom kills Amnon and then rebels. Private sin generates public catastrophe.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Absalom's Rebellion — The Son Who Wanted the Throne</div>
+          <div class="block-body">
+            <p>Chapters 15–19 narrate the rebellion of <strong>Absalom</strong> — David's most beloved and most handsome son, who steals the heart of Israel with populist charisma (15:1-6) and then proclaims himself king at Hebron, the city where David was anointed. David flees Jerusalem barefoot, ascending the Mount of Olives in tears — one of the most poignant and human scenes in the Bible.</p>
+            <p>The text is devastating in its psychological precision: Absalom publicly sleeps with David's concubines on the rooftop (fulfilling Nathan's prophecy in 12:11-12), while Ahithophel — David's counselor who had switched sides — recommends decisive action but is contradicted by Hushai, David's double agent. When Absalom adopts Hushai's counsel, the text notes: "For the <span style="font-variant:small-caps">Lord</span> had ordained to defeat the good counsel of Ahithophel" (17:14). The final battle in the forest of Ephraim — where Absalom is caught by his glorious long hair — and his death at Joab's hands, end the rebellion. David's lament ("O my son Absalom!" — 18:33) is one of the most anguished texts in world literature.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Final Chapters — Poetry, Heroes and the Fatal Census</div>
+          <div class="block-body">
+            <p>Chapters 21–24 form a chiastic epilogue: two historical episodes (21 and 24) frame two poems (22 and 23) and a list of heroes. <strong>David's Psalm</strong> (ch. 22 = Ps 18) is the longest poem in 2 Samuel — a song of thanksgiving for divine protection. The <strong>thirty-three heroes</strong> (ch. 23) include Uriah the Hittite — a deliberate reminder of David's sin, buried in the list of men who gave their lives for him.</p>
+            <p><strong>David's census</strong> (ch. 24) is one of the most debated episodes in the OT. David orders a census — an act Joab tries to dissuade — and afterward is struck with guilt. The text does not explain why the census was sinful; most interpreters understand it as trust in human military power rather than in divine protection. The punishment offers three options — famine, flight from enemies, or plague. David chooses the plague ("let us fall into the hand of the Lord" rather than the hands of enemies). The book closes with the purchase of Araunah's threshing floor — which will become the site of Solomon's Temple — and David's altar that stops the plague. The choice of the Temple site emerges from David's repentance.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Your house and your kingdom shall be made sure forever before me. Your throne shall be established forever."</p>
+          <cite>2 Samuel 7:16 — ESV</cite>
+        </div>
+        </div>
       </div>
     </article>
 
@@ -778,9 +939,9 @@ p{text-align:justify;hyphens:auto;}
         <div class="book-verse">"Dá ao teu servo um coração que ouça, para que eu possa governar o teu povo e discernir entre o bem e o mal."<cite>1 Reis 3.9 — NAA</cite></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'reis1','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'reis1','geo')">Geografia</button>
-        <button class="tab-btn" onclick="showTab(this,'reis1','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'reis1','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'reis1','geo')" data-pt="Geografia" data-en="Geography">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'reis1','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
       <div class="tab-panel active" id="reis1-ctx">
         <div class="study-block">
@@ -860,9 +1021,9 @@ p{text-align:justify;hyphens:auto;}
         <div class="book-verse">"Não tema, pois os que estão conosco são mais do que os que estão com eles."<cite>2 Reis 6.16 — NAA</cite></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'reis2','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'reis2','geo')">Geografia</button>
-        <button class="tab-btn" onclick="showTab(this,'reis2','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'reis2','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'reis2','geo')" data-pt="Geografia" data-en="Geography">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'reis2','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
       <div class="tab-panel active" id="reis2-ctx">
         <div class="study-block">
@@ -942,9 +1103,9 @@ p{text-align:justify;hyphens:auto;}
         <div class="book-verse">"Teus, <span style="font-variant:small-caps">Senhor</span>, são a grandeza, o poder, a glória, a vitória e a majestade; pois teus são todos os seres que estão nos céus e na terra."<cite>1 Crônicas 29.11 — NAA</cite></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'cronicas1','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'cronicas1','geo')">Geografia</button>
-        <button class="tab-btn" onclick="showTab(this,'cronicas1','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'cronicas1','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'cronicas1','geo')" data-pt="Geografia" data-en="Geography">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'cronicas1','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
       <div class="tab-panel active" id="cronicas1-ctx">
         <div class="study-block">
@@ -1018,9 +1179,9 @@ p{text-align:justify;hyphens:auto;}
         <div class="book-verse">"Se o meu povo, que se chama pelo meu nome, se humilhar, orar, buscar a minha face e se converter dos seus maus caminhos, então eu ouvirei do céu, perdoarei os seus pecados e restaurarei a sua terra."<cite>2 Crônicas 7.14 — NAA</cite></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'cronicas2','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'cronicas2','geo')">Geografia</button>
-        <button class="tab-btn" onclick="showTab(this,'cronicas2','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'cronicas2','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'cronicas2','geo')" data-pt="Geografia" data-en="Geography">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'cronicas2','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
       <div class="tab-panel active" id="cronicas2-ctx">
         <div class="study-block">
@@ -1098,9 +1259,9 @@ p{text-align:justify;hyphens:auto;}
         <div class="book-verse">"Pois Esdras havia dedicado o seu coração a estudar a lei do <span style="font-variant:small-caps">Senhor</span>, a praticá-la e a ensinar os seus preceitos e ordenanças em Israel."<cite>Esdras 7.10 — NAA</cite></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'esdras','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'esdras','geo')">Geografia</button>
-        <button class="tab-btn" onclick="showTab(this,'esdras','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'esdras','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'esdras','geo')" data-pt="Geografia" data-en="Geography">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'esdras','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
       <div class="tab-panel active" id="esdras-ctx">
         <div class="study-block">
@@ -1179,9 +1340,9 @@ p{text-align:justify;hyphens:auto;}
         <div class="book-verse">"O Deus do céu nos concederá sucesso; nós, seus servos, nos levantaremos e construiremos."<cite>Neemias 2.20 — NAA</cite></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'neemias','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'neemias','geo')">Geografia</button>
-        <button class="tab-btn" onclick="showTab(this,'neemias','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'neemias','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'neemias','geo')" data-pt="Geografia" data-en="Geography">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'neemias','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
       <div class="tab-panel active" id="neemias-ctx">
         <div class="study-block">
@@ -1252,9 +1413,9 @@ p{text-align:justify;hyphens:auto;}
         <div class="book-verse">"Quem sabe se você não chegou à posição de rainha precisamente para um momento como este?"<cite>Ester 4.14 — NAA</cite></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'ester','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'ester','geo')">Geografia</button>
-        <button class="tab-btn" onclick="showTab(this,'ester','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'ester','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'ester','geo')" data-pt="Geografia" data-en="Geography">Geografia</button>
+        <button class="tab-btn" onclick="showTab(this,'ester','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
       <div class="tab-panel active" id="ester-ctx">
         <div class="study-block">
@@ -1324,7 +1485,28 @@ p{text-align:justify;hyphens:auto;}
 </main>
 </div><!-- /layout -->
 
+<button class="lang-btn" id="langBtn" onclick="toggleLang()" aria-label="Switch language">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span id="langLabel">EN</span>
+</button>
+
 <script>
+function applyLang(l) {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.style.display = el.dataset.lang === l ? '' : 'none';
+  });
+  document.querySelectorAll('[data-pt]').forEach(el => {
+    el.innerHTML = l === 'en' ? el.dataset.en : el.dataset.pt;
+  });
+  document.getElementById('langLabel').textContent = l === 'en' ? 'PT' : 'EN';
+  document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
+}
+function toggleLang() {
+  const next = localStorage.getItem('lang') === 'en' ? 'pt' : 'en';
+  localStorage.setItem('lang', next);
+  applyLang(next);
+}
+
 function showBook(id) {
   document.querySelectorAll('.book-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
@@ -1360,6 +1542,10 @@ function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.re
 menuToggle.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
 overlay.addEventListener('click', closeSidebar);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
+
+const _lang = localStorage.getItem('lang') || 'pt';
+document.getElementById('langLabel').textContent = _lang === 'en' ? 'PT' : 'EN';
+if (_lang === 'en') applyLang('en');
 </script>
 </body>
 </html>

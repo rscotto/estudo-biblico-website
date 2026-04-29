@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profetas Maiores — Estudo Bíblico</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
 <style>
 :root {
   --navy:       #2c2416;
@@ -15,6 +16,7 @@
   --sand:       #f0e6d0;
   --sand-dim:   #c8b898;
   --mai:        #c87820;
+  --accent:     #c87820;
   --shadow-sm:  0 2px 8px rgba(20,16,8,0.22);
   --shadow-md:  0 8px 32px rgba(20,16,8,0.32);
   --radius-sm:  6px;
@@ -22,229 +24,8 @@
   --transition: 250ms ease;
   --nav-w:      272px;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-*:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--navy);
-  background-image:
-    radial-gradient(ellipse at 15% 0%,rgba(200,120,32,0.07) 0%,transparent 55%),
-    radial-gradient(ellipse at 85% 100%,rgba(200,120,32,0.04) 0%,transparent 50%);
-  color:var(--sand);
-  font-family:'EB Garamond',serif;
-  font-size:18px;line-height:1.8;
-  min-height:100dvh;
-}
-p{text-align:justify;hyphens:auto;}
-
-.layout{display:flex;min-height:100dvh;}
-
-.sidebar{
-  width:var(--nav-w);flex-shrink:0;
-  background:linear-gradient(180deg,rgba(44,36,22,0.98) 0%,rgba(20,16,8,0.98) 100%);
-  border-right:1px solid rgba(200,120,32,0.14);
-  position:fixed;top:0;left:0;bottom:0;
-  overflow-y:auto;overflow-x:hidden;
-  z-index:50;display:flex;flex-direction:column;
-}
-.sidebar::-webkit-scrollbar{width:4px;}
-.sidebar::-webkit-scrollbar-thumb{background:rgba(200,120,32,0.2);border-radius:4px;}
-
-.sidebar-header{
-  padding:28px 20px 20px;
-  border-bottom:1px solid rgba(200,120,32,0.10);
-  flex-shrink:0;
-}
-.sidebar-back{
-  display:inline-flex;align-items:center;gap:6px;
-  color:var(--sand-dim);font-family:'Cinzel',serif;
-  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  text-decoration:none;margin-bottom:16px;
-  transition:color var(--transition);
-}
-.sidebar-back:hover{color:var(--mai);}
-.sidebar-title{font-family:'Cinzel Decorative',serif;font-size:13px;color:var(--mai);line-height:1.4;letter-spacing:0.5px;}
-.sidebar-subtitle{font-family:'Cinzel',serif;font-size:10px;color:var(--sand-dim);letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
-
-.sidebar-nav{padding:12px 0 24px;flex:1;}
-.nav-item{
-  display:flex;align-items:center;gap:12px;
-  width:100%;padding:11px 20px;
-  background:none;border:none;cursor:pointer;
-  text-align:left;transition:background var(--transition),border-left-color var(--transition);
-  border-left:3px solid transparent;
-  touch-action:manipulation;-webkit-tap-highlight-color:transparent;min-height:44px;
-}
-.nav-item:hover{background:rgba(200,120,32,0.06);border-left-color:rgba(200,120,32,0.3);}
-.nav-item.active{background:rgba(200,120,32,0.10);border-left-color:var(--mai);}
-.nav-num{font-family:'Cinzel',serif;font-size:10px;color:var(--gold-dim);letter-spacing:1px;min-width:22px;opacity:0.7;}
-.nav-item.active .nav-num{opacity:1;color:var(--mai);}
-.nav-abbr{font-family:'Cinzel',serif;font-size:11px;font-weight:600;color:var(--mai);min-width:32px;opacity:0.7;}
-.nav-item.active .nav-abbr{opacity:1;}
-.nav-name{font-family:'EB Garamond',serif;font-size:15px;color:var(--sand);opacity:0.75;line-height:1.2;}
-.nav-item.active .nav-name,.nav-item:hover .nav-name{opacity:1;}
-
-.main{margin-left:var(--nav-w);flex:1;min-width:0;}
-
-.hero{
-  padding:48px 52px 36px;
-  background:linear-gradient(160deg,rgba(44,36,22,0.9) 0%,transparent 100%);
-  border-bottom:1px solid rgba(200,120,32,0.12);
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(200,120,32,0.015) 80px,rgba(200,120,32,0.015) 81px);
-  pointer-events:none;
-}
-.hero-eyebrow{font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;color:var(--mai);text-transform:uppercase;opacity:.75;margin-bottom:12px;}
-.hero-title{font-family:'Cinzel Decorative',serif;font-size:clamp(22px,3vw,36px);color:var(--sand);line-height:1.25;margin-bottom:10px;}
-.hero-title span{color:var(--mai);}
-.hero-desc{font-family:'EB Garamond',serif;font-size:17px;color:var(--sand-dim);max-width:600px;line-height:1.65;}
-
-.content{padding:0 52px 80px;}
-
-.book-panel{display:none;animation:fadeIn 300ms ease;}
-.book-panel.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
-
-.book-header{padding:44px 0 32px;border-bottom:1px solid rgba(200,120,32,0.12);margin-bottom:36px;}
-.book-eyebrow{font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;color:var(--mai);text-transform:uppercase;opacity:.7;margin-bottom:10px;}
-.book-title{font-family:'Cinzel Decorative',serif;font-size:clamp(24px,3.5vw,42px);color:var(--sand);line-height:1.15;margin-bottom:14px;}
-.book-title span{color:var(--mai);}
-.book-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
-.book-tag{
-  display:inline-flex;align-items:center;padding:4px 12px;
-  background:rgba(200,120,32,0.09);border:1px solid rgba(200,120,32,0.18);
-  border-radius:20px;font-family:'Cinzel',serif;font-size:10px;
-  letter-spacing:1.5px;color:var(--mai);text-transform:uppercase;
-}
-.book-verse{
-  font-family:'EB Garamond',serif;font-size:20px;font-style:italic;
-  color:var(--sand-dim);border-left:3px solid var(--mai);
-  padding-left:20px;line-height:1.55;max-width:620px;text-align:justify;hyphens:auto;
-}
-.book-verse cite{display:block;font-style:normal;font-size:13px;font-family:'Cinzel',serif;letter-spacing:1.5px;color:var(--mai);opacity:.75;margin-top:6px;}
-
-.tabs{display:flex;border-bottom:1px solid rgba(200,120,32,0.15);margin-bottom:40px;overflow-x:auto;}
-.tabs::-webkit-scrollbar{height:0;}
-.tab-btn{
-  padding:12px 24px;background:none;border:none;
-  border-bottom:2px solid transparent;cursor:pointer;
-  font-family:'Cinzel',serif;font-size:11px;letter-spacing:2.5px;
-  color:var(--sand-dim);text-transform:uppercase;white-space:nowrap;
-  transition:color var(--transition),border-color var(--transition);
-  margin-bottom:-1px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
-}
-.tab-btn:hover{color:var(--sand);}
-.tab-btn.active{color:var(--mai);border-bottom-color:var(--mai);}
-.tab-panel{display:none;}
-.tab-panel.active{display:block;animation:fadeIn 250ms ease;}
-
-.study-block{margin-bottom:48px;}
-.study-block+.study-block{padding-top:40px;border-top:1px solid rgba(200,120,32,0.08);}
-.block-title{
-  font-family:'Cinzel',serif;font-size:13px;letter-spacing:3px;
-  color:var(--mai);text-transform:uppercase;
-  margin-bottom:20px;display:flex;align-items:center;gap:12px;
-}
-.block-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(200,120,32,0.25),transparent);}
-.block-body p{color:var(--sand);font-size:18px;line-height:1.85;margin-bottom:16px;max-width:72ch;text-align:justify;hyphens:auto;}
-.block-body p:last-child{margin-bottom:0;}
-.block-body strong{color:var(--mai);font-weight:600;}
-
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-bottom:32px;}
-.info-card{background:rgba(255,255,255,0.03);border:1px solid rgba(200,120,32,0.12);border-radius:var(--radius-md);padding:18px 20px;}
-.info-card-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2.5px;color:var(--mai);text-transform:uppercase;opacity:.75;margin-bottom:6px;}
-.info-card-value{font-family:'EB Garamond',serif;font-size:16px;color:var(--sand);line-height:1.4;}
-
-.timeline{border-left:2px solid rgba(200,120,32,0.18);padding-left:28px;margin-left:8px;}
-.tl-item{position:relative;margin-bottom:28px;}
-.tl-item::before{content:'';position:absolute;left:-37px;top:5px;width:12px;height:12px;background:var(--mai);border-radius:50%;border:2px solid var(--navy);box-shadow:0 0 0 2px rgba(200,120,32,0.3);}
-.tl-date{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--mai);text-transform:uppercase;opacity:.8;margin-bottom:4px;}
-.tl-text{font-family:'EB Garamond',serif;font-size:16px;color:var(--sand);line-height:1.6;text-align:justify;hyphens:auto;}
-
-.geo-box{background:rgba(200,120,32,0.04);border:1px solid rgba(200,120,32,0.14);border-radius:var(--radius-md);padding:28px 32px;margin-bottom:28px;}
-.geo-box p{font-size:17px;color:var(--sand);line-height:1.8;margin-bottom:12px;text-align:justify;hyphens:auto;}
-.geo-box p:last-child{margin-bottom:0;}
-.geo-box strong{color:var(--mai);}
-
-.key-verse{background:rgba(200,120,32,0.06);border-left:4px solid var(--mai);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:20px 24px;margin:28px 0;}
-.key-verse p{font-family:'EB Garamond',serif;font-size:19px;font-style:italic;color:var(--sand);line-height:1.6;margin-bottom:6px;}
-.key-verse cite{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--mai);opacity:.8;font-style:normal;}
-
-.menu-toggle{
-  display:none;position:fixed;top:16px;left:16px;z-index:200;
-  width:44px;height:44px;background:var(--navy-mid);
-  border:1px solid rgba(200,120,32,0.2);border-radius:var(--radius-sm);
-  cursor:pointer;align-items:center;justify-content:center;
-  touch-action:manipulation;-webkit-tap-highlight-color:transparent;
-}
-.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(20,16,8,0.7);backdrop-filter:blur(2px);z-index:40;}
-
-@media(max-width:900px){
-  .menu-toggle{display:flex;}
-  .sidebar{left:calc(-1 * var(--nav-w));transition:left var(--transition);z-index:100;box-shadow:var(--shadow-md);}
-  .sidebar.open{left:0;}
-  .sidebar-overlay.open{display:block;}
-  .main{margin-left:0;}
-  .sidebar-header{padding-top:76px;}
-  .hero{padding:68px 28px 28px;}
-  .hero-desc{font-size:16px;}
-  .content{padding:0 28px 64px;}
-  .book-header{padding:28px 0 22px;}
-  .book-verse{font-size:17px;}
-  .tabs{gap:0;}
-  .tab-btn{padding:11px 18px;font-size:10px;letter-spacing:2px;}
-  .block-body p{font-size:17px;max-width:none;}
-  .geo-box p{font-size:16px;}
-  .key-verse p{font-size:17px;}
-  .info-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));}
-}
-
-@media(max-width:600px){
-  :root{--nav-w:85vw;}
-  body{font-size:16px;}
-  .hero{padding:64px 18px 24px;}
-  .hero-eyebrow{font-size:9px;letter-spacing:3px;}
-  .hero-title{font-size:20px;line-height:1.3;}
-  .hero-desc{font-size:15px;line-height:1.6;}
-  .content{padding:0 18px 56px;}
-  .book-header{padding:24px 0 18px;}
-  .book-eyebrow{font-size:9px;letter-spacing:2.5px;}
-  .book-title{font-size:24px;line-height:1.2;}
-  .book-meta{gap:6px;}
-  .book-tag{font-size:9px;padding:3px 10px;}
-  .book-verse{font-size:16px;padding-left:14px;}
-  .book-verse cite{font-size:11px;}
-  .tabs{margin-bottom:28px;}
-  .tab-btn{padding:10px 12px;font-size:9px;letter-spacing:1.5px;}
-  .study-block{margin-bottom:32px;}
-  .study-block+.study-block{padding-top:28px;}
-  .block-title{font-size:11px;letter-spacing:2px;margin-bottom:14px;}
-  .block-body p{font-size:16px;line-height:1.75;max-width:none;}
-  .info-grid{grid-template-columns:1fr 1fr;gap:10px;}
-  .info-card{padding:14px 14px;}
-  .info-card-label{font-size:8px;}
-  .info-card-value{font-size:14px;}
-  .timeline{padding-left:20px;margin-left:4px;}
-  .tl-item{margin-bottom:20px;}
-  .tl-item::before{left:-28px;width:10px;height:10px;}
-  .tl-date{font-size:9px;}
-  .tl-text{font-size:15px;}
-  .geo-box{padding:18px 18px;margin-bottom:20px;}
-  .geo-box p{font-size:15px;line-height:1.7;}
-  .key-verse{padding:16px 18px;margin:20px 0;}
-  .key-verse p{font-size:16px;line-height:1.55;}
-  .key-verse cite{font-size:9px;}
-  .sidebar-header{padding:76px 16px 16px;}
-  .sidebar-title{font-size:12px;}
-  .sidebar-subtitle{font-size:9px;}
-  .nav-item{padding:10px 16px;gap:10px;}
-  .nav-num{font-size:9px;min-width:18px;}
-  .nav-abbr{font-size:10px;min-width:28px;}
-  .nav-name{font-size:14px;}
-}
+.lang-btn{position:fixed;top:16px;right:16px;z-index:300;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--navy-mid);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);border-radius:var(--radius-sm);color:var(--sand);font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;cursor:pointer;transition:background var(--transition),border-color var(--transition);}
+.lang-btn:hover{background:var(--navy-light);border-color:var(--accent);}
 </style>
 </head>
 <body>
@@ -261,25 +42,25 @@ p{text-align:justify;hyphens:auto;}
   <div class="sidebar-header">
     <a href="../index.html" class="sidebar-back">
       <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-      Voltar à Bíblia
+      <span data-pt="Voltar à Bíblia" data-en="Back to Bible">Voltar à Bíblia</span>
     </a>
-    <div class="sidebar-title">Profetas Maiores</div>
-    <div class="sidebar-subtitle">Antigo Testamento · 5 Livros</div>
+    <div class="sidebar-title" data-pt="Profetas Maiores" data-en="Major Prophets">Profetas Maiores</div>
+    <div class="sidebar-subtitle" data-pt="Antigo Testamento · 5 Livros" data-en="Old Testament · 5 Books">Antigo Testamento · 5 Livros</div>
   </div>
   <nav class="sidebar-nav" aria-label="Navegação dos profetas maiores">
-    <button class="nav-item active" onclick="showBook('isaias')" data-book="isaias"><span class="nav-num">23</span><span class="nav-abbr">Is</span><span class="nav-name">Isaías</span></button>
-    <button class="nav-item" onclick="showBook('jeremias')" data-book="jeremias"><span class="nav-num">24</span><span class="nav-abbr">Jr</span><span class="nav-name">Jeremias</span></button>
-    <button class="nav-item" onclick="showBook('lamentacoes')" data-book="lamentacoes"><span class="nav-num">25</span><span class="nav-abbr">Lm</span><span class="nav-name">Lamentações</span></button>
-    <button class="nav-item" onclick="showBook('ezequiel')" data-book="ezequiel"><span class="nav-num">26</span><span class="nav-abbr">Ez</span><span class="nav-name">Ezequiel</span></button>
-    <button class="nav-item" onclick="showBook('daniel')" data-book="daniel"><span class="nav-num">27</span><span class="nav-abbr">Dn</span><span class="nav-name">Daniel</span></button>
+    <button class="nav-item active" onclick="showBook('isaias')" data-book="isaias"><span class="nav-num">23</span><span class="nav-abbr">Is</span><span class="nav-name" data-pt="Isaías" data-en="Isaiah">Isaías</span></button>
+    <button class="nav-item" onclick="showBook('jeremias')" data-book="jeremias"><span class="nav-num">24</span><span class="nav-abbr">Jr</span><span class="nav-name" data-pt="Jeremias" data-en="Jeremiah">Jeremias</span></button>
+    <button class="nav-item" onclick="showBook('lamentacoes')" data-book="lamentacoes"><span class="nav-num">25</span><span class="nav-abbr">Lm</span><span class="nav-name" data-pt="Lamentações" data-en="Lamentations">Lamentações</span></button>
+    <button class="nav-item" onclick="showBook('ezequiel')" data-book="ezequiel"><span class="nav-num">26</span><span class="nav-abbr">Ez</span><span class="nav-name" data-pt="Ezequiel" data-en="Ezekiel">Ezequiel</span></button>
+    <button class="nav-item" onclick="showBook('daniel')" data-book="daniel"><span class="nav-num">27</span><span class="nav-abbr">Dn</span><span class="nav-name" data-pt="Daniel" data-en="Daniel">Daniel</span></button>
   </nav>
 </aside>
 
 <main class="main">
   <header class="hero">
-    <div class="hero-eyebrow">✦ Estudo Bíblico Aprofundado ✦</div>
-    <h1 class="hero-title">Profetas <span>Maiores</span></h1>
-    <p class="hero-desc">Cinco vozes que interpelaram reis e nações com a palavra de Deus — no julgamento, no exílio e na esperança. Os livros mais extensos e teologicamente densos do profetismo bíblico.</p>
+    <div class="hero-eyebrow" data-pt="✦ Estudo Bíblico Aprofundado ✦" data-en="✦ In-Depth Bible Study ✦">✦ Estudo Bíblico Aprofundado ✦</div>
+    <h1 class="hero-title" data-pt="Profetas <span>Maiores</span>" data-en="Major <span>Prophets</span>">Profetas <span>Maiores</span></h1>
+    <p class="hero-desc" data-pt="Cinco vozes que interpelaram reis e nações com a palavra de Deus — no julgamento, no exílio e na esperança. Os livros mais extensos e teologicamente densos do profetismo bíblico." data-en="Five books of prophetic literature from the classical period of Israelite prophecy. Historical context, theology, and in-depth study of each prophet.">Cinco vozes que interpelaram reis e nações com a palavra de Deus — no julgamento, no exílio e na esperança. Os livros mais extensos e teologicamente densos do profetismo bíblico.</p>
   </header>
 
   <div class="content">
@@ -299,9 +80,9 @@ p{text-align:justify;hyphens:auto;}
         <div class="book-verse" style="margin-top:18px;">"Porque os meus pensamentos não são os vossos pensamentos, nem os vossos caminhos os meus caminhos, diz o <span style="font-variant:small-caps">Senhor</span>. Porque, assim como os céus são mais altos do que a terra, assim os meus caminhos são mais altos do que os vossos caminhos, e os meus pensamentos, mais altos do que os vossos pensamentos."<cite>Isaías 55.8–9 — NAA</cite></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'isaias','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'isaias','teo')">Teologia</button>
-        <button class="tab-btn" onclick="showTab(this,'isaias','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'isaias','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'isaias','teo')" data-pt="Teologia" data-en="Theology">Teologia</button>
+        <button class="tab-btn" onclick="showTab(this,'isaias','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
 
       <div class="tab-panel active" id="isaias-ctx">
@@ -425,9 +206,9 @@ p{text-align:justify;hyphens:auto;}
         <div class="book-verse">"Porque eu sei os planos que tenho para vós, diz o <span style="font-variant:small-caps">Senhor</span>, planos de paz e não de mal, para vos dar um futuro e uma esperança."<cite>Jeremias 29.11 — NAA</cite></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'jeremias','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'jeremias','teo')">Teologia</button>
-        <button class="tab-btn" onclick="showTab(this,'jeremias','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'jeremias','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'jeremias','teo')" data-pt="Teologia" data-en="Theology">Teologia</button>
+        <button class="tab-btn" onclick="showTab(this,'jeremias','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
 
       <div class="tab-panel active" id="jeremias-ctx">
@@ -538,9 +319,9 @@ p{text-align:justify;hyphens:auto;}
         <div class="book-verse">"As misericórdias do <span style="font-variant:small-caps">Senhor</span> não têm fim; as suas compaixões não se esgotam; renovam-se cada manhã. Grande é a tua fidelidade."<cite>Lamentações 3.22–23 — NAA</cite></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'lamentacoes','ctx')">Contexto e Estrutura</button>
-        <button class="tab-btn" onclick="showTab(this,'lamentacoes','teo')">Teologia</button>
-        <button class="tab-btn" onclick="showTab(this,'lamentacoes','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'lamentacoes','ctx')" data-pt="Contexto e Estrutura" data-en="Context &amp; Structure">Contexto e Estrutura</button>
+        <button class="tab-btn" onclick="showTab(this,'lamentacoes','teo')" data-pt="Teologia" data-en="Theology">Teologia</button>
+        <button class="tab-btn" onclick="showTab(this,'lamentacoes','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
 
       <div class="tab-panel active" id="lamentacoes-ctx">
@@ -630,9 +411,9 @@ p{text-align:justify;hyphens:auto;}
         <div class="book-verse">"E vos darei um coração novo e porei dentro de vós um espírito novo; tirarei o coração de pedra da vossa carne e vos darei um coração de carne."<cite>Ezequiel 36.26 — NAA</cite></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'ezequiel','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'ezequiel','teo')">Teologia</button>
-        <button class="tab-btn" onclick="showTab(this,'ezequiel','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'ezequiel','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'ezequiel','teo')" data-pt="Teologia" data-en="Theology">Teologia</button>
+        <button class="tab-btn" onclick="showTab(this,'ezequiel','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
 
       <div class="tab-panel active" id="ezequiel-ctx">
@@ -741,9 +522,9 @@ p{text-align:justify;hyphens:auto;}
         <div class="book-verse">"Os entendidos resplandecerão como o fulgor do firmamento, e os que houverem convertido a muitos à justiça, como as estrelas, para sempre e eternamente."<cite>Daniel 12.3 — NAA</cite></div>
       </div>
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" onclick="showTab(this,'daniel','ctx')">Contexto Histórico</button>
-        <button class="tab-btn" onclick="showTab(this,'daniel','teo')">Teologia</button>
-        <button class="tab-btn" onclick="showTab(this,'daniel','study')">Estudo Aprofundado</button>
+        <button class="tab-btn active" onclick="showTab(this,'daniel','ctx')" data-pt="Contexto Histórico" data-en="Historical Context">Contexto Histórico</button>
+        <button class="tab-btn" onclick="showTab(this,'daniel','teo')" data-pt="Teologia" data-en="Theology">Teologia</button>
+        <button class="tab-btn" onclick="showTab(this,'daniel','study')" data-pt="Estudo Aprofundado" data-en="In-Depth Study">Estudo Aprofundado</button>
       </div>
 
       <div class="tab-panel active" id="daniel-ctx">
@@ -839,7 +620,25 @@ p{text-align:justify;hyphens:auto;}
 </main>
 </div><!-- .layout -->
 
+<button class="lang-btn" id="langBtn" onclick="toggleLang()" aria-label="Switch language">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span id="langLabel">EN</span>
+</button>
+
 <script>
+function applyLang(l) {
+  document.querySelectorAll('[data-pt]').forEach(el => {
+    el.innerHTML = l === 'en' ? el.dataset.en : el.dataset.pt;
+  });
+  document.getElementById('langLabel').textContent = l === 'en' ? 'PT' : 'EN';
+  document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
+}
+function toggleLang() {
+  const next = localStorage.getItem('lang') === 'en' ? 'pt' : 'en';
+  localStorage.setItem('lang', next);
+  applyLang(next);
+}
+
 function showBook(id){
   document.querySelectorAll('.book-panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
@@ -884,6 +683,10 @@ function closeSidebar(){
 toggle.addEventListener('click',()=>sidebar.classList.contains('open')?closeSidebar():openSidebar());
 overlay.addEventListener('click',closeSidebar);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSidebar();});
+
+const _lang = localStorage.getItem('lang') || 'pt';
+document.getElementById('langLabel').textContent = _lang === 'en' ? 'PT' : 'EN';
+if (_lang === 'en') applyLang('en');
 </script>
 </body>
 </html>
