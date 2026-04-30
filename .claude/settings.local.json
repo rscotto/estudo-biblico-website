@@ -6,7 +6,8 @@
       "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"biblical historical study ancient scholarly dark\" --design-system -p \"Livros Históricos\" -f markdown)",
       "Bash(cat .gitignore)",
       "Bash(cat ../.gitignore)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(curl -s https://biblia.rodrigoscotto.com/pt/)"
     ],
     "additionalDirectories": [
       "c:\\rscotto\\OneDrive - Rodrigo Scotto\\estudo-biblico-website\\profetas-maiores"
