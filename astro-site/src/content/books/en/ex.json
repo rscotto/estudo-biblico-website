@@ -1,9 +1,9 @@
 {
   "id": "ex",
-  "num": "Livro 2 · Antigo Testamento",
+  "num": "Book 2 · Old Testament",
   "title": "Exodus",
   "abbr": "Ex · Pentateuch · Law",
-  "author": "Moisés",
+  "author": "Moses",
   "chars": [
     "Moses",
     "Aaron",
