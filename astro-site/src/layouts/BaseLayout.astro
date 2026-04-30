@@ -22,7 +22,7 @@ const htmlLang = lang === 'en' ? 'en' : 'pt-BR';
 {altLang && <link rel="alternate" hreflang={altLang.lang} href={altLang.url} />}
 <link rel="alternate" hreflang={lang} href={canonicalUrl} />
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<style>
+<style is:global>
 *{margin:0;padding:0;box-sizing:border-box;}
 *:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
 
