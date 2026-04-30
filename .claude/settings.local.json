@@ -10,7 +10,10 @@
       "Bash(curl -s https://biblia.rodrigoscotto.com/pt/)",
       "Bash(node scripts/extract-subpages.mjs)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(curl -s http://localhost:4321/pt/)",
+      "Bash(python3 -c \"import sys; content = sys.stdin.read\\(\\); idx = content.find\\('<script'\\); print\\(content[idx:idx+500] if idx>=0 else 'NO SCRIPT FOUND'\\)\")",
+      "Bash(python3 -c ' *)"
     ],
     "additionalDirectories": [
       "c:\\rscotto\\OneDrive - Rodrigo Scotto\\estudo-biblico-website\\profetas-maiores"
