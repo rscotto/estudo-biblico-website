@@ -13,7 +13,8 @@
       "Bash(git commit -m ' *)",
       "Bash(curl -s http://localhost:4321/pt/)",
       "Bash(python3 -c \"import sys; content = sys.stdin.read\\(\\); idx = content.find\\('<script'\\); print\\(content[idx:idx+500] if idx>=0 else 'NO SCRIPT FOUND'\\)\")",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c 'import json,sys; d=json.load\\(open\\('\\\\''__TRACKED_VAR__'\\\\''\\)\\); print\\(d.get\\('\\\\''cellAbbr'\\\\'','\\\\''?'\\\\''\\), '\\\\''|'\\\\'', d.get\\('\\\\''title'\\\\'','\\\\''?'\\\\''\\)\\)')"
     ],
     "additionalDirectories": [
       "c:\\rscotto\\OneDrive - Rodrigo Scotto\\estudo-biblico-website\\profetas-maiores"
