@@ -206,6 +206,8 @@ window.closeModal = function(e) {
 };
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') window.close_(); });
+
+try { localStorage.setItem('lang', 'pt'); } catch(e) {}
 </script>
 
 </BaseLayout>
