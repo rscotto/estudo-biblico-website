@@ -7,7 +7,10 @@
       "Bash(cat .gitignore)",
       "Bash(cat ../.gitignore)",
       "Bash(git push *)",
-      "Bash(curl -s https://biblia.rodrigoscotto.com/pt/)"
+      "Bash(curl -s https://biblia.rodrigoscotto.com/pt/)",
+      "Bash(node scripts/extract-subpages.mjs)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ],
     "additionalDirectories": [
       "c:\\rscotto\\OneDrive - Rodrigo Scotto\\estudo-biblico-website\\profetas-maiores"
