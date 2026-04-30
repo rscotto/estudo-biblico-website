@@ -171,7 +171,7 @@ const dbJson = JSON.stringify(Object.fromEntries(
 <script define:vars={{ dbJson }}>
 const DB = JSON.parse(dbJson);
 
-function show(id) {
+window.show = function(id) {
   const b = DB[id]; if (!b) return;
   document.getElementById('m-num').textContent   = b.num;
   document.getElementById('m-title').textContent = b.title;
@@ -193,18 +193,18 @@ function show(id) {
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
   document.getElementById('modal').scrollTop = 0;
-}
+};
 
-function close_() {
+window.close_ = function() {
   document.getElementById('overlay').classList.remove('open');
   document.body.style.overflow = '';
-}
+};
 
-function closeModal(e) {
-  if (e.target === document.getElementById('overlay')) close_();
-}
+window.closeModal = function(e) {
+  if (e.target === document.getElementById('overlay')) window.close_();
+};
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') close_(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') window.close_(); });
 </script>
 
 </BaseLayout>
