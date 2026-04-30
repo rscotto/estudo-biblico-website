@@ -22,6 +22,20 @@ const ntGroups = [
   { ids: ['hb','tg','pe1','pe2','jo1','jo2','jo3','jd'],     cat: 'ger', cols: 'r8',  label: 'General Epistles · 8 books',           href: null },
   { ids: ['ap'],                                             cat: 'apo', cols: 'r1',  label: 'Prophetic · NT · 1 book',              href: null },
 ];
+
+// Serialize DB for client-side modal
+const dbJson = JSON.stringify(Object.fromEntries(
+  books.map(b => [b.data.id, {
+    num: b.data.num,
+    title: b.data.title,
+    abbr: b.data.abbr,
+    author: b.data.author ?? '',
+    chars: b.data.chars ?? [],
+    tags: b.data.tags ?? [],
+    body: b.data.body ?? '',
+    verse: b.data.verse ?? '',
+  }])
+));
 ---
 
 <BaseLayout
@@ -66,16 +80,16 @@ const ntGroups = [
       <div class={`g ${group.cols}`}>
         {byOrder(group.ids).map(book => (
           book.id === 'at'
-            ? <a href={`/en/${book.id}`} class={`cell ${book.category}`} style="aspect-ratio:4/1.18;flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 16px;">
+            ? <button onclick={`show('${book.id}')`} class={`cell ${book.category}`} style="aspect-ratio:4/1.18;flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 16px;">
                 <span class="cn" style="font-size:13px;">{book.order}</span>
                 <span class="ca" style="font-size:22px;">{book.cellAbbr}</span>
                 <span class="cname" style="font-size:13px;text-align:left;">{book.title}</span>
-              </a>
-            : <a href={`/en/${book.id}`} class={`cell ${book.category}`}>
+              </button>
+            : <button onclick={`show('${book.id}')`} class={`cell ${book.category}`}>
                 <span class="cn">{book.order}</span>
                 <span class="ca">{book.cellAbbr}</span>
                 <span class="cname">{book.title}</span>
-              </a>
+              </button>
         ))}
       </div>
     </>
@@ -89,16 +103,16 @@ const ntGroups = [
       <div class={`g ${group.cols}`}>
         {byOrder(group.ids).map(book => (
           (group.ids.length === 1 && group.cat !== 'eva')
-            ? <a href={`/en/${book.id}`} class={`cell ${book.category}`} style="aspect-ratio:4/1.18;flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 16px;">
+            ? <button onclick={`show('${book.id}')`} class={`cell ${book.category}`} style="aspect-ratio:4/1.18;flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 16px;">
                 <span class="cn" style="font-size:13px;">{book.order}</span>
                 <span class="ca" style="font-size:22px;">{book.cellAbbr}</span>
                 <span class="cname" style="font-size:13px;text-align:left;">{book.title}</span>
-              </a>
-            : <a href={`/en/${book.id}`} class={`cell ${book.category}`}>
+              </button>
+            : <button onclick={`show('${book.id}')`} class={`cell ${book.category}`}>
                 <span class="cn">{book.order}</span>
                 <span class="ca">{book.cellAbbr}</span>
                 <span class="cname">{book.title}</span>
-              </a>
+              </button>
         ))}
       </div>
     </>
@@ -120,5 +134,77 @@ const ntGroups = [
   <div class="li"><div class="lsw" style="background:rgba(232,184,64,.14);border:1px solid rgba(232,184,64,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ger)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div><span class="lcat" style="color:var(--ger)">NT · Epistle</span><span class="lname" style="color:var(--ger)">General</span></div><span class="lcount">8</span></div>
   <div class="li"><div class="lsw" style="background:rgba(204,96,16,.14);border:1px solid rgba(204,96,16,.4)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--apo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><div><span class="lcat" style="color:var(--apo)">NT · Prophecy</span><span class="lname" style="color:var(--apo)">Revelation</span></div><span class="lcount">1</span></div>
 </div>
+
+<!-- MODAL OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <button class="mclose" onclick="close_()" aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-inner">
+      <div class="mhead">
+        <div class="mnum" id="m-num"></div>
+        <div class="mtitle" id="m-title"></div>
+        <div class="mabbr" id="m-abbr"></div>
+        <div class="mauthor" id="m-author" style="display:none">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span id="m-author-text"></span>
+        </div>
+        <div id="m-chars-wrap" style="display:none">
+          <span class="mchar-label">Key figures</span>
+          <div class="mchars" id="m-chars"></div>
+        </div>
+      </div>
+      <div class="mtags" id="m-tags"></div>
+      <div class="msecttitle">Context &amp; Summary</div>
+      <div class="mbody" id="m-body"></div>
+      <div class="mverse" id="m-verse" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cell { background: none; border: none; text-align: inherit; font: inherit; color: inherit; }
+  .cell { cursor: pointer; }
+</style>
+
+<script define:vars={{ dbJson }}>
+const DB = JSON.parse(dbJson);
+
+function show(id) {
+  const b = DB[id]; if (!b) return;
+  document.getElementById('m-num').textContent   = b.num;
+  document.getElementById('m-title').textContent = b.title;
+  document.getElementById('m-abbr').textContent  = b.abbr;
+  const au = document.getElementById('m-author');
+  document.getElementById('m-author-text').textContent = b.author || '';
+  au.style.display = b.author ? 'inline-flex' : 'none';
+  const cw = document.getElementById('m-chars-wrap');
+  const cc = document.getElementById('m-chars');
+  if (b.chars && b.chars.length) {
+    cc.innerHTML = b.chars.map(c => `<span class="mchar-tag">${c}</span>`).join('');
+    cw.style.display = 'block';
+  } else { cw.style.display = 'none'; }
+  document.getElementById('m-tags').innerHTML = (b.tags || []).map(t => `<span class="mtag">${t}</span>`).join('');
+  document.getElementById('m-body').innerHTML  = b.body;
+  const ve = document.getElementById('m-verse');
+  ve.innerHTML = b.verse || '';
+  ve.style.display = b.verse ? 'block' : 'none';
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modal').scrollTop = 0;
+}
+
+function close_() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('overlay')) close_();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') close_(); });
+</script>
 
 </BaseLayout>

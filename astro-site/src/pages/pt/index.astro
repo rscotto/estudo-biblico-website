@@ -5,28 +5,38 @@ import { getCollection } from 'astro:content';
 const books = await getCollection('books', (entry) => entry.id.startsWith('pt/'));
 const db = Object.fromEntries(books.map(b => [b.data.id, b.data]));
 
-// Ordered list by book number
 const sorted = books.sort((a, b) => a.data.order - b.data.order);
-
-// Group by category for the grid
 const byOrder = (ids: string[]) => ids.map(id => db[id]).filter(Boolean);
 
-// Category groups in canonical order
 const groups = [
-  { ids: ['gn','ex','lv','nm','dt'],                          cat: 'pen', cols: 'r5',  labelPt: 'Pentateuco · Lei · 5 livros',          labelEn: 'Pentateuch · Law · 5 books',           href: '/pt/at-pentateuco' },
-  { ids: ['js','jz','rt','sm1','sm2','rs1','rs2','cr1','cr2','ed','ne','et'], cat: 'his', cols: 'r12', labelPt: 'Históricos · 12 livros', labelEn: 'Historical · 12 books', href: '/pt/at-historicos' },
-  { ids: ['jo','sl','pv','ec','ct'],                          cat: 'poe', cols: 'r5',  labelPt: 'Poéticos · Sapienciais · 5 livros',     labelEn: 'Poetic · Wisdom · 5 books',            href: '/pt/at-poeticos' },
-  { ids: ['is','jr','lm','ez','dn'],                          cat: 'mai', cols: 'r5',  labelPt: 'Profetas Maiores · 5 livros',           labelEn: 'Major Prophets · 5 books',             href: '/pt/at-profetas-maiores' },
-  { ids: ['os','jl','am','ob','jn','mq','na','hc','sf','ag','zc','ml'], cat: 'men', cols: 'r12', labelPt: 'Profetas Menores · 12 livros', labelEn: 'Minor Prophets · 12 books', href: '/pt/at-profetas-menores' },
+  { ids: ['gn','ex','lv','nm','dt'],                          cat: 'pen', cols: 'r5',  labelPt: 'Pentateuco · Lei · 5 livros',          href: '/pt/at-pentateuco' },
+  { ids: ['js','jz','rt','sm1','sm2','rs1','rs2','cr1','cr2','ed','ne','et'], cat: 'his', cols: 'r12', labelPt: 'Históricos · 12 livros', href: '/pt/at-historicos' },
+  { ids: ['jo','sl','pv','ec','ct'],                          cat: 'poe', cols: 'r5',  labelPt: 'Poéticos · Sapienciais · 5 livros',     href: '/pt/at-poeticos' },
+  { ids: ['is','jr','lm','ez','dn'],                          cat: 'mai', cols: 'r5',  labelPt: 'Profetas Maiores · 5 livros',           href: '/pt/at-profetas-maiores' },
+  { ids: ['os','jl','am','ob','jn','mq','na','hc','sf','ag','zc','ml'], cat: 'men', cols: 'r12', labelPt: 'Profetas Menores · 12 livros', href: '/pt/at-profetas-menores' },
 ];
 
 const ntGroups = [
-  { ids: ['mt','mc','lc','joe'],                              cat: 'eva', cols: 'r4',  labelPt: 'Evangelhos · 4 livros',                labelEn: 'Gospels · 4 books',                    href: null },
-  { ids: ['at'],                                              cat: 'ato', cols: 'r1',  labelPt: 'Histórico · NT · 1 livro',             labelEn: 'Historical · NT · 1 book',             href: null },
-  { ids: ['rm','co1','co2','gl','ef','fp','cl','ts1','ts2','tm1','tm2','tt','fm'], cat: 'pau', cols: 'r13', labelPt: 'Epístolas Paulinas · 13 livros', labelEn: 'Pauline Epistles · 13 books', href: null },
-  { ids: ['hb','tg','pe1','pe2','jo1','jo2','jo3','jd'],     cat: 'ger', cols: 'r8',  labelPt: 'Epístolas Gerais · 8 livros',          labelEn: 'General Epistles · 8 books',           href: null },
-  { ids: ['ap'],                                             cat: 'apo', cols: 'r1',  labelPt: 'Profético · NT · 1 livro',             labelEn: 'Prophetic · NT · 1 book',              href: null },
+  { ids: ['mt','mc','lc','joe'],                              cat: 'eva', cols: 'r4',  labelPt: 'Evangelhos · 4 livros',                href: null },
+  { ids: ['at'],                                              cat: 'ato', cols: 'r1',  labelPt: 'Histórico · NT · 1 livro',             href: null },
+  { ids: ['rm','co1','co2','gl','ef','fp','cl','ts1','ts2','tm1','tm2','tt','fm'], cat: 'pau', cols: 'r13', labelPt: 'Epístolas Paulinas · 13 livros', href: null },
+  { ids: ['hb','tg','pe1','pe2','jo1','jo2','jo3','jd'],     cat: 'ger', cols: 'r8',  labelPt: 'Epístolas Gerais · 8 livros',          href: null },
+  { ids: ['ap'],                                             cat: 'apo', cols: 'r1',  labelPt: 'Profético · NT · 1 livro',             href: null },
 ];
+
+// Serialize DB for client-side modal
+const dbJson = JSON.stringify(Object.fromEntries(
+  books.map(b => [b.data.id, {
+    num: b.data.num,
+    title: b.data.title,
+    abbr: b.data.abbr,
+    author: b.data.author ?? '',
+    chars: b.data.chars ?? [],
+    tags: b.data.tags ?? [],
+    body: b.data.body ?? '',
+    verse: b.data.verse ?? '',
+  }])
+));
 ---
 
 <BaseLayout
@@ -71,16 +81,16 @@ const ntGroups = [
       <div class={`g ${group.cols}`}>
         {byOrder(group.ids).map(book => (
           book.id === 'at'
-            ? <a href={`/pt/${book.id}`} class={`cell ${book.category}`} style="aspect-ratio:4/1.18;flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 16px;">
+            ? <button onclick={`show('${book.id}')`} class={`cell ${book.category}`} style="aspect-ratio:4/1.18;flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 16px;">
                 <span class="cn" style="font-size:13px;">{book.order}</span>
                 <span class="ca" style="font-size:22px;">{book.cellAbbr}</span>
                 <span class="cname" style="font-size:13px;text-align:left;">{book.title}</span>
-              </a>
-            : <a href={`/pt/${book.id}`} class={`cell ${book.category}`}>
+              </button>
+            : <button onclick={`show('${book.id}')`} class={`cell ${book.category}`}>
                 <span class="cn">{book.order}</span>
                 <span class="ca">{book.cellAbbr}</span>
                 <span class="cname">{book.title}</span>
-              </a>
+              </button>
         ))}
       </div>
     </>
@@ -94,16 +104,16 @@ const ntGroups = [
       <div class={`g ${group.cols}`}>
         {byOrder(group.ids).map(book => (
           (group.ids.length === 1 && group.cat !== 'eva')
-            ? <a href={`/pt/${book.id}`} class={`cell ${book.category}`} style="aspect-ratio:4/1.18;flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 16px;">
+            ? <button onclick={`show('${book.id}')`} class={`cell ${book.category}`} style="aspect-ratio:4/1.18;flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 16px;">
                 <span class="cn" style="font-size:13px;">{book.order}</span>
                 <span class="ca" style="font-size:22px;">{book.cellAbbr}</span>
                 <span class="cname" style="font-size:13px;text-align:left;">{book.title}</span>
-              </a>
-            : <a href={`/pt/${book.id}`} class={`cell ${book.category}`}>
+              </button>
+            : <button onclick={`show('${book.id}')`} class={`cell ${book.category}`}>
                 <span class="cn">{book.order}</span>
                 <span class="ca">{book.cellAbbr}</span>
                 <span class="cname">{book.title}</span>
-              </a>
+              </button>
         ))}
       </div>
     </>
@@ -125,5 +135,77 @@ const ntGroups = [
   <div class="li"><div class="lsw" style="background:rgba(232,184,64,.14);border:1px solid rgba(232,184,64,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ger)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div><span class="lcat" style="color:var(--ger)">NT · Epístola</span><span class="lname" style="color:var(--ger)">Gerais</span></div><span class="lcount">8</span></div>
   <div class="li"><div class="lsw" style="background:rgba(204,96,16,.14);border:1px solid rgba(204,96,16,.4)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--apo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><div><span class="lcat" style="color:var(--apo)">NT · Profecia</span><span class="lname" style="color:var(--apo)">Apocalipse</span></div><span class="lcount">1</span></div>
 </div>
+
+<!-- MODAL OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <button class="mclose" onclick="close_()" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-inner">
+      <div class="mhead">
+        <div class="mnum" id="m-num"></div>
+        <div class="mtitle" id="m-title"></div>
+        <div class="mabbr" id="m-abbr"></div>
+        <div class="mauthor" id="m-author" style="display:none">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span id="m-author-text"></span>
+        </div>
+        <div id="m-chars-wrap" style="display:none">
+          <span class="mchar-label">Personagens principais</span>
+          <div class="mchars" id="m-chars"></div>
+        </div>
+      </div>
+      <div class="mtags" id="m-tags"></div>
+      <div class="msecttitle">Contexto &amp; Resumo</div>
+      <div class="mbody" id="m-body"></div>
+      <div class="mverse" id="m-verse" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cell { background: none; border: none; text-align: inherit; font: inherit; color: inherit; }
+  .cell { cursor: pointer; }
+</style>
+
+<script define:vars={{ dbJson }}>
+const DB = JSON.parse(dbJson);
+
+function show(id) {
+  const b = DB[id]; if (!b) return;
+  document.getElementById('m-num').textContent   = b.num;
+  document.getElementById('m-title').textContent = b.title;
+  document.getElementById('m-abbr').textContent  = b.abbr;
+  const au = document.getElementById('m-author');
+  document.getElementById('m-author-text').textContent = b.author || '';
+  au.style.display = b.author ? 'inline-flex' : 'none';
+  const cw = document.getElementById('m-chars-wrap');
+  const cc = document.getElementById('m-chars');
+  if (b.chars && b.chars.length) {
+    cc.innerHTML = b.chars.map(c => `<span class="mchar-tag">${c}</span>`).join('');
+    cw.style.display = 'block';
+  } else { cw.style.display = 'none'; }
+  document.getElementById('m-tags').innerHTML = (b.tags || []).map(t => `<span class="mtag">${t}</span>`).join('');
+  document.getElementById('m-body').innerHTML  = b.body;
+  const ve = document.getElementById('m-verse');
+  ve.innerHTML = b.verse || '';
+  ve.style.display = b.verse ? 'block' : 'none';
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modal').scrollTop = 0;
+}
+
+function close_() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('overlay')) close_();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') close_(); });
+</script>
 
 </BaseLayout>
