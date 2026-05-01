@@ -14,7 +14,11 @@
       "Bash(curl -s http://localhost:4321/pt/)",
       "Bash(python3 -c \"import sys; content = sys.stdin.read\\(\\); idx = content.find\\('<script'\\); print\\(content[idx:idx+500] if idx>=0 else 'NO SCRIPT FOUND'\\)\")",
       "Bash(python3 -c ' *)",
-      "Bash(python3 -c 'import json,sys; d=json.load\\(open\\('\\\\''__TRACKED_VAR__'\\\\''\\)\\); print\\(d.get\\('\\\\''cellAbbr'\\\\'','\\\\''?'\\\\''\\), '\\\\''|'\\\\'', d.get\\('\\\\''title'\\\\'','\\\\''?'\\\\''\\)\\)')"
+      "Bash(python3 -c 'import json,sys; d=json.load\\(open\\('\\\\''__TRACKED_VAR__'\\\\''\\)\\); print\\(d.get\\('\\\\''cellAbbr'\\\\'','\\\\''?'\\\\''\\), '\\\\''|'\\\\'', d.get\\('\\\\''title'\\\\'','\\\\''?'\\\\''\\)\\)')",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('c:/rscotto/OneDrive - Rodrigo Scotto/estudo-biblico-website/astro-site/src/content/books/pt/gn.json',encoding='utf-8'\\)\\); print\\(list\\(d.keys\\(\\)\\)\\)\")",
+      "Bash(python3 gen_en_historicos.py)",
+      "Bash(python3 add_en_kings.py)",
+      "Bash(python3 add_en_2kings_esther.py)"
     ],
     "additionalDirectories": [
       "c:\\rscotto\\OneDrive - Rodrigo Scotto\\estudo-biblico-website\\profetas-maiores"
