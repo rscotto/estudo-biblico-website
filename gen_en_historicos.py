@@ -4,6 +4,32 @@ import re, sys
 with open('at-historicos/index.html', encoding='utf-8') as f:
     src = f.read()
 
+WINDOW = 4000  # large enough to span any single block
+
+def _find_matching_close(html, start):
+    """Return index just after the closing </div> that matches the opening div at start."""
+    depth = 1
+    i = start
+    while i < len(html) and depth > 0:
+        open_m = re.search(r'<div[\s>]', html[i:i+WINDOW])
+        close_m = re.search(r'</div>', html[i:i+WINDOW])
+        if open_m and close_m:
+            if open_m.start() < close_m.start():
+                depth += 1
+                i += open_m.end()
+            else:
+                depth -= 1
+                i += close_m.end()
+        elif close_m:
+            depth -= 1
+            i += close_m.end()
+        elif open_m:
+            depth += 1
+            i += open_m.end()
+        else:
+            i += WINDOW
+    return i
+
 def remove_pt_blocks(html):
     """Remove all <div class="lang-content" data-lang="pt">...</div> using depth counting."""
     pattern = re.compile(r'<div\s[^>]*data-lang=["\']pt["\'][^>]*>')
@@ -15,26 +41,7 @@ def remove_pt_blocks(html):
             result.append(html[pos:])
             break
         result.append(html[pos:m.start()])
-        depth = 1
-        i = m.end()
-        while i < len(html) and depth > 0:
-            open_m = re.search(r'<div[\s>]', html[i:i+200])
-            close_m = re.search(r'</div>', html[i:i+200])
-            if open_m and close_m:
-                if open_m.start() < close_m.start():
-                    depth += 1
-                    i += open_m.end()
-                else:
-                    depth -= 1
-                    i += close_m.end()
-            elif close_m:
-                depth -= 1
-                i += close_m.end()
-            elif open_m:
-                depth += 1
-                i += open_m.end()
-            else:
-                i += 200
+        i = _find_matching_close(html, m.end())
         if i < len(html) and html[i] == '\n':
             i += 1
         pos = i
@@ -55,8 +62,8 @@ def unwrap_en_blocks(html):
         i = m.end()
         inner_start = i
         while i < len(html) and depth > 0:
-            open_m = re.search(r'<div[\s>]', html[i:i+200])
-            close_m = re.search(r'</div>', html[i:i+200])
+            open_m = re.search(r'<div[\s>]', html[i:i+WINDOW])
+            close_m = re.search(r'</div>', html[i:i+WINDOW])
             if open_m and close_m:
                 if open_m.start() < close_m.start():
                     depth += 1
@@ -71,7 +78,7 @@ def unwrap_en_blocks(html):
                 depth += 1
                 i += open_m.end()
             else:
-                i += 200
+                i += WINDOW
         inner_end = i - len('</div>')
         inner = html[inner_start:inner_end]
         if inner.startswith('\n'):
