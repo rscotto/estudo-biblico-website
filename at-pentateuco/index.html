@@ -2182,19 +2182,11 @@
 </button>
 
 <script>
-  const _lang = localStorage.getItem('lang') || 'pt';
 
-  function applyLang(l) {
-    document.querySelectorAll('[data-pt]').forEach(el => {
-      el.innerHTML = l === 'en' ? el.dataset.en : el.dataset.pt;
-    });
-    document.getElementById('langLabel').textContent = l === 'en' ? 'PT' : 'EN';
-    document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
-  }
+
   function toggleLang() {
-    const next = localStorage.getItem('lang') === 'en' ? 'pt' : 'en';
-    localStorage.setItem('lang', next);
-    applyLang(next);
+    localStorage.setItem('lang', 'en');
+    window.location.href = '/en/at-pentateuco';
   }
 
   function showSection(id) {
@@ -2258,8 +2250,7 @@
     el.classList.add('visible');
   });
 
-  if (_lang === 'en') applyLang('en');
-  else document.getElementById('langLabel').textContent = 'EN';
+  document.getElementById('langLabel').textContent = 'EN';
 </script>
 </body>
 </html>
