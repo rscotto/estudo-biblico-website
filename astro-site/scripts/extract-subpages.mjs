@@ -58,6 +58,15 @@ const subpages = [
     descEn: 'In-depth study of the 12 Minor Prophets: Hosea to Malachi. ESV.',
     accentColor: '#d4a020',
   },
+  {
+    slug: 'nt-evangelhos',
+    srcFile: 'nt-evangelhos/index.html',
+    titlePt: 'Evangelhos — Estudo Bíblico',
+    titleEn: 'Gospels — Bible Study',
+    descPt: 'Estudo aprofundado dos 4 Evangelhos: Mateus, Marcos, Lucas e João. Contexto histórico, teologia e análise literária. Tradução NAA.',
+    descEn: 'In-depth study of the 4 Gospels: Matthew, Mark, Luke, and John. Historical context, theology, and literary analysis. ESV.',
+    accentColor: '#FFA400',
+  },
 ];
 
 const siteBase = 'https://estudobiblico.pages.dev';

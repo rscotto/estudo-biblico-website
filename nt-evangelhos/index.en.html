@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gospels — Bible Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+:root {
+  --navy:       #2c2416;
+  --navy-mid:   #3a3020;
+  --navy-light: #4a3e28;
+  --gold:       #FFA400;
+  --gold-dim:   #cc8500;
+  --sand:       #f0e6d0;
+  --sand-dim:   #c8b898;
+  --accent:     #FFA400;
+  --shadow-sm:  0 2px 8px rgba(20,16,8,0.22);
+  --shadow-md:  0 8px 32px rgba(20,16,8,0.32);
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --transition: 250ms ease;
+  --nav-w:      272px;
+}
+.lang-btn{position:fixed;top:16px;right:16px;z-index:300;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--navy-mid);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);border-radius:var(--radius-sm);color:var(--sand);font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;cursor:pointer;transition:background var(--transition),border-color var(--transition);}
+.lang-btn:hover{background:var(--navy-light);border-color:var(--accent);}
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="sidebar-back">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      <span>Back to Bible</span>
+    </a>
+    <div class="sidebar-title">Gospels</div>
+    <div class="sidebar-subtitle">New Testament · 4 Books</div>
+  </div>
+  <nav class="sidebar-nav" aria-label="Gospels navigation">
+    <button class="nav-item active" onclick="showBook('matthew')" data-book="matthew"><span class="nav-num">40</span><span class="nav-abbr">Mt</span><span class="nav-name">Matthew</span></button>
+    <button class="nav-item" onclick="showBook('mark')" data-book="mark"><span class="nav-num">41</span><span class="nav-abbr">Mk</span><span class="nav-name">Mark</span></button>
+    <button class="nav-item" onclick="showBook('luke')" data-book="luke"><span class="nav-num">42</span><span class="nav-abbr">Lk</span><span class="nav-name">Luke</span></button>
+    <button class="nav-item" onclick="showBook('john')" data-book="john"><span class="nav-num">43</span><span class="nav-abbr">Jn</span><span class="nav-name">John</span></button>
+  </nav>
+</aside>
+
+<main class="main">
+  <header class="hero">
+    <div class="hero-eyebrow">✦ In-Depth Bible Study ✦</div>
+    <h1 class="hero-title">The <span>Gospels</span></h1>
+    <p class="hero-desc">Four apostolic testimonies about the life, death, and resurrection of Jesus Christ — the fulfillment of all Scripture and the center of redemption history. Historical context, literary analysis, and theology of each work.</p>
+  </header>
+
+  <div class="content">
+
+    <!-- ════════════════════════════════ MATTHEW ════════════════════════════════ -->
+    <article class="book-panel active" id="panel-matthew">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 40 · Gospels · New Testament</div>
+        <h2 class="book-title"><span>Matthew</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~AD 50–70</span>
+          <span class="book-tag">Jesus as Messianic King</span>
+          <span class="book-tag">28 chapters</span>
+          <span class="book-tag">Author: Matthew (Levi)</span>
+        </div>
+        <div class="book-verse">"Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit."<cite>Matthew 28:19 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'matthew','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'matthew','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'matthew','study')">In-Depth Study</button>
+      </div>
+
+      <!-- MATTHEW — Tab 1: Historical Context -->
+      <div class="tab-panel active" id="matthew-ctx">
+        <div class="study-block">
+          <div class="block-title">Matthew's World: Between Two Testaments</div>
+          <div class="block-body">
+            <p>Matthew writes for a predominantly <strong>Jewish</strong> community in transition — converts to the messianism of Jesus who still inhabited the symbolic universe of the Old Testament. The Gospel was likely composed between <strong>AD 50 and 70</strong>, possibly in Syria (Antioch is the strongest candidate), and reflects the growing tension between the Jesus movement and Jewish synagogues after the Temple's destruction in AD 70.</p>
+            <p>The author, identified by tradition since the 2nd century as <strong>Matthew the tax collector</strong> (9:9; 10:3), writes with deep knowledge of the Hebrew Scriptures. The Gospel contains more than <strong>60 direct quotations</strong> from the Old Testament — more than any other Gospel — and repeatedly uses the formula "<em>that what was spoken by the prophet might be fulfilled</em>" (1:22; 2:15, 17, 23; 4:14; 8:17; 12:17; 13:35; 21:4; 26:56; 27:9).</p>
+            <p>The immediate historical context is Judea under Roman rule. Herod the Great has already died (4 BC), but his sons divide the territory. Herod Antipas governs Galilee; Pontius Pilate is prefect of Judea (AD 26–36). The political backdrop of Jesus's life is that of an occupied nation awaiting liberation — and Matthew argues that this liberation arrived, though in a radically different form than expected.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Narrative Chronology</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-date">~6–4 BC</div><div class="tl-text">Birth of Jesus in Bethlehem. Visit of the Magi. Flight to Egypt. Massacre of the innocents by Herod.</div></div>
+            <div class="tl-item"><div class="tl-date">~AD 26–27</div><div class="tl-text">Baptism in the Jordan by John the Baptist. Temptation in the wilderness for forty days.</div></div>
+            <div class="tl-item"><div class="tl-date">~AD 27–29</div><div class="tl-text">Galilean ministry. Calling of the twelve disciples. Sermon on the Mount. Miracles.</div></div>
+            <div class="tl-item"><div class="tl-date">~AD 29–30</div><div class="tl-text">Triumphal entry into Jerusalem. Cleansing of the Temple. Conflicts with religious leaders.</div></div>
+            <div class="tl-item"><div class="tl-date">Nisan 14, ~AD 30</div><div class="tl-text">Last Supper, betrayal, trial, crucifixion. Burial.</div></div>
+            <div class="tl-item"><div class="tl-date">Nisan 16, ~AD 30</div><div class="tl-text">Resurrection. Appearances to disciples. Great Commission in Galilee.</div></div>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Literary Structure: The New Moses and the Five Discourses</div>
+          <div class="block-body">
+            <p>Matthew organizes his Gospel around <strong>five great discourses</strong> of Jesus, each concluded with the formula "<em>when Jesus had finished saying these things</em>" (7:28; 11:1; 13:53; 19:1; 26:1). This structure is deliberate: it evokes the <strong>five books of Moses</strong> — Jesus is presented as the new and definitive lawgiver of Israel.</p>
+            <p>The five discourses are: (1) the <strong>Sermon on the Mount</strong> (chs. 5–7) — the ethics of the Kingdom; (2) the <strong>missionary discourse</strong> (ch. 10) — the mission of the twelve; (3) the <strong>Kingdom parables</strong> (ch. 13) — the nature of the Kingdom; (4) the <strong>community discourse</strong> (ch. 18) — the life of the Church; (5) the <strong>eschatological discourse</strong> (chs. 24–25) — the end of the age.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATTHEW — Tab 2: Theology -->
+      <div class="tab-panel" id="matthew-teo">
+        <div class="study-block">
+          <div class="block-title">Jesus as Son of David and Son of Abraham</div>
+          <div class="block-body">
+            <p>The opening genealogy (1:1–17) is a theological manifesto. Matthew opens with "<em>The genealogy of Jesus Christ, the son of David, the son of Abraham</em>" — two titles carrying enormous weight. <strong>Son of Abraham</strong>: Jesus is the heir of the patriarchal promises (Gen 12:1–3; 22:18). <strong>Son of David</strong>: he is the promised King of the eternal throne (2 Sam 7:12–16; Ps 89). The genealogy is structured in three groups of fourteen generations — a mnemonic scheme that in Hebrew can be read as an allusion to the name of David (D-V-D = 4+6+4 = 14). Jesus is the climax of Israel's history.</p>
+            <p>Five women appear in the genealogy: Tamar, Rahab, Ruth, "the wife of Uriah" (Bathsheba), and Mary — all with stories that subvert expectations. Matthew includes Gentiles (Rahab, Ruth) and women with irregular pasts to announce that God's grace operates outside the limits of human respectability.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Kingdom of Heaven — Matthew's Grand Theme</div>
+          <div class="block-body">
+            <p>The phrase "<em>Kingdom of Heaven</em>" appears <strong>32 times</strong> in Matthew — and in no other Gospel. (Mark and Luke use "Kingdom of God"; Matthew, writing for Jews, uses the reverential form that avoids the divine name.) The Kingdom is simultaneously <strong>present</strong> and <strong>future</strong>: it has already arrived in the person and work of Jesus (12:28), but has not yet been fully consummated (25:31–46). This tension between the "already" and the "not yet" is the heart of Matthean eschatology.</p>
+            <p>The Sermon on the Mount (chs. 5–7) is the Magna Carta of the Kingdom. The Beatitudes (5:3–12) are not instructions for earning divine favor — they are descriptions of the character of those who already belong to the Kingdom. Jesus is the definitive interpreter of the Law: "<em>Do not think that I have come to abolish the Law or the Prophets; I have not come to abolish them but to fulfill them</em>" (5:17).</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Church — Ekklesia in the Gospel</div>
+          <div class="block-body">
+            <p>Matthew is the only Gospel that uses the word "<em>church</em>" (<em>ekklesia</em>) — twice: in 16:18 ("<em>on this rock I will build my church</em>") and in 18:17. <strong>Peter's confession</strong> at Caesarea Philippi (16:13–20) is the central pivot of the Gospel: from that point, Jesus begins to teach openly about his death and resurrection.</p>
+            <p>The <strong>Great Commission</strong> (28:18–20) is the theological climax: all authority in heaven and on earth has been given to Jesus. The Gospel that began with Israel's genealogy ends with universal mission. The final promise — "<em>I am with you always, to the end of the age</em>" — echoes the name "<em>Emmanuel</em>" from the beginning (1:23): God with us.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATTHEW — Tab 3: In-Depth Study -->
+      <div class="tab-panel" id="matthew-study">
+        <div class="study-block">
+          <div class="block-title">The Sermon on the Mount — The Ethics of the Kingdom</div>
+          <div class="block-body">
+            <p>The Sermon on the Mount (chs. 5–7) is the most influential ethical text in Western history. It is not a manual for earning salvation — it is a description of the lifestyle of those who have already received the Kingdom. The Beatitudes do not say "<em>do this to be blessed</em>" but "<em>these are already blessed</em>" — the verbal tense in Greek is present indicative.</p>
+            <p>Jesus's six <strong>antitheses</strong> (5:21–48) follow the pattern: "<em>You have heard that it was said... but I say to you...</em>" Jesus radicalizes the Law by revealing its original intention. Murder begins with hatred (5:21–22); adultery begins with the look (5:27–28). The final commandment — "<em>You therefore must be perfect, as your heavenly Father is perfect</em>" (5:48) — is a call to an all-inclusive goodness like God's, who "<em>makes his sun rise on the evil and on the good</em>" (5:45).</p>
+            <p>The <strong>Lord's Prayer</strong> (6:9–13) structures all Kingdom spirituality: first God's glory ("<em>hallowed be your name</em>"; "<em>your kingdom come</em>"), then human needs (bread, forgiveness, protection). In the Kingdom, concern for God's honor precedes concern for one's own needs.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Kingdom Parables (Ch. 13) — Veiled Revelation</div>
+          <div class="block-body">
+            <p>Chapter 13 is Matthew's parabolic heart: seven parables about the Kingdom of Heaven. Jesus explains why he teaches in parables: "<em>To you it has been given to know the secrets of the kingdom of heaven, but to them it has not been given</em>" (13:11). Parables reveal to those with ears to hear and conceal from those who refuse to listen.</p>
+            <p>The <strong>Sower</strong> (13:1–23) explains why the announcement of the Kingdom produces such different results: the problem is not the seed (the Word) but the soil (the heart). The <strong>weeds among the wheat</strong> (13:24–30, 36–43): God permits weeds and wheat to grow together until the harvest — final judgment belongs to him, not to the Church. The <strong>mustard seed</strong> and the <strong>leaven</strong> (13:31–33) promise disproportionate growth from the smallest beginnings.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Matthew's Passion — The Rejected King</div>
+          <div class="block-body">
+            <p>Only Matthew records: the death of Judas (27:3–10), the dream of Pilate's wife (27:19), Pilate's handwashing (27:24–25), the earthquake and opening of tombs at the crucifixion (27:51–53), the guard at the tomb (27:62–66), and the bribing of the soldiers after the resurrection (28:11–15).</p>
+            <p>The theologically densest moment is the cry of dereliction: "<em>My God, my God, why have you forsaken me?</em>" (27:46 — quoting Ps 22:1). Jesus is reciting the opening of a Psalm that begins with abandonment and ends with universal vindication (Ps 22:27–31). On the cross, Jesus prays Psalm 22; in the resurrection, the Psalm is fulfilled.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Your kingdom come, your will be done, on earth as it is in heaven."</p>
+          <cite>Matthew 6:10 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ MARK ════════════════════════════════ -->
+    <article class="book-panel" id="panel-mark">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 41 · Gospels · New Testament</div>
+        <h2 class="book-title"><span>Mark</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~AD 55–65</span>
+          <span class="book-tag">Jesus as Suffering Servant</span>
+          <span class="book-tag">16 chapters</span>
+          <span class="book-tag">Author: John Mark (Peter)</span>
+        </div>
+        <div class="book-verse">"For even the Son of Man came not to be served but to serve, and to give his life as a ransom for many."<cite>Mark 10:45 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'mark','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'mark','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'mark','study')">In-Depth Study</button>
+      </div>
+
+      <!-- MARK — Tab 1: Historical Context -->
+      <div class="tab-panel active" id="mark-ctx">
+        <div class="study-block">
+          <div class="block-title">The Gospel of Urgency: Rome and Persecution</div>
+          <div class="block-body">
+            <p>Mark is the briefest of the Gospels and the most urgent. The Greek word <em>euthys</em> ("<em>immediately</em>") appears more than <strong>40 times</strong> — no other Gospel conveys this sense of ceaseless action. Patristic tradition from Papias (c. AD 130) identifies the author as <strong>John Mark</strong>, companion of Paul (Acts 12:12; Col 4:10) and later interpreter of Peter in Rome.</p>
+            <p>Mark was written for a <strong>Gentile Roman</strong> audience, probably in Rome, between AD 55 and 65 — possibly during the Neronian persecution (AD 64). Mark frequently explains Jewish customs for his readers (7:3–4; 15:42) and translates Aramaic words into Greek (3:17; 5:41; 7:11, 34; 15:22, 34). His Jesus is the <strong>Suffering Servant</strong> of Isaiah 53, whose entire life points toward the cross.</p>
+            <p>For readers facing martyrdom, Mark's message was powerful: the very Son of God served and suffered — to follow Jesus means to take up one's own cross (8:34).</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Messianic Secret — Why Did Jesus Command Silence?</div>
+          <div class="block-body">
+            <p>A distinctive feature of Mark is what theologian Wilhelm Wrede called the "<strong>messianic secret</strong>": Jesus repeatedly orders silence after healings and exorcisms (1:44; 3:12; 5:43; 7:36; 8:30). Mark's answer lies in the Gospel's structure: Jesus's identity can only be understood in light of the cross. To reveal him as Messiah before the passion would provoke a political revolt based on wrong expectations. The only one who clearly proclaims Jesus's identity at the end is a Roman soldier: "<em>Truly this man was the Son of God</em>" (15:39) — the cross, not power, is the place of revelation.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Two-Part Structure</div>
+          <div class="block-body">
+            <p>Mark divides clearly into two blocks: <strong>1:1–8:30</strong> (who is Jesus?) and <strong>8:31–16:8</strong> (what did Jesus come to do?). The pivot is Peter's confession at Caesarea Philippi (8:29: "<em>You are the Christ</em>"). From that point, Jesus announces his death and resurrection three times (8:31; 9:31; 10:33–34) and the disciples repeatedly fail to understand — a pattern Mark does not soften.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MARK — Tab 2: Theology -->
+      <div class="tab-panel" id="mark-teo">
+        <div class="study-block">
+          <div class="block-title">The Son of God as Servant</div>
+          <div class="block-body">
+            <p>Mark's first line — "<em>The beginning of the gospel of Jesus Christ, the Son of God</em>" (1:1) — is the thesis of the book. Jesus is the <strong>Son of God</strong> (confirmed by the Father's voice at baptism, 1:11, and the transfiguration, 9:7) and at the same time the Servant of Isaiah 53. Jesus's divinity does not exempt him from suffering — it is precisely because he is the Son that he serves unto death.</p>
+            <p>Mark 10:45 is the key verse of the entire book: "<em>The Son of Man came not to be served but to serve, and to give his life as a ransom for many.</em>" The Greek word <em>lytron</em> ("<em>ransom</em>") comes from the practice of freeing slaves by payment — Jesus gives his life as the price paid to liberate humanity from sin and death.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Miracles as Signs of the Kingdom</div>
+          <div class="block-body">
+            <p>Mark narrates more miracles per chapter than any other Gospel. But miracles are never mere displays of power — they are <strong>signs of the Kingdom</strong>. When Jesus casts out demons, the demons themselves shout his identity (1:24: "<em>I know who you are — the Holy One of God!</em>") — a bitter irony: God's enemies recognize Jesus while his disciples still waver.</p>
+            <p>The healing of the blind man at Bethsaida (8:22–26) — the only healing that occurs in two stages — is deliberate: Mark places it immediately before Peter's confession, who sees Jesus partially (as a prophet, 8:28) before seeing clearly (as the Christ, 8:29). The gradual healing mirrors the disciples' gradual understanding.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MARK — Tab 3: In-Depth Study -->
+      <div class="tab-panel" id="mark-study">
+        <div class="study-block">
+          <div class="block-title">The Bible's Most Controversial Ending</div>
+          <div class="block-body">
+            <p>Mark 16:8 ends abruptly: the women "<em>went out and fled from the tomb, for trembling and astonishment had seized them, and they said nothing to anyone, for they were afraid.</em>" The oldest manuscripts (<em>Sinaiticus</em>, <em>Vaticanus</em>) end here. Verses 16:9–20 (the "longer ending") are recognized by the best textual critics as a later addition.</p>
+            <p>This abrupt ending is probably intentional. Mark invites the reader to complete the story: the women were silent — and then? The reader knows the Church exists, that the message was proclaimed. The Gospel functions as an echo: the women's silence resonates in each reader's faithfulness or unfaithfulness. The empty tomb is more terrifying and more glorious than any appearance could be.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Passion Week in Mark — Narrative Intensity</div>
+          <div class="block-body">
+            <p>Nearly <strong>one-third</strong> of Mark's Gospel is dedicated to the last week of Jesus's life (chs. 11–16). The triumphal entry, the cursing of the fig tree, the cleansing of the Temple, disputes with priests and Pharisees, the eschatological discourse, the anointing at Bethany, the Last Supper, Gethsemane, the arrest — the narrative accelerates like a stone rolling downhill.</p>
+            <p>An enigmatic detail: in 14:51–52, an anonymous young man flees naked when Jesus is arrested. No other Gospel mentions this. Many scholars see here Mark's own "signature" — an eyewitness testimony inserted anonymously. If true, Mark was not merely a compiler of Peter's memories, but also a direct witness.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Repent and believe in the gospel."</p>
+          <cite>Mark 1:15 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ LUKE ════════════════════════════════ -->
+    <article class="book-panel" id="panel-luke">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 42 · Gospels · New Testament</div>
+        <h2 class="book-title"><span>Luke</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~AD 60–62</span>
+          <span class="book-tag">Jesus as Universal Savior</span>
+          <span class="book-tag">24 chapters</span>
+          <span class="book-tag">Author: Luke (physician, companion of Paul)</span>
+        </div>
+        <div class="book-verse">"For the Son of Man came to seek and to save the lost."<cite>Luke 19:10 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'luke','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'luke','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'luke','study')">In-Depth Study</button>
+      </div>
+
+      <!-- LUKE — Tab 1: Historical Context -->
+      <div class="tab-panel active" id="luke-ctx">
+        <div class="study-block">
+          <div class="block-title">The Historian Among the Evangelists</div>
+          <div class="block-body">
+            <p>Luke is the only New Testament author who writes with an explicitly historical method: "<em>Having carefully investigated everything from the beginning, it seemed good to me also to write an orderly account for you</em>" (1:3). His Greek is the most literary in the NT — cultivated, elegant, varied. Tradition from the 2nd century identifies the author as <strong>Luke the physician</strong> (Col 4:14), companion of Paul, possibly a Gentile or proselyte.</p>
+            <p>The Gospel was written to "<strong>Theophilus</strong>." The stated purpose is to give "<em>certainty concerning the things</em>" Theophilus had been taught (1:4) — an apologetic claim: the Gospel is presented as verifiable history, not myth. Luke-Acts forms a two-volume work accounting for more than <strong>27% of the text</strong> of the New Testament.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Sources and Historical Method</div>
+          <div class="block-body">
+            <p>Luke claims to have consulted "<em>many</em>" prior accounts (1:1) and eyewitness testimonies (1:2). Among his probable sources: <strong>Mark</strong> (used extensively), the hypothetical source <strong>Q</strong> (material shared with Matthew), and unique material designated "<strong>L</strong>" — which includes the NT's most beloved parables: the Prodigal Son (15:11–32), the Good Samaritan (10:25–37), the Lost Sheep (15:3–7), the Rich Man and Lazarus (16:19–31).</p>
+            <p>Unique among the evangelists, Luke anchors his narrative in <strong>precise historical markers</strong>: the census of Quirinius (2:1–2), the fifteenth year of Tiberius Caesar (3:1), the procurators and tetrarchs of the period (3:1–2). Historical precision does not contradict faith — it reinforces it.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LUKE — Tab 2: Theology -->
+      <div class="tab-panel" id="luke-teo">
+        <div class="study-block">
+          <div class="block-title">The Gospel of the Marginalized</div>
+          <div class="block-body">
+            <p>Luke has an unmistakable theological program: Jesus came for the <strong>excluded</strong>. No other Gospel gives such prominence to women (Mary, Elizabeth, Anna, the widow of Nain, Mary and Martha, the women of the resurrection), to the <strong>poor</strong> (Mary's Magnificat — 1:46–55 — is a hymn of social inversion), to <strong>Samaritans</strong> (the Good Samaritan, 10:25–37; the ten lepers, 17:11–19), and to <strong>Gentiles</strong> (Jesus's genealogy goes back to Adam — not just to Abraham as in Matthew, 3:23–38).</p>
+            <p>Jesus's program in Luke 4:18–19 (quoting Isa 61:1–2) is explicit: "<em>The Spirit of the <span style="font-variant:small-caps">Lord</span> is upon me, because he has anointed me to proclaim good news to the poor... to set at liberty those who are oppressed.</em>" Salvation in Luke restores integral human dignity.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Holy Spirit and Prayer in Luke</div>
+          <div class="block-body">
+            <p>Luke mentions the Holy Spirit more than any other Gospel. The Spirit acts at John the Baptist's birth (1:15), at Jesus's conception (1:35), in Elizabeth's prophecy (1:41), in Zechariah's song (1:67), in the revelation to Simeon (2:25–27), at Jesus's baptism (3:22), in the wilderness temptation (4:1), and at the beginning of the ministry (4:14, 18).</p>
+            <p>Luke is also the "<strong>Gospel of prayer</strong>": Jesus prays more in Luke than in any other Gospel. He prays at his baptism (3:21), before choosing the twelve (6:12), at the transfiguration (9:28–29), before teaching the Lord's Prayer (11:1), for Peter (22:32), in Gethsemane (22:41–44), and on the cross (23:34, 46).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LUKE — Tab 3: In-Depth Study -->
+      <div class="tab-panel" id="luke-study">
+        <div class="study-block">
+          <div class="block-title">The Prodigal Son — The Parable of Parables</div>
+          <div class="block-body">
+            <p>The Parable of the Prodigal Son (15:11–32) — called by some "the gospel within the gospel" — is unique to Luke. The real protagonist is the <strong>father</strong>. The younger son requests his inheritance (an act equivalent to wishing the father's death in ancient Near Eastern culture), squanders it, falls into destitution, and returns hoping to be treated as a servant. The father sees him "<em>while he was still a long way off</em>" (15:20) — implying he was waiting, looking toward the horizon. He runs to meet his son, embraces him, and restores him to son-status before the penitent speech is even finished.</p>
+            <p>The second half — the older son — is theologically essential: he is the son who stayed, who fulfilled everything, and who refuses to enter the celebration. Jesus is speaking to the Pharisees who grumble that he receives sinners (15:1–2). The father goes out to the older son as well — God's grace runs in two directions. The parable ends open: does the older son enter or not? Luke invites the reader to decide.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Infancy Narrative — Magnificat, Benedictus, Nunc Dimittis</div>
+          <div class="block-body">
+            <p>The first two chapters of Luke are unique in the NT: the annunciation to Mary (1:26–38), the visit to Elizabeth and the <strong>Magnificat</strong> (1:39–56), the birth of John and Zechariah's <strong>Benedictus</strong> (1:57–80), the birth of Jesus in Bethlehem (2:1–20), the presentation in the Temple and Simeon's <strong>Nunc Dimittis</strong> (2:21–40), the boy Jesus in the Temple at age twelve (2:41–52).</p>
+            <p>These three canticles — Magnificat, Benedictus, Nunc Dimittis — are liturgical hymns used by the Church since the earliest centuries. The Magnificat (1:46–55) echoes Hannah's song (1 Sam 2:1–10) and announces the eschatological reversal: God brings down the powerful and exalts the humble, fills the hungry with good things and sends the rich away empty.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"For unto you is born this day in the city of David a Savior, who is Christ the Lord."</p>
+          <cite>Luke 2:11 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════════════════ JOHN ════════════════════════════════ -->
+    <article class="book-panel" id="panel-john">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 43 · Gospels · New Testament</div>
+        <h2 class="book-title"><span>John</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~AD 85–95</span>
+          <span class="book-tag">Jesus as the Incarnate Word</span>
+          <span class="book-tag">21 chapters</span>
+          <span class="book-tag">Author: John, son of Zebedee</span>
+        </div>
+        <div class="book-verse">"For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life."<cite>John 3:16 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'john','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'john','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'john','study')">In-Depth Study</button>
+      </div>
+
+      <!-- JOHN — Tab 1: Historical Context -->
+      <div class="tab-panel active" id="john-ctx">
+        <div class="study-block">
+          <div class="block-title">The Last Gospel — Ephesus at the End of the First Century</div>
+          <div class="block-body">
+            <p>John is the latest Gospel — probably composed between <strong>AD 85 and 95</strong>, in Ephesus, capital of the Roman province of Asia. Patristic tradition is consistent in attributing it to <strong>John, son of Zebedee</strong>, the only apostle who did not suffer martyrdom and lived to an advanced age. The Gospel itself identifies the author as "<em>the disciple whom Jesus loved</em>" (21:20, 24).</p>
+            <p>John writes decades after the other Gospels, for a community that already knew the Synoptic traditions. He does not need to repeat — he deepens. About <strong>90% of John's content is unique</strong>: the Wedding at Cana (2:1–11), Nicodemus (3:1–21), the Samaritan woman (4:1–42), the resurrection of Lazarus (ch. 11), the foot-washing (13:1–17), the Upper Room Discourse (chs. 13–17).</p>
+            <p>John also responds to <strong>Docetism</strong> (the heresy claiming Jesus was only spirit and had no real body). Hence the emphasis on real incarnation (1:14: "<em>the Word became flesh</em>"), physical meals (chs. 2, 6, 21), and bodily resurrection (20:27).</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Structure: Book of Signs and Book of Glory</div>
+          <div class="block-body">
+            <p>John divides into two major parts: the <strong>Book of Signs</strong> (1:19–12:50) — seven miracles carefully selected as signs of Jesus's identity — and the <strong>Book of Glory</strong> (13:1–20:31) — Jesus's passage "from this world to the Father" (13:1), culminating in the resurrection. A poetic prologue (1:1–18) precedes everything; an epilogue (ch. 21) closes the work.</p>
+            <p>The seven signs are: water into wine (2:1–11), healing of the official's son (4:46–54), healing of the paralytic at Bethesda (5:1–15), feeding the five thousand (6:1–15), walking on water (6:16–21), healing the man born blind (ch. 9), and raising Lazarus (ch. 11). Each sign is followed by a discourse or dialogue that reveals its theological meaning.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOHN — Tab 2: Theology -->
+      <div class="tab-panel" id="john-teo">
+        <div class="study-block">
+          <div class="block-title">The Prologue — The NT's Highest Christology</div>
+          <div class="block-body">
+            <p>John 1:1–18 is the most highly Christological text in the New Testament. "<em>In the beginning was the Word</em>" deliberately echoes Genesis 1:1. The <em>Logos</em> (Word) is identified as pre-existent, divine ("<em>the Word was God</em>"), agent of creation, bearer of life and light. And then the climax: "<em>The Word became flesh and dwelt among us</em>" (1:14) — the eternal enters time, the infinite the finite, God in flesh.</p>
+            <p>John's prologue is simultaneously Greek philosophy (<em>Logos</em> as the ordering principle of the cosmos — Heraclitus, Philo of Alexandria) and Hebrew theology (God's creative Word in the OT). John's claim: what philosophers sought, what prophets announced — is Jesus.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Seven "I AM" Declarations — Theology of the Divine Name</div>
+          <div class="block-body">
+            <p>John records seven declarations of Jesus with the formula "<em>I am</em>" (<em>egō eimi</em>) followed by a predicate: "<em>I am the bread of life</em>" (6:35), "<em>the light of the world</em>" (8:12), "<em>the door of the sheep</em>" (10:7), "<em>the good shepherd</em>" (10:11), "<em>the resurrection and the life</em>" (11:25), "<em>the way, and the truth, and the life</em>" (14:6), "<em>the true vine</em>" (15:1).</p>
+            <p>There are also absolute "<em>I am</em>" declarations without a predicate (8:24, 28, 58; 18:5–6) — the direct echo of the divine name revealed to Moses in Exodus 3:14 ("<em>I AM WHO I AM</em>"). In 8:58, Jesus says "<em>Before Abraham was, I am</em>" — and the Jews attempt to stone him for blasphemy (8:59). In 18:6, the soldiers fall to the ground — the divine presence manifests even in the hour of arrest.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Paraclete — The Theology of the Spirit in John</div>
+          <div class="block-body">
+            <p>John 14–16 contains the richest teaching on the Holy Spirit in the NT outside of Acts. Jesus promises to send the "<em>Paraclete</em>" (<em>paraklētos</em> — Comforter, Advocate, Intercessor) who will continue Jesus's ministry: teaching all things (14:26), bearing witness to Jesus (15:26), convicting the world of sin, righteousness, and judgment (16:8–11), and guiding the disciples into all truth (16:13).</p>
+            <p>John 14:12 — "<em>whoever believes in me will also do the works that I do; and greater works than these will he do</em>" — is the promise that the Spirit will multiply the mission beyond what any individual could achieve.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOHN — Tab 3: In-Depth Study -->
+      <div class="tab-panel" id="john-study">
+        <div class="study-block">
+          <div class="block-title">The Upper Room Discourse — Farewell Theology</div>
+          <div class="block-body">
+            <p>John 13–17 is the largest block of teaching by Jesus in any Gospel — five chapters of intimate instruction on the night before the crucifixion. The foot-washing (13:1–17) demonstrates what it means to "<em>love his own to the end</em>" (13:1). When Peter refuses, Jesus replies: "<em>If I do not wash you, you have no share with me</em>" — the washing is not merely an example, it is participation in Christ's work.</p>
+            <p>The High Priestly Prayer (ch. 17) moves in three sections: Jesus prays for himself (17:1–5), for the disciples (17:6–19), and for all who will believe (17:20–26). The petition for unity — "<em>that they may all be one... so that the world may believe that you have sent me</em>" (17:21) — identifies the Church's unity as the most powerful evangelistic argument.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Resurrection in John — Personal Encounters</div>
+          <div class="block-body">
+            <p>The resurrection narrative in John (chs. 20–21) is marked by <strong>personal and individual</strong> encounters. Mary Magdalene does not recognize the risen Jesus until he calls her name: "<em>Mary!</em>" (20:16) — the voice of the Shepherd who calls his sheep by name (10:3). Thomas demands physical proof (20:24–29). Jesus does not rebuke the doubt; he offers exactly what Thomas asked. Thomas's response — "<em>My Lord and my God!</em>" (20:28) — is the highest Christological confession in the NT.</p>
+            <p>The purpose of the Gospel is declared immediately after (20:30–31): "<em>these are written so that you may believe that Jesus is the Christ, the Son of God, and that by believing you may have life in his name.</em>"</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Restoration of Peter (Ch. 21) — Triple Grace</div>
+          <div class="block-body">
+            <p>By the lakeside, after a miraculous catch, Jesus asks Peter the same question three times: "<em>Simon, son of John, do you love me?</em>" (21:15, 16, 17) — corresponding precisely to Peter's three denials (18:17, 25, 27). Jesus's grace does not merely forgive — it specifically restores each point of failure.</p>
+            <p>Jesus's last word to Peter is a simple imperative that summarizes all of Christian life: "<em>Follow me</em>" (21:19, 22). Peter's mission — "<em>Feed my sheep</em>" — is born from love, not from merit. The Gospel that begins with the eternal Word ends with a broken man who is restored to shepherd.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"I am the resurrection and the life. Whoever believes in me, though he die, yet shall he live."</p>
+          <cite>John 11:25 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /content -->
+</main>
+</div><!-- /layout -->
+
+<button class="lang-btn" onclick="goToPt()" aria-label="Switch to Portuguese">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>PT</span>
+</button>
+
+<script>
+localStorage.setItem('lang', 'en');
+
+function goToPt() {
+  localStorage.setItem('lang', 'pt');
+  window.location.href = '/pt/nt-evangelhos';
+}
+
+function showBook(id) {
+  document.querySelectorAll('.book-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const panel = document.getElementById('panel-' + id);
+  if (panel) {
+    panel.classList.add('active');
+    panel.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+    panel.querySelectorAll('.tab-panel').forEach((tp, i) => tp.classList.toggle('active', i === 0));
+  }
+  const btn = document.querySelector('[data-book="' + id + '"]');
+  if (btn) btn.classList.add('active');
+  closeSidebar();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showTab(btn, bookId, tabId) {
+  const panel = document.getElementById('panel-' + bookId);
+  if (!panel) return;
+  panel.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  panel.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const tp = document.getElementById(bookId + '-' + tabId);
+  if (tp) tp.classList.add('active');
+}
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar    = document.getElementById('sidebar');
+const overlay    = document.getElementById('sidebarOverlay');
+
+function openSidebar()  { sidebar.classList.add('open'); overlay.classList.add('open'); menuToggle.setAttribute('aria-expanded','true'); }
+function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); }
+
+menuToggle.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+overlay.addEventListener('click', closeSidebar);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
+</script>
+</body>
+</html>
