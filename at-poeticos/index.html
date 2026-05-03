@@ -729,17 +729,9 @@
 </button>
 
 <script>
-function applyLang(l) {
-  document.querySelectorAll('[data-pt]').forEach(el => {
-    el.innerHTML = l === 'en' ? el.dataset.en : el.dataset.pt;
-  });
-  document.getElementById('langLabel').textContent = l === 'en' ? 'PT' : 'EN';
-  document.documentElement.lang = l === 'en' ? 'en' : 'pt-BR';
-}
 function toggleLang() {
-  const next = localStorage.getItem('lang') === 'en' ? 'pt' : 'en';
-  localStorage.setItem('lang', next);
-  applyLang(next);
+  localStorage.setItem('lang', 'en');
+  window.location.href = '/en/at-poeticos';
 }
 
 function showBook(id){
@@ -787,9 +779,7 @@ toggle.addEventListener('click',()=>sidebar.classList.contains('open')?closeSide
 overlay.addEventListener('click',closeSidebar);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSidebar();});
 
-const _lang = localStorage.getItem('lang') || 'pt';
-document.getElementById('langLabel').textContent = _lang === 'en' ? 'PT' : 'EN';
-if (_lang === 'en') applyLang('en');
+document.getElementById('langLabel').textContent = 'EN';
 </script>
 </body>
 </html>
