@@ -100,7 +100,10 @@ const dbJson = JSON.stringify(Object.fromEntries(
 
   {ntGroups.map(group => (
     <>
-      <div class="slabel">{group.labelPt}</div>
+      {group.href
+        ? <a href={group.href} class="slabel slabel-link">{group.labelPt}</a>
+        : <div class="slabel">{group.labelPt}</div>
+      }
       <div class={`g ${group.cols}`}>
         {byOrder(group.ids).map(book => (
           (group.ids.length === 1 && group.cat !== 'eva')
