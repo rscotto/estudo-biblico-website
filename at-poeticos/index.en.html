@@ -723,9 +723,17 @@
 </main>
 </div><!-- .layout -->
 
-<a class="lang-btn" href="../at-poeticos/index.html">PT</a>
+<button class="lang-btn" onclick="goToPt()" aria-label="Switch to Portuguese">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>PT</span>
+</button>
 
 <script>
+localStorage.setItem('lang', 'en');
+function goToPt() {
+  localStorage.setItem('lang', 'pt');
+  window.location.href = '/pt/at-poeticos';
+}
 function showBook(id){
   document.querySelectorAll('.book-panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
