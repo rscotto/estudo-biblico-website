@@ -83,7 +83,7 @@ const subpages = [
     titleEn: 'Revelation — Bible Study',
     descPt: 'Estudo aprofundado do Apocalipse de João: o Cordeiro vitorioso, as sete igrejas, a Nova Jerusalém. Tradução NAA.',
     descEn: 'In-depth study of the Revelation of John: the victorious Lamb, the seven churches, the New Jerusalem. ESV.',
-    accentColor: '#9b3fa0',
+    accentColor: '#FFA400',
   },
 ];
 
