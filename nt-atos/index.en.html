@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acts of the Apostles — Bible Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+:root {
+  --navy:       #2c2416;
+  --navy-mid:   #3a3020;
+  --navy-light: #4a3e28;
+  --gold:       #FFA400;
+  --gold-dim:   #cc8500;
+  --sand:       #f0e6d0;
+  --sand-dim:   #c8b898;
+  --accent:     #c87820;
+  --shadow-sm:  0 2px 8px rgba(20,16,8,0.22);
+  --shadow-md:  0 8px 32px rgba(20,16,8,0.32);
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --transition: 250ms ease;
+  --nav-w:      272px;
+}
+.lang-btn{position:fixed;top:16px;right:16px;z-index:300;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--navy-mid);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);border-radius:var(--radius-sm);color:var(--sand);font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;cursor:pointer;transition:background var(--transition),border-color var(--transition);}
+.lang-btn:hover{background:var(--navy-light);border-color:var(--accent);}
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="sidebar-back">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      <span>Back to Bible</span>
+    </a>
+    <div class="sidebar-title">Acts of the Apostles</div>
+    <div class="sidebar-subtitle">New Testament · 1 Book</div>
+  </div>
+  <nav class="sidebar-nav" aria-label="Acts navigation">
+    <button class="nav-item active" onclick="showBook('acts')" data-book="acts"><span class="nav-num">44</span><span class="nav-abbr">Acts</span><span class="nav-name">Acts</span></button>
+  </nav>
+</aside>
+
+<main class="main">
+  <header class="hero">
+    <div class="hero-eyebrow">✦ In-Depth Bible Study ✦</div>
+    <h1 class="hero-title">Acts of the <span>Apostles</span></h1>
+    <p class="hero-desc">The story of the early Church — from Pentecost in Jerusalem to Paul in Rome. Luke narrates how the Holy Spirit transformed a group of Galilean disciples into a force that reached the heart of the Roman Empire.</p>
+  </header>
+
+  <div class="content">
+
+    <!-- ════════════════════════════════ ACTS ════════════════════════════════ -->
+    <article class="book-panel active" id="panel-acts">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 44 · Historical · New Testament</div>
+        <h2 class="book-title"><span>Acts of the Apostles</span></h2>
+        <div class="book-meta">
+          <span class="book-tag">~AD 62</span>
+          <span class="book-tag">History of the Early Church</span>
+          <span class="book-tag">28 chapters</span>
+          <span class="book-tag">Author: Luke</span>
+        </div>
+        <div class="book-verse">"But you will receive power when the Holy Spirit has come upon you, and you will be my witnesses in Jerusalem and in all Judea and Samaria, and to the end of the earth."<cite>Acts 1:8 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'acts','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'acts','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'acts','study')">In-Depth Study</button>
+      </div>
+
+      <!-- ACTS — Tab 1: Historical Context -->
+      <div class="tab-panel active" id="acts-ctx">
+        <div class="study-block">
+          <div class="block-title">Luke-Acts: A Two-Volume Work</div>
+          <div class="block-body">
+            <p>Acts of the Apostles is the second volume of a two-tome work — the first being the Gospel of Luke. Both are dedicated to "<em>Theophilus</em>" (Luke 1:3; Acts 1:1) and together form the largest individual literary contribution to the New Testament, accounting for more than <strong>27% of the NT text</strong>. The Gospel narrates "<em>all that Jesus began to do and teach</em>" (Acts 1:1); Acts narrates what Jesus <em>continued</em> to do — through the Holy Spirit in the Church.</p>
+            <p>Luke writes with the same historical rigor as the Gospel. Acts contains <strong>dozens of verifiable geographical and administrative details</strong> — titles of local magistrates (<em>politarchs</em> in Thessalonica, 17:6; <em>Asiarchs</em> in Ephesus, 19:31; the <em>protos</em> in Malta, 28:7), precise maritime routes, port names — all confirmed by archaeology and papyri. The archaeologist Sir William Ramsay, who began his research to refute Acts, concluded that Luke was "<em>a historian of the first rank</em>".</p>
+            <p>The date of composition is probably <strong>~AD 62</strong>: the book ends with Paul under house arrest in Rome without mentioning his martyrdom (~AD 64–65) or the destruction of Jerusalem (AD 70) — events that would certainly have been mentioned had they already occurred. This makes Acts one of the historical documents closest in time to the events it describes.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Geographic Structure: The Expanding Mission</div>
+          <div class="block-body">
+            <p>Acts 1:8 is the index of the entire book: "<em>in Jerusalem... in all Judea and Samaria... to the end of the earth</em>". Luke uses geography as theology: the Gospel advances concentrically from Jerusalem — center of Judaism — to Rome — center of the Gentile world. This is an inversion of the OT pattern, where nations came to Jerusalem (Isa 2:2–3); now the message <em>goes from</em> Jerusalem to the nations (fulfilling Isa 49:6).</p>
+            <p>The structure divides into three major blocks: <strong>Jerusalem</strong> (chs. 1–7), <strong>Judea, Samaria, and Syria</strong> (chs. 8–12), and <strong>Paul's three missionary journeys to Rome</strong> (chs. 13–28). The "progress summaries" throughout the book (6:7; 9:31; 12:24; 16:5; 19:20; 28:31) mark the unstoppable advance of the Word of God.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Chronology of Main Events</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-date">~AD 30</div><div class="tl-text">Ascension of Jesus. Pentecost in Jerusalem. Formation of the Church. Peter preaches to 3,000 people.</div></div>
+            <div class="tl-item"><div class="tl-date">~AD 33–35</div><div class="tl-text">Martyrdom of Stephen. Persecution scatters the Church. Paul's conversion on the road to Damascus.</div></div>
+            <div class="tl-item"><div class="tl-date">~AD 46–48</div><div class="tl-text">Paul's first missionary journey: Cyprus, Pisidia, Lycaonia. Jerusalem Council (~AD 49).</div></div>
+            <div class="tl-item"><div class="tl-date">~AD 50–52</div><div class="tl-text">Second journey: Macedonia and Greece. Founding of churches in Philippi, Thessalonica, Berea, Corinth.</div></div>
+            <div class="tl-item"><div class="tl-date">~AD 53–57</div><div class="tl-text">Third journey: Ephesus as base (three years). Collection for Jerusalem. Arrest in Jerusalem.</div></div>
+            <div class="tl-item"><div class="tl-date">~AD 57–59</div><div class="tl-text">Imprisonment in Caesarea. Trials before Felix and Festus. Appeal to Caesar.</div></div>
+            <div class="tl-item"><div class="tl-date">~AD 60–62</div><div class="tl-text">Voyage to Rome. Shipwreck at Malta. Arrival in Rome. Two years of house arrest preaching freely.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTS — Tab 2: Theology -->
+      <div class="tab-panel" id="acts-teo">
+        <div class="study-block">
+          <div class="block-title">The Holy Spirit: The Invisible Protagonist</div>
+          <div class="block-body">
+            <p>If the Gospel of Luke is the book of Jesus, Acts is the book of the Holy Spirit. The Spirit is mentioned more than <strong>50 times</strong> in 28 chapters — nearly twice per chapter. He empowers (1:8), fills believers (2:4; 4:31; 9:17), guides decisions (8:29; 10:19; 13:2; 16:6–7), comforts the Church (9:31), confirms apostles (5:32), and is poured out upon Jews, Samaritans, and Gentiles equally (2:4; 8:17; 10:44–46; 19:6).</p>
+            <p>Pentecost (ch. 2) is not the birth of the Spirit — he was already active in the OT. It is the public and universal outpouring that Joel 2:28–32 had promised: the Spirit no longer restricted to prophets and kings, but poured out "<em>on all flesh</em>" — sons and daughters, young and old, servants and handmaids. The glossolalia of Pentecost (speaking in known languages) is a reversal of the Tower of Babel: the division of languages that separated the nations is now overcome by the Spirit who unites.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Mission as Central Theme</div>
+          <div class="block-body">
+            <p>Acts is fundamentally a book about mission. The Great Commission of Matthew 28:18–20 is here <em>executed</em>. Each chapter advances geographically and culturally: from Jews in Jerusalem to Samaritans (ch. 8), to an Ethiopian eunuch (8:26–40), to a Roman centurion (ch. 10), to Gentiles in Syria (ch. 11), to the entire Mediterranean world (chs. 13–28).</p>
+            <p>The conversion of Cornelius (ch. 10) is the Pentecost of the Gentiles — a moment so decisive that Luke narrates it three times (10:1–48; 11:1–18; 15:7–11). The theological lesson is explicit in Peter's mouth: "<em>Truly I understand that God shows no partiality</em>" (10:34). The Gospel is not the property of any ethnicity or culture; the Spirit crosses all human walls.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Continuity with Israel</div>
+          <div class="block-body">
+            <p>Far from breaking with the OT, Acts affirms that the Church is the fulfillment of Israel's promises. The sermons of Peter (chs. 2–3), Stephen (ch. 7), and Paul (13:16–41; 17:22–31) are exercises in OT exegesis: David, Moses, the prophets — all point to the risen Jesus. The Church did not replace Israel; it is renewed Israel, expanded to include the nations as Amos 9:11–12 had foreseen (quoted in Acts 15:16–17).</p>
+            <p>Stephen's speech (ch. 7) is the longest in Acts and one of the theologically richest texts in the NT: a rereading of all of Israel's history showing how Israel always resisted the Spirit and rejected its envoys — culminating in the rejection of the very Son of God. It is not an attack on Judaism, but a call to conversion within Judaism.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Peter and Paul: Two Protagonists, One Mission</div>
+          <div class="block-body">
+            <p>Acts divides naturally into two halves: <strong>Peter</strong> (chs. 1–12) and <strong>Paul</strong> (chs. 13–28). The parallelism is deliberate and extensive: both heal lame men (3:1–10; 14:8–10), raise the dead (9:36–42; 20:9–12), perform extraordinary miracles (5:15; 19:12), are miraculously freed from prison (12:6–11; 16:25–34), confront sorcerers (8:18–24; 13:6–12). Luke constructs this parallelism to show that the mission to Jews (Peter) and Gentiles (Paul) have the same divine origin and the same apostolic authority.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTS — Tab 3: In-Depth Study -->
+      <div class="tab-panel" id="acts-study">
+        <div class="study-block">
+          <div class="block-title">Pentecost (Ch. 2) — The Birth of the Church</div>
+          <div class="block-body">
+            <p>Acts 2 is the foundational chapter of Christianity. At the Jewish feast of Shavuot (Pentecost — fifty days after Passover), when Jerusalem was filled with Jews from throughout the diaspora, the Spirit is poured out on the 120 disciples gathered. The phenomenon is threefold: <strong>the sound of a rushing wind</strong> (ruah — the same word as in Gen 1:2 and Ezek 37:9–10: God who creates and resurrects), <strong>tongues of fire</strong> (divine presence manifest — Exod 3:2; 19:18; Isa 6:6–7), and <strong>glossolalia</strong> — the disciples speak in languages that diaspora pilgrims recognize as their own native tongues.</p>
+            <p>Peter raises his voice and preaches the first public Christian sermon (2:14–36). Its structure is a model: <em>explanation of the event</em> (fulfillment of Joel 2:28–32), <em>narration of the facts</em> (life, death, and resurrection of Jesus), <em>scriptural proof</em> (Ps 16:8–11; 110:1), <em>proclamation</em> ("<em>God has made him both Lord and Christ</em>", 2:36), and <em>appeal</em> (repentance and baptism). The result: about three thousand people are baptized that same day.</p>
+            <p>The description of the first community's life (2:42–47) has become the normative standard of ecclesiology: <strong>apostolic teaching</strong>, <strong>fellowship</strong> (koinonia), <strong>breaking of bread</strong> (Lord's Supper), and <strong>prayer</strong>. Not as a law to be mechanically reproduced, but as a description of the life generated by the Spirit.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Jerusalem Council (Ch. 15) — The First Theological Crisis</div>
+          <div class="block-body">
+            <p>Chapter 15 is the most decisive in Acts for church history. The question: must converted Gentiles be circumcised and keep the Law of Moses to be saved? Judaizers from Jerusalem said yes (15:1). The Council's negative answer — articulated by Peter, Barnabas, Paul, and James — is the Church's first official theological pronouncement: "<em>we believe that we will be saved through the grace of the Lord Jesus, just as they will</em>" (15:11).</p>
+            <p>James's speech (15:13–21), who presides over the Council, is remarkable: he quotes Amos 9:11–12 to show that the inclusion of Gentiles <em>without circumcision</em> was God's prophetic intention from the beginning. The Council's decision is not a political compromise — it is theology: salvation is by grace through faith, not by works of the Law. Galatians 2 and the entire book of Romans are Paul unfolding what the Council of Acts 15 decided.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Paul in Athens (17:16–34) — Evangelism and Philosophy</div>
+          <div class="block-body">
+            <p>The Areopagus speech (17:22–31) is the NT model of evangelism in a pagan philosophical context. Unlike the sermons to Jewish audiences (which begin from the Scriptures), Paul starts from what the Athenians <em>already know</em>: the altar "<em>to the unknown god</em>" (17:23), the poetry of Aratus ("<em>for we are indeed his offspring</em>", 17:28), Stoic and Epicurean philosophy. Paul neither condemns nor flatters — he <em>recalibrates</em>: this unknown God that philosophers intuited is the Creator who does not live in temples made by human hands and who now commands repentance because he has fixed a day of judgment, proved by the resurrection of Jesus.</p>
+            <p>The reaction is the full spectrum of human response to the Gospel: <strong>mockery</strong> (resurrection — an unacceptable concept for Greeks), <strong>procrastination</strong> ("<em>we will hear you again about this</em>"), and <strong>conversion</strong> (Dionysius the Areopagite, Damaris). Paul does not "<em>fail</em>" in Athens — he sows in the most resistant soil and still reaps fruit.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Open Ending of Acts — A Purposefully Unfinished Work</div>
+          <div class="block-body">
+            <p>Acts ends abruptly: Paul is in Rome, under house arrest, "<em>proclaiming the kingdom of God and teaching about the Lord Jesus Christ with all boldness and without hindrance</em>" (28:31). No final verdict, no martyrdom, no narrative closure. This ending is intentional: the story Acts tells is <em>still happening</em>. The book that began with Jesus's ascension and the promise of the Spirit does not end because the mission has not ended. The reader of Acts is invited to continue the story — the Church of every generation is the next chapter.</p>
+            <p>The last word in Greek is <em>akōlytōs</em> — "<em>without hindrance</em>". After imprisonments, shipwreck, floggings, conspiracies, and appeals to emperors, the Word of God reaches the heart of the world unstoppable. Acts is, above all, a book about the impossibility of stopping the Gospel.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"But the word of God increased and multiplied."</p>
+          <cite>Acts 12:24 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /content -->
+</main>
+</div><!-- /layout -->
+
+<button class="lang-btn" onclick="goToPt()" aria-label="Switch to Portuguese">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>PT</span>
+</button>
+
+<script>
+localStorage.setItem('lang', 'en');
+
+function goToPt() {
+  localStorage.setItem('lang', 'pt');
+  window.location.href = '/pt/nt-atos';
+}
+
+function showBook(id) {
+  document.querySelectorAll('.book-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const panel = document.getElementById('panel-' + id);
+  if (panel) {
+    panel.classList.add('active');
+    panel.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+    panel.querySelectorAll('.tab-panel').forEach((tp, i) => tp.classList.toggle('active', i === 0));
+  }
+  const btn = document.querySelector('[data-book="' + id + '"]');
+  if (btn) btn.classList.add('active');
+  closeSidebar();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showTab(btn, bookId, tabId) {
+  const panel = document.getElementById('panel-' + bookId);
+  if (!panel) return;
+  panel.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  panel.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const tp = document.getElementById(bookId + '-' + tabId);
+  if (tp) tp.classList.add('active');
+}
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar    = document.getElementById('sidebar');
+const overlay    = document.getElementById('sidebarOverlay');
+
+function openSidebar()  { sidebar.classList.add('open'); overlay.classList.add('open'); menuToggle.setAttribute('aria-expanded','true'); }
+function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); }
+
+menuToggle.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+overlay.addEventListener('click', closeSidebar);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
+</script>
+</body>
+</html>

@@ -67,6 +67,15 @@ const subpages = [
     descEn: 'In-depth study of the 4 Gospels: Matthew, Mark, Luke, and John. Historical context, theology, and literary analysis. ESV.',
     accentColor: '#FFA400',
   },
+  {
+    slug: 'nt-atos',
+    srcFile: 'nt-atos/index.html',
+    titlePt: 'Atos dos Apóstolos — Estudo Bíblico',
+    titleEn: 'Acts of the Apostles — Bible Study',
+    descPt: 'Estudo aprofundado de Atos dos Apóstolos: a Igreja primitiva, Pentecostes, as viagens missionárias de Paulo. Tradução NAA.',
+    descEn: 'In-depth study of Acts of the Apostles: the early Church, Pentecost, Paul\'s missionary journeys. ESV.',
+    accentColor: '#c87820',
+  },
 ];
 
 const siteBase = 'https://estudobiblico.pages.dev';
