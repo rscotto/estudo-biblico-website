@@ -76,6 +76,15 @@ const subpages = [
     descEn: 'In-depth study of Acts of the Apostles: the early Church, Pentecost, Paul\'s missionary journeys. ESV.',
     accentColor: '#c87820',
   },
+  {
+    slug: 'nt-apocalipse',
+    srcFile: 'nt-apocalipse/index.html',
+    titlePt: 'Apocalipse — Estudo Bíblico',
+    titleEn: 'Revelation — Bible Study',
+    descPt: 'Estudo aprofundado do Apocalipse de João: o Cordeiro vitorioso, as sete igrejas, a Nova Jerusalém. Tradução NAA.',
+    descEn: 'In-depth study of the Revelation of John: the victorious Lamb, the seven churches, the New Jerusalem. ESV.',
+    accentColor: '#9b3fa0',
+  },
 ];
 
 const siteBase = 'https://estudobiblico.pages.dev';
