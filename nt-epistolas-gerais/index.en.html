@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>General Epistles — Bible Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+:root {
+  --navy:       #2c2416;
+  --navy-mid:   #3a3020;
+  --navy-light: #4a3e28;
+  --gold:       #FFA400;
+  --gold-dim:   #cc8500;
+  --sand:       #f0e6d0;
+  --sand-dim:   #c8b898;
+  --accent:     #FFA400;
+  --shadow-sm:  0 2px 8px rgba(20,16,8,0.22);
+  --shadow-md:  0 8px 32px rgba(20,16,8,0.32);
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --transition: 250ms ease;
+  --nav-w:      272px;
+}
+.lang-btn{position:fixed;top:16px;right:16px;z-index:300;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--navy-mid);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);border-radius:var(--radius-sm);color:var(--sand);font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;cursor:pointer;transition:background var(--transition),border-color var(--transition);}
+.lang-btn:hover{background:var(--navy-light);border-color:var(--accent);}
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="sidebar-back">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      <span>Back to Bible</span>
+    </a>
+    <div class="sidebar-title">General Epistles</div>
+    <div class="sidebar-subtitle">New Testament · 8 Books</div>
+  </div>
+  <nav class="sidebar-nav" aria-label="General Epistles navigation">
+    <button class="nav-item active" onclick="showBook('hebrews')" data-book="hebrews"><span class="nav-num">58</span><span class="nav-abbr">Heb</span><span class="nav-name">Hebrews</span></button>
+    <button class="nav-item" onclick="showBook('james')" data-book="james"><span class="nav-num">59</span><span class="nav-abbr">Jas</span><span class="nav-name">James</span></button>
+    <button class="nav-item" onclick="showBook('1peter')" data-book="1peter"><span class="nav-num">60</span><span class="nav-abbr">1Pet</span><span class="nav-name">1 Peter</span></button>
+    <button class="nav-item" onclick="showBook('2peter')" data-book="2peter"><span class="nav-num">61</span><span class="nav-abbr">2Pet</span><span class="nav-name">2 Peter</span></button>
+    <button class="nav-item" onclick="showBook('1john')" data-book="1john"><span class="nav-num">62</span><span class="nav-abbr">1Jn</span><span class="nav-name">1 John</span></button>
+    <button class="nav-item" onclick="showBook('2john')" data-book="2john"><span class="nav-num">63</span><span class="nav-abbr">2Jn</span><span class="nav-name">2 John</span></button>
+    <button class="nav-item" onclick="showBook('3john')" data-book="3john"><span class="nav-num">64</span><span class="nav-abbr">3Jn</span><span class="nav-name">3 John</span></button>
+    <button class="nav-item" onclick="showBook('jude')" data-book="jude"><span class="nav-num">65</span><span class="nav-abbr">Jude</span><span class="nav-name">Jude</span></button>
+  </nav>
+</aside>
+
+<main class="main">
+  <header class="hero">
+    <div class="hero-eyebrow">✦ In-Depth Bible Study ✦</div>
+    <h1 class="hero-title"><span>General</span> Epistles</h1>
+    <p class="hero-desc">Eight letters addressed not to a single community but to the universal Church — from Hebrews to Jude. They address perseverance, living faith, suffering, false teaching, and practical holiness, forming the pastoral manual of the New Testament.</p>
+  </header>
+
+  <div class="content">
+
+    <!-- ════════════════════ HEBREWS ════════════════════ -->
+    <article class="book-panel active" id="panel-hebrews">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 58 · Epistle · New Testament</div>
+        <h2 class="book-title"><span>Hebrews</span></h2>
+        <div class="book-meta"><span class="book-tag">~AD 60–70</span><span class="book-tag">Anonymous author</span><span class="book-tag">13 chapters</span></div>
+        <div class="book-verse">"Jesus Christ is the same yesterday and today and forever."<cite>Hebrews 13:8 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'hebrews','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'hebrews','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'hebrews','study')">In-Depth Study</button>
+      </div>
+      <div class="tab-panel active" id="hebrews-ctx">
+        <div class="study-block">
+          <div class="block-title">Recipients and Situation</div>
+          <div class="block-body">
+            <p>Hebrews is addressed to Jewish Christians facing persecution and tempted to return to Judaism to escape suffering. The author (unknown — Origen in the third century already confessed "<em>only God knows</em>") writes with pastoral urgency: apostasy is not an abstract theological option, but a real and immediate danger.</p>
+            <p>The most probable date is <strong>before AD 70</strong>, since the author speaks of the temple and sacrificial system as still in operation (10:1–3). If the temple had already been destroyed, the argument would be far simpler: "<em>see, the sacrifices have ended</em>". The fact that the author needs to demonstrate Christ's superiority over the still-functioning Levitical system suggests pre-70 composition.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Genre: Sermon in Letter Form</div>
+          <div class="block-body">
+            <p>Hebrews does not begin like a letter (no greeting, no sender), but ends like one (13:22–25). The author himself calls it a "<em>word of exhortation</em>" (13:22) — the same expression used for a synagogue sermon in Acts 13:15. Hebrews is therefore a <strong>theological sermon</strong> sent as a letter: the most elaborate and literarily refined composition in the NT, structured in alternating doctrinal exposition and pastoral appeal.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="hebrews-teo">
+        <div class="study-block">
+          <div class="block-title">Christ as High Priest After the Order of Melchizedek</div>
+          <div class="block-body">
+            <p>The theological heart of Hebrews is the claim that Jesus is the definitive High Priest — not of the order of Aaron (which required endless repetition of sacrifices), but of the order of <strong>Melchizedek</strong> (Gen 14:18–20; Ps 110:4): an eternal priesthood, non-hereditary, without genealogical beginning or end. The argument of Heb 7 is brilliant: when Abraham paid tithes to Melchizedek, Levi — then "in the loins of Abraham" — was paying tithes to the superior high priest. Therefore, the Melchizedekian priesthood is superior to the Levitical, and Christ's priesthood, to Aaron's.</p>
+            <p>Christ is simultaneously <strong>priest and victim</strong> (9:11–14): he offered himself as the perfect sacrifice, once for all (<em>ephapax</em>, 9:12; 10:10), rendering all animal sacrifices obsolete. The torn veil (Matt 27:51) is the liturgical consequence: direct access to God's presence, previously reserved for the high priest once a year, is now open to all.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Cloud of Witnesses: Faith as Perseverance</div>
+          <div class="block-body">
+            <p>Chapter 11 — the "<em>hall of fame of faith</em>" — redefines faith not as feeling or psychological certainty, but as "<em>the assurance of things hoped for, the conviction of things not seen</em>" (11:1): an existential orientation toward God's not-yet-fulfilled promises. Abel, Noah, Abraham, Sarah, Moses — all died "<em>without receiving what was promised</em>" (11:13), yet persisted. Chapter 12 applies: this cloud of witnesses surrounds us; therefore, "<em>let us run with endurance the race that is set before us</em>" (12:1), fixing our eyes on Jesus, the founder and perfecter of faith.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="hebrews-study">
+        <div class="study-block">
+          <div class="block-title">The Five Warnings of Hebrews</div>
+          <div class="block-body">
+            <p>Interspersed within the doctrinal exposition are five major warnings, progressively more severe: (1) <strong>do not neglect</strong> salvation (2:1–4); (2) <strong>do not harden</strong> the heart as Israel did in the wilderness (3:7–4:13); (3) <strong>do not remain immature</strong> in faith (5:11–6:12); (4) <strong>do not apostatize</strong> after receiving the light (10:26–31) — the most solemn: "<em>it is a fearful thing to fall into the hands of the living God</em>" (10:31); (5) <strong>do not refuse</strong> the one who speaks from heaven (12:25–29).</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"Therefore, brothers, since we have confidence to enter the holy places by the blood of Jesus..."</p>
+          <cite>Hebrews 10:19 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════ JAMES ════════════════════ -->
+    <article class="book-panel" id="panel-james">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 59 · Epistle · New Testament</div>
+        <h2 class="book-title"><span>James</span></h2>
+        <div class="book-meta"><span class="book-tag">~AD 48–50</span><span class="book-tag">James, brother of Jesus</span><span class="book-tag">5 chapters</span></div>
+        <div class="book-verse">"So also faith by itself, if it does not have works, is dead."<cite>James 2:17 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'james','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'james','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'james','study')">In-Depth Study</button>
+      </div>
+      <div class="tab-panel active" id="james-ctx">
+        <div class="study-block">
+          <div class="block-title">The Author and His Authority</div>
+          <div class="block-body">
+            <p>James is written by <strong>James, the brother of the Lord</strong> (Gal 1:19; Acts 15:13), leader of the Jerusalem church and martyr around AD 62 according to Josephus (<em>Ant.</em> 20.9.1). His authority came not from apostleship but from his familial relationship with Jesus and his recognized piety — Jews called him "<em>James the Just</em>" and said his knees were calloused like a camel's from so much prayer. It is probably the earliest NT epistle (~AD 48–50), written to Jewish Christians of the diaspora.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">Luther's Problem: "Epistle of Straw"?</div>
+          <div class="block-body">
+            <p>Martin Luther called James a "<em>right strawy epistle</em>" believing it contradicted Paul in Romans and Galatians. The apparent tension: Paul says Abraham was justified "<em>by faith, not by works</em>" (Rom 4:2–3); James says Abraham was "<em>justified by works</em>" (Jas 2:21). The resolution: Paul and James use "<em>works</em>" and "<em>justification</em>" in different senses. Paul speaks of works of the Law as merit for justification before God; James speaks of works as evidence of genuine faith before men. There is no contradiction: Paul describes the root (faith); James describes the fruit (works).</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="james-teo">
+        <div class="study-block">
+          <div class="block-title">Practical Wisdom: The Sermon on the Mount in Epistle Form</div>
+          <div class="block-body">
+            <p>James is the most practical book in the NT — closer to the OT wisdom tradition (Proverbs, Ecclesiastes) than to any systematic theology. It addresses <strong>trials</strong> (1:2–18), <strong>control of the tongue</strong> (3:1–12), <strong>conflicts</strong> (4:1–12), <strong>wealth and injustice</strong> (5:1–6), and <strong>prayer and anointing</strong> (5:13–18). There are more than forty imperatives in five chapters. The wisdom James values is not philosophical but moral: "<em>the wisdom from above is first pure, then peaceable, gentle, open to reason, full of mercy and good fruits, impartial and sincere</em>" (3:17).</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="james-study">
+        <div class="study-block">
+          <div class="block-title">The Tongue: The Rudder That Steers the Ship</div>
+          <div class="block-body">
+            <p>James 3 on the tongue is one of the most penetrating texts in the NT. The tongue is like the rudder of a great ship — small in proportion but determinative in direction (3:4). Like a small spark that sets a great forest ablaze (3:5). No wild animal that humans have not tamed — but the tongue "<em>no human being can tame; it is a restless evil, full of deadly poison</em>" (3:8). With it we bless God and curse men made in his image. James's solution is not technical but spiritual: the tongue is the symptom; the heart is the disease.</p>
+          </div>
+        </div>
+        <div class="key-verse">
+          <p>"But be doers of the word, and not hearers only, deceiving yourselves."</p>
+          <cite>James 1:22 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════ 1 PETER ════════════════════ -->
+    <article class="book-panel" id="panel-1peter">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 60 · Epistle · New Testament</div>
+        <h2 class="book-title"><span>1 Peter</span></h2>
+        <div class="book-meta"><span class="book-tag">~AD 60–64</span><span class="book-tag">Apostle Peter</span><span class="book-tag">5 chapters</span></div>
+        <div class="book-verse">"Humble yourselves, therefore, under the mighty hand of God so that at the proper time he may exalt you."<cite>1 Peter 5:6 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'1peter','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'1peter','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'1peter','study')">In-Depth Study</button>
+      </div>
+      <div class="tab-panel active" id="1peter-ctx">
+        <div class="study-block">
+          <div class="block-title">Pilgrims in the World: The Recipients' Situation</div>
+          <div class="block-body">
+            <p>Peter writes from "<em>Babylon</em>" (5:13) — code for Rome, as in Revelation — to Christians scattered across five provinces of Asia Minor. The recipients are called "<em>elect exiles</em>" and "<em>sojourners and exiles</em>" (1:1; 2:11) — both in the literal sense (immigrants without full Roman citizenship) and the theological sense (citizens of God's kingdom in transit through this world). They faced <strong>social suffering</strong> — slander, discrimination, suspicion — not yet systematic imperial persecution. The date is ~AD 60–64, before Nero's persecution.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="1peter-teo">
+        <div class="study-block">
+          <div class="block-title">Living Hope: A Theology of Suffering</div>
+          <div class="block-body">
+            <p>The central theme of 1 Peter is <strong>hope in the midst of suffering</strong>. Christian suffering has redemptive purpose: it purifies faith as fire purifies gold (1:6–7), produces conformity to Christ (2:21–24), and can be evangelistic testimony before pagans (2:12). Peter uses OT Israel's identity language for the Church: "<em>a chosen race, a royal priesthood, a holy nation, a people for his own possession</em>" (2:9 — Exod 19:5–6; Isa 43:20–21). Gentiles who once "<em>were not a people</em>" are now the people of God (2:10 — quoting Hos 2:23).</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="1peter-study">
+        <div class="key-verse">
+          <p>"But you are a chosen race, a royal priesthood, a holy nation, a people for his own possession, that you may proclaim the excellencies of him who called you out of darkness into his marvelous light."</p>
+          <cite>1 Peter 2:9 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════ 2 PETER ════════════════════ -->
+    <article class="book-panel" id="panel-2peter">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 61 · Epistle · New Testament</div>
+        <h2 class="book-title"><span>2 Peter</span></h2>
+        <div class="book-meta"><span class="book-tag">~AD 64–68</span><span class="book-tag">Apostle Peter</span><span class="book-tag">3 chapters</span></div>
+        <div class="book-verse">"But grow in the grace and knowledge of our Lord and Savior Jesus Christ."<cite>2 Peter 3:18 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'2peter','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'2peter','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'2peter','study')">In-Depth Study</button>
+      </div>
+      <div class="tab-panel active" id="2peter-ctx">
+        <div class="study-block">
+          <div class="block-title">Peter's Testament</div>
+          <div class="block-body">
+            <p>2 Peter is the apostle's "<em>testament</em>" — written with awareness of his imminent death: "<em>I know that the putting off of my body will be soon</em>" (1:14). The main threat is no longer external persecution but <strong>internal false teachers</strong> who pervert the grace of God into licentiousness (2:19) and mock the promise of the Second Coming (3:3–4). Peter responds with the authority of apostolic revelation: he was an eyewitness of the Transfiguration (1:16–18), not following "<em>cleverly devised myths</em>".</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="2peter-teo">
+        <div class="study-block">
+          <div class="block-title">The Inspiration of Scripture (1:20–21)</div>
+          <div class="block-body">
+            <p>2 Peter 1:20–21 contains the NT's most explicit statement on the inspiration of Scripture: "<em>no prophecy was ever produced by the will of man, but men spoke from God as they were carried along by the Holy Spirit</em>". The Greek verb <em>pheromenoi</em> ("carried along") is the same used to describe a ship driven by the wind (Acts 27:15,17). The words of Scripture are simultaneously fully human and fully divine.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Day of the Lord and God's Time (3:8–13)</div>
+          <div class="block-body">
+            <p>Against skeptics who argued that the delay of Christ's return proves the promise is false, Peter responds: "<em>with the Lord one day is as a thousand years, and a thousand years as one day</em>" (3:8). The delay is patience: God is "<em>not wishing that any should perish, but that all should reach repentance</em>" (3:9). The Day of the Lord will come; there will be "<em>new heavens and a new earth in which righteousness dwells</em>" (3:13).</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="2peter-study">
+        <div class="key-verse">
+          <p>"His divine power has granted to us all things that pertain to life and godliness."</p>
+          <cite>2 Peter 1:3 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════ 1 JOHN ════════════════════ -->
+    <article class="book-panel" id="panel-1john">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 62 · Epistle · New Testament</div>
+        <h2 class="book-title"><span>1 John</span></h2>
+        <div class="book-meta"><span class="book-tag">~AD 90–95</span><span class="book-tag">Apostle John</span><span class="book-tag">5 chapters</span></div>
+        <div class="book-verse">"God is love, and whoever abides in love abides in God, and God abides in him."<cite>1 John 4:16b — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'1john','ctx')">Historical Context</button>
+        <button class="tab-btn" onclick="showTab(this,'1john','teo')">Theology</button>
+        <button class="tab-btn" onclick="showTab(this,'1john','study')">In-Depth Study</button>
+      </div>
+      <div class="tab-panel active" id="1john-ctx">
+        <div class="study-block">
+          <div class="block-title">Proto-Gnosticism as the Threat</div>
+          <div class="block-body">
+            <p>1 John is written to combat a proto-gnosticism that denied the real incarnation of Jesus. The "<em>antichrists</em>" who went out from the community (2:19) probably taught that Christ was a spirit, not a real human being. John responds with the forcefulness of an eyewitness: "<em>that which we have seen with our eyes, which we looked upon and have touched with our hands</em>" (1:1). To deny that Jesus came "<em>in the flesh</em>" (4:2) is the spirit of the antichrist.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="1john-teo">
+        <div class="study-block">
+          <div class="block-title">The Three Tests of Genuine Christian Life</div>
+          <div class="block-body">
+            <p>1 John is structured around three recurring "<em>tests</em>" to discern who truly belongs to God: <strong>Doctrinal</strong> — confesses that Jesus Christ came in the flesh (4:2); <strong>Ethical</strong> — keeps the commandments (2:3–6), especially brotherly love; <strong>Relational</strong> — loves the brothers (3:14; 4:20–21). The three tests are inseparable: there is no love for God without love for neighbor, no faith without obedience, no orthodoxy without orthopraxy.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">"God Is Love": The Bible's Boldest Declaration</div>
+          <div class="block-body">
+            <p>The statement "<em>God is love</em>" (4:8,16) is Trinitarian theology. Love is not merely an attribute of God — it is his essential nature, possible because God is triune. The Father loved the Son before the creation of the world (John 17:24). The consequence: "<em>we love because he first loved us</em>" (4:19) and "<em>whoever does not love does not know God</em>" (4:8).</p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="1john-study">
+        <div class="key-verse">
+          <p>"I write these things to you who believe in the name of the Son of God, that you may know that you have eternal life."</p>
+          <cite>1 John 5:13 — ESV</cite>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════ 2 JOHN ════════════════════ -->
+    <article class="book-panel" id="panel-2john">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 63 · Epistle · New Testament</div>
+        <h2 class="book-title"><span>2 John</span></h2>
+        <div class="book-meta"><span class="book-tag">~AD 90–95</span><span class="book-tag">Apostle John</span><span class="book-tag">1 chapter · 13 verses</span></div>
+        <div class="book-verse">"And this is love, that we walk according to his commandments."<cite>2 John 6a — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'2john','ctx')">Context and Message</button>
+      </div>
+      <div class="tab-panel active" id="2john-ctx">
+        <div class="study-block">
+          <div class="block-title">The Smallest Letter in the NT</div>
+          <div class="block-body">
+            <p>With only 13 verses, 2 John is the smallest letter in the NT (together with 3 John). The author identifies himself as "<em>the elder</em>" and writes to "<em>the elect lady and her children</em>" — probably a metaphor for a local congregation and its members. The letter condenses the central theme of 1 John: <strong>love and truth are inseparable</strong>. The instruction about not receiving false teachers (10–11) concerns itinerant missionaries who denied the incarnation and used Christian hospitality to spread their heresy — the "<em>greeting</em>" is the public apostolic endorsement, not a simple "hello".</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════ 3 JOHN ════════════════════ -->
+    <article class="book-panel" id="panel-3john">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 64 · Epistle · New Testament</div>
+        <h2 class="book-title"><span>3 John</span></h2>
+        <div class="book-meta"><span class="book-tag">~AD 90–95</span><span class="book-tag">Apostle John</span><span class="book-tag">1 chapter · 14 verses</span></div>
+        <div class="book-verse">"Beloved, do not imitate evil but imitate good. Whoever does good is from God; whoever does evil has not seen God."<cite>3 John 11 — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'3john','ctx')">Context and Message</button>
+      </div>
+      <div class="tab-panel active" id="3john-ctx">
+        <div class="study-block">
+          <div class="block-title">Gaius, Diotrephes, and Demetrius: Three Church Profiles</div>
+          <div class="block-body">
+            <p>3 John is the most personal letter in the NT — a private note from John to his friend Gaius. It presents three characters who paint timeless ecclesial profiles: <strong>Gaius</strong>, commended for his faithful hospitality and for walking in the truth (1–8); <strong>Diotrephes</strong>, who "<em>likes to put himself first</em>", rejects John's authority, spreads slander, and expels from the church anyone who disagrees (9–10) — the portrait of the authoritarian leader who uses the church to exercise power; <strong>Demetrius</strong>, recommended by his good testimony from everyone and from the truth itself (12). The Greek <em>philoprōteuōn</em> ("<em>likes to put himself first</em>") appears only here in the NT — ecclesial ambition named as sin.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ════════════════════ JUDE ════════════════════ -->
+    <article class="book-panel" id="panel-jude">
+      <div class="book-header">
+        <div class="book-eyebrow">Book 65 · Epistle · New Testament</div>
+        <h2 class="book-title"><span>Jude</span></h2>
+        <div class="book-meta"><span class="book-tag">~AD 60–80</span><span class="book-tag">Jude, brother of Jesus</span><span class="book-tag">1 chapter · 25 verses</span></div>
+        <div class="book-verse">"Now to him who is able to keep you from stumbling and to present you blameless before the presence of his glory with great joy — to the only God, our Savior, through Jesus Christ our Lord, be glory, majesty, dominion, and authority."<cite>Jude 24–25a — ESV</cite></div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" onclick="showTab(this,'jude','ctx')">Context and Message</button>
+      </div>
+      <div class="tab-panel active" id="jude-ctx">
+        <div class="study-block">
+          <div class="block-title">A Letter of Urgency</div>
+          <div class="block-body">
+            <p>Jude is the brother of James and brother of the Lord (Mark 6:3). He had planned to write about the common salvation but was compelled to change subject: "<em>I found it necessary to write appealing to you to contend for the faith that was once for all delivered to the saints</em>" (3). Jude uses three OT examples of divine judgment on rebels: Israel in the wilderness (5), the angels who sinned (6), and Sodom and Gomorrah (7). He also explicitly quotes <strong>1 Enoch 1:9</strong> (vv. 14–15) — one of the few direct NT citations of extracanonical literature. This does not make 1 Enoch canonical; Jude recognizes this specific oracle as true, just as Paul quoted Greek poets in Acts 17.</p>
+          </div>
+        </div>
+        <div class="study-block">
+          <div class="block-title">The Final Doxology: The Most Beautiful in the NT</div>
+          <div class="block-body">
+            <p>Jude ends with the most elaborate and majestic doxology in the NT (24–25): "<em>Now to him who is able to keep you from stumbling and to present you blameless before the presence of his glory with great joy — to the only God, our Savior, through Jesus Christ our Lord, be glory, majesty, dominion, and authority, before all time and now and forever. Amen.</em>" It is simultaneously a promise and a doxology: God's goal for his people is not merely to save them from sin, but to present them blameless before himself with <em>great joy</em>.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /content -->
+</main>
+</div><!-- /layout -->
+
+<button class="lang-btn" onclick="goToPt()" aria-label="Switch to Portuguese">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  <span>PT</span>
+</button>
+
+<script>
+localStorage.setItem('lang', 'en');
+
+function goToPt() {
+  localStorage.setItem('lang', 'pt');
+  window.location.href = '/pt/nt-epistolas-gerais';
+}
+
+function showBook(id) {
+  document.querySelectorAll('.book-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const panel = document.getElementById('panel-' + id);
+  if (panel) {
+    panel.classList.add('active');
+    panel.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+    panel.querySelectorAll('.tab-panel').forEach((tp, i) => tp.classList.toggle('active', i === 0));
+  }
+  const btn = document.querySelector('[data-book="' + id + '"]');
+  if (btn) btn.classList.add('active');
+  closeSidebar();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showTab(btn, bookId, tabId) {
+  const panel = document.getElementById('panel-' + bookId);
+  if (!panel) return;
+  panel.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  panel.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const tp = document.getElementById(bookId + '-' + tabId);
+  if (tp) tp.classList.add('active');
+}
+
+const menuToggle = document.getElementById('menuToggle');
+const sidebar    = document.getElementById('sidebar');
+const overlay    = document.getElementById('sidebarOverlay');
+
+function openSidebar()  { sidebar.classList.add('open'); overlay.classList.add('open'); menuToggle.setAttribute('aria-expanded','true'); }
+function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); }
+
+menuToggle.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+overlay.addEventListener('click', closeSidebar);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
+</script>
+</body>
+</html>

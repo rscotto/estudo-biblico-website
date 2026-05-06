@@ -77,6 +77,15 @@ const subpages = [
     accentColor: '#c87820',
   },
   {
+    slug: 'nt-epistolas-gerais',
+    srcFile: 'nt-epistolas-gerais/index.html',
+    titlePt: 'Epístolas Gerais — Estudo Bíblico',
+    titleEn: 'General Epistles — Bible Study',
+    descPt: 'Estudo aprofundado das 8 Epístolas Gerais: Hebreus, Tiago, 1–2 Pedro, 1–3 João e Judas. Tradução NAA.',
+    descEn: 'In-depth study of the 8 General Epistles: Hebrews, James, 1–2 Peter, 1–3 John, and Jude. ESV.',
+    accentColor: '#FFA400',
+  },
+  {
     slug: 'nt-apocalipse',
     srcFile: 'nt-apocalipse/index.html',
     titlePt: 'Apocalipse — Estudo Bíblico',
