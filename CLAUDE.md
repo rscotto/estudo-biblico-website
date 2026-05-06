@@ -11,6 +11,22 @@ Bilingual (PT/EN) Bible study website deployed on Cloudflare Pages via the Astro
 
 Live site: `https://estudobiblico.pages.dev`
 
+### Completed sub-pages
+
+| Slug                  | Books          | Notes                  |
+| --------------------- | -------------- | ---------------------- |
+| `at-pentateuco`       | Gen–Deut (5)   | No `shared.css`        |
+| `at-historicos`       | Josh–Esth (12) |                        |
+| `at-poeticos`         | Job–Song (5)   |                        |
+| `at-profetas-maiores` | Isa–Dan (5)    |                        |
+| `at-profetas-menores` | Hos–Mal (12)   |                        |
+| `nt-evangelhos`       | Matt–John (4)  |                        |
+| `nt-atos`             | Acts (1)       |                        |
+| `nt-epistolas-gerais` | Heb–Jude (8)   |                        |
+| `nt-apocalipse`       | Rev (1)        |                        |
+
+**Remaining:** `nt-epistolas-paulinas` (13 books: Rom–Phlm) — not yet built.
+
 ## Commands
 
 All commands run from `astro-site/`:
