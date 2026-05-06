@@ -77,6 +77,15 @@ const subpages = [
     accentColor: '#c87820',
   },
   {
+    slug: 'nt-epistolas-paulinas',
+    srcFile: 'nt-epistolas-paulinas/index.html',
+    titlePt: 'Epístolas Paulinas — Estudo Bíblico',
+    titleEn: 'Pauline Epistles — Bible Study',
+    descPt: 'Estudo aprofundado das 13 Epístolas Paulinas: Romanos a Filemom. Teologia, contexto histórico e análise literária. Tradução NAA.',
+    descEn: 'In-depth study of the 13 Pauline Epistles: Romans to Philemon. Theology, historical context, and literary analysis. ESV.',
+    accentColor: '#FFA400',
+  },
+  {
     slug: 'nt-epistolas-gerais',
     srcFile: 'nt-epistolas-gerais/index.html',
     titlePt: 'Epístolas Gerais — Estudo Bíblico',
