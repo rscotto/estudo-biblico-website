@@ -105,7 +105,7 @@ const subpages = [
   },
 ];
 
-const siteBase = 'https://estudobiblico.pages.dev';
+const siteBase = 'https://biblia.rodrigoscotto.com';
 
 /* Inject the fixed-position dark-mode toggle + lang toggle buttons into the page body */
 function buildToggles(lang, altLangCode, altLangUrl) {
@@ -176,7 +176,7 @@ for (const page of subpages) {
     .replace(/href="\.\.\/index\.html"/g, 'href="/pt"')
     .replace(/href='\.\.\/index\.html'/g, "href='/pt'");
 
-  const ptToggles = buildToggles('pt', 'en', `${siteBase}/en/${page.slug}`);
+  const ptToggles = buildToggles('pt', 'en', `/en/${page.slug}`);
 
   const ptHtml = buildHead({
     title: page.titlePt,
@@ -215,7 +215,7 @@ ${ptBody}
       .replace(/href="\.\.\/index\.html"/g, 'href="/en"')
       .replace(/href='\.\.\/index\.html'/g, "href='/en'");
 
-    const enToggles = buildToggles('en', 'pt', `${siteBase}/pt/${page.slug}`);
+    const enToggles = buildToggles('en', 'pt', `/pt/${page.slug}`);
 
     enHtml = buildHead({
       title: page.titleEn,
@@ -240,7 +240,7 @@ ${enBody}
       .replace(/href="\.\.\/index\.html"/g, 'href="/en"')
       .replace(/href='\.\.\/index\.html'/g, "href='/en'");
 
-    const enToggles = buildToggles('en', 'pt', `${siteBase}/pt/${page.slug}`);
+    const enToggles = buildToggles('en', 'pt', `/pt/${page.slug}`);
 
     enHtml = buildHead({
       title: page.titleEn,
