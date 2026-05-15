@@ -1,0 +1,719 @@
+
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudo Bíblico — Cânon Protestante · 66 Livros</title>
+<style>
+/* ═══════════════════════════════════
+   TOKENS
+═══════════════════════════════════ */
+:root {
+  /* Light mode — editorial paper */
+  --bg:       #faf8f4;
+  --surface:  #ffffff;
+  --fg:       #221e14;
+  --muted:    #7a6e5c;
+  --border:   #e2d8ca;
+  --accent:   #FFA400;
+
+  /* Category hue palette — amber/orange family */
+  --pen-h: 73;  --pen-c: 0.19;
+  --his-h: 48;  --his-c: 0.17;
+  --poe-h: 82;  --poe-c: 0.15;
+  --mai-h: 44;  --mai-c: 0.18;
+  --men-h: 62;  --men-c: 0.16;
+  --eva-h: 76;  --eva-c: 0.18;
+  --ato-h: 50;  --ato-c: 0.16;
+  --pau-h: 66;  --pau-c: 0.17;
+  --ger-h: 79;  --ger-c: 0.15;
+  --apo-h: 37;  --apo-c: 0.17;
+  --cat-l: 48%; /* l=48% → ~5:1 contrast on white */
+
+  --font-d: 'Iowan Old Style', 'Charter', Georgia, serif;
+  --font-b: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+  --ease: cubic-bezier(.2,0,.2,1);
+  --t: .18s var(--ease);
+}
+
+[data-theme="dark"] {
+  --bg:       #1d1912;
+  --surface:  #252117;
+  --fg:       #f0e8d6;
+  --muted:    #9e9078;
+  --border:   #38321e;
+  --cat-l: 70%; /* l=70% → bright on dark bg */
+}
+
+/* ═══════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+*:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-b);
+  font-size: 16px;
+  line-height: 1.65;
+  min-height: 100dvh;
+  padding-bottom: 80px;
+  transition: background var(--t), color var(--t);
+}
+
+/* ═══════════════════════════════════
+   TOOLBAR
+═══════════════════════════════════ */
+.toolbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: flex-end;
+  gap: 4px; padding: 10px 20px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 9000;
+  transition: background var(--t), border-color var(--t);
+}
+.tbtn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 6px 12px;
+  background: none; border: 1px solid transparent;
+  color: var(--muted);
+  font-family: var(--font-b); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.4px; cursor: pointer; border-radius: 4px;
+  text-decoration: none; white-space: nowrap;
+  transition: color var(--t), border-color var(--t), background var(--t);
+}
+.tbtn:hover { color: var(--fg); }
+.tbtn svg { width: 15px; height: 15px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; }
+.tbtn-lang {
+  color: var(--accent);
+  border-color: rgba(255,164,0,.35);
+  font-weight: 600; letter-spacing: 1px;
+}
+.tbtn-lang:hover { background: rgba(255,164,0,.07); border-color: var(--accent); color: var(--accent); }
+
+/* ═══════════════════════════════════
+   LAYOUT CONTAINER
+═══════════════════════════════════ */
+.main { max-width: 1140px; margin: 0 auto; padding: 64px 20px 0; }
+
+/* ═══════════════════════════════════
+   HEADER
+═══════════════════════════════════ */
+.header { text-align: center; padding: 52px 0 44px; }
+.header-rule { width: 100%; height: 1px; background: var(--border); margin-bottom: 28px; }
+.eyebrow {
+  font-family: var(--font-b); font-size: 12px; font-weight: 700;
+  letter-spacing: 3.5px; text-transform: uppercase; color: var(--muted);
+  margin-bottom: 18px;
+}
+.masthead {
+  font-family: var(--font-d);
+  font-size: clamp(38px, 6.5vw, 76px);
+  font-weight: 400; line-height: 1.04;
+  letter-spacing: -0.02em; color: var(--fg);
+  margin-bottom: 14px;
+}
+.masthead em { font-style: italic; color: var(--accent); }
+.subline {
+  font-family: var(--font-b); font-size: 14px;
+  color: var(--muted); margin-bottom: 28px;
+}
+.header-rule-accent { width: 48px; height: 2px; background: var(--accent); margin: 0 auto; }
+
+/* ═══════════════════════════════════
+   STATS
+═══════════════════════════════════ */
+.stats {
+  display: flex; justify-content: center; align-items: stretch;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  margin-bottom: 52px;
+}
+.stat { text-align: center; flex: 1; max-width: 220px; padding: 20px 12px; }
+.stat + .stat { border-left: 1px solid var(--border); }
+.stat-n {
+  font-family: var(--font-d);
+  font-size: clamp(30px, 4.5vw, 52px);
+  font-weight: 400; line-height: 1;
+  color: var(--accent); display: block;
+}
+.stat-l {
+  font-family: var(--font-b); font-size: 10px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted); display: block; margin-top: 5px;
+}
+
+/* ═══════════════════════════════════
+   TESTAMENT DIVIDER
+═══════════════════════════════════ */
+.tdiv {
+  display: flex; align-items: center; gap: 14px;
+  margin: 44px 0 22px;
+}
+.tline { flex: 1; height: 1px; background: var(--border); }
+.tlabel {
+  font-family: var(--font-b); font-size: 13px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--muted); white-space: nowrap;
+}
+
+/* ═══════════════════════════════════
+   SECTION LABEL
+═══════════════════════════════════ */
+.slabel {
+  display: block;
+  font-family: var(--font-b); font-size: 13px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  margin: 18px 0 8px;
+  transition: color var(--t);
+}
+.slabel:hover { color: var(--accent); }
+
+/* ═══════════════════════════════════
+   GRID
+═══════════════════════════════════ */
+.g { display: grid; gap: 5px; margin-bottom: 4px; }
+.r5  { grid-template-columns: repeat(5,  1fr); }
+.r12 { grid-template-columns: repeat(12, 1fr); }
+.r4  { grid-template-columns: repeat(4,  1fr); }
+.r1  { grid-template-columns: 1fr; }
+.r13 { grid-template-columns: repeat(13, 1fr); }
+.r8  { grid-template-columns: repeat(8,  1fr); }
+
+/* ═══════════════════════════════════
+   CELL
+═══════════════════════════════════ */
+.cell {
+  position: relative;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: space-between;
+  padding: 8px 4px 7px;
+  aspect-ratio: 1 / 1.18;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top-width: 3px;
+  border-top-color: var(--cc, var(--border));
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform var(--t), box-shadow var(--t), background var(--t), border-color var(--t);
+  -webkit-tap-highlight-color: transparent;
+}
+.cell:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,.09);
+  border-color: var(--cc, var(--muted));
+  z-index: 10;
+}
+[data-theme="dark"] .cell:hover { box-shadow: 0 6px 24px rgba(0,0,0,.45); }
+.cell:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
+.cell:active { transform: translateY(0) scale(1); }
+
+/* Category token: --cc cascades to cells and legend bars on same element */
+.pen { --cc: oklch(var(--cat-l) var(--pen-c) var(--pen-h)); color: var(--cc); }
+.his { --cc: oklch(var(--cat-l) var(--his-c) var(--his-h)); color: var(--cc); }
+.poe { --cc: oklch(var(--cat-l) var(--poe-c) var(--poe-h)); color: var(--cc); }
+.mai { --cc: oklch(var(--cat-l) var(--mai-c) var(--mai-h)); color: var(--cc); }
+.men { --cc: oklch(var(--cat-l) var(--men-c) var(--men-h)); color: var(--cc); }
+.eva { --cc: oklch(var(--cat-l) var(--eva-c) var(--eva-h)); color: var(--cc); }
+.ato { --cc: oklch(var(--cat-l) var(--ato-c) var(--ato-h)); color: var(--cc); }
+.pau { --cc: oklch(var(--cat-l) var(--pau-c) var(--pau-h)); color: var(--cc); }
+.ger { --cc: oklch(var(--cat-l) var(--ger-c) var(--ger-h)); color: var(--cc); }
+.apo { --cc: oklch(var(--cat-l) var(--apo-c) var(--apo-h)); color: var(--cc); }
+
+.cn {
+  font-family: var(--font-b); font-size: clamp(8px, 1vw, 13px);
+  font-weight: 700; color: var(--muted); align-self: flex-start; line-height: 1;
+}
+.ca {
+  font-family: var(--font-d); font-style: italic;
+  font-size: clamp(10px, 1.6vw, 19px);
+  font-weight: 400; line-height: 1;
+}
+.cname {
+  font-family: var(--font-b); font-size: clamp(8px, 1vw, 13px);
+  font-weight: 700; color: var(--fg); line-height: 1.2;
+  word-break: break-word; opacity: 0.7;
+}
+
+.cell-wide {
+  aspect-ratio: 4 / 1;
+  flex-direction: row; justify-content: flex-start;
+  gap: 14px; padding: 12px 18px;
+}
+.cell-wide .cn  { font-size: 13px; }
+.cell-wide .ca  { font-size: 24px; }
+.cell-wide .cname { font-size: 14px; text-align: left; opacity: 0.75; }
+
+/* ═══════════════════════════════════
+   LEGEND
+═══════════════════════════════════ */
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 6px;
+  margin-top: 44px; padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+.li {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px; background: var(--surface);
+}
+.lbar { width: 4px; height: 30px; border-radius: 2px; flex-shrink: 0; background: var(--cc, var(--accent)); }
+.lcat {
+  font-family: var(--font-b); font-size: 9px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted); display: block; margin-bottom: 2px;
+}
+.lname {
+  font-family: var(--font-b); font-size: 13px; font-weight: 500;
+  color: var(--fg); display: block;
+}
+.lcount {
+  font-family: var(--font-b); font-size: 11px; font-weight: 600;
+  color: var(--muted); margin-left: auto; padding-left: 8px; flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════
+   MODAL
+═══════════════════════════════════ */
+.overlay {
+  display: none; position: fixed; inset: 0; z-index: 10000;
+  background: rgba(0,0,0,.45);
+  align-items: center; justify-content: center; padding: 16px;
+}
+[data-theme="dark"] .overlay { background: rgba(0,0,0,.65); }
+.overlay.open { display: flex; animation: fadeIn .2s ease; }
+@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+@keyframes slideUp { from { opacity:0; transform:translateY(22px) } to { opacity:1; transform:none } }
+
+.modal {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; max-width: 680px; width: 100%;
+  max-height: 90vh; overflow-y: auto; position: relative;
+  box-shadow: 0 20px 70px rgba(0,0,0,.13);
+  animation: slideUp .22s var(--ease);
+  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+}
+[data-theme="dark"] .modal { box-shadow: 0 20px 70px rgba(0,0,0,.5); }
+
+.mclose {
+  position: absolute; top: 16px; right: 16px;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--border); border-radius: 4px;
+  cursor: pointer; color: var(--muted);
+  transition: background var(--t), color var(--t), border-color var(--t); z-index: 1;
+}
+.mclose:hover { background: var(--bg); color: var(--fg); border-color: var(--muted); }
+.mclose:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--accent); }
+.mclose svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
+
+.modal-inner { padding: 40px 44px 44px; }
+.mhead { margin-bottom: 24px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+.mnum {
+  font-family: var(--font-b); font-size: 10px; font-weight: 600;
+  letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 10px; opacity: .85;
+}
+.mtitle {
+  font-family: var(--font-d);
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 400; line-height: 1.08; color: var(--fg); margin-bottom: 6px;
+}
+.mabbr { font-family: var(--font-b); font-size: 12px; color: var(--muted); letter-spacing: .4px; }
+.mauthor {
+  display: none; align-items: center; gap: 6px;
+  margin-top: 10px;
+  font-family: var(--font-b); font-size: 13px; color: var(--muted);
+}
+.mauthor.vis { display: flex; }
+.mauthor svg { width: 13px; height: 13px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; }
+.mchar-label {
+  font-family: var(--font-b); font-size: 9px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--muted);
+  display: block; margin-top: 14px; opacity: .75;
+}
+.mchars { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+.mchar-tag {
+  font-family: var(--font-b); font-size: 11px;
+  padding: 3px 10px; border-radius: 3px;
+  background: var(--bg); border: 1px solid var(--border); color: var(--muted);
+}
+.mtags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 20px; }
+.mtag {
+  font-family: var(--font-b); font-size: 10px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 3px;
+  background: rgba(255,164,0,.08); border: 1px solid rgba(255,164,0,.2);
+  color: var(--accent);
+}
+.msecttitle {
+  font-family: var(--font-b); font-size: 9px; font-weight: 600;
+  letter-spacing: 3.5px; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 16px; opacity: .7;
+}
+.mbody {
+  font-family: var(--font-b); font-size: 15.5px;
+  line-height: 1.82; color: var(--fg);
+  text-align: justify; hyphens: auto;
+}
+.mbody p { margin-bottom: 14px; }
+.mbody p:last-child { margin-bottom: 0; }
+.mbody strong { color: var(--accent); font-weight: 600; }
+.mverse {
+  display: none;
+  font-family: var(--font-d); font-style: italic; font-size: 17px;
+  line-height: 1.65; color: var(--muted);
+  border-left: 3px solid var(--accent);
+  padding: 14px 0 14px 22px; margin-top: 28px;
+}
+.mverse.vis { display: block; }
+.mverse cite {
+  display: block; font-style: normal;
+  font-family: var(--font-b); font-size: 9px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--accent); margin-top: 8px; opacity: .8;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+@media (max-width: 900px) {
+  .main { padding: 58px 16px 0; }
+  .modal-inner { padding: 28px 24px 32px; }
+}
+@media (max-width: 700px) {
+  .r12 { grid-template-columns: repeat(6,  1fr); }
+  .r13 { grid-template-columns: repeat(7,  1fr); }
+  .r8  { grid-template-columns: repeat(4,  1fr); }
+  .cell { aspect-ratio: 1 / 1.25; }
+  .cname { font-size: clamp(5px, 1.6vw, 8px); }
+  .ca    { font-size: clamp(9px, 2.4vw, 16px); }
+}
+@media (max-width: 480px) {
+  .toolbar { padding: 8px 14px; }
+  .r5  { grid-template-columns: repeat(5,  1fr); }
+  .r12 { grid-template-columns: repeat(6,  1fr); }
+  .r13 { grid-template-columns: repeat(7,  1fr); }
+  .r8  { grid-template-columns: repeat(4,  1fr); }
+  .r4  { grid-template-columns: repeat(4,  1fr); }
+  .cn  { display: none; }
+  .stats { flex-wrap: wrap; }
+  .stat { flex: 0 0 50%; border-left: none !important; border-top: 1px solid var(--border); }
+  .stat:first-child { flex: 0 0 100%; border-top: none; }
+  .legend { grid-template-columns: repeat(2, 1fr); }
+  .modal-inner { padding: 20px 16px 24px; }
+  .mtitle { font-size: 22px; }
+  .mbody { font-size: 14.5px; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button class="tbtn" id="themeBtn" onclick="toggleTheme()" aria-label="Alternar modo claro/escuro">
+    <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+  </button>
+  <a href="/en" class="tbtn tbtn-lang" aria-label="Switch to English">EN</a>
+</div>
+
+<div class="main">
+
+  <header class="header">
+    <div class="header-rule"></div>
+    <p class="eyebrow">Cânon Protestante · 66 Livros · Tradução NAA</p>
+    <h1 class="masthead">Estudo <em>Bíblico</em></h1>
+    <p class="subline">Selecione um livro para ver contexto histórico e resumo completo</p>
+    <div class="header-rule-accent"></div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-n">66</span><span class="stat-l">Total</span></div>
+    <div class="stat"><span class="stat-n">39</span><span class="stat-l">Antigo Testamento</span></div>
+    <div class="stat"><span class="stat-n">27</span><span class="stat-l">Novo Testamento</span></div>
+  </div>
+
+  <div class="tdiv"><div class="tline"></div><span class="tlabel">Antigo Testamento</span><div class="tline"></div></div>
+
+  <a href="/pt/at-pentateuco" class="slabel">Pentateuco · Lei · 5 livros</a>
+  <div class="g r5">
+    <button onclick="show('gn')"  class="cell pen"><span class="cn">1</span><span class="ca">Gn</span><span class="cname">Gênesis</span></button>
+    <button onclick="show('ex')"  class="cell pen"><span class="cn">2</span><span class="ca">Êx</span><span class="cname">Êxodo</span></button>
+    <button onclick="show('lv')"  class="cell pen"><span class="cn">3</span><span class="ca">Lv</span><span class="cname">Levítico</span></button>
+    <button onclick="show('nm')"  class="cell pen"><span class="cn">4</span><span class="ca">Nm</span><span class="cname">Números</span></button>
+    <button onclick="show('dt')"  class="cell pen"><span class="cn">5</span><span class="ca">Dt</span><span class="cname">Deuteronômio</span></button>
+  </div>
+
+  <a href="/pt/at-historicos" class="slabel">Históricos · 12 livros</a>
+  <div class="g r12">
+    <button onclick="show('js')"  class="cell his"><span class="cn">6</span><span class="ca">Js</span><span class="cname">Josué</span></button>
+    <button onclick="show('jz')"  class="cell his"><span class="cn">7</span><span class="ca">Jz</span><span class="cname">Juízes</span></button>
+    <button onclick="show('rt')"  class="cell his"><span class="cn">8</span><span class="ca">Rt</span><span class="cname">Rute</span></button>
+    <button onclick="show('sm1')" class="cell his"><span class="cn">9</span><span class="ca">1Sm</span><span class="cname">1 Samuel</span></button>
+    <button onclick="show('sm2')" class="cell his"><span class="cn">10</span><span class="ca">2Sm</span><span class="cname">2 Samuel</span></button>
+    <button onclick="show('rs1')" class="cell his"><span class="cn">11</span><span class="ca">1Rs</span><span class="cname">1 Reis</span></button>
+    <button onclick="show('rs2')" class="cell his"><span class="cn">12</span><span class="ca">2Rs</span><span class="cname">2 Reis</span></button>
+    <button onclick="show('cr1')" class="cell his"><span class="cn">13</span><span class="ca">1Cr</span><span class="cname">1 Crônicas</span></button>
+    <button onclick="show('cr2')" class="cell his"><span class="cn">14</span><span class="ca">2Cr</span><span class="cname">2 Crônicas</span></button>
+    <button onclick="show('ed')"  class="cell his"><span class="cn">15</span><span class="ca">Ed</span><span class="cname">Esdras</span></button>
+    <button onclick="show('ne')"  class="cell his"><span class="cn">16</span><span class="ca">Ne</span><span class="cname">Neemias</span></button>
+    <button onclick="show('et')"  class="cell his"><span class="cn">17</span><span class="ca">Et</span><span class="cname">Ester</span></button>
+  </div>
+
+  <a href="/pt/at-poeticos" class="slabel">Poéticos · Sapienciais · 5 livros</a>
+  <div class="g r5">
+    <button onclick="show('jo')"  class="cell poe"><span class="cn">18</span><span class="ca">Jó</span><span class="cname">Jó</span></button>
+    <button onclick="show('sl')"  class="cell poe"><span class="cn">19</span><span class="ca">Sl</span><span class="cname">Salmos</span></button>
+    <button onclick="show('pv')"  class="cell poe"><span class="cn">20</span><span class="ca">Pv</span><span class="cname">Provérbios</span></button>
+    <button onclick="show('ec')"  class="cell poe"><span class="cn">21</span><span class="ca">Ec</span><span class="cname">Eclesiastes</span></button>
+    <button onclick="show('ct')"  class="cell poe"><span class="cn">22</span><span class="ca">Ct</span><span class="cname">Cantares</span></button>
+  </div>
+
+  <a href="/pt/at-profetas-maiores" class="slabel">Profetas Maiores · 5 livros</a>
+  <div class="g r5">
+    <button onclick="show('is')"  class="cell mai"><span class="cn">23</span><span class="ca">Is</span><span class="cname">Isaías</span></button>
+    <button onclick="show('jr')"  class="cell mai"><span class="cn">24</span><span class="ca">Jr</span><span class="cname">Jeremias</span></button>
+    <button onclick="show('lm')"  class="cell mai"><span class="cn">25</span><span class="ca">Lm</span><span class="cname">Lamentações</span></button>
+    <button onclick="show('ez')"  class="cell mai"><span class="cn">26</span><span class="ca">Ez</span><span class="cname">Ezequiel</span></button>
+    <button onclick="show('dn')"  class="cell mai"><span class="cn">27</span><span class="ca">Dn</span><span class="cname">Daniel</span></button>
+  </div>
+
+  <a href="/pt/at-profetas-menores" class="slabel">Profetas Menores · 12 livros</a>
+  <div class="g r12">
+    <button onclick="show('os')"  class="cell men"><span class="cn">28</span><span class="ca">Os</span><span class="cname">Oseias</span></button>
+    <button onclick="show('jl')"  class="cell men"><span class="cn">29</span><span class="ca">Jl</span><span class="cname">Joel</span></button>
+    <button onclick="show('am')"  class="cell men"><span class="cn">30</span><span class="ca">Am</span><span class="cname">Amós</span></button>
+    <button onclick="show('ob')"  class="cell men"><span class="cn">31</span><span class="ca">Ob</span><span class="cname">Obadias</span></button>
+    <button onclick="show('jn')"  class="cell men"><span class="cn">32</span><span class="ca">Jn</span><span class="cname">Jonas</span></button>
+    <button onclick="show('mq')"  class="cell men"><span class="cn">33</span><span class="ca">Mq</span><span class="cname">Miquéias</span></button>
+    <button onclick="show('na')"  class="cell men"><span class="cn">34</span><span class="ca">Na</span><span class="cname">Naum</span></button>
+    <button onclick="show('hc')"  class="cell men"><span class="cn">35</span><span class="ca">Hc</span><span class="cname">Habacuque</span></button>
+    <button onclick="show('sf')"  class="cell men"><span class="cn">36</span><span class="ca">Sf</span><span class="cname">Sofonias</span></button>
+    <button onclick="show('ag')"  class="cell men"><span class="cn">37</span><span class="ca">Ag</span><span class="cname">Ageu</span></button>
+    <button onclick="show('zc')"  class="cell men"><span class="cn">38</span><span class="ca">Zc</span><span class="cname">Zacarias</span></button>
+    <button onclick="show('ml')"  class="cell men"><span class="cn">39</span><span class="ca">Ml</span><span class="cname">Malaquias</span></button>
+  </div>
+
+  <div class="tdiv"><div class="tline"></div><span class="tlabel">Novo Testamento</span><div class="tline"></div></div>
+
+  <a href="/pt/nt-evangelhos" class="slabel">Evangelhos · 4 livros</a>
+  <div class="g r4">
+    <button onclick="show('mt')"  class="cell eva"><span class="cn">40</span><span class="ca">Mt</span><span class="cname">Mateus</span></button>
+    <button onclick="show('mc')"  class="cell eva"><span class="cn">41</span><span class="ca">Mc</span><span class="cname">Marcos</span></button>
+    <button onclick="show('lc')"  class="cell eva"><span class="cn">42</span><span class="ca">Lc</span><span class="cname">Lucas</span></button>
+    <button onclick="show('joe')" class="cell eva"><span class="cn">43</span><span class="ca">Jo</span><span class="cname">João</span></button>
+  </div>
+
+  <a href="/pt/nt-atos" class="slabel">Histórico · NT · 1 livro</a>
+  <div class="g r1">
+    <button onclick="show('at')" class="cell ato cell-wide">
+      <span class="cn">44</span><span class="ca">At</span><span class="cname">Atos dos Apóstolos</span>
+    </button>
+  </div>
+
+  <a href="/pt/nt-epistolas-paulinas" class="slabel">Epístolas Paulinas · 13 livros</a>
+  <div class="g r13">
+    <button onclick="show('rm')"  class="cell pau"><span class="cn">45</span><span class="ca">Rm</span><span class="cname">Romanos</span></button>
+    <button onclick="show('co1')" class="cell pau"><span class="cn">46</span><span class="ca">1Co</span><span class="cname">1 Coríntios</span></button>
+    <button onclick="show('co2')" class="cell pau"><span class="cn">47</span><span class="ca">2Co</span><span class="cname">2 Coríntios</span></button>
+    <button onclick="show('gl')"  class="cell pau"><span class="cn">48</span><span class="ca">Gl</span><span class="cname">Gálatas</span></button>
+    <button onclick="show('ef')"  class="cell pau"><span class="cn">49</span><span class="ca">Ef</span><span class="cname">Efésios</span></button>
+    <button onclick="show('fp')"  class="cell pau"><span class="cn">50</span><span class="ca">Fp</span><span class="cname">Filipenses</span></button>
+    <button onclick="show('cl')"  class="cell pau"><span class="cn">51</span><span class="ca">Cl</span><span class="cname">Colossenses</span></button>
+    <button onclick="show('ts1')" class="cell pau"><span class="cn">52</span><span class="ca">1Ts</span><span class="cname">1 Tessalonicenses</span></button>
+    <button onclick="show('ts2')" class="cell pau"><span class="cn">53</span><span class="ca">2Ts</span><span class="cname">2 Tessalonicenses</span></button>
+    <button onclick="show('tm1')" class="cell pau"><span class="cn">54</span><span class="ca">1Tm</span><span class="cname">1 Timóteo</span></button>
+    <button onclick="show('tm2')" class="cell pau"><span class="cn">55</span><span class="ca">2Tm</span><span class="cname">2 Timóteo</span></button>
+    <button onclick="show('tt')"  class="cell pau"><span class="cn">56</span><span class="ca">Tt</span><span class="cname">Tito</span></button>
+    <button onclick="show('fm')"  class="cell pau"><span class="cn">57</span><span class="ca">Fm</span><span class="cname">Filemon</span></button>
+  </div>
+
+  <a href="/pt/nt-epistolas-gerais" class="slabel">Epístolas Gerais · 8 livros</a>
+  <div class="g r8">
+    <button onclick="show('hb')"  class="cell ger"><span class="cn">58</span><span class="ca">Hb</span><span class="cname">Hebreus</span></button>
+    <button onclick="show('tg')"  class="cell ger"><span class="cn">59</span><span class="ca">Tg</span><span class="cname">Tiago</span></button>
+    <button onclick="show('pe1')" class="cell ger"><span class="cn">60</span><span class="ca">1Pe</span><span class="cname">1 Pedro</span></button>
+    <button onclick="show('pe2')" class="cell ger"><span class="cn">61</span><span class="ca">2Pe</span><span class="cname">2 Pedro</span></button>
+    <button onclick="show('jo1')" class="cell ger"><span class="cn">62</span><span class="ca">1Jo</span><span class="cname">1 João</span></button>
+    <button onclick="show('jo2')" class="cell ger"><span class="cn">63</span><span class="ca">2Jo</span><span class="cname">2 João</span></button>
+    <button onclick="show('jo3')" class="cell ger"><span class="cn">64</span><span class="ca">3Jo</span><span class="cname">3 João</span></button>
+    <button onclick="show('jd')"  class="cell ger"><span class="cn">65</span><span class="ca">Jd</span><span class="cname">Judas</span></button>
+  </div>
+
+  <a href="/pt/nt-apocalipse" class="slabel">Profético · NT · 1 livro</a>
+  <div class="g r1">
+    <button onclick="show('ap')" class="cell apo cell-wide">
+      <span class="cn">66</span><span class="ca">Ap</span><span class="cname">Apocalipse</span>
+    </button>
+  </div>
+
+  <div class="tdiv" style="margin-top:44px"><div class="tline"></div><span class="tlabel">Categorias</span><div class="tline"></div></div>
+  <div class="legend">
+    <div class="li"><div class="lbar pen"></div><div><span class="lcat">AT · Lei</span><span class="lname">Pentateuco</span></div><span class="lcount">5</span></div>
+    <div class="li"><div class="lbar his"></div><div><span class="lcat">AT · Narrativa</span><span class="lname">Históricos</span></div><span class="lcount">12</span></div>
+    <div class="li"><div class="lbar poe"></div><div><span class="lcat">AT · Sabedoria</span><span class="lname">Poéticos</span></div><span class="lcount">5</span></div>
+    <div class="li"><div class="lbar mai"></div><div><span class="lcat">AT · Profecia</span><span class="lname">Prof. Maiores</span></div><span class="lcount">5</span></div>
+    <div class="li"><div class="lbar men"></div><div><span class="lcat">AT · Profecia</span><span class="lname">Prof. Menores</span></div><span class="lcount">12</span></div>
+    <div class="li"><div class="lbar eva"></div><div><span class="lcat">NT · Biografia</span><span class="lname">Evangelhos</span></div><span class="lcount">4</span></div>
+    <div class="li"><div class="lbar ato"></div><div><span class="lcat">NT · Narrativa</span><span class="lname">Atos</span></div><span class="lcount">1</span></div>
+    <div class="li"><div class="lbar pau"></div><div><span class="lcat">NT · Epístola</span><span class="lname">Paulinas</span></div><span class="lcount">13</span></div>
+    <div class="li"><div class="lbar ger"></div><div><span class="lcat">NT · Epístola</span><span class="lname">Gerais</span></div><span class="lcount">8</span></div>
+    <div class="li"><div class="lbar apo"></div><div><span class="lcat">NT · Profecia</span><span class="lname">Apocalipse</span></div><span class="lcount">1</span></div>
+  </div>
+
+</div>
+
+<div class="overlay" id="overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <button class="mclose" onclick="close_()" aria-label="Fechar">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-inner">
+      <div class="mhead">
+        <div class="mnum" id="m-num"></div>
+        <h2 class="mtitle" id="m-title"></h2>
+        <div class="mabbr" id="m-abbr"></div>
+        <div class="mauthor" id="m-author">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span id="m-author-text"></span>
+        </div>
+        <div id="m-chars-wrap" style="display:none">
+          <span class="mchar-label">Personagens principais</span>
+          <div class="mchars" id="m-chars"></div>
+        </div>
+      </div>
+      <div class="mtags" id="m-tags"></div>
+      <div class="msecttitle">Contexto &amp; Resumo</div>
+      <div class="mbody" id="m-body"></div>
+      <div class="mverse" id="m-verse"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── THEME ── */
+const root = document.documentElement;
+const saved = localStorage.getItem('ebTheme');
+const sys = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+root.setAttribute('data-theme', saved || sys);
+setIcon(saved || sys);
+
+function toggleTheme() {
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', next);
+  localStorage.setItem('ebTheme', next);
+  setIcon(next);
+}
+function setIcon(t) {
+  document.getElementById('themeIcon').innerHTML = t === 'dark'
+    ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
+    : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+}
+
+/* ── BOOK DATA ── */
+const DB = {
+  gn: {
+    num:'Livro 1 · Antigo Testamento', title:'Gênesis', abbr:'Gn · Pentateuco · Lei',
+    author:'Moisés (tradição mosaica)',
+    chars:['Adão','Eva','Noé','Abraão','Sara','Isaque','Jacó','José'],
+    tags:['Criação','Queda','Aliança','Patriarcas','Providência','Tipologia'],
+    body:`<p><strong>Contexto:</strong> Gênesis (hebraico <em>Bereshit</em> — "no princípio") é o livro das origens: da criação, da humanidade, do pecado e do povo de Israel. Atribuído a Moisés, serve de fundamento a toda a teologia bíblica subsequente.</p>
+<p><strong>Estrutura:</strong> Os capítulos 1–11 narram a história primeva — criação, queda, dilúvio, Torre de Babel. A partir do capítulo 12, a narrativa estreita para a história patriarcal: a chamada de Abrão e as três promessas divinas — terra, descendência e bênção a todas as nações (12.1–3). O livro encerra com a saga de <strong>José</strong> — traído, vendido como escravo e elevado a vice-rei do Egito — paradigma da providência divina.</p>
+<p><strong>Teologia central:</strong> Gênesis estabelece a aliança (<em>berith</em>), o monoteísmo criador e o ser humano como <em>imago Dei</em> (1.26–27). A promessa de 3.15 — a "semente da mulher" que esmagará a cabeça da serpente — é considerada pela tradição cristã a primeira profecia messiânica (<em>protoevangelium</em>).</p>`,
+    verse:'"No princípio, Deus criou os céus e a terra." <cite>Gênesis 1.1 — NAA</cite>'
+  },
+  sl: {
+    num:'Livro 19 · Antigo Testamento', title:'Salmos', abbr:'Sl · Poéticos · Sapienciais',
+    author:'Davi e outros (coleção compilada)',
+    chars:['Davi','Asafe','Coré','Salomão','Moisés'],
+    tags:['Louvor','Lamento','Sabedoria','Realeza','Esperança messiânica'],
+    body:`<p><strong>Salmos</strong> é o hinário de Israel — 150 poemas divididos em cinco livros que espelham o Pentateuco. Abrange toda a gama da experiência humana diante de Deus: exultante adoração, agonia de abandono, gratidão pela criação e esperança escatológica.</p>
+<p>Gêneros principais: <strong>hinos de louvor</strong>, <strong>lamentos individuais e coletivos</strong> (o tipo mais frequente), <strong>salmos de confiança</strong> e <strong>salmos reais</strong> — estes com dimensão messiânica apontando para Cristo (Sl 2, 22, 45, 72, 110).</p>
+<p>O <strong>Salmo 119</strong>, com 176 versículos organizados como acróstico hebraico, é o mais longo de toda a Escritura.</p>`,
+    verse:'"O <span style="font-variant:small-caps">Senhor</span> é o meu pastor; nada me faltará." <cite>Salmos 23.1 — NAA</cite>'
+  },
+  mt: {
+    num:'Livro 40 · Novo Testamento', title:'Mateus', abbr:'Mt · Evangelhos · NT',
+    author:'Mateus (apóstolo, cobrador de impostos)',
+    chars:['Jesus','Mateus','Pedro','João Batista','Herodes','Pilatos','Maria'],
+    tags:['Messias','Reino dos Céus','Sermão do Monte','Cumprimento da Lei','Grande Comissão'],
+    body:`<p><strong>Mateus</strong> é o Evangelho do Messias de Israel. Escrito a uma comunidade judaico-cristã, apresenta Jesus como o <strong>cumprimento de toda a esperança do Antigo Testamento</strong>, com mais de quarenta citações explícitas.</p>
+<p>O livro estrutura-se em torno de <strong>cinco grandes discursos</strong>: o Sermão do Monte (caps. 5–7), as instruções missionárias (cap. 10), as parábolas do Reino (cap. 13), o ensinamento sobre a comunidade (cap. 18) e o discurso escatológico (caps. 24–25).</p>
+<p>O tema central é o <strong>Reino dos Céus</strong>: sua chegada na pessoa de Jesus, seus critérios (bem-aventuranças) e seu horizonte final. O livro termina com a Grande Comissão — missão universal, não mais restrita a Israel.</p>`,
+    verse:'"Ide, portanto, e fazei discípulos de todas as nações, batizando-os em nome do Pai, e do Filho, e do Espírito Santo." <cite>Mateus 28.19 — NAA</cite>'
+  }
+};
+const TITLES = {
+  ex:'Êxodo',lv:'Levítico',nm:'Números',dt:'Deuteronômio',js:'Josué',jz:'Juízes',rt:'Rute',
+  sm1:'1 Samuel',sm2:'2 Samuel',rs1:'1 Reis',rs2:'2 Reis',cr1:'1 Crônicas',cr2:'2 Crônicas',
+  ed:'Esdras',ne:'Neemias',et:'Ester',jo:'Jó',pv:'Provérbios',ec:'Eclesiastes',
+  ct:'Cantares de Salomão',is:'Isaías',jr:'Jeremias',lm:'Lamentações',ez:'Ezequiel',dn:'Daniel',
+  os:'Oseias',jl:'Joel',am:'Amós',ob:'Obadias',jn:'Jonas',mq:'Miquéias',na:'Naum',
+  hc:'Habacuque',sf:'Sofonias',ag:'Ageu',zc:'Zacarias',ml:'Malaquias',mc:'Marcos',lc:'Lucas',
+  joe:'João',at:'Atos dos Apóstolos',rm:'Romanos',co1:'1 Coríntios',co2:'2 Coríntios',
+  gl:'Gálatas',ef:'Efésios',fp:'Filipenses',cl:'Colossenses',ts1:'1 Tessalonicenses',
+  ts2:'2 Tessalonicenses',tm1:'1 Timóteo',tm2:'2 Timóteo',tt:'Tito',fm:'Filemom',
+  hb:'Hebreus',tg:'Tiago',pe1:'1 Pedro',pe2:'2 Pedro',jo1:'1 João',jo2:'2 João',
+  jo3:'3 João',jd:'Judas',ap:'Apocalipse'
+};
+const ORDERS = {
+  ex:2,lv:3,nm:4,dt:5,js:6,jz:7,rt:8,sm1:9,sm2:10,rs1:11,rs2:12,cr1:13,cr2:14,
+  ed:15,ne:16,et:17,jo:18,pv:20,ec:21,ct:22,is:23,jr:24,lm:25,ez:26,dn:27,os:28,
+  jl:29,am:30,ob:31,jn:32,mq:33,na:34,hc:35,sf:36,ag:37,zc:38,ml:39,mc:41,lc:42,
+  joe:43,at:44,rm:45,co1:46,co2:47,gl:48,ef:49,fp:50,cl:51,ts1:52,ts2:53,tm1:54,
+  tm2:55,tt:56,fm:57,hb:58,tg:59,pe1:60,pe2:61,jo1:62,jo2:63,jo3:64,jd:65,ap:66
+};
+
+/* ── MODAL ── */
+window.show = function(id) {
+  const n = ORDERS[id] || 1;
+  const b = DB[id] || {
+    num:`Livro ${n} · ${n <= 39 ? 'Antigo' : 'Novo'} Testamento`,
+    title: TITLES[id] || id, abbr:'', author:'', chars:[], tags:[],
+    body:`<p>Acesse a seção acima para estudar <strong>${TITLES[id]||id}</strong> com contexto histórico completo, teologia e versículos-chave.</p>`,
+    verse:''
+  };
+  $('m-num').textContent   = b.num;
+  $('m-title').textContent = b.title;
+  $('m-abbr').textContent  = b.abbr;
+  const au = $('m-author');
+  $('m-author-text').textContent = b.author || '';
+  au.classList.toggle('vis', !!b.author);
+  const cw = $('m-chars-wrap'), cc = $('m-chars');
+  if (b.chars && b.chars.length) {
+    cc.innerHTML = b.chars.map(c=>`<span class="mchar-tag">${c}</span>`).join('');
+    cw.style.display = 'block';
+  } else { cw.style.display = 'none'; }
+  $('m-tags').innerHTML = (b.tags||[]).map(t=>`<span class="mtag">${t}</span>`).join('');
+  $('m-body').innerHTML = b.body;
+  const ve = $('m-verse');
+  ve.innerHTML = b.verse || '';
+  ve.classList.toggle('vis', !!b.verse);
+  $('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  $('modal').scrollTop = 0;
+};
+window.close_ = function() {
+  $('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+};
+window.closeModal = function(e) { if (e.target === $('overlay')) close_(); };
+document.addEventListener('keydown', e => { if (e.key === 'Escape') close_(); });
+function $(id) { return document.getElementById(id); }
+try { localStorage.setItem('lang','pt'); } catch(e) {}
+</script>
+</body>
+</html>
