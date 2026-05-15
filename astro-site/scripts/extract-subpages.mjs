@@ -107,6 +107,35 @@ const subpages = [
 
 const siteBase = 'https://estudobiblico.pages.dev';
 
+/* Inject the fixed-position dark-mode toggle + lang toggle buttons into the page body */
+function buildToggles(lang, altLangCode, altLangUrl) {
+  const sunPath = 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.36-6.36-.71.71M6.34 17.66l-.7.7M17.66 17.66l.7.7M6.35 6.35l-.71-.71M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z';
+  const moonPath = 'M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z';
+  const langLabel = lang === 'pt' ? 'EN' : 'PT';
+  return `
+<a class="lang-toggle" href="${altLangUrl}" aria-label="Switch to ${altLangCode.toUpperCase()}">${langLabel}</a>
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+  <svg viewBox="0 0 24 24"><path id="themeIconPath" d="${sunPath}"/></svg>
+</button>
+<script>
+(function(){
+  var html = document.documentElement;
+  var btn  = document.getElementById('themeToggle');
+  var path = document.getElementById('themeIconPath');
+  var sun  = '${sunPath}';
+  var moon = '${moonPath}';
+  function setIcon(dark){ path.setAttribute('d', dark ? moon : sun); }
+  setIcon(html.getAttribute('data-theme') === 'dark');
+  btn.addEventListener('click', function(){
+    var dark = html.getAttribute('data-theme') !== 'dark';
+    html.setAttribute('data-theme', dark ? 'dark' : 'light');
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    setIcon(dark);
+  });
+})();
+<\/script>`;
+}
+
 function buildHead(opts) {
   const { title, description, lang, canonical, altLangCode, altLangUrl, accentColor } = opts;
   const htmlLang = lang === 'en' ? 'en' : 'pt-BR';
@@ -115,31 +144,39 @@ function buildHead(opts) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 <title>${title}</title>
 <meta name="description" content="${description}">
 <link rel="canonical" href="${canonical}">
 <link rel="alternate" hreflang="${lang}" href="${canonical}">
 <link rel="alternate" hreflang="${altLangCode}" href="${altLangUrl}">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/shared.css">`;
+<link rel="stylesheet" href="/shared.css">
+<script>(function(){var t=localStorage.getItem('theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark');})();<\/script>`;
 }
 
 for (const page of subpages) {
   const html = fs.readFileSync(path.join(rootDir, page.srcFile), 'utf-8');
 
-  // Extract the per-page <style> block (the :root vars after shared.css link)
+  // Extract only --accent from the per-page inline style (shared.css handles everything else)
   const styleMatch = html.match(/<style>([\s\S]*?)<\/style>/);
   const inlineStyle = styleMatch ? styleMatch[1].trim() : '';
+  const accentMatch = inlineStyle.match(/--accent\s*:\s*([^;]+);/);
+  const accentVal   = accentMatch ? accentMatch[1].trim() : page.accentColor;
 
   // Extract <body>...</body> content
   const bodyStart = html.indexOf('<body>') + 6;
   const bodyEnd   = html.lastIndexOf('</body>');
   let bodyContent = html.slice(bodyStart, bodyEnd).trim();
 
+  // Strip any <script> blocks that reference old toggleLang / setLang patterns
+  // (language switching is now handled by the injected .lang-toggle anchor)
+
   // PT page: fix back-link from ../index.html → /pt
   const ptBody = bodyContent
     .replace(/href="\.\.\/index\.html"/g, 'href="/pt"')
     .replace(/href='\.\.\/index\.html'/g, "href='/pt'");
+
+  const ptToggles = buildToggles('pt', 'en', `${siteBase}/en/${page.slug}`);
 
   const ptHtml = buildHead({
     title: page.titlePt,
@@ -148,13 +185,12 @@ for (const page of subpages) {
     canonical: `${siteBase}/pt/${page.slug}`,
     altLangCode: 'en',
     altLangUrl: `${siteBase}/en/${page.slug}`,
-    accentColor: page.accentColor,
+    accentColor: accentVal,
   }) + `
-<style>
-${inlineStyle}
-</style>
+<style>:root { --accent: ${accentVal}; }</style>
 </head>
 <body>
+${ptToggles}
 ${ptBody}
 </body>
 </html>`;
@@ -168,6 +204,8 @@ ${ptBody}
     const enSrc = fs.readFileSync(enSrcPath, 'utf-8');
     const enStyleMatch = enSrc.match(/<style>([\s\S]*?)<\/style>/);
     const enInlineStyle = enStyleMatch ? enStyleMatch[1].trim() : inlineStyle;
+    const enAccentMatch = enInlineStyle.match(/--accent\s*:\s*([^;]+);/);
+    const enAccentVal   = enAccentMatch ? enAccentMatch[1].trim() : accentVal;
     const enBodyStart = enSrc.indexOf('<body>') + 6;
     const enBodyEnd   = enSrc.lastIndexOf('</body>');
     const enBodyRaw   = enSrc.slice(enBodyStart, enBodyEnd).trim();
@@ -177,6 +215,8 @@ ${ptBody}
       .replace(/href="\.\.\/index\.html"/g, 'href="/en"')
       .replace(/href='\.\.\/index\.html'/g, "href='/en'");
 
+    const enToggles = buildToggles('en', 'pt', `${siteBase}/pt/${page.slug}`);
+
     enHtml = buildHead({
       title: page.titleEn,
       description: page.descEn,
@@ -184,13 +224,12 @@ ${ptBody}
       canonical: `${siteBase}/en/${page.slug}`,
       altLangCode: 'pt',
       altLangUrl: `${siteBase}/pt/${page.slug}`,
-      accentColor: page.accentColor,
+      accentColor: enAccentVal,
     }) + `
-<style>
-${enInlineStyle}
-</style>
+<style>:root { --accent: ${enAccentVal}; }</style>
 </head>
 <body>
+${enToggles}
 ${enBody}
 </body>
 </html>`;
@@ -201,6 +240,8 @@ ${enBody}
       .replace(/href="\.\.\/index\.html"/g, 'href="/en"')
       .replace(/href='\.\.\/index\.html'/g, "href='/en'");
 
+    const enToggles = buildToggles('en', 'pt', `${siteBase}/pt/${page.slug}`);
+
     enHtml = buildHead({
       title: page.titleEn,
       description: page.descEn,
@@ -208,13 +249,12 @@ ${enBody}
       canonical: `${siteBase}/en/${page.slug}`,
       altLangCode: 'pt',
       altLangUrl: `${siteBase}/pt/${page.slug}`,
-      accentColor: page.accentColor,
+      accentColor: accentVal,
     }) + `
-<style>
-${inlineStyle}
-</style>
+<style>:root { --accent: ${accentVal}; }</style>
 </head>
 <body>
+${enToggles}
 ${enBody}
 </body>
 </html>`;
