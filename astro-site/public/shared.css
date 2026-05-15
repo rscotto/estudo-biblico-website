@@ -14,7 +14,7 @@
   --accent:    #FFA400;
 
   --font-d: 'Iowan Old Style', 'Charter', Georgia, serif;
-  --font-b: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-b: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 
   --shadow-sm: 0 2px 8px rgba(34,30,20,.07);
   --shadow-md: 0 8px 32px rgba(34,30,20,.13);
@@ -38,6 +38,9 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 *:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 html { scroll-behavior: smooth; }
+
+/* ── BASE ELEMENT TYPOGRAPHY — applies to all sub-pages regardless of class names ── */
+h1, h2, h3, h4 { font-family: var(--font-d); }
 
 body {
   background: var(--bg);
