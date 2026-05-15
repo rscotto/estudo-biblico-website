@@ -107,6 +107,70 @@ const subpages = [
 
 const siteBase = 'https://biblia.rodrigoscotto.com';
 
+/**
+ * Process a source page's <style> block for the new editorial-monocle theme.
+ * - Replaces old Google Fonts families with CSS variable references
+ * - Strips the original :root block (we inject our own light/dark tokens)
+ * - Returns a complete <style> element with remapped tokens + original rules
+ */
+function processStyle(rawCss, accentVal) {
+  if (!rawCss.trim()) return '';
+
+  // 1. Replace old font families with CSS variable references
+  let css = rawCss
+    .replace(/'Cinzel Decorative'\s*,\s*serif/g, 'var(--font-d, Georgia, serif)')
+    .replace(/'Cinzel'\s*,\s*serif/g, 'var(--font-b, system-ui, sans-serif)')
+    .replace(/'EB Garamond'\s*,\s*serif/g, 'var(--font-b, system-ui, sans-serif)');
+
+  // 2. Remove original :root block (no nested braces in these files)
+  css = css.replace(/:root\s*\{[^}]*\}/g, '');
+
+  // 3. Build light/dark variable blocks
+  const tokens = `
+:root {
+  --font-d: 'Iowan Old Style', Charter, Georgia, serif;
+  --font-b: 'Roboto', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  /* Light mode — editorial-monocle remapping of original dark-theme variables */
+  --navy:        #faf8f4;
+  --navy-mid:    #f0ebe0;
+  --navy-light:  #e2d8ca;
+  --sand:        #221e14;
+  --sand-dark:   #3a3020;
+  --sand-dim:    #7a6e5c;
+  --stone-light: #9e9078;
+  --text:        #221e14;
+  --white:       #ffffff;
+  --gold:        ${accentVal};
+  --gold-dim:    #d48000;
+  --gold-muted:  rgba(255,164,0,.45);
+  --shadow-sm:   0 2px 8px rgba(0,0,0,.07);
+  --shadow-md:   0 8px 32px rgba(0,0,0,.13);
+  --shadow-gold: 0 4px 20px rgba(255,164,0,.2);
+  --ink:         var(--navy);
+  --accent:      ${accentVal};
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --nav-w:       272px;
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
+[data-theme="dark"] {
+  --navy:        #1d1912;
+  --navy-mid:    #252117;
+  --navy-light:  #38321e;
+  --sand:        #f0e8d6;
+  --sand-dark:   #c8b78a;
+  --sand-dim:    #9e9078;
+  --stone-light: #7a6e5c;
+  --text:        #f0e8d6;
+  --shadow-sm:   0 2px 8px rgba(0,0,0,.35);
+  --shadow-md:   0 8px 32px rgba(0,0,0,.5);
+}
+`;
+
+  return `<style>${tokens}${css}</style>`;
+}
+
 /* Inject the fixed-position dark-mode toggle + lang toggle buttons into the page body */
 function buildToggles(lang, altLangCode, altLangUrl) {
   const sunPath = 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.36-6.36-.71.71M6.34 17.66l-.7.7M17.66 17.66l.7.7M6.35 6.35l-.71-.71M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z';
@@ -160,19 +224,18 @@ function buildHead(opts) {
 for (const page of subpages) {
   const html = fs.readFileSync(path.join(rootDir, page.srcFile), 'utf-8');
 
-  // Extract only --accent from the per-page inline style (shared.css handles everything else)
+  // Extract the full <style> block and process it (font/color overrides)
   const styleMatch = html.match(/<style>([\s\S]*?)<\/style>/);
   const inlineStyle = styleMatch ? styleMatch[1].trim() : '';
-  const accentMatch = inlineStyle.match(/--accent\s*:\s*([^;]+);/);
+  const accentMatch = inlineStyle.match(/--accent\s*:\s*([^;]+);/) ||
+                      inlineStyle.match(/--gold\s*:\s*([^;]+);/);
   const accentVal   = accentMatch ? accentMatch[1].trim() : page.accentColor;
+  const ptPageStyle = processStyle(inlineStyle, accentVal);
 
   // Extract <body>...</body> content
   const bodyStart = html.indexOf('<body>') + 6;
   const bodyEnd   = html.lastIndexOf('</body>');
   let bodyContent = html.slice(bodyStart, bodyEnd).trim();
-
-  // Strip any <script> blocks that reference old toggleLang / setLang patterns
-  // (language switching is now handled by the injected .lang-toggle anchor)
 
   // PT page: fix back-link from ../index.html → /pt
   const ptBody = bodyContent
@@ -190,7 +253,7 @@ for (const page of subpages) {
     altLangUrl: `${siteBase}/en/${page.slug}`,
     accentColor: accentVal,
   }) + `
-<style>:root { --accent: ${accentVal}; }</style>
+${ptPageStyle}
 </head>
 <body>
 ${ptToggles}
@@ -207,8 +270,10 @@ ${ptBody}
     const enSrc = fs.readFileSync(enSrcPath, 'utf-8');
     const enStyleMatch = enSrc.match(/<style>([\s\S]*?)<\/style>/);
     const enInlineStyle = enStyleMatch ? enStyleMatch[1].trim() : inlineStyle;
-    const enAccentMatch = enInlineStyle.match(/--accent\s*:\s*([^;]+);/);
+    const enAccentMatch = enInlineStyle.match(/--accent\s*:\s*([^;]+);/) ||
+                          enInlineStyle.match(/--gold\s*:\s*([^;]+);/);
     const enAccentVal   = enAccentMatch ? enAccentMatch[1].trim() : accentVal;
+    const enPageStyle   = processStyle(enInlineStyle, enAccentVal);
     const enBodyStart = enSrc.indexOf('<body>') + 6;
     const enBodyEnd   = enSrc.lastIndexOf('</body>');
     const enBodyRaw   = enSrc.slice(enBodyStart, enBodyEnd).trim();
@@ -229,7 +294,7 @@ ${ptBody}
       altLangUrl: `${siteBase}/pt/${page.slug}`,
       accentColor: enAccentVal,
     }) + `
-<style>:root { --accent: ${enAccentVal}; }</style>
+${enPageStyle}
 </head>
 <body>
 ${enToggles}
@@ -254,7 +319,7 @@ ${enBody}
       altLangUrl: `${siteBase}/pt/${page.slug}`,
       accentColor: accentVal,
     }) + `
-<style>:root { --accent: ${accentVal}; }</style>
+${ptPageStyle}
 </head>
 <body>
 ${enToggles}
