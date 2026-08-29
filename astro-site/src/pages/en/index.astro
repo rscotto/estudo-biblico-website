@@ -34,6 +34,7 @@ const dbJson = JSON.stringify(Object.fromEntries(
     tags: b.data.tags ?? [],
     body: b.data.body ?? '',
     verse: b.data.verse ?? '',
+    category: b.data.category,
   }])
 ));
 ---
@@ -129,16 +130,16 @@ const dbJson = JSON.stringify(Object.fromEntries(
 <!-- LEGEND -->
 <div class="tdiv" style="max-width:1100px;margin:28px auto 0;"><div class="tline r"></div><div class="tlabel">✦ LEGEND ✦</div><div class="tline"></div></div>
 <div class="legend">
-  <div class="li"><div class="lsw" style="background:rgba(255,164,0,.14);border:1px solid rgba(255,164,0,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pen)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg></div><div><span class="lcat" style="color:var(--pen)">OT · Law</span><span class="lname" style="color:var(--pen)">Pentateuch</span></div><span class="lcount">5</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(232,130,10,.14);border:1px solid rgba(232,130,10,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--his)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div><span class="lcat" style="color:var(--his)">OT · Narrative</span><span class="lname" style="color:var(--his)">Historical</span></div><span class="lcount">12</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(240,192,64,.14);border:1px solid rgba(240,192,64,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--poe)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div><span class="lcat" style="color:var(--poe)">OT · Wisdom</span><span class="lname" style="color:var(--poe)">Poetic</span></div><span class="lcount">5</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(224,106,16,.14);border:1px solid rgba(224,106,16,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--mai)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg></div><div><span class="lcat" style="color:var(--mai)">OT · Prophecy</span><span class="lname" style="color:var(--mai)">Maj. Prophets</span></div><span class="lcount">5</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(212,160,32,.14);border:1px solid rgba(212,160,32,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--men)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><span class="lcat" style="color:var(--men)">OT · Prophecy</span><span class="lname" style="color:var(--men)">Min. Prophets</span></div><span class="lcount">12</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(255,184,48,.14);border:1px solid rgba(255,184,48,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--eva)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><div><span class="lcat" style="color:var(--eva)">NT · Biography</span><span class="lname" style="color:var(--eva)">Gospels</span></div><span class="lcount">4</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(200,120,32,.14);border:1px solid rgba(200,120,32,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ato)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div><span class="lcat" style="color:var(--ato)">NT · Narrative</span><span class="lname" style="color:var(--ato)">Acts</span></div><span class="lcount">1</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(240,144,10,.14);border:1px solid rgba(240,144,10,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--pau)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><span class="lcat" style="color:var(--pau)">NT · Epistle</span><span class="lname" style="color:var(--pau)">Pauline</span></div><span class="lcount">13</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(232,184,64,.14);border:1px solid rgba(232,184,64,.35)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ger)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div><span class="lcat" style="color:var(--ger)">NT · Epistle</span><span class="lname" style="color:var(--ger)">General</span></div><span class="lcount">8</span></div>
-  <div class="li"><div class="lsw" style="background:rgba(204,96,16,.14);border:1px solid rgba(204,96,16,.4)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--apo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div><div><span class="lcat" style="color:var(--apo)">NT · Prophecy</span><span class="lname" style="color:var(--apo)">Revelation</span></div><span class="lcount">1</span></div>
+  <div class="li"><div class="lbar pen"></div><div><span class="lcat">OT · Law</span><span class="lname">Pentateuch</span></div><span class="lcount">5</span></div>
+  <div class="li"><div class="lbar his"></div><div><span class="lcat">OT · Narrative</span><span class="lname">Historical</span></div><span class="lcount">12</span></div>
+  <div class="li"><div class="lbar poe"></div><div><span class="lcat">OT · Wisdom</span><span class="lname">Poetic</span></div><span class="lcount">5</span></div>
+  <div class="li"><div class="lbar mai"></div><div><span class="lcat">OT · Prophecy</span><span class="lname">Maj. Prophets</span></div><span class="lcount">5</span></div>
+  <div class="li"><div class="lbar men"></div><div><span class="lcat">OT · Prophecy</span><span class="lname">Min. Prophets</span></div><span class="lcount">12</span></div>
+  <div class="li"><div class="lbar eva"></div><div><span class="lcat">NT · Biography</span><span class="lname">Gospels</span></div><span class="lcount">4</span></div>
+  <div class="li"><div class="lbar ato"></div><div><span class="lcat">NT · Narrative</span><span class="lname">Acts</span></div><span class="lcount">1</span></div>
+  <div class="li"><div class="lbar pau"></div><div><span class="lcat">NT · Epistle</span><span class="lname">Pauline</span></div><span class="lcount">13</span></div>
+  <div class="li"><div class="lbar ger"></div><div><span class="lcat">NT · Epistle</span><span class="lname">General</span></div><span class="lcount">8</span></div>
+  <div class="li"><div class="lbar apo"></div><div><span class="lcat">NT · Prophecy</span><span class="lname">Revelation</span></div><span class="lcount">1</span></div>
 </div>
 
 <!-- MODAL OVERLAY -->
@@ -149,16 +150,19 @@ const dbJson = JSON.stringify(Object.fromEntries(
     </button>
     <div class="modal-inner">
       <div class="mhead">
-        <div class="mnum" id="m-num"></div>
-        <div class="mtitle" id="m-title"></div>
-        <div class="mabbr" id="m-abbr"></div>
-        <div class="mauthor" id="m-author" style="display:none">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <span id="m-author-text"></span>
-        </div>
-        <div id="m-chars-wrap" style="display:none">
-          <span class="mchar-label">Key figures</span>
-          <div class="mchars" id="m-chars"></div>
+        <div class="minitial" id="m-initial"></div>
+        <div class="mhead-main">
+          <div class="mnum" id="m-num"></div>
+          <div class="mtitle" id="m-title"></div>
+          <div class="mabbr" id="m-abbr"></div>
+          <div class="mauthor" id="m-author" style="display:none">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span id="m-author-text"></span>
+          </div>
+          <div id="m-chars-wrap" style="display:none">
+            <span class="mchar-label">Key figures</span>
+            <div class="mchars" id="m-chars"></div>
+          </div>
         </div>
       </div>
       <div class="mtags" id="m-tags"></div>
@@ -180,6 +184,9 @@ const DB = JSON.parse(dbJson);
 
 window.show = function(id) {
   const b = DB[id]; if (!b) return;
+  const initial = document.getElementById('m-initial');
+  initial.textContent = b.title.charAt(0);
+  initial.style.setProperty('--mcc', `oklch(var(--cat-l) var(--${b.category}-c) var(--${b.category}-h))`);
   document.getElementById('m-num').textContent   = b.num;
   document.getElementById('m-title').textContent = b.title;
   document.getElementById('m-abbr').textContent  = b.abbr;

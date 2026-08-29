@@ -20,7 +20,7 @@ const subpages = [
     titleEn: 'Pentateuch — Bible Study',
     descPt: 'Estudo aprofundado dos 5 livros da Lei: Gênesis, Êxodo, Levítico, Números e Deuteronômio. Tradução NAA.',
     descEn: 'In-depth study of the 5 books of the Law: Genesis, Exodus, Leviticus, Numbers, Deuteronomy. ESV.',
-    accentColor: '#FFA400',
+    accentColor: 'oklch(var(--cat-l) 0.11 266)',
   },
   {
     slug: 'at-historicos',
@@ -29,7 +29,7 @@ const subpages = [
     titleEn: 'Historical Books — Bible Study',
     descPt: 'Estudo aprofundado dos 12 livros históricos do AT: Josué ao Ester. Contexto, geografia e teologia. Tradução NAA.',
     descEn: 'In-depth study of the 12 OT historical books: Joshua to Esther. Context, geography, theology. ESV.',
-    accentColor: '#e8820a',
+    accentColor: 'oklch(var(--cat-l) 0.10 214)',
   },
   {
     slug: 'at-poeticos',
@@ -38,7 +38,7 @@ const subpages = [
     titleEn: 'Poetic Books — Bible Study',
     descPt: 'Estudo aprofundado dos 5 livros sapienciais: Jó, Salmos, Provérbios, Eclesiastes, Cantares. Tradução NAA.',
     descEn: 'In-depth study of the 5 wisdom books: Job, Psalms, Proverbs, Ecclesiastes, Song of Songs. ESV.',
-    accentColor: '#f0c040',
+    accentColor: 'oklch(var(--cat-l) 0.10 150)',
   },
   {
     slug: 'at-profetas-maiores',
@@ -47,7 +47,7 @@ const subpages = [
     titleEn: 'Major Prophets — Bible Study',
     descPt: 'Estudo aprofundado dos 5 profetas maiores: Isaías, Jeremias, Lamentações, Ezequiel, Daniel. Tradução NAA.',
     descEn: 'In-depth study of the 5 Major Prophets: Isaiah, Jeremiah, Lamentations, Ezekiel, Daniel. ESV.',
-    accentColor: '#e06a10',
+    accentColor: 'oklch(var(--cat-l) 0.12 285)',
   },
   {
     slug: 'at-profetas-menores',
@@ -56,7 +56,7 @@ const subpages = [
     titleEn: 'Minor Prophets — Bible Study',
     descPt: 'Estudo aprofundado dos 12 profetas menores: Oséias a Malaquias. Tradução NAA.',
     descEn: 'In-depth study of the 12 Minor Prophets: Hosea to Malachi. ESV.',
-    accentColor: '#d4a020',
+    accentColor: 'oklch(var(--cat-l) 0.06 245)',
   },
   {
     slug: 'nt-evangelhos',
@@ -65,7 +65,7 @@ const subpages = [
     titleEn: 'Gospels — Bible Study',
     descPt: 'Estudo aprofundado dos 4 Evangelhos: Mateus, Marcos, Lucas e João. Contexto histórico, teologia e análise literária. Tradução NAA.',
     descEn: 'In-depth study of the 4 Gospels: Matthew, Mark, Luke, and John. Historical context, theology, and literary analysis. ESV.',
-    accentColor: '#FFA400',
+    accentColor: 'oklch(var(--cat-l) 0.13 55)',
   },
   {
     slug: 'nt-atos',
@@ -74,7 +74,7 @@ const subpages = [
     titleEn: 'Acts of the Apostles — Bible Study',
     descPt: 'Estudo aprofundado de Atos dos Apóstolos: a Igreja primitiva, Pentecostes, as viagens missionárias de Paulo. Tradução NAA.',
     descEn: 'In-depth study of Acts of the Apostles: the early Church, Pentecost, Paul\'s missionary journeys. ESV.',
-    accentColor: '#c87820',
+    accentColor: 'oklch(var(--cat-l) 0.15 35)',
   },
   {
     slug: 'nt-epistolas-paulinas',
@@ -83,7 +83,7 @@ const subpages = [
     titleEn: 'Pauline Epistles — Bible Study',
     descPt: 'Estudo aprofundado das 13 Epístolas Paulinas: Romanos a Filemom. Teologia, contexto histórico e análise literária. Tradução NAA.',
     descEn: 'In-depth study of the 13 Pauline Epistles: Romans to Philemon. Theology, historical context, and literary analysis. ESV.',
-    accentColor: '#FFA400',
+    accentColor: 'oklch(var(--cat-l) 0.15 15)',
   },
   {
     slug: 'nt-epistolas-gerais',
@@ -92,7 +92,7 @@ const subpages = [
     titleEn: 'General Epistles — Bible Study',
     descPt: 'Estudo aprofundado das 8 Epístolas Gerais: Hebreus, Tiago, 1–2 Pedro, 1–3 João e Judas. Tradução NAA.',
     descEn: 'In-depth study of the 8 General Epistles: Hebrews, James, 1–2 Peter, 1–3 John, and Jude. ESV.',
-    accentColor: '#FFA400',
+    accentColor: 'oklch(var(--cat-l) 0.12 355)',
   },
   {
     slug: 'nt-apocalipse',
@@ -101,7 +101,7 @@ const subpages = [
     titleEn: 'Revelation — Bible Study',
     descPt: 'Estudo aprofundado do Apocalipse de João: o Cordeiro vitorioso, as sete igrejas, a Nova Jerusalém. Tradução NAA.',
     descEn: 'In-depth study of the Revelation of John: the victorious Lamb, the seven churches, the New Jerusalem. ESV.',
-    accentColor: '#FFA400',
+    accentColor: 'oklch(var(--cat-l) 0.13 330)',
   },
 ];
 
@@ -118,36 +118,45 @@ function processStyle(rawCss, accentVal) {
 
   // 1. Replace old font families with CSS variable references
   let css = rawCss
-    .replace(/'Cinzel Decorative'\s*,\s*serif/g, 'var(--font-d, Georgia, serif)')
-    .replace(/'Cinzel'\s*,\s*serif/g, 'var(--font-b, system-ui, sans-serif)')
+    .replace(/'Cinzel Decorative'\s*,\s*serif/g, 'var(--font-d, system-ui, sans-serif)')
+    .replace(/'Cinzel'\s*,\s*serif/g, 'var(--font-m, system-ui, sans-serif)')
     .replace(/'EB Garamond'\s*,\s*serif/g, 'var(--font-b, system-ui, sans-serif)');
+
+  // 1b. Hardcoded amber rgba(255,164,0,X) scattered outside :root (shadows, glows,
+  // decorative borders) won't track the new per-page accent unless converted.
+  css = css.replace(/rgba\(\s*255,\s*164,\s*0,\s*([\d.]+)\s*\)/g, (_m, alpha) => {
+    const pct = Math.round(parseFloat(alpha) * 100);
+    return `color-mix(in srgb, var(--accent) ${pct}%, transparent)`;
+  });
 
   // 2. Remove original :root block (no nested braces in these files)
   css = css.replace(/:root\s*\{[^}]*\}/g, '');
 
-  // 3. Build light/dark variable blocks
+  // 3. Build light/dark variable blocks — "Paleta do Tabernáculo"
   const tokens = `
 :root {
-  --font-d: 'Iowan Old Style', Charter, Georgia, serif;
-  --font-b: 'Roboto', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  /* Light mode — editorial-monocle remapping of original dark-theme variables */
-  --navy:        #faf8f4;
-  --navy-mid:    #f0ebe0;
-  --navy-light:  #e2d8ca;
-  --sand:        #221e14;
-  --sand-dark:   #3a3020;
-  --sand-dim:    #7a6e5c;
-  --stone-light: #9e9078;
-  --text:        #221e14;
+  --font-d: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-b: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-m: 'Manrope', system-ui, sans-serif;
+  /* Light mode */
+  --navy:        #F2E8D3;
+  --navy-mid:    #FBF5E7;
+  --navy-light:  #E7D9B8;
+  --sand:        #241F2B;
+  --sand-dark:   #3A3245;
+  --sand-dim:    #6E6555;
+  --stone-light: #9A9080;
+  --text:        #241F2B;
   --white:       #ffffff;
   --gold:        ${accentVal};
-  --gold-dim:    #d48000;
-  --gold-muted:  rgba(255,164,0,.45);
+  --gold-dim:    color-mix(in srgb, ${accentVal} 80%, black);
+  --gold-muted:  color-mix(in srgb, ${accentVal} 45%, transparent);
   --shadow-sm:   0 2px 8px rgba(0,0,0,.07);
   --shadow-md:   0 8px 32px rgba(0,0,0,.13);
-  --shadow-gold: 0 4px 20px rgba(255,164,0,.2);
+  --shadow-gold: 0 4px 20px color-mix(in srgb, ${accentVal} 20%, transparent);
   --ink:         var(--navy);
   --accent:      ${accentVal};
+  --cat-l:       46%;
   --radius-sm:   6px;
   --radius-md:   12px;
   --nav-w:       272px;
@@ -155,14 +164,15 @@ function processStyle(rawCss, accentVal) {
   --transition-base: 250ms ease;
 }
 [data-theme="dark"] {
-  --navy:        #1d1912;
-  --navy-mid:    #252117;
-  --navy-light:  #38321e;
-  --sand:        #f0e8d6;
-  --sand-dark:   #c8b78a;
-  --sand-dim:    #9e9078;
-  --stone-light: #7a6e5c;
-  --text:        #f0e8d6;
+  --navy:        #171320;
+  --navy-mid:    #1B1626;
+  --navy-light:  #332C44;
+  --sand:        #EDE3CE;
+  --sand-dark:   #C9BFA6;
+  --sand-dim:    #9A9080;
+  --stone-light: #6E6555;
+  --text:        #EDE3CE;
+  --cat-l:       72%;
   --shadow-sm:   0 2px 8px rgba(0,0,0,.35);
   --shadow-md:   0 8px 32px rgba(0,0,0,.5);
 }
@@ -216,7 +226,7 @@ function buildHead(opts) {
 <link rel="alternate" hreflang="${altLangCode}" href="${altLangUrl}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared.css">
 <script>(function(){var t=localStorage.getItem('theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark');})();<\/script>`;
 }
@@ -227,9 +237,9 @@ for (const page of subpages) {
   // Extract the full <style> block and process it (font/color overrides)
   const styleMatch = html.match(/<style>([\s\S]*?)<\/style>/);
   const inlineStyle = styleMatch ? styleMatch[1].trim() : '';
-  const accentMatch = inlineStyle.match(/--accent\s*:\s*([^;]+);/) ||
-                      inlineStyle.match(/--gold\s*:\s*([^;]+);/);
-  const accentVal   = accentMatch ? accentMatch[1].trim() : page.accentColor;
+  // accentColor is centrally defined per page above ("Paleta do Tabernáculo") —
+  // any --accent/--gold hardcoded in the legacy source file's own :root is ignored.
+  const accentVal   = page.accentColor;
   const ptPageStyle = processStyle(inlineStyle, accentVal);
 
   // Extract <body>...</body> content
@@ -270,9 +280,9 @@ ${ptBody}
     const enSrc = fs.readFileSync(enSrcPath, 'utf-8');
     const enStyleMatch = enSrc.match(/<style>([\s\S]*?)<\/style>/);
     const enInlineStyle = enStyleMatch ? enStyleMatch[1].trim() : inlineStyle;
-    const enAccentMatch = enInlineStyle.match(/--accent\s*:\s*([^;]+);/) ||
-                          enInlineStyle.match(/--gold\s*:\s*([^;]+);/);
-    const enAccentVal   = enAccentMatch ? enAccentMatch[1].trim() : accentVal;
+    // Same centrally-defined accent as the PT version — keeps both languages
+    // of a sub-page visually identical.
+    const enAccentVal   = accentVal;
     const enPageStyle   = processStyle(enInlineStyle, enAccentVal);
     const enBodyStart = enSrc.indexOf('<body>') + 6;
     const enBodyEnd   = enSrc.lastIndexOf('</body>');
