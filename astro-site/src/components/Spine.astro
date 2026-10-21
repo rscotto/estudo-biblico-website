@@ -1,0 +1,56 @@
+---
+// "Lombada do cânon": 66 faixas, uma por livro, com largura proporcional ao nº de capítulos.
+interface Props {
+  books: { id: string; title: string; order: number; category: string }[];
+  lang: 'pt' | 'en';
+}
+const { books, lang } = Astro.props;
+
+// Capítulos por livro, na ordem canônica (1 = Gênesis … 66 = Apocalipse). OT 929 + NT 260 = 1189.
+const CHAPTERS = [
+  50,40,27,36,34, 24,21,4,31,24,22,25,29,36,10,13,10, 42,150,31,12,8, 66,52,5,48,12,
+  14,3,9,1,4,7,3,3,3,2,14,4,
+  28,16,24,21, 28, 16,16,13,6,6,4,4,5,3,6,4,3,1, 13,5,5,3,5,1,1,1, 22,
+];
+const t = lang === 'pt'
+  ? { ch: 'capítulos', ot: 'Antigo Testamento', nt: 'Novo Testamento', idle: 'Passe o cursor sobre uma faixa' }
+  : { ch: 'chapters',  ot: 'Old Testament',     nt: 'New Testament',     idle: 'Hover a band to see its book' };
+const otCh = CHAPTERS.slice(0, 39).reduce((a, b) => a + b, 0);
+const ntCh = CHAPTERS.slice(39).reduce((a, b) => a + b, 0);
+const list = [...books].sort((a, b) => a.order - b.order);
+---
+
+<figure class="spine" data-idle={t.idle} data-ch={t.ch}>
+  <div class="spine-bar" aria-hidden="true">
+    {list.map((b) => (
+      <button
+        type="button"
+        tabindex="-1"
+        class={`sp ${b.category}${b.order === 40 ? ' sp-nt' : ''}`}
+        style={`--w:${CHAPTERS[b.order - 1]};--i:${b.order}`}
+        data-title={b.title}
+        data-n={CHAPTERS[b.order - 1]}
+        onclick={`show('${b.id}')`}
+      ></button>
+    ))}
+  </div>
+  <div class="spine-scale" aria-hidden="true">
+    <span style={`flex:${otCh}`}>{t.ot} · {otCh} {t.ch}</span>
+    <span style={`flex:${ntCh}`}>{t.nt} · {ntCh}</span>
+  </div>
+  <figcaption class="spine-read" id="spineRead" aria-live="off">{t.idle}</figcaption>
+</figure>
+
+<script>
+  const fig = document.querySelector<HTMLElement>('.spine');
+  const out = document.getElementById('spineRead');
+  if (fig && out) {
+    const idle = fig.dataset.idle ?? '';
+    const ch = fig.dataset.ch ?? '';
+    fig.querySelectorAll<HTMLElement>('.sp').forEach((el) => {
+      const say = () => { out.innerHTML = `<b>${el.dataset.title}</b> <span>${el.dataset.n} ${ch}</span>`; };
+      el.addEventListener('pointerenter', say);
+      el.addEventListener('pointerleave', () => { out.textContent = idle; });
+    });
+  }
+</script>

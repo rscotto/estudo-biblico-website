@@ -113,8 +113,21 @@ const siteBase = 'https://biblia.rodrigoscotto.com';
  * - Strips the original :root block (we inject our own light/dark tokens)
  * - Returns a complete <style> element with remapped tokens + original rules
  */
-function processStyle(rawCss, accentVal) {
+function processStyle(rawCss, accentVal) {  // eslint-disable-line
   if (!rawCss.trim()) return '';
+
+  // 0. Large 'Cinzel' headings become the display face (Space Grotesk); small
+  // uppercase labels stay mono. Decided per rule from its font-size.
+  const isBigSize = (block) => {
+    const fs = block.match(/font-size:\s*([^;}]+)/);
+    if (!fs) return false;
+    const nums = [...fs[1].matchAll(/([\d.]+)(rem|px)/g)].map(([, n, u]) => (u === 'rem' ? parseFloat(n) * 16 : parseFloat(n)));
+    return nums.length > 0 && Math.max(...nums) >= 17;
+  };
+  rawCss = rawCss.replace(/\{[^{}]*\}/g, (block) =>
+    /'Cinzel'\s*,\s*serif/.test(block) && isBigSize(block)
+      ? block.replace(/'Cinzel'\s*,\s*serif/g, 'var(--font-d)')
+      : block);
 
   // 1. Replace old font families with CSS variable references
   let css = rawCss
@@ -129,25 +142,33 @@ function processStyle(rawCss, accentVal) {
     return `color-mix(in srgb, var(--accent) ${pct}%, transparent)`;
   });
 
+  // 1c. Hardcoded dark-theme surfaces/overlays → theme tokens; justified text → left.
+  css = css
+    .replace(/rgba\(\s*44,\s*36,\s*22,\s*([\d.]+)\s*\)/g, (_m, a) => `color-mix(in srgb, var(--navy-mid) ${Math.round(parseFloat(a) * 100)}%, transparent)`)
+    .replace(/rgba\(\s*20,\s*16,\s*8,\s*([\d.]+)\s*\)/g, (_m, a) => `color-mix(in srgb, var(--navy) ${Math.round(parseFloat(a) * 100)}%, transparent)`)
+    .replace(/rgba\(\s*255,\s*255,\s*255,\s*([\d.]+)\s*\)/g, (_m, a) => `color-mix(in srgb, var(--sand) ${Math.round(parseFloat(a) * 100)}%, transparent)`)
+    .replace(/text-align:\s*justify;?/g, '')
+    .replace(/hyphens:\s*auto;?/g, '');
+
   // 2. Remove original :root block (no nested braces in these files)
   css = css.replace(/:root\s*\{[^}]*\}/g, '');
 
   // 3. Build light/dark variable blocks — "Paleta do Tabernáculo"
   const tokens = `
 :root {
-  --font-d: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-d: 'Space Grotesk', system-ui, sans-serif;
   --font-b: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-m: 'Manrope', system-ui, sans-serif;
+  --font-m: 'JetBrains Mono', ui-monospace, monospace;
   /* Light mode */
-  --navy:        #F2E8D3;
-  --navy-mid:    #FBF5E7;
-  --navy-light:  #E7D9B8;
-  --sand:        #241F2B;
-  --sand-dark:   #3A3245;
-  --sand-dim:    #6E6555;
-  --stone-light: #9A9080;
-  --text:        #241F2B;
-  --white:       #ffffff;
+  --navy:        #F1EADA;
+  --navy-mid:    #F8F4E9;
+  --navy-light:  #E4DAC0;
+  --sand:        #0F1B2A;
+  --sand-dark:   #1C2D42;
+  --sand-dim:    #4D5967;
+  --stone-light: #7D8896;
+  --text:        #0F1B2A;
+  --white:       #0F1B2A;
   --gold:        ${accentVal};
   --gold-dim:    color-mix(in srgb, ${accentVal} 80%, black);
   --gold-muted:  color-mix(in srgb, ${accentVal} 45%, transparent);
@@ -156,7 +177,7 @@ function processStyle(rawCss, accentVal) {
   --shadow-gold: 0 4px 20px color-mix(in srgb, ${accentVal} 20%, transparent);
   --ink:         var(--navy);
   --accent:      ${accentVal};
-  --cat-l:       46%;
+  --cat-l:       50%;
   --radius-sm:   6px;
   --radius-md:   12px;
   --nav-w:       272px;
@@ -164,14 +185,15 @@ function processStyle(rawCss, accentVal) {
   --transition-base: 250ms ease;
 }
 [data-theme="dark"] {
-  --navy:        #171320;
-  --navy-mid:    #1B1626;
-  --navy-light:  #332C44;
-  --sand:        #EDE3CE;
-  --sand-dark:   #C9BFA6;
-  --sand-dim:    #9A9080;
-  --stone-light: #6E6555;
-  --text:        #EDE3CE;
+  --navy:        #0F1B2A;
+  --navy-mid:    #162738;
+  --navy-light:  #26394E;
+  --sand:        #F1EADA;
+  --sand-dark:   #CFC8B6;
+  --sand-dim:    #9DAABA;
+  --stone-light: #6F7E90;
+  --text:        #F1EADA;
+  --white:       #F1EADA;
   --cat-l:       72%;
   --shadow-sm:   0 2px 8px rgba(0,0,0,.35);
   --shadow-md:   0 8px 32px rgba(0,0,0,.5);
@@ -226,7 +248,7 @@ function buildHead(opts) {
 <link rel="alternate" hreflang="${altLangCode}" href="${altLangUrl}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared.css">
 <script>(function(){var t=localStorage.getItem('theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark');})();<\/script>`;
 }

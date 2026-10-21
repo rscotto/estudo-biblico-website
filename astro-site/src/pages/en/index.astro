@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import Spine from '../../components/Spine.astro';
 
 const books = await getCollection('books', (entry) => entry.id.startsWith('en/'));
 const db = Object.fromEntries(books.map(b => [b.data.id, b.data]));
+const sorted = [...books].sort((a, b) => a.data.order - b.data.order);
 
 const byOrder = (ids: string[]) => ids.map(id => db[id]).filter(Boolean);
 
@@ -49,6 +51,7 @@ const dbJson = JSON.stringify(Object.fromEntries(
 
 <!-- TOOLBAR -->
 <div class="toolbar">
+  <a class="brand" href="/en"><i></i>Bible Study</a>
   <button class="tbtn" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle light/dark mode">
     <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
   </button>
@@ -58,22 +61,16 @@ const dbJson = JSON.stringify(Object.fromEntries(
 <div class="main">
 
 <header class="header">
-  <div class="header-rule"></div>
-  <p class="eyebrow">Protestant Canon · 66 Books · ESV Translation</p>
-  <h1 class="masthead">Biblical <em>Study</em></h1>
-  <p class="subline">Select a book to see its historical context and full summary</p>
-  <div class="header-rule-accent"></div>
+  <p class="eyebrow">Protestant canon · ESV translation</p>
+  <h1 class="masthead">Sixty-six books, <em>one story.</em></h1>
+  <p class="subline">Historical context, authorship and theology for every book of the Bible. Each band below is one book, and its width shows how many chapters it has.</p>
 </header>
 
-<div class="stats">
-  <div class="stat"><span class="stat-n">66</span><span class="stat-l">Total</span></div>
-  <div class="stat"><span class="stat-n">39</span><span class="stat-l">Old Testament</span></div>
-  <div class="stat"><span class="stat-n">27</span><span class="stat-l">New Testament</span></div>
-</div>
+<Spine books={sorted.map(b => b.data)} lang="en" />
 
 <div class="ptable">
 
-  <div class="tdiv"><div class="tline r"></div><div class="tlabel">✦ OLD TESTAMENT ✦</div><div class="tline"></div></div>
+  <div class="tdiv"><div class="tlabel">Old Testament</div><div class="tcount">39 books</div></div>
 
   {groups.map(group => (
     <>
@@ -99,7 +96,7 @@ const dbJson = JSON.stringify(Object.fromEntries(
     </>
   ))}
 
-  <div class="tdiv"><div class="tline r"></div><div class="tlabel">✦ NEW TESTAMENT ✦</div><div class="tline"></div></div>
+  <div class="tdiv"><div class="tlabel">New Testament</div><div class="tcount">27 books</div></div>
 
   {ntGroups.map(group => (
     <>
@@ -128,7 +125,7 @@ const dbJson = JSON.stringify(Object.fromEntries(
 </div>
 
 <!-- LEGEND -->
-<div class="tdiv" style="max-width:1100px;margin:28px auto 0;"><div class="tline r"></div><div class="tlabel">✦ LEGEND ✦</div><div class="tline"></div></div>
+<div class="tdiv"><div class="tlabel">Legend</div><div class="tcount">10 categories</div></div>
 <div class="legend">
   <div class="li"><div class="lbar pen"></div><div><span class="lcat">OT · Law</span><span class="lname">Pentateuch</span></div><span class="lcount">5</span></div>
   <div class="li"><div class="lbar his"></div><div><span class="lcat">OT · Narrative</span><span class="lname">Historical</span></div><span class="lcount">12</span></div>
@@ -174,10 +171,6 @@ const dbJson = JSON.stringify(Object.fromEntries(
 </div>
 
 </div><!-- /main -->
-
-<style>
-  .cell { background: none; text-align: inherit; font: inherit; color: inherit; cursor: pointer; }
-</style>
 
 <script define:vars={{ dbJson }}>
 const DB = JSON.parse(dbJson);
